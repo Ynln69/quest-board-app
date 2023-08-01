@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/quest-board-app/static/css/main.7acaea2f.css",
+    "main.css": "/quest-board-app/static/css/main.e6c13ad2.css",
     "main.js": "/quest-board-app/static/js/main.07d3183d.js",
     "index.html": "/quest-board-app/index.html",
-    "main.7acaea2f.css.map": "/quest-board-app/static/css/main.7acaea2f.css.map",
+    "main.e6c13ad2.css.map": "/quest-board-app/static/css/main.e6c13ad2.css.map",
     "main.07d3183d.js.map": "/quest-board-app/static/js/main.07d3183d.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
+    "static/css/main.e6c13ad2.css",
     "static/js/main.07d3183d.js"
   ]
 }
