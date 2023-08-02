@@ -1,7 +1,7 @@
-import { NavLink } from "react-router-dom";
-import styled from "@emotion/styled";
-import logoMob from "../../images/welcome_im_m.png";
-import logoDesk from "../../images/welcome_im_dt.png";
+import { NavLink } from 'react-router-dom';
+import styled from '@emotion/styled';
+import logoMob from '../../images/welcome_im_m.png';
+import logoDesk from '../../images/welcome_im_dt.png';
 
 export const Container = styled.div`
   display: flex;
@@ -84,7 +84,7 @@ export const Text = styled.p`
   font-weight: 400;
   line-height: 1.28;
   letter-spacing: -0.28px;
-
+  text-align: center;
   color: #161616;
 
   @media screen and (min-width: 768px) {
