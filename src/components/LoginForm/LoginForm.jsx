@@ -39,6 +39,7 @@ export const LoginForm = () => {
     );
 
     console.log(form.elements.email.value, form.elements.password.value);
+    form.reset();
   };
 
   return (
