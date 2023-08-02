@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/quest-board-app/static/css/main.ca449044.css",
-    "main.js": "/quest-board-app/static/js/main.f30173ba.js",
+    "main.js": "/quest-board-app/static/js/main.0ba4fcbc.js",
     "static/media/Poppins-Regular.woff": "/quest-board-app/static/media/Poppins-Regular.eb7f33fefaf7106ac3a0.woff",
     "static/media/Poppins-Medium.woff": "/quest-board-app/static/media/Poppins-Medium.9de653bb3161fcb43443.woff",
     "static/media/Poppins-SemiBold.woff": "/quest-board-app/static/media/Poppins-SemiBold.4b2ae28bc415edfe9fd6.woff",
@@ -12,10 +12,10 @@
     "index.html": "/quest-board-app/index.html",
     "static/media/eye-hide.svg": "/quest-board-app/static/media/eye-hide.accfc4141682c117e0a89ff4d886ee4d.svg",
     "main.ca449044.css.map": "/quest-board-app/static/css/main.ca449044.css.map",
-    "main.f30173ba.js.map": "/quest-board-app/static/js/main.f30173ba.js.map"
+    "main.0ba4fcbc.js.map": "/quest-board-app/static/js/main.0ba4fcbc.js.map"
   },
   "entrypoints": [
     "static/css/main.ca449044.css",
-    "static/js/main.f30173ba.js"
+    "static/js/main.0ba4fcbc.js"
   ]
 }
