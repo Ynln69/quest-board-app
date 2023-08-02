@@ -45,6 +45,7 @@ export const RegisterForm = () => {
       form.elements.email.value,
       form.elements.password.value
     );
+    form.reset();
   };
 
   return (
