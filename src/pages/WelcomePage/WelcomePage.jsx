@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Welcome from 'components/Welcome/Welcome';
 import Modal from 'components/Modal/Modal';
 
-export const WelcomePage = () => {
+const WelcomePage = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -18,3 +18,5 @@ export const WelcomePage = () => {
     </div>
   );
 };
+
+export default WelcomePage;

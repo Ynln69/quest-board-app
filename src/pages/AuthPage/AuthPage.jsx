@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { RegisterForm } from 'components/RegisterForm/Registerform';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 
-export const AuthPage = () => {
+const AuthPage = () => {
   const { id } = useParams();
 
   return (
@@ -12,3 +12,5 @@ export const AuthPage = () => {
     </>
   );
 };
+
+export default AuthPage;
