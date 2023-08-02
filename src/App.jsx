@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import { WelcomePage } from './pages/WelcomePage/WelcomePage';
 import { AuthPage } from './pages/AuthPage/AuthPage';
 import { HomePage } from 'pages/HomePage/HomePage';
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 
 export const App = () => {
   return (
@@ -10,6 +11,7 @@ export const App = () => {
       <Route index element={<WelcomePage />} />
       <Route path="/auth/:id" element={<AuthPage />} />
       <Route path="/home" element={<HomePage />} />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 };
