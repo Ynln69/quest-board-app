@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../redux/auth/operations';
 import { Formik, Field } from 'formik';
 import {
   Container,
@@ -20,6 +22,7 @@ import eyeHide from '../../images/eye-hide.svg';
 
 export const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -27,12 +30,15 @@ export const LoginForm = () => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    const currentUser = {
-      email: event.target.elements.email.value,
-      password: event.target.elements.password.value,
-    };
+    const form = event.currentTarget;
+    dispatch(
+      logIn({
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
 
-    console.log(currentUser);
+    console.log(form.elements.email.value, form.elements.password.value);
   };
 
   return (
