@@ -1,14 +1,21 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Formik, ErrorMessage } from 'formik';
 import {
   Container,
   ModalCloseButton,
   EditProfileModal,
   FormBox,
+  PhotoInputWrapper,
+  AvatarImage,
+  FieldUser,
+  FileInput,
+  IconPlus,
+  IconUserWrapper,
   SaveBtn,
 } from './EditProfile.styled';
 import { updateProfileData } from 'redux/user/profileSlice';
+import Sprite from '../../images/sprite.svg';
 
 const EditProfile = ({ onClose }) => {
   const { photo, name, email, password } = useSelector(state => state.profile);
@@ -19,11 +26,15 @@ const EditProfile = ({ onClose }) => {
     onClose();
   };
 
+  const handleAvatarClick = () => {
+    document.getElementById('newPhotoInput').click();
+  };
+
   return (
     <Container>
       <EditProfileModal>
         <div>Edit profile</div>
-        <ModalCloseButton onClick={onClose}>Close</ModalCloseButton>
+        <ModalCloseButton onClick={onClose}><use xlinkHref={`${Sprite}#icon-x-close`} /></ModalCloseButton>
         <Formik
           initialValues={{
             newPhoto: photo,
@@ -35,8 +46,32 @@ const EditProfile = ({ onClose }) => {
         >
           {({ isSubmitting, values, setFieldValue }) => (
             <FormBox>
-              <label>
-                <input
+              <PhotoInputWrapper>
+                {values.newPhoto ? (
+                  <>
+                    <AvatarImage
+                      src={values.newPhoto}
+                      alt="User Avatar"
+                      width="68"
+                      height="68"
+                      onClick={handleAvatarClick}
+                    />
+                    <IconPlus onClick={handleAvatarClick}>
+                      <use href={`${Sprite}#icon-plus`} />
+                    </IconPlus>
+                  </>
+                ) : (
+                  <IconUserWrapper onClick={handleAvatarClick}>
+                    <svg className="icon-user" width="68" height="68">
+                      <use href={`${Sprite}#icon-user`} />
+                    </svg>
+                    <IconPlus onClick={handleAvatarClick}>
+                      <use href={`${Sprite}#icon-plus`} />
+                    </IconPlus>
+                  </IconUserWrapper>
+                )}
+                <FileInput
+                  id="newPhotoInput"
                   type="file"
                   name="newPhoto"
                   onChange={event => {
@@ -46,24 +81,17 @@ const EditProfile = ({ onClose }) => {
                     );
                   }}
                 />
-                <ErrorMessage name="newPhoto" component="div" />
-                {values.newPhoto && (
-                  <img src={values.newPhoto} alt="User Avatar" />
-                )}
-              </label>
+              </PhotoInputWrapper>
               <label>
-                Name:
-                <Field type="text" name="newName" />
+                <FieldUser type="text" name="newName" />
                 <ErrorMessage name="newName" component="div" />
               </label>
               <label>
-                Email:
-                <Field type="email" name="newEmail" />
+                <FieldUser type="email" name="newEmail" />
                 <ErrorMessage name="newEmail" component="div" />
               </label>
               <label>
-                Password:
-                <Field type="password" name="newPassword" />
+                <FieldUser type="password" name="newPassword" />
                 <ErrorMessage name="newPassword" component="div" />
               </label>
               <SaveBtn type="submit" disabled={isSubmitting}>

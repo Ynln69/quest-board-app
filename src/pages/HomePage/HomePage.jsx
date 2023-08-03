@@ -1,11 +1,12 @@
 import React from 'react';
+import { ThemeProvider } from 'hooks/themeContext';
 import Header from 'components/Header/Header';
 
 const HomePage = () => {
   return (
-    <div>
+    <ThemeProvider>
       <Header />
-    </div>
+    </ThemeProvider>
   );
 };
 
