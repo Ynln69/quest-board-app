@@ -1,10 +1,11 @@
 {
   "files": {
     "main.css": "/quest-board-app/static/css/main.ca449044.css",
-    "main.js": "/quest-board-app/static/js/main.02e7c250.js",
-    "static/js/100.b95991f9.chunk.js": "/quest-board-app/static/js/100.b95991f9.chunk.js",
+    "main.js": "/quest-board-app/static/js/main.18902567.js",
+    "static/js/100.09aaa7d1.chunk.js": "/quest-board-app/static/js/100.09aaa7d1.chunk.js",
     "static/js/786.5da79be9.chunk.js": "/quest-board-app/static/js/786.5da79be9.chunk.js",
-    "static/js/700.4109033e.chunk.js": "/quest-board-app/static/js/700.4109033e.chunk.js",
+    "static/js/710.f7701812.chunk.js": "/quest-board-app/static/js/710.f7701812.chunk.js",
+    "static/js/256.4c08f5b7.chunk.js": "/quest-board-app/static/js/256.4c08f5b7.chunk.js",
     "static/media/Poppins-Regular.woff": "/quest-board-app/static/media/Poppins-Regular.eb7f33fefaf7106ac3a0.woff",
     "static/media/Poppins-Medium.woff": "/quest-board-app/static/media/Poppins-Medium.9de653bb3161fcb43443.woff",
     "static/media/Poppins-SemiBold.woff": "/quest-board-app/static/media/Poppins-SemiBold.4b2ae28bc415edfe9fd6.woff",
@@ -16,13 +17,14 @@
     "index.html": "/quest-board-app/index.html",
     "static/media/eye-hide.svg": "/quest-board-app/static/media/eye-hide.accfc4141682c117e0a89ff4d886ee4d.svg",
     "main.ca449044.css.map": "/quest-board-app/static/css/main.ca449044.css.map",
-    "main.02e7c250.js.map": "/quest-board-app/static/js/main.02e7c250.js.map",
-    "100.b95991f9.chunk.js.map": "/quest-board-app/static/js/100.b95991f9.chunk.js.map",
+    "main.18902567.js.map": "/quest-board-app/static/js/main.18902567.js.map",
+    "100.09aaa7d1.chunk.js.map": "/quest-board-app/static/js/100.09aaa7d1.chunk.js.map",
     "786.5da79be9.chunk.js.map": "/quest-board-app/static/js/786.5da79be9.chunk.js.map",
-    "700.4109033e.chunk.js.map": "/quest-board-app/static/js/700.4109033e.chunk.js.map"
+    "710.f7701812.chunk.js.map": "/quest-board-app/static/js/710.f7701812.chunk.js.map",
+    "256.4c08f5b7.chunk.js.map": "/quest-board-app/static/js/256.4c08f5b7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ca449044.css",
-    "static/js/main.02e7c250.js"
+    "static/js/main.18902567.js"
   ]
 }
