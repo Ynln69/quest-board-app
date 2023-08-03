@@ -34,17 +34,17 @@ export const RegisterForm = () => {
     const form = event.currentTarget;
     dispatch(
       register({
-        name: form.elements.name.value,
+        username: form.elements.name.value,
         email: form.elements.email.value,
         password: form.elements.password.value,
       })
     );
 
-    console.log(
-      form.elements.name.value,
-      form.elements.email.value,
-      form.elements.password.value
-    );
+    console.log({
+      username: form.elements.name.value,
+      email: form.elements.email.value,
+      password: form.elements.password.value,
+    });
     form.reset();
   };
 
