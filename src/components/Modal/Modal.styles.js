@@ -34,6 +34,17 @@ export const ModalWindow = styled.div`
   }
 `;
 
+export const Heading = styled.h3`
+  margin-bottom: 24px;
+  color: #161616;
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.36px;
+`;
+
 export const CloseBtn = styled.svg`
   width: 18px;
   height: 18px;

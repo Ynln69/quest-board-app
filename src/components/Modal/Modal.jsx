@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { MainButton } from '../Button/Button';
-
 import Sprite from '../../images/sprite.svg';
-import { Backdrop, CloseBtn, ModalWindow } from './Modal.styles';
+import { Backdrop, CloseBtn, Heading, ModalWindow } from './Modal.styles';
 
-function Modal({ children, isOpen, handleClose, btnContent }) {
+function Modal({ children, isOpen, handleClose, heading }) {
   if (!isOpen) return null;
 
   const handleKeyDown = event => {
@@ -22,11 +20,11 @@ function Modal({ children, isOpen, handleClose, btnContent }) {
   return ReactDOM.createPortal(
     <Backdrop onClick={handleClose}>
       <ModalWindow onClick={e => e.stopPropagation()}>
+        <Heading>{heading}</Heading>
         <CloseBtn onClick={handleClose}>
           <use xlinkHref={`${Sprite}#icon-x-close`} />
         </CloseBtn>
         <div>{children}</div>
-        <MainButton>{btnContent}</MainButton>
       </ModalWindow>
     </Backdrop>,
     document.getElementById('modal-root')
