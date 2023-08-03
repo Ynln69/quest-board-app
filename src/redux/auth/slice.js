@@ -2,11 +2,14 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { register, logIn, logOut, refreshUser } from './operations';
 import * as handlersForRegisterLogin from './handlers';
 
-const initialState = {
+export const initialState = {
   username: null,
   email: null,
   password: null,
+  avatarURL: null,
   token: null,
+  theme: 'LIGHT',
+  boards: [],
   isLoggedIn: false,
   isRefreshing: false,
 };
