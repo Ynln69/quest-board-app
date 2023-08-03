@@ -2,13 +2,13 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   align-items: center;
-   color: #ffffff;
+  justify-content: space-between;
+  width: auto;
+  max-width: 100%;
+  color: #ffffff;
   height: 68px;
-  padding-left: 32px;
-  padding-right: 24px;
+  padding: 14px 20px;
 
   &.theme-light {
     /* Light theme styles */
@@ -27,6 +27,13 @@ export const Container = styled.div`
     background-color: #6a1b9a;
     color: #fff;
   }
+
+  @media (max-width: 1440px) {
+    padding: 18px 32px;
+  }
+  @media (max-width: 768px) {
+    padding: 18px 24px;
+  }
 `;
 
 export const HeaderNav = styled.div`
@@ -41,6 +48,12 @@ export const MenuIcon = styled.svg`
   @media (min-width: 768px) {
     display: none;
   }
+`;
+
+export const HeaderWrap = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 14px;
 `;
 
 export const SelectIcon = styled.svg`

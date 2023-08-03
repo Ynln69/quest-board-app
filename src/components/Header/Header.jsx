@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 import { useTheme } from 'hooks/themeContext';
 import UserInfo from 'components/UserInfo/UserInfo';
 import { LIGHT, DARK, VIOLET } from 'constants';
-import { Container, HeaderNav, MenuIcon, SelectIcon } from './Header.styled';
+import {
+  Container,
+  HeaderNav,
+  MenuIcon,
+  SelectIcon,
+  HeaderWrap,
+} from './Header.styled';
 import Sprite from '../../images/sprite.svg';
 
 const Header = ({ onToggleMenu }) => {
@@ -26,14 +32,14 @@ const Header = ({ onToggleMenu }) => {
   return (
     <Container className={`theme-${theme}`}>
       <div onClick={onToggleMenu}>
-        <div>
-          <MenuIcon></MenuIcon>
-        </div>
+        <MenuIcon>
+          <use href={`${Sprite}#icon-menu`} />
+        </MenuIcon>
       </div>
-      <div>
+      <HeaderWrap>
         <HeaderNav onClick={toggleOptionList} value={theme}>
           <div>
-            <SelectIcon><use stroke="white" href={`${Sprite}#icon-menu`} /></SelectIcon>
+            <SelectIcon></SelectIcon>
           </div>
           Theme
         </HeaderNav>
@@ -42,8 +48,8 @@ const Header = ({ onToggleMenu }) => {
           <option value="dark">Dark</option>
           <option value="violet">Violet</option>
         </select>
-      </div>
-      <UserInfo />
+        <UserInfo />
+      </HeaderWrap>
     </Container>
   );
 };
