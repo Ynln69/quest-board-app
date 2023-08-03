@@ -7,7 +7,7 @@ const HomePage = () => {
   return (
     <ThemeProvider>
       <Header />
-      <Sidebar/>
+      <Sidebar />
     </ThemeProvider>
   );
 };
