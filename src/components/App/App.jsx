@@ -6,13 +6,28 @@ import RestrictedRoute from 'components/RestrictedRoute';
 import { RegisterForm } from 'components/RegisterForm/Registerform';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 
+import { PropagateLoader } from 'react-spinners';
+
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 
 export const App = () => {
   return (
-    <Suspense fallback={<div>Завантаження...</div>}>
+    <Suspense
+      fallback={
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+          }}
+        >
+          <PropagateLoader color="#BEDBB0" size={20} />
+        </div>
+      }
+    >
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route index element={<WelcomePage />} />
