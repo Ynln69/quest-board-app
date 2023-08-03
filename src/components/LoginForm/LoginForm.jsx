@@ -42,7 +42,9 @@ export const LoginForm = () => {
       email: form.elements.email.value,
       password: form.elements.password.value,
     });
-    form.reset();
+
+    form.elements.email.value = '';
+    form.elements.password.value = '';
   };
 
   return (
@@ -62,12 +64,7 @@ export const LoginForm = () => {
               </LoginLink>
             </Navigate>
             <Inputs>
-              <Field
-                autoFocus
-                name="email"
-                type="email"
-                placeholder="Enter your email"
-              />
+              <Field name="email" type="email" placeholder="Enter your email" />
               <ErrorText name="email" component="div" />
               <PasswordInput>
                 <Field

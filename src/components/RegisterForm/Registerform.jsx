@@ -40,12 +40,14 @@ export const RegisterForm = () => {
       })
     );
 
-    console.log({
-      username: form.elements.name.value,
-      email: form.elements.email.value,
-      password: form.elements.password.value,
-    });
-    form.reset();
+    console.log(
+      form.elements.name.value,
+      form.elements.email.value,
+      form.elements.password.value
+    );
+    form.elements.name.value = '';
+    form.elements.email.value = '';
+    form.elements.password.value = '';
   };
 
   return (
@@ -65,12 +67,7 @@ export const RegisterForm = () => {
               </LoginLink>
             </Navigate>
             <Inputs>
-              <Field
-                autoFocus
-                name="name"
-                type="text"
-                placeholder="Enter your name"
-              />
+              <Field name="name" type="text" placeholder="Enter your name" />
               <ErrorText name="name" component="div" />
               <Field name="email" type="email" placeholder="Enter your email" />
               <ErrorText name="email" component="div" />
