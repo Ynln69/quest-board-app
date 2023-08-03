@@ -3,11 +3,10 @@ import { lazy, Suspense } from 'react';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import { PrivateRoute } from 'components/PrivateRoute';
 import { RestrictedRoute } from 'components/RestrictedRoute';
-import { RegisterForm } from 'components/RegisterForm/Registerform';
-import { LoginForm } from 'components/LoginForm/LoginForm';
-import { LoginBtn } from 'components/LoginForm/LoginForm.styled';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
+const Register = lazy(() => import('../RegisterForm/Registerform'));
+const Login = lazy(() => import('../LoginForm/LoginForm'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 
@@ -22,14 +21,12 @@ export const App = () => {
         <Route
           path="/auth/register"
           element={
-            <RestrictedRoute redirectTo="/home" component={<RegisterForm />} />
+            <RestrictedRoute redirectTo="/home" component={<Register />} />
           }
         />
         <Route
           path="/auth/login"
-          element={
-            <RestrictedRoute redirectTo="/home" component={<LoginForm />} />
-          }
+          element={<RestrictedRoute redirectTo="/home" component={<Login />} />}
         />
         <Route
           path="/home"
