@@ -1,35 +1,21 @@
-// import axios from 'axios';
-// import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// axios.defaults.baseURL = 'https://backend-task-pro.onrender.com';
+axios.defaults.baseURL = 'https://tp-backend-905x.onrender.com';
 
-// // Utility to add JWT
-// const setAuthHeader = token => {
-//     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-//   };
+const setAuthHeader = token => {
+  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
 
-// export const fetchProfileData = createAsyncThunk(
-//   'user/fetchProfileData',
-//   async (credentials, thunkAPI) => {
-//     try {
-//            const res = await axios.get('api/users/profile', credentials);
-//       // After successful registration, add the token to the HTTP header
-//       setAuthHeader(res.data.token);
-//       return res.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-// );
-
-// export const updateProfileOnServer = createAsyncThunk(
-//   'user/updateProfileOnServer',
-//   async data => {
-//     try {
-//       const response = await axios.put('/api/profile', data);
-
-//       return response.data;
-//     } catch (error) {
-//       throw error;
-//     }
-//   }
-// );
+export const updateProfile = createAsyncThunk(
+  'user/updateProfile',
+  async data => {
+    try {
+      const response = await axios.put('/api/profile', data);
+      setAuthHeader(response.data.token);
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+);

@@ -22,7 +22,7 @@ const UserInfo = ({theme}) => {
       {photo ? (
         <Avatar src={photo} alt="User Avatar" onClick={openModal} />
       ) : (
-        <UserIcon className={`icon-user theme-${theme}`}>
+        <UserIcon className={`icon-user theme-${theme}`} onClick={openModal}>
           <use href={`${Sprite}#icon-user`} />
         </UserIcon>
       )}
