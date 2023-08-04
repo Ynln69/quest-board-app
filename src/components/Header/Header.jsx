@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { useTheme } from 'hooks/themeContext';
+import { useDispatch, useSelector } from 'react-redux';
 import UserInfo from 'components/UserInfo/UserInfo';
-import { LIGHT, DARK, VIOLET } from 'constants';
+import { setTheme } from 'redux/theme/themeSlice';
+import { selectTheme } from 'redux/theme/selectors';
+import { Sidebar } from 'components/Sidebar/Sidebar';
 import {
   Container,
   HeaderNav,
@@ -12,34 +14,40 @@ import {
 import Sprite from '../../images/sprite.svg';
 
 const Header = ({ onToggleMenu }) => {
-  const { theme, handleThemeChange } = useTheme();
+  const dispatch = useDispatch();
+  const theme = useSelector(selectTheme);
   const [isOptionListOpen, setOptionListOpen] = useState(false);
+  const [isSideBarOpen, setSideBarOpen] = useState(false);
 
   const toggleOptionList = () => {
     setOptionListOpen(!isOptionListOpen);
   };
 
-  const onToggleTheme = () => {
-    let newTheme = LIGHT;
-    if (theme === LIGHT) {
-      newTheme = DARK;
-    } else if (theme === DARK) {
-      newTheme = VIOLET;
-    }
-    handleThemeChange(newTheme);
+  const sendThemeToBackend = (newTheme) => {
+    
   };
 
-  return (
+  const onToggleTheme = (event) => {
+    const newTheme = event.target.value;
+    dispatch(setTheme(newTheme));
+    sendThemeToBackend(newTheme);
+  };
+
+  const toggleSideBar = () => {
+    setSideBarOpen(!isSideBarOpen); 
+  };
+
+   return (
     <Container className={`theme-${theme}`}>
-      <div onClick={onToggleMenu}>
-        <MenuIcon>
+      <div onClick={toggleSideBar}>
+        <MenuIcon className={`icon-menu theme-${theme}`} width="32" height="32">
           <use href={`${Sprite}#icon-menu`} />
         </MenuIcon>
       </div>
       <HeaderWrap>
         <HeaderNav onClick={toggleOptionList} value={theme}>
           <div>
-            <SelectIcon></SelectIcon>
+            <SelectIcon><use href={`${Sprite}#icon-chevron-down`} /></SelectIcon>
           </div>
           Theme
         </HeaderNav>
@@ -50,8 +58,10 @@ const Header = ({ onToggleMenu }) => {
         </select>
         <UserInfo />
       </HeaderWrap>
+      {isSideBarOpen && <Sidebar theme={theme} isOpen={isSideBarOpen} className={`theme-${theme}`}/>}
     </Container>
   );
 };
 
 export default Header;
+

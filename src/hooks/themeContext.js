@@ -1,19 +1,15 @@
-import { createContext, useContext, useState } from 'react';
-import { LIGHT } from 'constants';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-const ThemeContext = createContext();
+const ThemeContext = React.createContext();
 
-export const useTheme = () => useContext(ThemeContext);
+export const useTheme = () => React.useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(LIGHT);
-
-  const handleThemeChange = (newTheme) => {
-    setTheme(newTheme);
-  };
+  const theme = useSelector(state => state.theme);
 
   return (
-    <ThemeContext.Provider value={{ theme, handleThemeChange }}>
+    <ThemeContext.Provider value={{ theme }}>
       {children}
     </ThemeContext.Provider>
   );
