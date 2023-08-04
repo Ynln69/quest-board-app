@@ -1,11 +1,9 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 export const SidebarBlock = styled.aside`
   width: 260px;
   min-height: 100vh;
   padding: 24px;
-  // background-color: #121212
-
   &.theme-light {
     background-color: #ffffff;
     color: #161616;
@@ -57,7 +55,6 @@ export const HelpContent = styled.p`
 `;
 
 export const Title = styled.h3`
-  color: #ffffff;
   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-weight: 600;
   letter-spacing: -0.64px;
@@ -67,12 +64,10 @@ export const BoardTitleBlock = styled.div`
   border-top: 1px solid #1f1f1f;
   border-bottom: 1px solid #1f1f1f;
   padding: 14px 0;
-  color: #ffffff;
   font-weight: 500;
   letter-spacing: -0.28px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+ align-items: center;
   margin-bottom: 40px;
 `;
 
@@ -82,6 +77,8 @@ export const SvgAdd = styled.svg`
   border-radius: 6px;
   background: #bedbb0;
   stroke: #121212;
+  cursor: pointer;
+  margin-left: auto;
 `;
 
 export const SvgLightning = styled.svg`
@@ -130,7 +127,6 @@ export const NeedHelpButton = styled.button`
   display: flex;
   align-items: center;
   background-color: transparent;
-  color: #fff;
   border: none;
   margin-top: 20px;
   padding: 0;
@@ -142,7 +138,6 @@ export const LogoutBtn = styled.button`
   font-size: 16px;
   font-weight: 500;
   background-color: transparent;
-  color: #fff;
   border: none;
   padding: 0;
 `;

@@ -17,9 +17,18 @@ import sprite from '../../images/sprite.svg';
 import flower from '../../images/flower.png';
 import { useState } from 'react';
 import NeedHelpModal from 'components/NeedHelp/NeedHelpModal';
+import AddBoard from './AddBoard/AddBoard';
 
 export function Sidebar({ theme, isOpen }) {
   const [isShow, setIsShow] = useState(false);
+  const [openBoard, setOpenBoard] = useState(false);
+
+  const showBoardModal = () => {
+    setOpenBoard(true);
+  };
+  const closeBoardModal = () => {
+    setOpenBoard(false);
+  };
 
   const showModal = () => {
     setIsShow(true);
@@ -33,20 +42,19 @@ export function Sidebar({ theme, isOpen }) {
     <SidebarBlock className={`theme-${theme} ${isOpen ? 'open' : 'closed'}`}>
       <TitleBlock>
         <SvgLightning>
-          <use href={`${sprite}#icon-lightning`} />
+          <use href={`${sprite}#icon-logo`} />
         </SvgLightning>
         <Title>Task Pro</Title>
       </TitleBlock>
 
       <MyBoardTitle>My boards</MyBoardTitle>
       <BoardTitleBlock>
-        <createBoardTitle>
-          <p>Create a new board</p>
-        </createBoardTitle>
+        <p>Create a new board</p>
 
-        <SvgAdd>
+        <SvgAdd onClick={showBoardModal}>
           <use href={`${sprite}#icon-plus`} />
         </SvgAdd>
+        {openBoard && <AddBoard closeBoardModal={closeBoardModal} />}
       </BoardTitleBlock>
 
       <NeedHelpBlock className={`theme-${theme}`}>
@@ -65,7 +73,6 @@ export function Sidebar({ theme, isOpen }) {
         </NeedHelpButton>
 
         {isShow && <NeedHelpModal closeModal={closeModal} />}
-
       </NeedHelpBlock>
 
       <LogoutBtn type="button" name="logout">
