@@ -18,7 +18,7 @@ export const SidebarBlock = styled.aside`
     background-color: #5255bc;
   }
 
-  @media (min-width: 1400px) {
+  @media (max-width: 1439px) {
     display: none;
   }
 `;
