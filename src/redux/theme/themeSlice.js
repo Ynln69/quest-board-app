@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { updateTheme } from './operations';
 
-const initialState = 'light';
+const initialState = {theme: 'LIGHT'};
 
 const themeSlice = createSlice({
   name: 'theme',
@@ -9,6 +10,17 @@ const themeSlice = createSlice({
     setTheme: (state, action) => {
       return action.payload;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(updateTheme.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(updateTheme.fulfilled, (state, action) => {
+           state.theme = action.payload.theme;
+         });
+    builder.addCase(updateTheme.rejected, (state, action) => {
+       state.error = action.error.message;
+    });
   },
 });
 
