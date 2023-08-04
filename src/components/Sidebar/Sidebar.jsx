@@ -3,10 +3,10 @@ import sprite from '../../images/sprite.svg';
 import flower from "../../images/flower.png"
 
 
-export function Sidebar() {
+export function Sidebar({ theme, isOpen }) {
  
   return (
-    <SidebarBlock>
+    <SidebarBlock className={`theme-${theme} ${isOpen ? 'open' : 'closed'}`}>
       <TitleBlock>
       <SvgLightning>
           <use  href={`${sprite}#icon-lightning`} />
@@ -26,7 +26,7 @@ export function Sidebar() {
         </SvgAdd>
       </BoardTitleBlock>
    
-      <NeedHelpBlock>
+      <NeedHelpBlock className={`theme-${theme}`}>
         <Flower  src={flower} alt="flower"/>
        
         <HelpContent>

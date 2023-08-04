@@ -11,21 +11,18 @@ export const Container = styled.div`
   padding: 14px 20px;
 
   &.theme-light {
-    /* Light theme styles */
-    background-color: #fff;
-    color: #1f1f1f;
+    background-color: #fcfcfc;
+    color: #161616;
   }
 
   &.theme-dark {
-    /* Dark theme styles */
-    background-color: #1f1f1f;
+    background-color: #161616;
     color: #ffffff;
   }
 
   &.theme-violet {
-    /* Violet theme styles */
-    background-color: #6a1b9a;
-    color: #fff;
+    background-color: #fff;
+    color: #161616;
   }
 
   @media (max-width: 1440px) {
@@ -42,8 +39,25 @@ export const HeaderNav = styled.div`
 `;
 
 export const MenuIcon = styled.svg`
-  width: 32px;
-  height: 32px;
+  width: 24px;
+  height: 24px;
+
+  &.theme-light {
+    fill: #161616;
+  }
+
+  &.theme-dark {
+    fill: #ffffff;
+  }
+
+  &.theme-violet {
+    fill: #161616;
+  }
+
+  @media screen and (min-width: 375px) {
+    width: 32px;
+    height: 32px;
+  }
 
   @media (min-width: 768px) {
     display: none;
