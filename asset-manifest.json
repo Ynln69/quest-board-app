@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/quest-board-app/static/css/main.ca449044.css",
-    "main.js": "/quest-board-app/static/js/main.e5cb3544.js",
-    "static/js/725.3c37b8a8.chunk.js": "/quest-board-app/static/js/725.3c37b8a8.chunk.js",
+    "main.js": "/quest-board-app/static/js/main.03b91f3f.js",
+    "static/js/720.10b3a2d6.chunk.js": "/quest-board-app/static/js/720.10b3a2d6.chunk.js",
     "static/js/786.5da79be9.chunk.js": "/quest-board-app/static/js/786.5da79be9.chunk.js",
-    "static/js/64.573d5c8d.chunk.js": "/quest-board-app/static/js/64.573d5c8d.chunk.js",
+    "static/js/331.73ae8a20.chunk.js": "/quest-board-app/static/js/331.73ae8a20.chunk.js",
     "static/js/448.d206b74f.chunk.js": "/quest-board-app/static/js/448.d206b74f.chunk.js",
     "static/media/Poppins-Regular.woff": "/quest-board-app/static/media/Poppins-Regular.eb7f33fefaf7106ac3a0.woff",
     "static/media/Poppins-Medium.woff": "/quest-board-app/static/media/Poppins-Medium.9de653bb3161fcb43443.woff",
@@ -17,14 +17,14 @@
     "index.html": "/quest-board-app/index.html",
     "static/media/eye-hide.svg": "/quest-board-app/static/media/eye-hide.accfc4141682c117e0a89ff4d886ee4d.svg",
     "main.ca449044.css.map": "/quest-board-app/static/css/main.ca449044.css.map",
-    "main.e5cb3544.js.map": "/quest-board-app/static/js/main.e5cb3544.js.map",
-    "725.3c37b8a8.chunk.js.map": "/quest-board-app/static/js/725.3c37b8a8.chunk.js.map",
+    "main.03b91f3f.js.map": "/quest-board-app/static/js/main.03b91f3f.js.map",
+    "720.10b3a2d6.chunk.js.map": "/quest-board-app/static/js/720.10b3a2d6.chunk.js.map",
     "786.5da79be9.chunk.js.map": "/quest-board-app/static/js/786.5da79be9.chunk.js.map",
-    "64.573d5c8d.chunk.js.map": "/quest-board-app/static/js/64.573d5c8d.chunk.js.map",
+    "331.73ae8a20.chunk.js.map": "/quest-board-app/static/js/331.73ae8a20.chunk.js.map",
     "448.d206b74f.chunk.js.map": "/quest-board-app/static/js/448.d206b74f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ca449044.css",
-    "static/js/main.e5cb3544.js"
+    "static/js/main.03b91f3f.js"
   ]
 }
