@@ -74,4 +74,16 @@ export const SelectIcon = styled.svg`
   width: 16px;
   height: 16px;
   margin-left: 4px;
+
+  &.theme-light {
+    fill: #161616;
+  }
+
+  &.theme-dark {
+    fill: #ffffff;
+  }
+
+  &.theme-violet {
+    fill: #161616;
+  }
 `;
