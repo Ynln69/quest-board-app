@@ -98,7 +98,7 @@ function ModalBoard({ btnContent }) {
               </label>
             ))}
           </BgImagesWrapper>
-          <MainButton type="submit">{btnContent}</MainButton>
+          <MainButton type="submit">Create</MainButton>
         </Form>
       </Formik>
     </>
