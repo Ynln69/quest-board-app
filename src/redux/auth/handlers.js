@@ -1,8 +1,8 @@
 export const handleRegisterLoginFulfilled = (state, { payload }) => {
-  state.username = payload.username;
-  state.email = payload.email;
-  state.password = payload.password;
-  state.token = payload.token;
+  state.username = payload.user.username;
+  state.email = payload.user.email;
+  state.password = payload.user.password;
+  state.token = payload.user.token;
   state.isLoggedIn = true;
 };
 
@@ -21,9 +21,9 @@ export const toggleIsRefreshing = state => {
 
 export const handleRefreshUserFullfilled = (state, { payload }) => {
   // state.user = payload;
-  state.username = payload.username;
-  state.email = payload.email;
-  state.password = payload.password;
+  state.username = payload.user.username;
+  state.email = payload.user.email;
+  state.password = payload.user.password;
   state.isLoggedIn = true;
   state.isRefreshing = false;
 };
