@@ -1,6 +1,7 @@
 /* @import-normalize; bring in normalize.css styles */
 
 @import './shared/basicStyles/fonts.scss';
+@import './scss/theme/theme.scss';
 
 html {
   scroll-behavior: smooth;
@@ -20,8 +21,8 @@ body {
 
 /* Dark Theme */
 body.dark {
-  --background-color: #1F1F1F;
-  --text-color: #FFFFFF;
+  --background-color: #1f1f1f;
+  --text-color: #ffffff;
 }
 
 /* public/light.css */
