@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://backend-task-pro.onrender.com';
+axios.defaults.baseURL = 'https://tp-backend-905x.onrender.com';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -15,7 +15,7 @@ export const register = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('api/users/registration', credentials);
+      const res = await axios.post('api/users/register', credentials);
       console.log(res.data);
       setAuthHeader(res.data.token);
       return res.data;
@@ -29,7 +29,7 @@ export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.patch('api/users/login', credentials);
+      const res = await axios.post('api/users/login', credentials);
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
