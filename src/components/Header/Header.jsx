@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import UserInfo from 'components/UserInfo/UserInfo';
 import { setTheme } from 'redux/theme/themeSlice';
 import { selectTheme } from 'redux/theme/selectors';
+import { updateTheme } from 'redux/theme/operations';
 import { Sidebar } from 'components/Sidebar/Sidebar';
 import {
   Container,
@@ -12,6 +13,7 @@ import {
   HeaderWrap,
 } from './Header.styled';
 import Sprite from '../../images/sprite.svg';
+
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -55,19 +57,26 @@ const Header = () => {
     localStorage.setItem('theme', newTheme);
   };
 
-  const onToggleTheme = event => {
+     const onToggleTheme = (event) => {
     const newTheme = event.target.value;
 
-    const themes = ['light', 'dark', 'violet'];
+      const themes = ['light', 'dark', 'violet'];
     themes.forEach(t => {
       document.body.classList.remove(t);
     });
 
     document.body.classList.remove(theme);
     document.body.classList.add(newTheme);
+  
+    dispatch(setTheme(newTheme)); // Update the local theme state immediately
+    sendThemeToBackend(newTheme); // Save the theme in localStorage (this part seems correct)
+  
+       dispatch(updateTheme({ theme: newTheme }))
+      .unwrap()
+      .catch((error) => {
+        console.log('Error updating theme:', error);
+      });
 
-    dispatch(setTheme(newTheme));
-    sendThemeToBackend(newTheme);
   };
 
   const toggleSideBar = () => {
