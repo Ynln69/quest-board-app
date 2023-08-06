@@ -90,10 +90,10 @@ export const CalendarContainer = styled.div`
   }
 
   & .react-datepicker__day--selected,
-  & .react-datepicker__day--today,
   & .react-datepicker__day:hover {
     background: #bedbb0;
     border-radius: 50%;
+    border: none;
   }
 
   & .react-datepicker__day--outside-month,

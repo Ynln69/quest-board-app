@@ -7,6 +7,8 @@ import { Backdrop, CloseBtn, Heading, ModalWindow } from './Modal.styles';
 function Modal({ children, isOpen, handleClose, heading }) {
   if (!isOpen) return null;
 
+  document.body.style.overflow = isOpen ? 'hidden' : 'visible';
+
   const handleKeyDown = event => {
     if (event.key === 'Escape') {
       handleClose();
