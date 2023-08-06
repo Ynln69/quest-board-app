@@ -34,7 +34,7 @@ export const MenuIcon = styled.svg`
     height: 32px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1440px) {
     display: none;
   }
 `;

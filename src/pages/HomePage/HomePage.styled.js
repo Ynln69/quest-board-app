@@ -21,3 +21,7 @@ export const TitlePage = styled.h1`
 export const LinkToCreate = styled.a`
   color: #bedbb0;
 `;
+
+export const Container = styled.div`
+display: flex;
+`
