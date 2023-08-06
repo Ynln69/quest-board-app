@@ -8,15 +8,18 @@ export const Input = styled.input`
   border: 1px solid var(--input_color);
   outline: none;
   opacity: 0.4;
-  color: #161616;
+
+  color: var(--modal_main_color);
+  background-color: var(--modal_bgc);
   font-family: Poppins;
-  font-size: 14px;
   font-weight: 400;
+  font-size: 14px;
   line-height: normal;
   letter-spacing: -0.28px;
   &:hover,
   &:focus,
   &:active {
+    background-color: var(--modal_bgc);
     opacity: 1;
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
   }
@@ -28,13 +31,15 @@ export const Textarea = styled.textarea`
   margin-bottom: 24px;
   padding: 14px 18px;
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--input_color);
   outline: none;
   opacity: 0.4;
-  color: #161616;
+
+  color: var(--modal_main_color);
+  background-color: var(--modal_bgc);
   font-family: Poppins;
-  font-size: 14px;
   font-weight: 400;
+  font-size: 14px;
   line-height: normal;
   letter-spacing: -0.28px;
   &:hover,

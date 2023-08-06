@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Field } from 'formik';
+import { ErrorMessage, Field } from 'formik';
 
 export const StyledInputField = styled(Field)`
   width: 302px;
@@ -21,6 +21,12 @@ export const StyledInputField = styled(Field)`
     outline: none;
     border: 1px solid #bedbb0;
   }
+`;
+
+export const ErrorMsg = styled(ErrorMessage)`
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
 `;
 
 export const StyledSubtitle = styled.p`

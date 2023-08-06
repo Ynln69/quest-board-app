@@ -34,6 +34,7 @@ const authSlice = createSlice({
         isAnyOf(refreshUser.pending, refreshUser.rejected),
         handlersForRegisterLogin.toggleIsRefreshing
       );
+
     // .addMatcher(
     //   isAnyOf(register.fulfilled, logIn.fulfilled),
     //   handlersForRegisterLogin.handleRegisterLoginFulfilled
@@ -42,3 +43,12 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
+
+// .addMatcher(
+//         isAnyOf(
+//           createBoard.fulfilled,
+//           editBoard.fulfilled,
+//           deleteBoard.fulfilled
+//         ),
+//         handlersForRegisterLogin.handleAddBoardFulfilled
+//       );

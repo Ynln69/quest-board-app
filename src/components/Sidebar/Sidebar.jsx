@@ -15,13 +15,22 @@ import {
 } from './Sidebar.styled';
 import sprite from '../../images/sprite.svg';
 import flower from '../../images/flower.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { logOut } from 'redux/auth/operations';
 import NeedHelpModal from 'components/NeedHelp/NeedHelpModal';
 import AddBoard from './AddBoard/AddBoard';
+import { useDispatch } from 'react-redux';
+import { getBoards } from 'redux/boards/boardOperations';
 
 export function Sidebar({ theme, isOpen }) {
   const [isShow, setIsShow] = useState(false);
   const [openBoard, setOpenBoard] = useState(false);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBoards());
+  }, [dispatch]);
 
   const showBoardModal = () => {
     setOpenBoard(true);
@@ -36,6 +45,11 @@ export function Sidebar({ theme, isOpen }) {
 
   const closeModal = () => {
     setIsShow(false);
+  };
+
+  const handleLogout = () => {
+    console.log('logout');
+    dispatch(logOut());
   };
 
   return (
@@ -75,7 +89,7 @@ export function Sidebar({ theme, isOpen }) {
         {isShow && <NeedHelpModal closeModal={closeModal} />}
       </NeedHelpBlock>
 
-      <LogoutBtn type="button" name="logout">
+      <LogoutBtn type="button" name="logout" onClick={handleLogout}>
         Log out
       </LogoutBtn>
     </SidebarBlock>
