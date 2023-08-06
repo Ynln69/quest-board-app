@@ -1,10 +1,13 @@
 import React from 'react';
-import { useState } from 'react';
-import { Formik, Form, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
+import PropTypes from 'prop-types';
+// import { v4 as uuidv4 } from 'uuid';
 import { nanoid } from '@reduxjs/toolkit';
 import sprite from '../../images/sprite.svg';
+import { addBoardSchema } from 'schemas';
 import {
   BgImagesWrapper,
+  ErrorMsg,
   IconsWrapper,
   StyledInputField,
   StyledRadioField,
@@ -12,6 +15,11 @@ import {
   StyledSubtitle,
 } from './ModalBoard.styles';
 import { MainButton } from 'components/Button/Button';
+import { useDispatch } from 'react-redux';
+import { createBoard } from 'redux/boards/boardOperations';
+import { useSelector } from 'react-redux';
+import { selectUser } from 'redux/auth/selectors';
+import { selectBoards } from 'redux/boards/boardsSelectors';
 
 const icons = [
   'icon-project',
@@ -43,32 +51,53 @@ const backgrounds = [
   'bg16.jpg',
 ];
 
-const initialValues = { title: '', icon: icons[0] };
+const initialValues = { title: '', icon: icons[0], background: backgrounds[0] };
 
-function ModalBoard() {
-  const [selectedIcon, setSelectedIcon] = useState(icons[0]);
-  const [selectedBackground, setSelectedBackground] = useState(backgrounds[0]);
+function ModalBoard({ btnContent, closeModal }) {
+  const dispatch = useDispatch();
+  const boards = useSelector(state => state);
 
-  const handleSubmit = () => {};
+  const handleSubmit = (values, { resetForm }) => {
+    // const boardId = `3${uuidv4().replace(/-/g, '')}`;
+
+    const newBoard = {
+      title: values.title,
+      icon: values.icon,
+      background: values.background,
+    };
+
+    dispatch(createBoard(newBoard));
+    resetForm();
+    closeModal();
+  };
 
   return (
-    <>
-      <Formik initialValues={{ initialValues }} onSubmit={handleSubmit}>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={addBoardSchema}
+      onSubmit={handleSubmit}
+    >
+      {({ handleChange, values }) => (
         <Form autoComplete="off">
-          <StyledInputField type="text" name="title" placeholder="Title" />
-          <ErrorMessage name="title" component="p" />
+          <StyledInputField
+            type="text"
+            name="title"
+            placeholder="Title"
+            onChange={handleChange}
+            value={values.title}
+          />
+          <ErrorMsg name="title" component="p" />
           <StyledSubtitle>Icons</StyledSubtitle>
           <IconsWrapper>
+            {console.log(boards)}
             {icons.map(icon => (
               <label key={nanoid()}>
                 <StyledRadioField
                   type="radio"
                   name="icon"
                   value={icon}
-                  onChange={() => {
-                    setSelectedIcon(icon);
-                  }}
-                  checked={selectedIcon === icon}
+                  onChange={handleChange}
+                  checked={values.icon === icon}
                 />
                 <StyledSVG>
                   <use href={`${sprite}#${icon}`}></use>
@@ -84,10 +113,8 @@ function ModalBoard() {
                   type="radio"
                   name="background"
                   value={background}
-                  onChange={() => {
-                    setSelectedBackground(background);
-                  }}
-                  checked={selectedBackground === background}
+                  onChange={handleChange}
+                  checked={values.background === background}
                 />
                 <img
                   src={require(`../../images/backgrounds/non-optimized/${background}`)}
@@ -97,23 +124,16 @@ function ModalBoard() {
               </label>
             ))}
           </BgImagesWrapper>
-          <MainButton type="submit">
-            Create
-          </MainButton>
+          <MainButton type="submit">{btnContent}</MainButton>
         </Form>
-      </Formik>
-    </>
+      )}
+    </Formik>
   );
 }
 
-// ModalBoard.propTypes = { btnContent: PropTypes.string.isRequired };
+ModalBoard.propTypes = {
+  btnContent: PropTypes.string.isRequired,
+  closeModal: PropTypes.func.isRequired,
+};
 
 export default ModalBoard;
-
-// tests
-
-// import ModalBoard from 'components/ModalBoard';
-// import Modal from 'components/Modal/Modal';
-// <Modal isOpen={true} btnContent={'Create'} heading={'New board'}>
-//   <ModalBoard btnContent="Create" />
-// </Modal>;

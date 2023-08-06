@@ -8,8 +8,8 @@ const AddBoard = ({ closeBoardModal }) => {
 
   return (
     <div>
-      <Modal isOpen={true} handleClose={handleCloseModal}>
-        <ModalBoard />
+      <Modal isOpen={true} handleClose={handleCloseModal} heading="New board">
+        <ModalBoard btnContent={'Create'} closeModal={handleCloseModal} />
       </Modal>
     </div>
   );

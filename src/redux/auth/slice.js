@@ -1,6 +1,11 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { register, logIn, logOut, refreshUser } from './operations';
 import * as handlersForRegisterLogin from './handlers';
+import {
+  createBoard,
+  deleteBoard,
+  editBoard,
+} from 'redux/boards/boardOperations';
 
 export const initialState = {
   id: null,
@@ -33,7 +38,16 @@ const authSlice = createSlice({
       .addMatcher(
         isAnyOf(refreshUser.pending, refreshUser.rejected),
         handlersForRegisterLogin.toggleIsRefreshing
+      )
+      .addMatcher(
+        isAnyOf(
+          createBoard.fulfilled,
+          editBoard.fulfilled,
+          deleteBoard.fulfilled
+        ),
+        handlersForRegisterLogin.handleAddBoardFulfilled
       );
+
     // .addMatcher(
     //   isAnyOf(register.fulfilled, logIn.fulfilled),
     //   handlersForRegisterLogin.handleRegisterLoginFulfilled
