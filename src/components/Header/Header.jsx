@@ -27,6 +27,7 @@ const Header = () => {
     }
   }, [dispatch]);
 
+  
   const toggleOptionList = () => {
     setOptionListOpen(!isOptionListOpen);
   };
@@ -37,6 +38,15 @@ const Header = () => {
 
   const onToggleTheme = (event) => {
     const newTheme = event.target.value;
+  
+    const themes = ['light', 'dark', 'violet'];
+    themes.forEach((t) => {
+      document.body.classList.remove(t);
+    });
+  
+    document.body.classList.remove(theme);
+    document.body.classList.add(newTheme);
+  
     dispatch(setTheme(newTheme));
     sendThemeToBackend(newTheme);
   };
