@@ -4,9 +4,9 @@ export const CalendarContainer = styled.div`
   & .react-datepicker {
     font-family: 'Poppins', sans-serif;
     border-radius: 8px;
+    padding: 18px;
     border: 1px solid #bedbb0;
     background: #fff;
-    padding: 18px;
   }
 
   & .react-datepicker-popper[data-placement^='bottom'] {
@@ -96,19 +96,33 @@ export const CalendarContainer = styled.div`
     border-radius: 50%;
   }
 
+  & .react-datepicker__day--outside-month,
   & .react-datepicker__day--disabled {
-    color: rgba(255, 255, 255, 0.2);
-  }
-
-  & .react-datepicker__day--outside-month {
     color: rgba(22, 22, 22, 0.2);
   }
 
-  & .react-datepicker__day--outside-month:hover {
+  & .react-datepicker__day--outside-month:hover,
+  & .react-datepicker__day--disabled:hover {
     background: rgba(22, 22, 22, 0.1);
   }
 
   & .react-datepicker__day--keyboard-selected {
     background: transparent;
   }
+`;
+
+export const Button = styled.button`
+  color: #bedbb0;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border: none;
 `;
