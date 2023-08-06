@@ -54,7 +54,7 @@ const setAvatarIcon = (activeUserTheme) => {
 }; 
 
 const UserInfo = ({theme}) => {
-  const { photo, name } = useSelector(state => state.profile);
+  const { avatarURL, username } = useSelector(state => state.profile);
   const [isModalOpen, setModalOpen] = React.useState(false);
 
   const openModal = () => {
@@ -69,9 +69,9 @@ const UserInfo = ({theme}) => {
 
   return (
     <Container>
-      <div>{name}</div>
-      {photo ? (
-        <Avatar src={photo} alt="User Avatar" onClick={openModal} />
+      <div>{username}</div>
+      {avatarURL ? (
+        <Avatar src={avatarURL} alt="User Avatar" onClick={openModal} />
       ) : (
         <UserIcon onClick={openModal}>
         <svg className={`icon-user`} width="32" height="32">

@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { updateProfile } from './operations';
 
 const initialState = {
-  avatarURL: 'default_photo_url',
-  username: 'Ivetta',
-  email: 'ivetta34@gmail.com',
-  password: 'ivetta1999.23',
+  avatarURL: null,
+  username: null,
+  email: null,
+  password: null,
 };
 
 const profileSlice = createSlice({
