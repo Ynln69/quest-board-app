@@ -19,10 +19,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 * {
   box-sizing: border-box;
 }
@@ -61,10 +57,10 @@ a:visited {
   color: none;
 }
 
-button,
-input {
-  background-color: inherit;
-}
+// button,
+// input {
+//   background-color: inherit;
+// }
 
 button {
   cursor: pointer;
