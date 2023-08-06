@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { Formik, Form, ErrorMessage } from 'formik';
-import PropTypes from 'prop-types';
 import { nanoid } from '@reduxjs/toolkit';
 import sprite from '../../images/sprite.svg';
 import {
@@ -46,7 +45,7 @@ const backgrounds = [
 
 const initialValues = { title: '', icon: icons[0] };
 
-function ModalBoard({ btnContent }) {
+function ModalBoard() {
   const [selectedIcon, setSelectedIcon] = useState(icons[0]);
   const [selectedBackground, setSelectedBackground] = useState(backgrounds[0]);
 
@@ -98,14 +97,16 @@ function ModalBoard({ btnContent }) {
               </label>
             ))}
           </BgImagesWrapper>
-          <MainButton type="submit">Create</MainButton>
+          <MainButton type="submit">
+            Create
+          </MainButton>
         </Form>
       </Formik>
     </>
   );
 }
 
-ModalBoard.propTypes = { btnContent: PropTypes.string.isRequired };
+// ModalBoard.propTypes = { btnContent: PropTypes.string.isRequired };
 
 export default ModalBoard;
 
