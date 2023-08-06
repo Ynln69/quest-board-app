@@ -1,12 +1,16 @@
 import React, { useState, forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
-import { subDays, addDays } from 'date-fns';
+import { subDays, addDays, formatDistanceToNowStrict } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Button, CalendarContainer } from './Calendar.styled';
 import Sprite from '../../images/sprite.svg';
 
 export const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
+
+  const result = formatDistanceToNowStrict(Date.parse(selectedDate), {
+    includeSeconds: true,
+  });
 
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => {
     const formatDate = () => {
