@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/quest-board-app/static/css/main.35336364.css",
-    "main.js": "/quest-board-app/static/js/main.59099479.js",
+    "main.css": "/quest-board-app/static/css/main.bb1f5c1e.css",
+    "main.js": "/quest-board-app/static/js/main.a6453e84.js",
     "static/js/720.a8c23daf.chunk.js": "/quest-board-app/static/js/720.a8c23daf.chunk.js",
     "static/js/786.5da79be9.chunk.js": "/quest-board-app/static/js/786.5da79be9.chunk.js",
-    "static/js/506.43782d5e.chunk.js": "/quest-board-app/static/js/506.43782d5e.chunk.js",
+    "static/js/920.ba108409.chunk.js": "/quest-board-app/static/js/920.ba108409.chunk.js",
     "static/js/95.7e23582a.chunk.js": "/quest-board-app/static/js/95.7e23582a.chunk.js",
     "static/media/Poppins-Regular.woff": "/quest-board-app/static/media/Poppins-Regular.eb7f33fefaf7106ac3a0.woff",
     "static/media/Poppins-Medium.woff": "/quest-board-app/static/media/Poppins-Medium.9de653bb3161fcb43443.woff",
@@ -16,15 +16,15 @@
     "static/media/sprite.svg": "/quest-board-app/static/media/sprite.626f1b78555546bd1572612294293d0f.svg",
     "index.html": "/quest-board-app/index.html",
     "static/media/eye-hide.svg": "/quest-board-app/static/media/eye-hide.accfc4141682c117e0a89ff4d886ee4d.svg",
-    "main.35336364.css.map": "/quest-board-app/static/css/main.35336364.css.map",
-    "main.59099479.js.map": "/quest-board-app/static/js/main.59099479.js.map",
+    "main.bb1f5c1e.css.map": "/quest-board-app/static/css/main.bb1f5c1e.css.map",
+    "main.a6453e84.js.map": "/quest-board-app/static/js/main.a6453e84.js.map",
     "720.a8c23daf.chunk.js.map": "/quest-board-app/static/js/720.a8c23daf.chunk.js.map",
     "786.5da79be9.chunk.js.map": "/quest-board-app/static/js/786.5da79be9.chunk.js.map",
-    "506.43782d5e.chunk.js.map": "/quest-board-app/static/js/506.43782d5e.chunk.js.map",
+    "920.ba108409.chunk.js.map": "/quest-board-app/static/js/920.ba108409.chunk.js.map",
     "95.7e23582a.chunk.js.map": "/quest-board-app/static/js/95.7e23582a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.35336364.css",
-    "static/js/main.59099479.js"
+    "static/css/main.bb1f5c1e.css",
+    "static/js/main.a6453e84.js"
   ]
 }
