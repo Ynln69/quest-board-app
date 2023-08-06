@@ -9,7 +9,8 @@ export const Container = styled.div`
   color: #ffffff;
   height: 68px;
   padding: 14px 20px;
-  background-color: var(--logo_task);
+  background-color: var(--header_bgc);
+  color: var(--header_theme_text);
 
 
   @media (max-width: 1440px) {
@@ -28,6 +29,7 @@ export const HeaderNav = styled.div`
 export const MenuIcon = styled.svg`
   width: 24px;
   height: 24px;
+  color: var(--header_user_text);
 
   @media screen and (min-width: 375px) {
     width: 32px;
