@@ -6,13 +6,13 @@ export const MainButton = styled.button`
   border-radius: 8px;
   border: none;
 
-  padding: 10px 11px 11px 11px;
+  padding: 14px;
 
-  background: #bedbb0;
+  background: var(--normal_btn);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    background: #9dc888;
+    background: var(--active_btn);
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
