@@ -10,6 +10,7 @@ export const Input = styled.input`
   opacity: 0.4;
 
   color: var(--modal_main_color);
+  background-color: var(--modal_bgc);
   font-family: Poppins;
   font-weight: 400;
   font-size: 14px;
@@ -18,6 +19,7 @@ export const Input = styled.input`
   &:hover,
   &:focus,
   &:active {
+    background-color: var(--modal_bgc);
     opacity: 1;
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
   }
@@ -34,6 +36,7 @@ export const Textarea = styled.textarea`
   opacity: 0.4;
 
   color: var(--modal_main_color);
+  background-color: var(--modal_bgc);
   font-family: Poppins;
   font-weight: 400;
   font-size: 14px;
