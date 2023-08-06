@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Calendar } from 'components/Calendar/Calendar';
 import { Draggable } from 'react-beautiful-dnd';
 
 const Container = styled.div`
@@ -35,6 +36,7 @@ export const Task = ({ task, index }) => {
           <p>{task.description}</p>
           <p>{task.priority}</p>
           <p>{task.deadline}</p>
+          <Calendar />
         </Container>
       )}
     </Draggable>
