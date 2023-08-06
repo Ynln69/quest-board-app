@@ -41,3 +41,16 @@ export const deleteBoard = createAsyncThunk(
     }
   }
 );
+
+export const getBoards = createAsyncThunk(
+  'boards/getBoards',
+  async (_, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get('/api/boards');
+
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

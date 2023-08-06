@@ -1,5 +1,8 @@
 export const handleCreateBoardFulfilled = (state, { payload }) => {
-  state.boards.push(payload.data);
+  return {
+    ...state,
+    boards: [...state.boards, payload],
+  };
 };
 
 export const handleEditBoardFulfilled = (state, { payload }) => {
@@ -29,6 +32,10 @@ export const handleFulfilled = (state, { payload }) => {
   state.error = null;
 };
 
-export const handleRefreshUserFulfilled = (state, { payload }) => {
-  console.log(payload);
+export const handleGetBoardsFulfilled = (state, { payload }) => {
+  return { ...state, boards: payload };
 };
+
+// export const handleRefreshUserFulfilled = (state, { payload }) => {
+//   console.log(payload);
+// };

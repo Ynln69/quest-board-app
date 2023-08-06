@@ -40,7 +40,3 @@ export const handleRefreshUserFullfilled = (state, { payload }) => {
   state.isLoggedIn = true;
   state.isRefreshing = false;
 };
-
-export const handleAddBoardFulfilled = (state, { payload }) => {
-  state.boards.push(payload);
-};

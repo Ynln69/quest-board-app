@@ -15,13 +15,21 @@ import {
 } from './Sidebar.styled';
 import sprite from '../../images/sprite.svg';
 import flower from '../../images/flower.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NeedHelpModal from 'components/NeedHelp/NeedHelpModal';
 import AddBoard from './AddBoard/AddBoard';
+import { useDispatch } from 'react-redux';
+import { getBoards } from 'redux/boards/boardOperations';
 
 export function Sidebar({ theme, isOpen }) {
   const [isShow, setIsShow] = useState(false);
   const [openBoard, setOpenBoard] = useState(false);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBoards());
+  }, [dispatch]);
 
   const showBoardModal = () => {
     setOpenBoard(true);

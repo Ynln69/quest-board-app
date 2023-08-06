@@ -1,17 +1,21 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { createBoard, deleteBoard, editBoard } from './boardOperations';
+import {
+  createBoard,
+  deleteBoard,
+  editBoard,
+  getBoards,
+} from './boardOperations';
 import {
   handleCreateBoardFulfilled,
   handleDeleteBoardFulfilled,
   handleEditBoardFulfilled,
   handleFulfilled,
+  handleGetBoardsFulfilled,
   handlePending,
-  handleRefreshUserFulfilled,
   handleRejected,
 } from './boardHandlers';
-import { refreshUser } from 'redux/auth/operations';
 
-const operationsArr = [createBoard, editBoard, deleteBoard];
+const operationsArr = [createBoard, editBoard, deleteBoard, getBoards];
 
 const setOperationStatus = status => operationsArr.map(el => el[status]);
 
@@ -27,7 +31,7 @@ const boardsSlice = createSlice({
       .addCase(createBoard.fulfilled, handleCreateBoardFulfilled)
       .addCase(editBoard.fulfilled, handleEditBoardFulfilled)
       .addCase(deleteBoard.fulfilled, handleDeleteBoardFulfilled)
-      .addCase(refreshUser.fulfilled, handleRefreshUserFulfilled)
+      .addCase(getBoards.fulfilled, handleGetBoardsFulfilled)
       .addMatcher(isAnyOf(...setOperationStatus('pending')), handlePending)
       .addMatcher(isAnyOf(...setOperationStatus('rejected')), handleRejected)
       .addMatcher(isAnyOf(...setOperationStatus('fulfilled')), handleFulfilled);

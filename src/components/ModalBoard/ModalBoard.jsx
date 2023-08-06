@@ -17,9 +17,6 @@ import {
 import { MainButton } from 'components/Button/Button';
 import { useDispatch } from 'react-redux';
 import { createBoard } from 'redux/boards/boardOperations';
-import { useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/selectors';
-import { selectBoards } from 'redux/boards/boardsSelectors';
 
 const icons = [
   'icon-project',
@@ -55,7 +52,6 @@ const initialValues = { title: '', icon: icons[0], background: backgrounds[0] };
 
 function ModalBoard({ btnContent, closeModal }) {
   const dispatch = useDispatch();
-  const boards = useSelector(state => state);
 
   const handleSubmit = (values, { resetForm }) => {
     // const boardId = `3${uuidv4().replace(/-/g, '')}`;
@@ -65,7 +61,6 @@ function ModalBoard({ btnContent, closeModal }) {
       icon: values.icon,
       background: values.background,
     };
-
     dispatch(createBoard(newBoard));
     resetForm();
     closeModal();
@@ -89,7 +84,6 @@ function ModalBoard({ btnContent, closeModal }) {
           <ErrorMsg name="title" component="p" />
           <StyledSubtitle>Icons</StyledSubtitle>
           <IconsWrapper>
-            {console.log(boards)}
             {icons.map(icon => (
               <label key={nanoid()}>
                 <StyledRadioField
