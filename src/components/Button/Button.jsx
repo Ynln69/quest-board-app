@@ -6,7 +6,14 @@ export const MainButton = styled.button`
   border-radius: 8px;
   border: none;
 
-  padding: 10px 11px 11px 11px;
+  padding: 14px;
+
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
 
   background: #bedbb0;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);

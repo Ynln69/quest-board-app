@@ -1,4 +1,6 @@
-import { Formik, ErrorMessage, Field, Form } from 'formik';
+import { Formik, ErrorMessage, Form } from 'formik';
+import { MainButton } from 'components/Button/Button';
+import { Input, Textarea } from './NeedHelp.styled';
 import { HelpSchema } from 'schemas/helpSchema';
 
 const initialValues = {
@@ -18,24 +20,14 @@ const NeedHelpForm = () => {
       >
         {({ errors, touched, submitCount }) => (
           <Form autoComplete="off">
-            <Field
-              type="email"
-              name="email"
-              placeholder="Email address"
-              style={{
-                width: 300,
-                height: 49,
-              }}
-            />
+            <Input type="email" name="email" placeholder="Email address" />
             <ErrorMessage name="email" />
             <div>
-              <Field
+              <Textarea
                 component="textarea"
                 name="comment"
                 placeholder="Comment"
                 style={{
-                  width: 300,
-                  height: 120,
                   resize: 'none',
                 }}
               />
@@ -46,7 +38,7 @@ const NeedHelpForm = () => {
                   <div>Please enter a comment</div>
                 )}
             </div>
-            <button type="submit">Send</button>
+            <MainButton type="submit">Send</MainButton>
           </Form>
         )}
       </Formik>
