@@ -6,16 +6,16 @@ export const handleRegisterFulfilled = (state, { payload: { user } }) => {
   state.isLoggedIn = true;
 };
 
-export const handleLoginFulfilled = (state, { payload }) => {
-  state.username = payload.username;
-  state.email = payload.email;
-  state.password = payload.password;
-  state.token = payload.token;
+export const handleLoginFulfilled = (state, { payload: { newUser } }) => {
+  state.username = newUser.username;
+  state.email = newUser.email;
+  state.password = newUser.password;
+  state.token = newUser.token;
   state.isLoggedIn = true;
-  state.id = payload._id;
-  state.boards = payload.boards;
-  state.theme = payload.theme;
-  state.avatarURL = payload.avatarURL;
+  state.id = newUser._id;
+  state.boards = newUser.boards;
+  state.theme = newUser.theme;
+  state.avatarURL = newUser.avatarURL;
 };
 
 export const handleLogOutFulfilled = state => {
