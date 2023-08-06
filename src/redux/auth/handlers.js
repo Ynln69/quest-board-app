@@ -36,6 +36,7 @@ export const handleRefreshUserFullfilled = (state, { payload }) => {
   state.username = payload.user.username;
   state.email = payload.user.email;
   state.password = payload.user.password;
+  state.boards = payload.user.boards;
   state.isLoggedIn = true;
   state.isRefreshing = false;
 };

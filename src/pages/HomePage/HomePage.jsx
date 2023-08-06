@@ -9,15 +9,16 @@ import { Container } from './HomePage.styled';
 
 const HomePage = () => {
   const theme = useSelector(selectTheme);
+
   return (
     <ThemeProvider>
-<Container>
-  <Sidebar theme={theme}/>
-  <div style={{width: "100%"}}>
-  <Header theme={theme}/>
-  <Dashboard theme={theme}/>
-  </div>
-</Container>
+      <Container>
+        <Sidebar theme={theme} />
+        <div style={{ width: '100%' }}>
+          <Header theme={theme} />
+          <Dashboard theme={theme} />
+        </div>
+      </Container>
     </ThemeProvider>
   );
 };
