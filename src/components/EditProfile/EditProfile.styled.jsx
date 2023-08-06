@@ -30,7 +30,7 @@ padding: 24px;
 border-radius: 8px;
 box-shadow: 0px 2px 4px 0px rgba(22, 22, 22, 1);
 transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-background-color: var(--modal_bgc);
+background-color: #1f1f1f;
 
 cubic-bezier(0.4, 0, 0.2, 1)
  @media screen and (min-width: 375px) {
@@ -50,7 +50,7 @@ export const ModalCloseButton = styled.button`
   background-color: transparent;
   cursor: pointer;
   transition: background-color 250ms ease-in;
-  stroke: var(--modal_main_color);
+  stroke: #161616;
 
   &:hover,
   :focus {
@@ -73,8 +73,9 @@ export const FormBox = styled(Form)`
 export const FieldUser = styled(Field)`
   width: 287px;
     height: 49px;
-    color: var(--modal_main_color);
-    background-color: var(--modal_field);
+
+    color: #ffffff;
+    background-color: #1f1f1f;
     opacity: 0.4;
     border: 1px solid #bedbb0;
     padding-left: 18px;
@@ -107,13 +108,6 @@ justify-content: center;
 align-items: center;
 cursor: pointer;
 
-&:hover,
-    &:focus,
-    &:active {
-      opacity: 1;
-      box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
-    }
-
 // svg {
 //   width: 68px;
 //   height: 68px;
@@ -133,23 +127,12 @@ export const SaveBtn = styled.button`
   height: 49px;
   margin-top: 24px;
   text-align: center;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.28px;
-  background: var(--create_normal);
+
+  background: #bedbb0;
   border-radius: 8px;
-  border: 1px solid  var(--create_normal);
-  color: var(--plus_color);
+  color: #ffffff;
   cursor: pointer;
 
-  &:hover,
-  &:focus,
-  &:active {
-    background: var(--create_active);
-  }
   @media screen and (max-width: 768px) {
     width: 250px;
   }
