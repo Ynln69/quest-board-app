@@ -2,7 +2,7 @@ export const handleRegisterFulfilled = (state, { payload: { user } }) => {
   state.username = user.username;
   state.email = user.email;
   state.password = user.password;
-  state.state.token = user.token;
+  state.token = user.token;
   state.isLoggedIn = true;
   state.avatarURL = '';
 };
