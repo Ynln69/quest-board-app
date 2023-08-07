@@ -5,10 +5,8 @@ export const Container = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-
   width: 100%;
   height: 100%;
-  color: #fff;
   font-family: Poppins;
   font-size: 18px;
   font-style: normal;
@@ -40,21 +38,17 @@ cubic-bezier(0.4, 0, 0.2, 1)
   width: 400px;
 `;
 
-export const ModalCloseButton = styled.button`
-  width: 18px;
-  height: 18px;
-  position: absolute;
-  right: 14px;
-  top: 14px;
-  border-radius: 50%;
-  background-color: transparent;
-  cursor: pointer;
-  transition: background-color 250ms ease-in;
-  stroke: var(--modal_main_color);
+export const Text = styled.p`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  gap: 14px;
 
-  &:hover,
-  :focus {
-  }
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.28px;
 `;
 
 export const FormBox = styled(Form)`
@@ -97,35 +91,27 @@ export const FieldUser = styled(Field)`
   }
 `;
 
-export const PhotoInputWrapper = styled.label`
-width: 68px;
-height: 78px;
-flex-shrink: 0;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-cursor: pointer;
+export const IconUserWrapper = styled.label`
+  width: 68px;
+  height: 78px;
+  position: relative;
+  margin: 24px auto 25px;
+  border-radius: 8px;
+  background-position: center;
+  cursor: pointer;
 
-&:hover,
-    &:focus,
-    &:active {
-      opacity: 1;
-      box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
-    }
-
-// svg {
-//   width: 68px;
-//   height: 68px;
-//   fill: #fff;
-// }
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 1;
+    box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+  }
 `;
 
 export const AvatarImage = styled.img`
-width: 100%;
-height: 100%;
-object-fit: cover;
-border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 export const SaveBtn = styled.button`
@@ -141,7 +127,7 @@ export const SaveBtn = styled.button`
   letter-spacing: -0.28px;
   background: var(--create_normal);
   border-radius: 8px;
-  border: 1px solid  var(--create_normal);
+  border: 1px solid var(--create_normal);
   color: var(--plus_color);
   cursor: pointer;
 
@@ -156,26 +142,56 @@ export const SaveBtn = styled.button`
 `;
 
 export const FileInput = styled.input`
-   position: absolute;
-  width: 0;
-  height: 0;
+  position: absolute;
   opacity: 0;
   display: none;
 `;
 
-export const IconPlus = styled.svg`
-  position: absolute;
-  width: 24px;
-height: 24px;
-  cursor: pointer;
-  background-color: #bedbb0;
-  border-radius: 8px;
-  padding: 4px;
-  fill: #161616;
+export const NoneInput = styled.input`
+  display: none;
 `;
 
-export const IconUserWrapper = styled.div`
-  position: relative;
-  width: 68px;
-  height: 68px;
+export const PlusBtn = styled.button`
+  position: absolute;
+  bottom: -10%;
+  left: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+
+  width: 28px;
+  height: 28px;
+  border: none;
+  background-color: var(--add_photo_bgc);
+
+  transition: all 150ms linear;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
 `;
+
+export const IconPlus = styled.svg`
+  width: 14px;
+  height: 14px;
+  stroke: #161616;
+`;
+
+// export const ModalCloseButton = styled.button`
+//   width: 18px;
+//   height: 18px;
+//   position: absolute;
+//   right: 14px;
+//   top: 14px;
+//   border-radius: 50%;
+//   background-color: transparent;
+//   cursor: pointer;
+//   transition: background-color 250ms ease-in;
+//   stroke: var(--modal_main_color);
+
+//   &:hover,
+//   :focus {
+//   }
+// `;

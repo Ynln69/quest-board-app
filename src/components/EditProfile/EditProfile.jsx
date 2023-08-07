@@ -2,23 +2,24 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import {
-  Container,
-  ModalCloseButton,
   EditProfileModal,
   FormBox,
-  PhotoInputWrapper,
   AvatarImage,
   FieldUser,
-  FileInput,
+  NoneInput,
+  PlusBtn,
   IconPlus,
   IconUserWrapper,
   SaveBtn,
+  Container,
 } from './EditProfile.styled';
 import { updateProfileData } from 'redux/user/profileSlice';
 import Sprite from '../../images/sprite.svg';
 
 const EditProfile = ({ onClose }) => {
-  const { avatarURL,username, email, password } = useSelector(state => state.profile);
+  const { avatarURL, username, email, password } = useSelector(
+    state => state.profile
+  );
   const dispatch = useDispatch();
 
   const handleFormSubmit = async values => {
@@ -26,22 +27,22 @@ const EditProfile = ({ onClose }) => {
     onClose();
   };
 
-  const handleAvatarClick = (e) => {
+  const handleAvatarClick = e => {
     const selectedFile = e.target.files[0];
-    if (selectedFile && selectedFile.type.startsWith("image/")) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        dispatch(updateProfileData({ newPhoto: reader.result }));
-      };
-      reader.readAsDataURL(selectedFile);
+    if (selectedFile && selectedFile.type.startsWith('image/')) {
+      
+      // const formData = new FormData();
+      // formData.append('avatar', selectedFile);
+      // dispatch(formData);
+      dispatch(updateProfileData({ newPhoto: selectedFile }));
+      onClose();
     }
   };
 
   return (
     <Container>
       <EditProfileModal>
-        <div>Edit profile</div>
-        <ModalCloseButton onClick={onClose}><use xlinkHref={`${Sprite}#icon-x-close`} /></ModalCloseButton>
+        <p>Edit profile</p>
         <Formik
           initialValues={{
             newPhoto: avatarURL,
@@ -53,42 +54,40 @@ const EditProfile = ({ onClose }) => {
         >
           {({ isSubmitting, values, setFieldValue }) => (
             <FormBox>
-              <PhotoInputWrapper>
+              <IconUserWrapper onClick={handleAvatarClick}>
                 {values.newPhoto ? (
-                  <>
-                    <AvatarImage
-                      src={values.newPhoto}
-                      alt="User Avatar"
-                      width="68"
-                      height="68"
-                      onClick={handleAvatarClick}
-                    />
-                    <IconPlus onClick={handleAvatarClick}>
-                      <use href={`${Sprite}#icon-plus`} />
-                    </IconPlus>
-                  </>
-                ) : (
-                  <IconUserWrapper onClick={handleAvatarClick}>
-                    <svg className="icon-user" width="68" height="68">
-                      <use href={`${Sprite}#icon-user`} />
-                    </svg>
-                    <IconPlus onClick={handleAvatarClick}>
-                      <use href={`${Sprite}#icon-plus`} />
-                    </IconPlus>
-                  </IconUserWrapper>
-                )}
-                <FileInput
-                  id="newPhotoInput"
-                  type="file"
+                  <AvatarImage
+                   type="file"
                   name="newPhoto"
-                  onChange={event => {
-                    setFieldValue(
-                      'newPhoto',
-                      URL.createObjectURL(event.currentTarget.files[0])
-                    );
-                  }}
-                />
-              </PhotoInputWrapper>
+                  alt="Avatar"
+                  src={values.newPhoto}
+                  // onChange={e => {
+                  //   handleAvatarClick(e);
+                  //   setFieldValue('newPhoto', URL.createObjectURL(e.currentTarget.files[0]));
+                  // }}
+                  />
+                ) : (
+                  <svg className="icon-user" width="68" height="68">
+                    <use href={`${Sprite}#icon-user`} />
+                  </svg>
+                )}
+                <PlusBtn onClick={() => document.getElementById('newPhotoInput').click()}>
+                  <IconPlus>
+                    <use href={`${Sprite}#icon-plus-us`} />
+                  </IconPlus>
+                  <NoneInput
+      type="file"
+      id="newPhotoInput"
+      name="newPhoto"
+      onChange={event => {
+        setFieldValue(
+          'newPhoto',
+          URL.createObjectURL(event.currentTarget.files[0])
+        );
+      }}
+    />
+                </PlusBtn>
+              </IconUserWrapper>
               <label>
                 <FieldUser type="text" name="newName" />
                 <ErrorMessage name="newName" component="div" />
@@ -112,5 +111,45 @@ const EditProfile = ({ onClose }) => {
   );
 };
 
-
 export default EditProfile;
+
+/* <PhotoInputWrapper>
+                {values.newPhoto ? (
+                  <IconUserWrapper>
+                    <AvatarImage
+                      src={values.newPhoto}
+                      alt="User Avatar"
+                      width="68"
+                      height="68"
+                      onClick={handleAvatarClick}
+                    />
+                    <PlusBtn>
+                    <IconPlus onClick={handleAvatarClick}>
+                      <use href={`${Sprite}#icon-plus-us`} />
+                    </IconPlus>
+                    </PlusBtn>
+                                    
+                    
+                  </IconUserWrapper>
+                ) : (
+                  <IconUserWrapper onClick={handleAvatarClick}>
+                    <svg className="icon-user" width="68" height="68">
+                      <use href={`${Sprite}#icon-user`} />
+                    </svg>
+                    <IconPlus onClick={handleAvatarClick}>
+                      <use href={`${Sprite}#icon-plus-us`} />
+                    </IconPlus>
+                  </IconUserWrapper>
+                )}
+                <FileInput
+                  id="newPhotoInput"
+                  type="file"
+                  name="newPhoto"
+                  onChange={event => {
+                    setFieldValue(
+                      'newPhoto',
+                      URL.createObjectURL(event.currentTarget.files[0])
+                    );
+                  }}
+                />
+              </PhotoInputWrapper> */
