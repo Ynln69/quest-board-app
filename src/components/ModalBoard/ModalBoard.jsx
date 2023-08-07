@@ -16,7 +16,7 @@ import {
 } from './ModalBoard.styles';
 import { MainButton } from 'components/Button/Button';
 import { useDispatch } from 'react-redux';
-import { createBoard } from 'redux/boards/boardOperations';
+import { createBoard, editBoard } from 'redux/boards/boardOperations';
 
 const icons = [
   'icon-project',
@@ -48,10 +48,21 @@ const backgrounds = [
   'bg16.jpg',
 ];
 
-const initialValues = { title: '', icon: icons[0], background: backgrounds[0] };
-
-function ModalBoard({ btnContent, closeModal }) {
+function ModalBoard({ btnContent, closeModal, boardData }) {
   const dispatch = useDispatch();
+
+  const initialValues =
+    btnContent === 'Create'
+      ? {
+          title: '',
+          icon: icons[0],
+          background: backgrounds[0],
+        }
+      : {
+          title: boardData?.title,
+          icon: boardData?.icon,
+          background: boardData?.background,
+        };
 
   const handleSubmit = (values, { resetForm }) => {
     // const boardId = `3${uuidv4().replace(/-/g, '')}`;
@@ -61,7 +72,13 @@ function ModalBoard({ btnContent, closeModal }) {
       icon: values.icon,
       background: values.background,
     };
-    dispatch(createBoard(newBoard));
+    if (btnContent === 'Create') {
+      dispatch(createBoard(newBoard));
+    } else {
+      console.log(newBoard);
+      dispatch(editBoard({ newBoard, id: boardData._id }));
+    }
+
     resetForm();
     closeModal();
   };

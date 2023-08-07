@@ -6,7 +6,7 @@ export const handleCreateBoardFulfilled = (state, { payload }) => {
 };
 
 export const handleEditBoardFulfilled = (state, { payload }) => {
-  const boardToEdit = state.boards.find(board => board.id === payload.id);
+  const boardToEdit = state.boards.find(board => board._id === payload._id);
   if (boardToEdit) {
     boardToEdit.title = payload.title;
     boardToEdit.icon = payload.icon;
@@ -15,7 +15,10 @@ export const handleEditBoardFulfilled = (state, { payload }) => {
 };
 
 export const handleDeleteBoardFulfilled = (state, { payload }) => {
-  state.boards.filter(board => board.id !== payload.id);
+  return {
+    ...state,
+    boards: [...state.boards.filter(board => board._id !== payload.id)],
+  };
 };
 
 export const handlePending = (state, { payload }) => {
