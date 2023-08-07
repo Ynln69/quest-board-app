@@ -10,12 +10,16 @@ export const handleRegisterFulfilled = (state, { payload: { user } }) => {
 //   state.avatarURL = payload.picture;
 // };
 
-export const handleLoginFulfilled = (state, { payload: { user, token } }) => {
+export const handleLoginFulfilled = (state, { payload: { user } }) => {
   state.username = user.username;
   state.email = user.email;
   state.password = user.password;
-  state.token = token;
+  state.token = user.token;
   state.isLoggedIn = true;
+  state.id = user._id;
+  state.boards = user.boards;
+  state.theme = user.theme;
+  state.avatarURL = user.avatarURL;
   state.id = user._id;
   state.boards = user.boards;
   state.theme = user.theme;
@@ -48,4 +52,5 @@ export const handleRefreshUserFullfilled = (state, { payload: { user } }) => {
   state.boards = user.boards;
   state.theme = user.theme;
   state.avatarURL = user.avatarURL;
+  state.isRefreshing = false;
 };
