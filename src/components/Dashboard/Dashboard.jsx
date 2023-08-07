@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { HeaderDashboard } from 'components/HeaderDashboard/HeaderDashboard';
 import { MainDashboard } from 'components/MainDashboard/MainDashboard';
 import { initialUserModel } from 'schemas/initialUserModal';
+import { ContainerDashboard } from './Dashboard.styled';
 
 export const Dashboard = () => {
   // в cardData я поместил именно обект boardsData отдельной boards
@@ -11,9 +12,9 @@ export const Dashboard = () => {
   );
 
   return (
-    <div>
+    <ContainerDashboard>
       <HeaderDashboard />
       <MainDashboard cardData={cardData} setCardData={setCardData} />
-    </div>
+    </ContainerDashboard>
   );
 };

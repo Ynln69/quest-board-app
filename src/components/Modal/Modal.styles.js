@@ -56,9 +56,10 @@ export const CloseBtn = styled.svg`
   background-color: transparent;
   cursor: pointer;
   transition: background-color 250ms ease-in;
-  stroke: #161616;
+  stroke: var(--close_icon);
 
   &:hover,
   :focus {
+    stroke: var(--close_active);
   }
 `;
