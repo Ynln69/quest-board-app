@@ -1,49 +1,30 @@
 import { useState } from 'react';
-import styled from '@emotion/styled';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Column } from 'components/Column/Column';
 
-const Container = styled.div`
-  display: flex;
-
-  position: relative;
-`;
-
-const ContainerModal = styled.div`
-  width: 200px;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  background-color: #beb7b7;
-
-  position: absolute;
-  z-index: 999;
-  left: 50%;
-  top: 50%;
-`;
+//add Elvira
+import AddColumn from 'components/Column/AddColumn/AddColumn';
+import { Container, Button, BoxSvg, SvgAdd } from './MainDashboard.styled';
+import sprite from '../../images/sprite.svg';
 
 export const MainDashboard = ({ cardData, setCardData }) => {
   // кто будет делать этот блок, обратите внимание что именно приходит в cardData
 
   const [visible, setVisible] = useState(false);
-  const [titleColumn, setTitleColumn] = useState('');
 
-  const hendleVisible = () => {
+  const handlerVisible = () => {
     setVisible(!visible);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = data => {
     const columnId = `2${uuidv4().replace(/-/g, '')}`;
 
     const newColumn = {
       [columnId]: {
         id: columnId,
-        title: titleColumn,
+        title: data,
         taskIds: [],
       },
     };
@@ -57,7 +38,7 @@ export const MainDashboard = ({ cardData, setCardData }) => {
       columnOrder: [...cardData.columnOrder, ...[columnId]],
     });
 
-    hendleVisible();
+    handlerVisible();
   };
 
   // Эти три функции ниже отвечают за главный функционал переставления карточек между колонками и в колонках
@@ -129,8 +110,6 @@ export const MainDashboard = ({ cardData, setCardData }) => {
         },
       };
 
-      console.log(newState);
-
       setCardData(newState);
       return;
     }
@@ -199,30 +178,25 @@ export const MainDashboard = ({ cardData, setCardData }) => {
         </Droppable>
       </DragDropContext>
 
-      <button
-        style={{ height: '50px', width: '200px' }}
-        onClick={hendleVisible}
-      >
-        Add another card
-      </button>
+      <li>
+        <Button onClick={handlerVisible}>
+          <BoxSvg>
+            <SvgAdd>
+              <use href={`${sprite}#icon-plus`} />
+            </SvgAdd>
+          </BoxSvg>
+          Add another column
+        </Button>
+      </li>
 
       {visible && (
-        <ContainerModal>
-          Add Column
-          <label>
-            Column title
-            <input
-              type="text"
-              value={titleColumn}
-              onChange={e => {
-                setTitleColumn(e.target.value);
-              }}
-            />
-          </label>
-          <button type="submit" onClick={handleSubmit}>
-            Add Column
-          </button>
-        </ContainerModal>
+        <>
+          <AddColumn
+            closeColumnModal={handlerVisible}
+            handleSubmit={handleSubmit}
+            title={'Add column'}
+          />
+        </>
       )}
     </div>
   );
