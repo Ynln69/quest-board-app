@@ -156,3 +156,38 @@ export const Flower = styled.img`
   margin-bottom: 14px;
   display: block;
 `;
+export const BoardIcon = styled.svg`
+width: 18px;
+height: 18px;
+`
+
+export const BoardList = styled.li`
+display: flex;
+align-items: center;
+font-weight: 500;
+letter-spacing: -0.28px;
+`
+
+export const EditIcon = styled.svg`
+width: 16px;
+height: 16px;
+margin-right: 8px;
+&:last-child{
+  margin-right: 0;
+}
+&.theme-violet{
+  fill: var(  --add_btn_bgc)
+}
+&.theme-dark {
+  fill: #FFFFFF;
+}
+`
+
+export const TItleBoard = styled.div`
+display: flex;
+`
+
+export const BoardIcons = styled.div`
+display: flex;
+margin-left: auto;
+`
