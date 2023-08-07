@@ -6,7 +6,7 @@ export const Container = styled.div`
   justify-content: space-between;
   width: auto;
   max-width: 100%;
-  color: #ffffff;
+  // color: #ffffff;
   height: 68px;
   padding: 14px 20px;
   background-color: var(--header_bgc);
@@ -19,11 +19,6 @@ export const Container = styled.div`
   @media (max-width: 768px) {
     padding: 18px 24px;
   }
-`;
-
-export const HeaderNav = styled.div`
-  display: flex;
-  align-items: center;
 `;
 
 export const MenuIcon = styled.svg`
@@ -47,9 +42,21 @@ export const HeaderWrap = styled.div`
   gap: 14px;
 `;
 
+export const HeaderNav = styled.div`
+position: relative;
+display: inline-flex;
+justify-content: center;
+align-items: center;
+gap: 4px;
+margin-right: 14px;
+cursor: pointer;
+`;
+
 export const SelectIcon = styled.svg`
   width: 16px;
   height: 16px;
   margin-left: 4px;
-  color: var(--user_icon);
+  color: var(--header_user_text);
+  fill: transparent;
+  z-index: 999;
 `;

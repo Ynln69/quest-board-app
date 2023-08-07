@@ -4,20 +4,19 @@ import UserInfo from 'components/UserInfo/UserInfo';
 import { setTheme } from 'redux/theme/themeSlice';
 import { selectTheme } from 'redux/theme/selectors';
 import { Sidebar } from 'components/Sidebar/Sidebar';
-import ThemeSelector from 'components/ThemeSelector/ThemeSelector.styled';
+import ThemeSelector from 'components/ThemeSelector/ThemeSelector';
 import {
   Container,
   HeaderNav,
   MenuIcon,
-  SelectIcon,
   HeaderWrap,
+  SelectIcon,
 } from './Header.styled';
 import Sprite from '../../images/sprite.svg';
 
 const Header = () => {
   const dispatch = useDispatch();
   const theme = useSelector(selectTheme);
-  const [isOptionListOpen, setOptionListOpen] = useState(false);
   const [isSideBarOpen, setSideBarOpen] = useState(false);
   const [isThemeSelectorOpen, setThemeSelectorOpen] = useState(false);
 
@@ -48,16 +47,12 @@ const Header = () => {
     }
   };
 
-  const toggleOptionList = () => {
-    setOptionListOpen(!isOptionListOpen);
-  };
-
   const toggleSideBar = () => {
     setSideBarOpen(!isSideBarOpen);
   };
 
   const toggleThemeSelector = () => {
-    setThemeSelectorOpen(!isThemeSelectorOpen);
+    setThemeSelectorOpen(!isThemeSelectorOpen); // Toggle the state for isThemeSelectorOpen
   };
 
   return (
@@ -69,10 +64,12 @@ const Header = () => {
       </div>
       {isSideBarOpen && <Sidebar />}
       <HeaderWrap>
-        <HeaderNav onClick={toggleOptionList} value={theme}>
+        <HeaderNav>
           <div>
             <SelectIcon
               className={`icon-chevron-down theme-${theme}`}
+              width="16"
+              height="16"
               onClick={toggleThemeSelector}
             >
               <use href={`${Sprite}#icon-chevron-down`} />
@@ -80,7 +77,9 @@ const Header = () => {
           </div>
           Theme
         </HeaderNav>
-        {isThemeSelectorOpen && <ThemeSelector />} 
+        {isThemeSelectorOpen && (
+          <ThemeSelector onClose={() => setThemeSelectorOpen(false)} />
+        )}
         <UserInfo />
       </HeaderWrap>
       {isSideBarOpen && <Sidebar theme={theme} isOpen={isSideBarOpen} />}
@@ -89,10 +88,6 @@ const Header = () => {
 };
 
 export default Header;
-
-
-
-
 
 // import React, { useState, useEffect } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
@@ -109,7 +104,6 @@ export default Header;
 //   HeaderWrap,
 // } from './Header.styled';
 // import Sprite from '../../images/sprite.svg';
-
 
 // const Header = () => {
 //   const dispatch = useDispatch();
@@ -163,10 +157,10 @@ export default Header;
 
 //     document.body.classList.remove(theme);
 //     document.body.classList.add(newTheme);
-  
+
 //     dispatch(setTheme(newTheme)); // Update the local theme state immediately
 //     sendThemeToBackend(newTheme); // Save the theme in localStorage (this part seems correct)
-  
+
 //        dispatch(updateTheme({ theme: newTheme }))
 //       .unwrap()
 //       .catch((error) => {

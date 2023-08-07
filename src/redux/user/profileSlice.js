@@ -3,7 +3,7 @@ import { updateProfile } from './operations';
 
 const initialState = {
   avatarURL: null,
-  username: null,
+  username: 'ivetta',
   email: null,
   password: null,
 };
