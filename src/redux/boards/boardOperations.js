@@ -21,9 +21,11 @@ export const createBoard = createAsyncThunk(
 );
 
 export const editBoard = createAsyncThunk(
-  'boards/editBoard',
-  async (credentials, { rejectWithValue }) => {
+  'boards/editBoard/',
+  async ({ newBoard, id }, { rejectWithValue }) => {
     try {
+      const { data } = await axios.patch(`/api/boards/${id}`, newBoard);
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -34,8 +36,8 @@ export const deleteBoard = createAsyncThunk(
   'boards/deleteBoard',
   async (boardId, { rejectWithValue }) => {
     try {
-      const res = await axios.delete(`/api/boards/${boardId}`);
-      return res;
+      const { data } = await axios.delete(`/api/boards/${boardId}`);
+      return { data, id: boardId };
     } catch (error) {
       return rejectWithValue(error.message);
     }

@@ -52,7 +52,7 @@ export const IconsWrapper = styled.div`
 export const StyledSVG = styled.svg`
   width: 18px;
   height: 18px;
-  fill: #fff;
+  fill: rgba(0, 0, 0, 0);
   stroke: rgba(22, 22, 22, 0.5);
 `;
 
