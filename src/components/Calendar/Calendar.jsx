@@ -11,6 +11,7 @@ export const Calendar = () => {
   const result = formatDistanceToNowStrict(Date.parse(selectedDate), {
     includeSeconds: true,
   });
+  console.log(result);
 
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => {
     const formatDate = () => {
