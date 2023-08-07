@@ -1,61 +1,39 @@
 import { useState } from 'react';
-import styled from '@emotion/styled';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { Task } from 'components/Task/Task';
-
-const Container = styled.div`
-  margin: 8px;
-  border: 1px solid lightgrey;
-  border-radius: 2px;
-  background-color: white;
-  width: 220px;
-
-  display: flex;
-  flex-direction: column;
-`;
-
-const Title = styled.h3`
-  padding: 8px;
-`;
-
-const TaskList = styled.div`
-  padding: 8px;
-  transition: background-color 0.2s ease;
-  background-color: ${props => (props.isDraggingOver ? 'skyblue' : 'inherit')};
-
-  flex-grow: 1;
-  min-height: 100px;
-`;
-
-const ContainerModal = styled.div`
-  width: 200px;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  background-color: #beb7b7;
-
-  position: absolute;
-  z-index: 999;
-  left: 800px;
-  top: 200px;
-`;
+import AddColumn from './AddColumn/AddColumn';
+import {
+  Container,
+  Title,
+  TitleBox,
+  TaskList,
+  ContainerModal,
+  Svg,
+  BoxSvg,
+  SvgAdd,
+  BoxAddSvg,
+  Button,
+} from './Column.styled';
+import sprite from '../../images/sprite.svg';
 
 export const Column = ({ column, tasks, index, cardData, setCardData }) => {
   const [visible, setVisible] = useState(false);
   const [dataForModal, setDataForModal] = useState(column);
   const [titleTask, setTitleTask] = useState('');
+  const [showEditModal, setShowEditModal] = useState(false);
 
   if (true === false) {
     console.log(setDataForModal);
   }
 
-  const hendleVisible = () => {
+  const handleVisible = () => {
     setVisible(!visible);
+  };
+
+  const handleVisibleEdit = () => {
+    setShowEditModal(!showEditModal);
   };
 
   const handleSubmit = () => {
@@ -90,14 +68,34 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
       },
     }));
 
-    hendleVisible();
+    handleVisible();
   };
+
+  const handleEdit = e => {
+    handleVisibleEdit();
+    // console.log(column.title);
+    // console.log(column);
+    // column.title;
+    // const newColumn = {title: }
+  };
+
+  const handleDelete = () => {};
 
   return (
     <Draggable draggableId={column.id} index={index}>
       {provided => (
         <Container {...provided.draggableProps} ref={provided.innerRef}>
-          <Title {...provided.dragHandleProps}>{column.title}</Title>
+          <TitleBox {...provided.dragHandleProps}>
+            <Title>{column.title}</Title>
+            <BoxSvg>
+              <Svg onClick={handleEdit}>
+                <use href={`${sprite}#icon-pencil`} />
+              </Svg>
+              <Svg onClick={handleDelete}>
+                <use href={`${sprite}#icon-trash`} />
+              </Svg>
+            </BoxSvg>
+          </TitleBox>
           <Droppable droppableId={column.id} type="task">
             {(provided, snapshot) => (
               <TaskList
@@ -112,8 +110,23 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
               </TaskList>
             )}
           </Droppable>
-          <button onClick={hendleVisible}>Add another card</button>
+          <Button onClick={handleVisible}>
+            <BoxAddSvg>
+              <SvgAdd>
+                <use href={`${sprite}#icon-plus`} />
+              </SvgAdd>
+            </BoxAddSvg>
+            Add another card
+          </Button>
 
+          {showEditModal && (
+            <AddColumn
+              title={'Edit column'}
+              nameTitle={column.title}
+              closeColumnModal={handleVisibleEdit}
+              handleSubmit={handleSubmit}
+            />
+          )}
           {visible && (
             <ContainerModal>
               Add Task
