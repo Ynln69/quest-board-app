@@ -19,28 +19,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dark Theme */
-body.dark {
-  --background-color: #1f1f1f;
-  --text-color: #ffffff;
-}
-
-/* public/light.css */
-body {
-  background-color: #f2f2f2;
-  color: #333;
-}
-
-/* Violet Theme */
-body.violet {
-  --background-color: #6a1b9a;
-  --text-color: #fff;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 * {
   box-sizing: border-box;
 }
@@ -79,10 +57,10 @@ a:visited {
   color: none;
 }
 
-button,
-input {
-  background-color: inherit;
-}
+// button,
+// input {
+//   background-color: inherit;
+// }
 
 button {
   cursor: pointer;

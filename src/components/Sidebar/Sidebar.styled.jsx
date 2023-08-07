@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 
 export const SidebarBlock = styled.aside`
+  display: flex;
+  flex-direction: column;
   width: 260px;
   min-height: 100vh;
   padding: 24px;
@@ -20,6 +22,14 @@ export const SidebarBlock = styled.aside`
 
   @media (max-width: 1439px) {
     display: none;
+  }
+  &.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
   }
 `;
 
@@ -67,7 +77,7 @@ export const BoardTitleBlock = styled.div`
   font-weight: 500;
   letter-spacing: -0.28px;
   display: flex;
- align-items: center;
+  align-items: center;
   margin-bottom: 40px;
 `;
 
@@ -102,7 +112,7 @@ export const NeedHelpBlock = styled.div`
   border-radius: 8px;
   margin-bottom: 24px;
   padding: 20px;
-
+  margin-top: auto;
   &.theme-light {
     background-color: #f6f6f7;
     color: #161616;
@@ -145,4 +155,39 @@ export const LogoutBtn = styled.button`
 export const Flower = styled.img`
   margin-bottom: 14px;
   display: block;
+`;
+export const BoardIcon = styled.svg`
+  width: 18px;
+  height: 18px;
+`;
+
+export const BoardList = styled.li`
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  letter-spacing: -0.28px;
+`;
+
+export const EditIcon = styled.svg`
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  &:last-child {
+    margin-right: 0;
+  }
+  &.theme-violet {
+    fill: var(--add_btn_bgc);
+  }
+  &.theme-dark {
+    fill: #ffffff;
+  }
+`;
+
+export const TItleBoard = styled.div`
+  display: flex;
+`;
+
+export const BoardIcons = styled.div`
+  display: flex;
+  margin-left: auto;
 `;

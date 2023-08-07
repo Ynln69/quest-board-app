@@ -11,7 +11,7 @@ export const updateProfile = createAsyncThunk(
   'user/updateProfile',
   async data => {
     try {
-      const response = await axios.put('/api/profile', data);
+      const response = await axios.patch('api/users/data', data);
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {

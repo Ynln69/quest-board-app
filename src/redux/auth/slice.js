@@ -3,6 +3,7 @@ import { register, logIn, logOut, refreshUser } from './operations';
 import * as handlersForRegisterLogin from './handlers';
 
 export const initialState = {
+  id: null,
   username: null,
   email: null,
   password: null,
@@ -24,15 +25,30 @@ const authSlice = createSlice({
         refreshUser.fulfilled,
         handlersForRegisterLogin.handleRefreshUserFullfilled
       )
+      .addCase(
+        register.fulfilled,
+        handlersForRegisterLogin.handleRegisterFulfilled
+      )
+      .addCase(logIn.fulfilled, handlersForRegisterLogin.handleLoginFulfilled)
       .addMatcher(
         isAnyOf(refreshUser.pending, refreshUser.rejected),
         handlersForRegisterLogin.toggleIsRefreshing
-      )
-      .addMatcher(
-        isAnyOf(register.fulfilled, logIn.fulfilled),
-        handlersForRegisterLogin.handleRegisterLoginFulfilled
       );
+
+    // .addMatcher(
+    //   isAnyOf(register.fulfilled, logIn.fulfilled),
+    //   handlersForRegisterLogin.handleRegisterLoginFulfilled
+    // );
   },
 });
 
 export const authReducer = authSlice.reducer;
+
+// .addMatcher(
+//         isAnyOf(
+//           createBoard.fulfilled,
+//           editBoard.fulfilled,
+//           deleteBoard.fulfilled
+//         ),
+//         handlersForRegisterLogin.handleAddBoardFulfilled
+//       );

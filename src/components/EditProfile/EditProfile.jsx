@@ -18,7 +18,7 @@ import { updateProfileData } from 'redux/user/profileSlice';
 import Sprite from '../../images/sprite.svg';
 
 const EditProfile = ({ onClose }) => {
-  const { photo, name, email, password } = useSelector(state => state.profile);
+  const { avatarURL,username, email, password } = useSelector(state => state.profile);
   const dispatch = useDispatch();
 
   const handleFormSubmit = async values => {
@@ -26,8 +26,15 @@ const EditProfile = ({ onClose }) => {
     onClose();
   };
 
-  const handleAvatarClick = () => {
-    document.getElementById('newPhotoInput').click();
+  const handleAvatarClick = (e) => {
+    const selectedFile = e.target.files[0];
+    if (selectedFile && selectedFile.type.startsWith("image/")) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        dispatch(updateProfileData({ newPhoto: reader.result }));
+      };
+      reader.readAsDataURL(selectedFile);
+    }
   };
 
   return (
@@ -37,8 +44,8 @@ const EditProfile = ({ onClose }) => {
         <ModalCloseButton onClick={onClose}><use xlinkHref={`${Sprite}#icon-x-close`} /></ModalCloseButton>
         <Formik
           initialValues={{
-            newPhoto: photo,
-            newName: name,
+            newPhoto: avatarURL,
+            newName: username,
             newEmail: email,
             newPassword: password,
           }}
@@ -104,5 +111,6 @@ const EditProfile = ({ onClose }) => {
     </Container>
   );
 };
+
 
 export default EditProfile;

@@ -24,7 +24,7 @@ export const ModalWindow = styled.div`
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  background-color: rgb(252, 252, 252);
+  background-color: var(--modal_bgc);
 
   @media screen and (min-width: 375px) {
     width: 335px;
@@ -36,7 +36,8 @@ export const ModalWindow = styled.div`
 
 export const Heading = styled.h3`
   margin-bottom: 24px;
-  color: #161616;
+
+  color: var(--modal_main_color);
   font-family: Poppins;
   font-size: 18px;
   font-style: normal;

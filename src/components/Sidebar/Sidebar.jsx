@@ -12,16 +12,45 @@ import {
   HelpContent,
   LogoutBtn,
   Flower,
+  BoardIcon,
+  BoardList,
+  EditIcon,
+  BoardIcons,
+  TItleBoard,
 } from './Sidebar.styled';
 import sprite from '../../images/sprite.svg';
 import flower from '../../images/flower.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { logOut } from 'redux/auth/operations';
 import NeedHelpModal from 'components/NeedHelp/NeedHelpModal';
 import AddBoard from './AddBoard/AddBoard';
+import EditBoard from './EditBoard/EditBoard';
+import { deleteBoard } from 'redux/boards/boardOperations';
+import { selectBoards } from 'redux/boards/boardsSelectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { getBoards } from 'redux/boards/boardOperations';
 
 export function Sidebar({ theme, isOpen }) {
   const [isShow, setIsShow] = useState(false);
+  const [editBoard, setEditBoard] = useState(false);
   const [openBoard, setOpenBoard] = useState(false);
+  const selectBoard = useSelector(selectBoards);
+  const dispatch = useDispatch();
+
+  useEffect(
+    () => {
+      dispatch(getBoards());
+    },
+    [dispatch],
+    selectBoard
+  );
+
+  const showEditBoardModal = () => {
+    setEditBoard(true);
+  };
+  const closeEditBoardModal = () => {
+    setEditBoard(false);
+  };
 
   const showBoardModal = () => {
     setOpenBoard(true);
@@ -36,6 +65,11 @@ export function Sidebar({ theme, isOpen }) {
 
   const closeModal = () => {
     setIsShow(false);
+  };
+
+  const handleLogout = () => {
+    console.log('logout');
+    dispatch(logOut());
   };
 
   return (
@@ -56,6 +90,33 @@ export function Sidebar({ theme, isOpen }) {
         </SvgAdd>
         {openBoard && <AddBoard closeBoardModal={closeBoardModal} />}
       </BoardTitleBlock>
+      {selectBoard.map(board => (
+        <ul>
+          <li>
+            <BoardList>
+              <TItleBoard>
+                <BoardIcon>
+                  <use href={`${sprite}#${board.icon}`} />
+                </BoardIcon>
+
+                {board.title}
+              </TItleBoard>
+              <BoardIcons>
+                <EditIcon>
+                  <use
+                    href={`${sprite}#icon-pencil`}
+                    onClick={showEditBoardModal}
+                  />
+                </EditIcon>
+                <EditIcon onClick={() => dispatch(deleteBoard(board._id))}>
+                  <use href={`${sprite}#icon-trash`} />
+                </EditIcon>
+              </BoardIcons>
+            </BoardList>
+          </li>
+          {editBoard && <EditBoard closeBoardModal={closeEditBoardModal} />}
+        </ul>
+      ))}
 
       <NeedHelpBlock className={`theme-${theme}`}>
         <Flower src={flower} alt="flower" />
@@ -75,7 +136,7 @@ export function Sidebar({ theme, isOpen }) {
         {isShow && <NeedHelpModal closeModal={closeModal} />}
       </NeedHelpBlock>
 
-      <LogoutBtn type="button" name="logout">
+      <LogoutBtn type="button" name="logout" onClick={handleLogout}>
         Log out
       </LogoutBtn>
     </SidebarBlock>

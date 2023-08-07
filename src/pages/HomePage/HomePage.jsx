@@ -5,16 +5,20 @@ import Header from 'components/Header/Header';
 import { Sidebar } from 'components/Sidebar/Sidebar';
 import { Dashboard } from 'components/Dashboard/Dashboard';
 import { selectTheme } from 'redux/theme/selectors';
+import { Container } from './HomePage.styled';
 
 const HomePage = () => {
   const theme = useSelector(selectTheme);
+
   return (
     <ThemeProvider>
-      <Header theme={theme}/>
-      <div style={{ display: 'flex' }}>
-        <Sidebar theme={theme}/>
-        <Dashboard theme={theme}/>
-      </div>
+      <Container>
+        <Sidebar theme={theme} />
+        <div style={{ width: '100%' }}>
+          <Header theme={theme} />
+          <Dashboard theme={theme} />
+        </div>
+      </Container>
     </ThemeProvider>
   );
 };
