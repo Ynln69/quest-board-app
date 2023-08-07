@@ -67,11 +67,6 @@ export function Sidebar({ theme, isOpen }) {
     setIsShow(false);
   };
 
-  const handleLogout = () => {
-    console.log('logout');
-    dispatch(logOut());
-  };
-
   return (
     <SidebarBlock className={`theme-${theme} ${isOpen ? 'open' : 'closed'}`}>
       <TitleBlock>
@@ -136,7 +131,7 @@ export function Sidebar({ theme, isOpen }) {
         {isShow && <NeedHelpModal closeModal={closeModal} />}
       </NeedHelpBlock>
 
-      <LogoutBtn type="button" name="logout" onClick={handleLogout}>
+      <LogoutBtn type="button" name="logout" onClick={() => dispatch(logOut())}>
         Log out
       </LogoutBtn>
     </SidebarBlock>

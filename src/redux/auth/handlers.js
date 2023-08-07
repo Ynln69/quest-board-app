@@ -20,10 +20,6 @@ export const handleLoginFulfilled = (state, { payload: { user } }) => {
   state.boards = user.boards;
   state.theme = user.theme;
   state.avatarURL = user.avatarURL;
-  state.id = user._id;
-  state.boards = user.boards;
-  state.theme = user.theme;
-  state.avatarURL = user.avatarURL;
 };
 
 export const handleLogOutFulfilled = state => {
