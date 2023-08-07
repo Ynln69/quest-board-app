@@ -6,6 +6,8 @@ import RestrictedRoute from 'components/RestrictedRoute';
 import { RegisterForm } from 'components/RegisterForm/Registerform';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 
+import { Loader } from 'components/Loader/Loader';
+
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
