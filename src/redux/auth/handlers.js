@@ -47,11 +47,6 @@ export const handleRefreshUserFullfilled = (state, { payload: { user } }) => {
   state.email = user.email;
   state.password = user.password;
   state.token = user.token;
-export const handleRefreshUserFullfilled = (state, { payload: { user } }) => {
-  state.username = user.username;
-  state.email = user.email;
-  state.password = user.password;
-  state.token = user.token;
   state.isLoggedIn = true;
   state.id = user._id;
   state.boards = user.boards;
