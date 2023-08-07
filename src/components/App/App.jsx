@@ -6,8 +6,6 @@ import RestrictedRoute from 'components/RestrictedRoute';
 import { RegisterForm } from 'components/RegisterForm/Registerform';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 
-import { PropagateLoader } from 'react-spinners';
-
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
@@ -24,15 +22,25 @@ export const App = () => {
             height: '100vh',
           }}
         >
-          <PropagateLoader color="#BEDBB0" size={20} />
+          <Loader color="#BEDBB0" size={20} />
         </div>
       }
     >
       <Routes>
-        <Route path="/" element={<WelcomePage />} />
-        <Route index element={<WelcomePage />} />
-        <Route path="/auth/:id" element={<AuthPage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route
+          path="/"
+          element={
+            <RestrictedRoute redirectTo="/home" component={<WelcomePage />} />
+          }
+        />
+        <Route
+          path="/auth/:id"
+          element={<PrivateRoute redirectTo="/home" component={<AuthPage />} />}
+        />
+        <Route
+          path="/home"
+          element={<PrivateRoute redirectTo="/" component={<HomePage />} />}
+        />
         <Route
           path="/auth/register"
           element={
@@ -47,7 +55,9 @@ export const App = () => {
         />
         <Route
           path="/home"
-          element={<PrivateRoute redirectTo="/" component={<WelcomePage />} />}
+          element={
+            <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
+          }
         />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
