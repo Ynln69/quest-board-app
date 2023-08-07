@@ -41,14 +41,14 @@ export const toggleIsRefreshing = state => {
 };
 
 export const handleRefreshUserFullfilled = (state, { payload: { result } }) => {
-  state.username = result.username;
-  state.email = result.email;
-  state.password = result.password;
-  state.token = result.token;
-  state.isLoggedIn = true;
-  state.id = result._id;
-  state.boards = result.boards;
-  state.theme = result.theme;
-  state.avatarURL = result.avatarURL;
-  state.isRefreshing = false;
+  // state.username = result.username;
+  // state.email = result.email;
+  // state.password = result.password;
+  // state.token = result.token;
+  // state.isLoggedIn = true;
+  // state.id = result._id;
+  // state.boards = result.boards;
+  // state.theme = result.theme;
+  // state.avatarURL = result.avatarURL;
+  // state.isRefreshing = false;
 };
