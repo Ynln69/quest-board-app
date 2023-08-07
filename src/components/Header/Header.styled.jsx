@@ -51,4 +51,5 @@ export const SelectIcon = styled.svg`
   width: 16px;
   height: 16px;
   margin-left: 4px;
+  color: var(--user_icon);
 `;
