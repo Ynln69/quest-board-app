@@ -32,7 +32,7 @@ import { getBoards } from 'redux/boards/boardOperations';
 
 export function Sidebar({ theme, isOpen }) {
   const [isShow, setIsShow] = useState(false);
-    const [editBoard, setEditBoard] = useState(false);
+  const [editBoard, setEditBoard] = useState(false);
   const [openBoard, setOpenBoard] = useState(false);
   const selectBoard = useSelector(selectBoards);
   const dispatch = useDispatch();
@@ -51,7 +51,6 @@ export function Sidebar({ theme, isOpen }) {
   const closeEditBoardModal = () => {
     setEditBoard(false);
   };
-
 
   const showBoardModal = () => {
     setOpenBoard(true);
@@ -104,10 +103,13 @@ export function Sidebar({ theme, isOpen }) {
               </TItleBoard>
               <BoardIcons>
                 <EditIcon>
-                  <use href={`${sprite}#icon-pencil`} onClick={showEditBoardModal} />
+                  <use
+                    href={`${sprite}#icon-pencil`}
+                    onClick={showEditBoardModal}
+                  />
                 </EditIcon>
-                <EditIcon onClick={()=>dispatch(deleteBoard(board._id))}>
-                  <use href={`${sprite}#icon-trash`}/>
+                <EditIcon onClick={() => dispatch(deleteBoard(board._id))}>
+                  <use href={`${sprite}#icon-trash`} />
                 </EditIcon>
               </BoardIcons>
             </BoardList>
