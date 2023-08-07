@@ -7,8 +7,10 @@ export const StyledInputField = styled(Field)`
   margin-bottom: 24px;
 
   border-radius: 8px;
-  border: 1px solid rgba(190, 219, 176, 0.4);
+  border: 1px solid var(--input_color);
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+  opacity: 0.4;
+  background-color: var(--modal_bgc);
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -19,7 +21,7 @@ export const StyledInputField = styled(Field)`
   &:focus,
   &:active {
     outline: none;
-    border: 1px solid #bedbb0;
+    opacity: 1;
   }
 `;
 

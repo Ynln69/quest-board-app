@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setTheme } from 'redux/theme/themeSlice';
 import { selectTheme } from 'redux/theme/selectors';
 import { updateTheme } from 'redux/theme/operations';
+import { Container, Select, Option } from './ThemeSelector.styled';
 
-const ThemeSelector = () => {
+const ThemeSelector = ({ onClose }) => {
   const dispatch = useDispatch();
   const theme = useSelector(selectTheme);
 
@@ -23,19 +24,23 @@ const ThemeSelector = () => {
 
     try {
       await dispatch(updateTheme({ theme: newTheme }));
-      localStorage.setItem('theme', newTheme); 
+      localStorage.setItem('theme', newTheme);
     } catch (error) {
       console.log('Error updating theme:', error);
     }
+    onClose();
   };
 
   return (
-    <select value={theme} onChange={onToggleTheme}>
-      <option value="light">Light</option>
-      <option value="dark">Dark</option>
-      <option value="violet">Violet</option>
-    </select>
+    <Container >
+      <Select value={theme} onChange={onToggleTheme} >
+        
+        <Option value="light">Light</Option>
+        <Option value="dark">Dark</Option>
+        <Option value="violet">Violet</Option>
+      
+              </Select>
+    </Container>
   );
 };
-
 export default ThemeSelector;

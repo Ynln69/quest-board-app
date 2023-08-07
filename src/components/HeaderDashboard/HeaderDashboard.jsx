@@ -6,7 +6,6 @@ export const HeaderDashboard = () => {
         alignItems: 'center',
         justifyContent: 'space-around',
         height: '80px',
-        backgroundColor: 'lightgray',
         widows: '100%',
       }}
     >

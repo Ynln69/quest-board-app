@@ -12,6 +12,9 @@ body.dark {
   --theme_color: rgba(255, 255, 255, 0.5);
   --theme_active: #bedbb0;
   --border_theme: #bedbb0;
+  --border_theme: #ecedfd;
+  --theme_bgc: #151515;
+  --theme_shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
   --header_user_text: #ffffff;
   --user_bgc: #1f1f1f;
   --user_icon: #151515;
@@ -31,6 +34,8 @@ body.dark {
   --modal_data_color: #bedbb0;
   --input_color: #bedbb0;
   --modal_field: #151515;
+  --close_icon: #ffffff;
+  --close_active: #9dc888;
 
   --normal_btn: #bedbb0;
   --active_btn: #9dc888;

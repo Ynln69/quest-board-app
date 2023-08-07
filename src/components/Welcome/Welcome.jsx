@@ -5,6 +5,8 @@ import icons from '../../images/sprite.svg';
 // import axios from 'axios';
 // import { useDispatch } from 'react-redux';
 // import { register } from '../../redux/auth/operations';
+// import { GoogleBtn } from 'components/GoogleBtn/GoogleBtn';
+
 import {
   Container,
   Wrapper,
@@ -19,6 +21,8 @@ import {
 } from './Welcome.styled';
 
 function Welcome() {
+  // НЕ ВИДАЛЯТИ!!!1!!!!!!!!!!!!!
+
   // const [user, setUser] = useState([]);
   // const [profile, setProfile] = useState([]);
 
@@ -38,7 +42,7 @@ function Welcome() {
 
   // useEffect(() => {
   //   if (user) {
-  //     console.log(user.access_token);
+  //     // console.log(user.access_token);
   //     axios
   //       .get(
   //         `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
@@ -50,7 +54,7 @@ function Welcome() {
   //         }
   //       )
   //       .then(res => {
-  //         console.log(res.data);
+  //         // console.log(res.data);
   //         setProfile(res.data);
   //         dispatch(
   //           register({
@@ -82,6 +86,7 @@ function Welcome() {
         <AuthWrapper>
           <RegButton to="auth/register">Registration</RegButton>
           <LogButton to="auth/login">Log In</LogButton>
+
           {/* {profile ? (
             <div>
               <img src={profile.picture} alt="user avatar" />
@@ -90,10 +95,13 @@ function Welcome() {
               <p>Email Address: {profile.email}</p>
               <br />
               <br />
-              <button onClick={logOut}>Log out</button>
+              <GoogleBtn onClick={logOut} text={'Log out'}></GoogleBtn>
             </div>
           ) : (
-            <button onClick={() => login()}>Sign in with Google 🚀 </button>
+            <GoogleBtn
+              onClick={() => login()}
+              text={'Sign in with Google'}
+            ></GoogleBtn>
           )} */}
         </AuthWrapper>
       </Wrapper>
