@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/quest-board-app/static/css/main.016c0e4f.css",
-    "main.js": "/quest-board-app/static/js/main.c2e12b6b.js",
+    "main.js": "/quest-board-app/static/js/main.6dd5edb3.js",
     "static/js/720.4006166c.chunk.js": "/quest-board-app/static/js/720.4006166c.chunk.js",
     "static/js/786.5da79be9.chunk.js": "/quest-board-app/static/js/786.5da79be9.chunk.js",
     "static/js/844.79186d35.chunk.js": "/quest-board-app/static/js/844.79186d35.chunk.js",
@@ -14,11 +14,11 @@
     "static/media/Poppins-Regular.woff2": "/quest-board-app/static/media/Poppins-Regular.037e68504b90f9cba901.woff2",
     "static/media/Poppins-Medium.woff2": "/quest-board-app/static/media/Poppins-Medium.1bb2cc2b927e6590391c.woff2",
     "static/media/Poppins-SemiBold.woff2": "/quest-board-app/static/media/Poppins-SemiBold.e4258fa809f81555ab07.woff2",
-    "static/media/sprite.svg": "/quest-board-app/static/media/sprite.a7ef6ccccc44a51fd4e5a307a69c93e6.svg",
+    "static/media/sprite.svg": "/quest-board-app/static/media/sprite.a665751c461cb09561d88f7eb0042c09.svg",
     "index.html": "/quest-board-app/index.html",
     "static/media/eye-hide.svg": "/quest-board-app/static/media/eye-hide.accfc4141682c117e0a89ff4d886ee4d.svg",
     "main.016c0e4f.css.map": "/quest-board-app/static/css/main.016c0e4f.css.map",
-    "main.c2e12b6b.js.map": "/quest-board-app/static/js/main.c2e12b6b.js.map",
+    "main.6dd5edb3.js.map": "/quest-board-app/static/js/main.6dd5edb3.js.map",
     "720.4006166c.chunk.js.map": "/quest-board-app/static/js/720.4006166c.chunk.js.map",
     "786.5da79be9.chunk.js.map": "/quest-board-app/static/js/786.5da79be9.chunk.js.map",
     "844.79186d35.chunk.js.map": "/quest-board-app/static/js/844.79186d35.chunk.js.map",
@@ -27,6 +27,6 @@
   },
   "entrypoints": [
     "static/css/main.016c0e4f.css",
-    "static/js/main.c2e12b6b.js"
+    "static/js/main.6dd5edb3.js"
   ]
 }
