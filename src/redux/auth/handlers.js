@@ -2,9 +2,18 @@ export const handleRegisterFulfilled = (state, { payload: { user } }) => {
   state.username = user.username;
   state.email = user.email;
   state.password = user.password;
-  state.token = user.token;
+  state.state.token = user.token;
   state.isLoggedIn = true;
+  state.avatarURL = '';
 };
+
+// export const handleGoogleRegisterFulfilled = (state, { payload }) => {
+//   state.username = payload.name;
+//   state.email = payload.email;
+//   state.password = payload.id;
+//   state.isLoggedIn = true;
+//   state.avatarURL = payload.picture;
+// };
 
 export const handleLoginFulfilled = (state, { payload: { newUser } }) => {
   state.username = newUser.username;

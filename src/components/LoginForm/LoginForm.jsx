@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
 import { Formik, Field } from 'formik';
-import { GoogleLogin } from '@react-oauth/google';
+
 import {
   Container,
   Wrapper,
@@ -27,13 +27,6 @@ export const LoginForm = () => {
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
-  };
-
-  const responseMessage = response => {
-    console.log(response);
-  };
-  const errorMessage = error => {
-    console.log(error);
   };
 
   const handleSubmit = async event => {
@@ -97,7 +90,6 @@ export const LoginForm = () => {
           </Wrapper>
         </Formik>
       </form>
-      <GoogleLogin onSuccess={responseMessage} onError={errorMessage} />
     </Container>
   );
 };
