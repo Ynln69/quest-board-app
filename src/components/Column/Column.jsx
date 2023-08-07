@@ -73,8 +73,8 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
 
   const handleEdit = e => {
     handleVisibleEdit();
-    console.log(column.title);
-    console.log(column);
+    // console.log(column.title);
+    // console.log(column);
     // column.title;
     // const newColumn = {title: }
   };
