@@ -1,35 +1,39 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import { Container, Avatar, UserIcon } from './UserInfo.styled';
 import EditProfile from 'components/EditProfile/EditProfile';
 import Sprite from '../../images/sprite.svg';
+import Modal from 'components/Modal/Modal';
 
 const UserInfo = ({ theme }) => {
   const { avatarURL, username } = useSelector((state) => state.profile);
-  const [isModalOpen, setModalOpen] = React.useState(false);
+  const [isEditProfileModalOpen, setEditProfileModalOpen] = useState(false);
 
-  const openModal = () => {
-    setModalOpen(true);
+  const openEditProfileModal = () => {
+    setEditProfileModalOpen(true);
   };
 
-  const closeModal = () => {
-    setModalOpen(false);
+  const closeEditProfileModal = () => {
+    setEditProfileModalOpen(false);
   };
 
   return (
     <Container>
       <div>{username}</div>
       {avatarURL ? (
-        <Avatar src={avatarURL} alt="User Avatar" onClick={openModal} />
+        <Avatar src={avatarURL} alt="User Avatar" onClick={openEditProfileModal} />
       ) : (
-        <UserIcon className={`icon-user theme-${theme}`} onClick={openModal}>
+        <UserIcon className={`icon-user theme-${theme}`} onClick={openEditProfileModal}>
           <use href={`${Sprite}#icon-user`} />
         </UserIcon>
       )}
-      {isModalOpen && <EditProfile onClose={closeModal} />}
+      <Modal isOpen={isEditProfileModalOpen} handleClose={closeEditProfileModal} heading={'Edit profil'}>
+        <EditProfile />
+      </Modal>
     </Container>
   );
 };
+
 
 export default UserInfo;
 

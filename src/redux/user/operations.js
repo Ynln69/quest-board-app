@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://tp-backend-905x.onrender.com';
+axios.defaults.baseURL = 'https://tp-backend-905x.onrender.com/api/users/current';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -9,9 +9,9 @@ const setAuthHeader = token => {
 
 export const updateProfile = createAsyncThunk(
   'user/updateProfile',
-  async data => {
+  async  formData => {
     try {
-      const response = await axios.patch('api/users/data', data);
+      const response = await axios.patch('api/users/current', formData);
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
