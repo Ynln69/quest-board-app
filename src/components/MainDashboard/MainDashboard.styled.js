@@ -1,9 +1,13 @@
 import styled from '@emotion/styled';
 
+export const MainContainer = styled.ul`
+  display: flex;
+  padding: 0 24px;
+`;
+
 export const Container = styled.ul`
   display: flex;
   gap: 18px;
-
   position: relative;
 `;
 

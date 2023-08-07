@@ -1,43 +1,77 @@
-import styled from '@emotion/styled';
-import { Calendar } from 'components/Calendar/Calendar';
+import {
+  LineContainer,
+  TaskContainer,
+  TaskTitle,
+  TaskDesc,
+  TaskVector,
+  TaskBox,
+  TaskContent,
+  TaskPrior,
+  TaskDeadline,
+  TestListIcon,
+} from './Task.styled';
 import { Draggable } from 'react-beautiful-dnd';
-
-const Container = styled.div`
-  border: 1px solid lightgray;
-  border-radius: 2px;
-  padding: 8px;
-  margin: 8px;
-  background-color: ${props => (props.isDragging ? 'lightgreen' : 'white')};
-
-  /* display: flex; */
-  gap: 10px;
-`;
-
-const Handle = styled.div`
-  width: 20px;
-  height: 20px;
-  background-color: orange;
-  border-radius: 4px;
-`;
+import sprite from '../../images/sprite.svg';
 
 export const Task = ({ task, index }) => {
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided, snapshot) => (
-        <Container
+        <TaskContainer
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
           isDragging={snapshot.isDragging}
         >
+          <LineContainer />
           {/* <button onClick={() => console.log('awdawd')}></button> */}
-          <Handle />
-          <p>{task.title}</p>
-          <p>{task.description}</p>
-          <p>{task.priority}</p>
-          <p>{task.deadline}</p>
-          <Calendar />
-        </Container>
+          <TaskTitle>{task.title}</TaskTitle>
+          <TaskDesc>{task.description}</TaskDesc>
+          <TaskVector />
+          <TaskBox>
+            <TaskContent>
+              <TaskPrior>
+                {/* <p>{task.priority}</p> */}
+                <p>Priority</p>
+                <div />
+              </TaskPrior>
+              <TaskDeadline>
+                <p>Deadline</p>
+                <span>{task.deadline}</span>
+              </TaskDeadline>
+            </TaskContent>
+            <TestListIcon>
+              <li>
+                <button>
+                  <svg width={16} height={16}>
+                    <use xlinkHref={`${sprite}#icon-bell`} />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button>
+                  <svg width={16} height={16}>
+                    <use xlinkHref={`${sprite}#icon-arrow-circle`} />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button>
+                  <svg width={16} height={16}>
+                    <use xlinkHref={`${sprite}#icon-pencil`} />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button>
+                  <svg width={16} height={16}>
+                    <use xlinkHref={`${sprite}#icon-trash`} />
+                  </svg>
+                </button>
+              </li>
+            </TestListIcon>
+          </TaskBox>
+        </TaskContainer>
       )}
     </Draggable>
   );

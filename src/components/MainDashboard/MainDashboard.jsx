@@ -6,12 +6,17 @@ import { Column } from 'components/Column/Column';
 
 //add Elvira
 import AddColumn from 'components/Column/AddColumn/AddColumn';
-import { Container, Button, BoxSvg, SvgAdd } from './MainDashboard.styled';
+import {
+  MainContainer,
+  Container,
+  Button,
+  BoxSvg,
+  SvgAdd,
+} from './MainDashboard.styled';
 import sprite from '../../images/sprite.svg';
 
 export const MainDashboard = ({ cardData, setCardData }) => {
   // кто будет делать этот блок, обратите внимание что именно приходит в cardData
-
   const [visible, setVisible] = useState(false);
 
   const handlerVisible = () => {
@@ -40,11 +45,10 @@ export const MainDashboard = ({ cardData, setCardData }) => {
 
     handlerVisible();
   };
-
   // Эти три функции ниже отвечают за главный функционал переставления карточек между колонками и в колонках
   // а так же за анимацию при их передвижение
   const onDragStart = () => {
-    document.body.style.color = 'orange';
+    document.body.style.color = 'inherit';
     document.body.style.transition = 'background-color 0.2s ease';
   };
 
@@ -142,7 +146,7 @@ export const MainDashboard = ({ cardData, setCardData }) => {
   };
 
   return (
-    <div style={{ display: 'flex' }}>
+    <MainContainer>
       <DragDropContext
         onDragStart={onDragStart}
         onDragUpdate={onDragUpdate}
@@ -177,7 +181,6 @@ export const MainDashboard = ({ cardData, setCardData }) => {
           )}
         </Droppable>
       </DragDropContext>
-
       <li>
         <Button onClick={handlerVisible}>
           <BoxSvg>
@@ -188,7 +191,6 @@ export const MainDashboard = ({ cardData, setCardData }) => {
           Add another column
         </Button>
       </li>
-
       {visible && (
         <>
           <AddColumn
@@ -198,6 +200,6 @@ export const MainDashboard = ({ cardData, setCardData }) => {
           />
         </>
       )}
-    </div>
+    </MainContainer>
   );
 };
