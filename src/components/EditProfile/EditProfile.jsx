@@ -12,18 +12,27 @@ import {
   IconPlus,
   IconUserWrapper,
   SaveBtn,
-  Container,
+  PasswordView,
+  PasswordIcon,
+  Svg,
+  LabelPass,
+  LabelText,
 } from './EditProfile.styled';
 import { updateUser, updateUserAvatar } from 'redux/auth/operations';
 import { selectUser } from 'redux/auth/selectors';
 import Sprite from '../../images/sprite.svg';
+import eyeUser from '../../images/eye-user.svg';
 
 const EditProfile = ({ onClose }) => {
   const { username, email, password, avatarURL } = useSelector(selectUser);
-
+  const [showPassword, setShowPassword] = useState(false);
   const [avatarNewURL, setAvatarNewURL] = useState(avatarURL);
 
   const dispatch = useDispatch();
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const handleFormSubmit = async values => {
     console.log(values);
@@ -52,78 +61,87 @@ const EditProfile = ({ onClose }) => {
   };
 
   return (
-    <Container>
-      <EditProfileModal>
-        <p>Edit profile</p>
-        <Formik
-          initialValues={{
-            newPhoto: avatarNewURL,
-            newName: username,
-            newEmail: email,
-            newPassword: password,
-          }}
-          onSubmit={handleFormSubmit}
-        >
-          {({ isSubmitting, values, setFieldValue }) => (
-            <FormBox>
-              <IconUserWrapper>
-                {values.newPhoto ? (
-                  <AvatarImage
-                    type="file"
-                    name="newPhoto"
-                    alt="Avatar"
-                    src={values.newPhoto}
-                  />
+    <EditProfileModal>
+      <Formik
+        initialValues={{
+          newPhoto: avatarNewURL,
+          newName: username,
+          newEmail: email,
+          newPassword: password,
+        }}
+        onSubmit={handleFormSubmit}
+      >
+        {({ isSubmitting, values, setFieldValue }) => (
+          <FormBox>
+            <IconUserWrapper>
+              {values.newPhoto ? (
+                <AvatarImage
+                  type="file"
+                  name="newPhoto"
+                  alt="Avatar"
+                  src={values.newPhoto}
+                />
+              ) : (
+                <svg className="icon-user" width="68" height="68">
+                  <use href={`${Sprite}#icon-user`} />
+                </svg>
+              )}
+              <PlusBtn
+                onClick={() => document.getElementById('newPhotoInput').click()}
+              >
+                <IconPlus>
+                  <use href={`${Sprite}#icon-plus-us`} />
+                </IconPlus>
+                <NoneInput
+                  type="file"
+                  id="newPhotoInput"
+                  name="newPhoto"
+                  onChange={event => {
+                    setFieldValue(
+                      'newPhoto',
+                      URL.createObjectURL(event.currentTarget.files[0])
+                    );
+                    handleAvatarClick(event);
+                  }}
+                />
+              </PlusBtn>
+            </IconUserWrapper>
+
+            <LabelText>
+              <FieldUser type="text" name="newName" />
+              <ErrorMessage name="newName" component="div" />
+            </LabelText>
+
+            <LabelText>
+              <FieldUser type="email" name="newEmail" />
+              <ErrorMessage name="newEmail" component="div" />
+            </LabelText>
+
+            <LabelPass>
+              <FieldUser
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+              />
+              <PasswordView onClick={togglePasswordVisibility}>
+                {showPassword ? (
+                  <PasswordIcon src={eyeUser} />
                 ) : (
-                  <svg className="icon-user" width="68" height="68">
-                    <use href={`${Sprite}#icon-user`} />
-                  </svg>
+                  <Svg>
+                    <use stroke="gray" href={`${Sprite}#eye-password`} />
+                  </Svg>
                 )}
-                <PlusBtn
-                  onClick={() =>
-                    document.getElementById('newPhotoInput').click()
-                  }
-                >
-                  <IconPlus>
-                    <use href={`${Sprite}#icon-plus-us`} />
-                  </IconPlus>
-                  <NoneInput
-                    type="file"
-                    id="newPhotoInput"
-                    name="newPhoto"
-                    onChange={event => {
-                      setFieldValue(
-                        'newPhoto',
-                        URL.createObjectURL(event.currentTarget.files[0])
-                      );
-                      handleAvatarClick(event);
-                    }}
-                  />
-                </PlusBtn>
-              </IconUserWrapper>
-              <label>
-                <FieldUser type="text" name="newName" />
-                <ErrorMessage name="newName" component="div" />
-              </label>
-              <label>
-                <FieldUser type="email" name="newEmail" />
-                <ErrorMessage name="newEmail" component="div" />
-              </label>
-              <label>
-                <FieldUser type="password" name="newPassword" />
-                <ErrorMessage name="newPassword" component="div" />
-              </label>
-              <SaveBtn type="submit" disabled={isSubmitting}>
-                Save
-              </SaveBtn>
-            </FormBox>
-          )}
-        </Formik>
-      </EditProfileModal>
-    </Container>
+              </PasswordView>
+              <ErrorMessage name="newPassword" component="div" />
+            </LabelPass>
+
+            <SaveBtn type="submit" disabled={isSubmitting}>
+              Save
+            </SaveBtn>
+          </FormBox>
+        )}
+      </Formik>
+    </EditProfileModal>
   );
 };
 
 export default EditProfile;
-
-

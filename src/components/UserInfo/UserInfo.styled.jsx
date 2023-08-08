@@ -14,18 +14,7 @@ export const Avatar = styled.img`
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  // &.theme-light {
-  //   background-color: #fcfcfc;
-  //    }
-
-  // &.theme-dark {
-  //   background-color: #161616;
-  // }
-
-  // &.theme-violet {
-  //   background-color: #ECEDFD;
-  // }
-   `;
+    `;
 
    export const UserIcon = styled.svg`
   width: 32px;
