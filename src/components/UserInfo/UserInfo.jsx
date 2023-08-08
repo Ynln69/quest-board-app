@@ -1,12 +1,15 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Container, Avatar, UserIcon } from './UserInfo.styled';
 import EditProfile from 'components/EditProfile/EditProfile';
 import Sprite from '../../images/sprite.svg';
 import Modal from 'components/Modal/Modal';
+import { selectUser } from 'redux/auth/selectors';
 
 const UserInfo = ({ theme }) => {
-  const { avatarURL, username } = useSelector((state) => state.profile);
+  const { username, avatarURL } = useSelector(selectUser);
+  // const [avatarNewURL, setAvatarNewURL] = useState(avatarURL);
+  // const { avatarURL, username } = useSelector(state => state.profile);
   const [isEditProfileModalOpen, setEditProfileModalOpen] = useState(false);
 
   const openEditProfileModal = () => {
@@ -17,28 +20,35 @@ const UserInfo = ({ theme }) => {
     setEditProfileModalOpen(false);
   };
 
-  return (
+   return (
     <Container>
       <div>{username}</div>
       {avatarURL ? (
-        <Avatar src={avatarURL} alt="User Avatar" onClick={openEditProfileModal} />
+        <Avatar
+          src={avatarURL}
+          alt="User Avatar"
+          onClick={openEditProfileModal}
+        />
       ) : (
-        <UserIcon className={`icon-user theme-${theme}`} onClick={openEditProfileModal}>
+        <UserIcon
+          className={`icon-user theme-${theme}`}
+          onClick={openEditProfileModal}
+        >
           <use href={`${Sprite}#icon-user`} />
         </UserIcon>
       )}
-      <Modal isOpen={isEditProfileModalOpen} handleClose={closeEditProfileModal} heading={'Edit profil'}>
-        <EditProfile />
+      <Modal
+        isOpen={isEditProfileModalOpen}
+        handleClose={closeEditProfileModal}
+        heading={'Edit profil'}
+      >
+        <EditProfile avatarURL={avatarURL}/>
       </Modal>
     </Container>
   );
 };
 
-
 export default UserInfo;
-
-
-
 
 // import React from 'react';
 // import { useSelector } from 'react-redux';
@@ -55,9 +65,9 @@ export default UserInfo;
 //     case 'violet':
 //       return '#icon-userviolet';
 //     default:
-//       return '#icon-userlight'; 
+//       return '#icon-userlight';
 //   }
-// }; 
+// };
 
 // const UserInfo = ({theme}) => {
 //   const { avatarURL, username } = useSelector(state => state.profile);
@@ -91,6 +101,3 @@ export default UserInfo;
 // };
 
 // export default UserInfo;
-
-
-

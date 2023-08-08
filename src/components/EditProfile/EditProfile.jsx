@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import {
@@ -13,29 +14,40 @@ import {
   SaveBtn,
   Container,
 } from './EditProfile.styled';
-import { updateProfileData } from 'redux/user/profileSlice';
+import { updateUser, updateUserAvatar } from 'redux/auth/operations';
+import { selectUser } from 'redux/auth/selectors';
 import Sprite from '../../images/sprite.svg';
 
 const EditProfile = ({ onClose }) => {
-  const { avatarURL, username, email, password } = useSelector(
-    state => state.profile
-  );
+  const { username, email, password, avatarURL } = useSelector(selectUser);
+
+  const [avatarNewURL, setAvatarNewURL] = useState(avatarURL);
+
   const dispatch = useDispatch();
 
   const handleFormSubmit = async values => {
-    dispatch(updateProfileData(values));
+    console.log(values);
+
+    dispatch(
+      updateUser({
+        username: values.newName,
+        email: values.newEmail,
+        password: values.newPassword,
+      })
+    );
+
+    if (avatarNewURL !== values.newPhoto) {
+      dispatch(updateUserAvatar(avatarNewURL));
+    }
     onClose();
   };
 
   const handleAvatarClick = e => {
     const selectedFile = e.target.files[0];
     if (selectedFile && selectedFile.type.startsWith('image/')) {
-      
-      // const formData = new FormData();
-      // formData.append('avatar', selectedFile);
-      // dispatch(formData);
-      dispatch(updateProfileData({ newPhoto: selectedFile }));
-      onClose();
+      const formData = new FormData();
+      formData.append('avatar', selectedFile);
+      setAvatarNewURL(formData);
     }
   };
 
@@ -45,7 +57,7 @@ const EditProfile = ({ onClose }) => {
         <p>Edit profile</p>
         <Formik
           initialValues={{
-            newPhoto: avatarURL,
+            newPhoto: avatarNewURL,
             newName: username,
             newEmail: email,
             newPassword: password,
@@ -54,38 +66,39 @@ const EditProfile = ({ onClose }) => {
         >
           {({ isSubmitting, values, setFieldValue }) => (
             <FormBox>
-              <IconUserWrapper onClick={handleAvatarClick}>
+              <IconUserWrapper>
                 {values.newPhoto ? (
                   <AvatarImage
-                   type="file"
-                  name="newPhoto"
-                  alt="Avatar"
-                  src={values.newPhoto}
-                  // onChange={e => {
-                  //   handleAvatarClick(e);
-                  //   setFieldValue('newPhoto', URL.createObjectURL(e.currentTarget.files[0]));
-                  // }}
+                    type="file"
+                    name="newPhoto"
+                    alt="Avatar"
+                    src={values.newPhoto}
                   />
                 ) : (
                   <svg className="icon-user" width="68" height="68">
                     <use href={`${Sprite}#icon-user`} />
                   </svg>
                 )}
-                <PlusBtn onClick={() => document.getElementById('newPhotoInput').click()}>
+                <PlusBtn
+                  onClick={() =>
+                    document.getElementById('newPhotoInput').click()
+                  }
+                >
                   <IconPlus>
                     <use href={`${Sprite}#icon-plus-us`} />
                   </IconPlus>
                   <NoneInput
-      type="file"
-      id="newPhotoInput"
-      name="newPhoto"
-      onChange={event => {
-        setFieldValue(
-          'newPhoto',
-          URL.createObjectURL(event.currentTarget.files[0])
-        );
-      }}
-    />
+                    type="file"
+                    id="newPhotoInput"
+                    name="newPhoto"
+                    onChange={event => {
+                      setFieldValue(
+                        'newPhoto',
+                        URL.createObjectURL(event.currentTarget.files[0])
+                      );
+                      handleAvatarClick(event);
+                    }}
+                  />
                 </PlusBtn>
               </IconUserWrapper>
               <label>
@@ -113,43 +126,4 @@ const EditProfile = ({ onClose }) => {
 
 export default EditProfile;
 
-/* <PhotoInputWrapper>
-                {values.newPhoto ? (
-                  <IconUserWrapper>
-                    <AvatarImage
-                      src={values.newPhoto}
-                      alt="User Avatar"
-                      width="68"
-                      height="68"
-                      onClick={handleAvatarClick}
-                    />
-                    <PlusBtn>
-                    <IconPlus onClick={handleAvatarClick}>
-                      <use href={`${Sprite}#icon-plus-us`} />
-                    </IconPlus>
-                    </PlusBtn>
-                                    
-                    
-                  </IconUserWrapper>
-                ) : (
-                  <IconUserWrapper onClick={handleAvatarClick}>
-                    <svg className="icon-user" width="68" height="68">
-                      <use href={`${Sprite}#icon-user`} />
-                    </svg>
-                    <IconPlus onClick={handleAvatarClick}>
-                      <use href={`${Sprite}#icon-plus-us`} />
-                    </IconPlus>
-                  </IconUserWrapper>
-                )}
-                <FileInput
-                  id="newPhotoInput"
-                  type="file"
-                  name="newPhoto"
-                  onChange={event => {
-                    setFieldValue(
-                      'newPhoto',
-                      URL.createObjectURL(event.currentTarget.files[0])
-                    );
-                  }}
-                />
-              </PhotoInputWrapper> */
+

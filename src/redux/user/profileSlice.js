@@ -12,7 +12,20 @@ const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
+    updateProfileData: (state, action) => {
+      // Застосовуємо зміни з даних, які прийшли з сервера (якщо є) до стейту
+      const {
+        newPhoto,
+        newName,
+        newEmail,
+        newPassword,
+      } = action.payload;
+      state.avatarURL = newPhoto || state.avatarURL;
+      state.username = newName || state.username;
+      state.email = newEmail || state.email;
+      state.password = newPassword || state.password;
     },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(updateProfile.pending, (state) => {
@@ -22,16 +35,8 @@ const profileSlice = createSlice({
       .addCase(updateProfile.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-                const {
-          newPhoto,
-          newName,
-          newEmail,
-          newPassword,
-        } = action.payload;
-        state.avatarURL = newPhoto || state.avatarURL;
-        state.username = newName || state.username;
-        state.email = newEmail || state.email;
-        state.password = newPassword || state.password;
+         // Викликаємо зареєстровану раніше reducer action для збереження даних в стейті
+        profileSlice.caseReducers.updateProfileData(state, action);
       })
       .addCase(updateProfile.rejected, (state, action) => {
         state.isLoading = false;
