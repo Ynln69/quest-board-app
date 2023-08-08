@@ -92,3 +92,25 @@ export const updateUserAvatar = createAsyncThunk(
     }
   }
 );
+
+export const needHelp = createAsyncThunk('help', async (formData, thunkAPI) => {
+  try {
+    const state = thunkAPI.getState();
+    const token = state.auth.token;
+
+    if (token === null) {
+      return thunkAPI.rejectWithValue('User not authenticated');
+    }
+
+    setAuthHeader(token);
+
+    const res = await axios.post('/api/helper', formData);
+    if (res.status === 200) {
+      return res.data;
+    } else {
+      return thunkAPI.rejectWithValue('Request failed');
+    }   
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
