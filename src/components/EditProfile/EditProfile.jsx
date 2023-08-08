@@ -39,6 +39,7 @@ const EditProfile = ({ onClose }) => {
     if (avatarNewURL !== values.newPhoto) {
       dispatch(updateUserAvatar(avatarNewURL));
     }
+    onClose();
   };
 
   const handleAvatarClick = e => {
@@ -125,43 +126,4 @@ const EditProfile = ({ onClose }) => {
 
 export default EditProfile;
 
-/* <PhotoInputWrapper>
-                {values.newPhoto ? (
-                  <IconUserWrapper>
-                    <AvatarImage
-                      src={values.newPhoto}
-                      alt="User Avatar"
-                      width="68"
-                      height="68"
-                      onClick={handleAvatarClick}
-                    />
-                    <PlusBtn>
-                    <IconPlus onClick={handleAvatarClick}>
-                      <use href={`${Sprite}#icon-plus-us`} />
-                    </IconPlus>
-                    </PlusBtn>
-                                    
-                    
-                  </IconUserWrapper>
-                ) : (
-                  <IconUserWrapper onClick={handleAvatarClick}>
-                    <svg className="icon-user" width="68" height="68">
-                      <use href={`${Sprite}#icon-user`} />
-                    </svg>
-                    <IconPlus onClick={handleAvatarClick}>
-                      <use href={`${Sprite}#icon-plus-us`} />
-                    </IconPlus>
-                  </IconUserWrapper>
-                )}
-                <FileInput
-                  id="newPhotoInput"
-                  type="file"
-                  name="newPhoto"
-                  onChange={event => {
-                    setFieldValue(
-                      'newPhoto',
-                      URL.createObjectURL(event.currentTarget.files[0])
-                    );
-                  }}
-                />
-              </PhotoInputWrapper> */
+

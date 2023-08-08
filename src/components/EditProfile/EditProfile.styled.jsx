@@ -160,7 +160,7 @@ export const NoneInput = styled.input`
 
 export const PlusBtn = styled.button`
   position: absolute;
-  bottom: -10%;
+  bottom: -15%;
   left: 30%;
   display: flex;
   align-items: center;
@@ -170,7 +170,7 @@ export const PlusBtn = styled.button`
   width: 28px;
   height: 28px;
   border: none;
-  background: var(--create_normal);
+  background: var(--user_bgc);
 
   transition: all 150ms linear;
   cursor: pointer;

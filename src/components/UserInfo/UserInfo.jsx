@@ -4,9 +4,12 @@ import { Container, Avatar, UserIcon } from './UserInfo.styled';
 import EditProfile from 'components/EditProfile/EditProfile';
 import Sprite from '../../images/sprite.svg';
 import Modal from 'components/Modal/Modal';
+import { selectUser } from 'redux/auth/selectors';
 
 const UserInfo = ({ theme }) => {
-  const { avatarURL, username } = useSelector(state => state.profile);
+  const { username, avatarURL } = useSelector(selectUser);
+  // const [avatarNewURL, setAvatarNewURL] = useState(avatarURL);
+  // const { avatarURL, username } = useSelector(state => state.profile);
   const [isEditProfileModalOpen, setEditProfileModalOpen] = useState(false);
 
   const openEditProfileModal = () => {
@@ -17,7 +20,7 @@ const UserInfo = ({ theme }) => {
     setEditProfileModalOpen(false);
   };
 
-  return (
+   return (
     <Container>
       <div>{username}</div>
       {avatarURL ? (
@@ -39,7 +42,7 @@ const UserInfo = ({ theme }) => {
         handleClose={closeEditProfileModal}
         heading={'Edit profil'}
       >
-        <EditProfile />
+        <EditProfile avatarURL={avatarURL}/>
       </Modal>
     </Container>
   );
