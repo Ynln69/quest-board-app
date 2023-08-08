@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import PropTypes from 'prop-types';
-// import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import { nanoid } from '@reduxjs/toolkit';
 import sprite from '../../images/sprite.svg';
 import { addBoardSchema } from 'schemas';
@@ -30,22 +30,22 @@ const icons = [
 ];
 
 const backgrounds = [
-  'bg1.jpg',
-  'bg2.jpg',
-  'bg3.jpg',
-  'bg4.jpg',
-  'bg5.jpg',
-  'bg6.jpg',
-  'bg7.jpg',
-  'bg8.jpg',
-  'bg9.jpg',
-  'bg10.jpg',
-  'bg11.jpg',
-  'bg12.jpg',
-  'bg13.jpg',
-  'bg14.jpg',
-  'bg15.jpg',
-  'bg16.jpg',
+  'bg1',
+  'bg2',
+  'bg3',
+  'bg4',
+  'bg5',
+  'bg6',
+  'bg7',
+  'bg8',
+  'bg9',
+  'bg10',
+  'bg11',
+  'bg12',
+  'bg13',
+  'bg14',
+  'bg15',
+  'bg16',
 ];
 
 function ModalBoard({ btnContent, closeModal, boardData }) {
@@ -65,12 +65,14 @@ function ModalBoard({ btnContent, closeModal, boardData }) {
         };
 
   const handleSubmit = (values, { resetForm }) => {
-    // const boardId = `3${uuidv4().replace(/-/g, '')}`;
+    const boardId = `3${uuidv4().replace(/-/g, '')}`;
 
     const newBoard = {
+      id: boardId,
       title: values.title,
       icon: values.icon,
       background: values.background,
+      boardsData: { tasks: {}, columns: {}, columnOrder: [] },
     };
     if (btnContent === 'Create') {
       dispatch(createBoard(newBoard));
@@ -128,7 +130,7 @@ function ModalBoard({ btnContent, closeModal, boardData }) {
                   checked={values.background === background}
                 />
                 <img
-                  src={require(`../../images/backgrounds/non-optimized/${background}`)}
+                  src={require(`../../images/backgrounds/${background}.jpg`)}
                   alt={`background variant ${i + 1}`}
                   width="28"
                 />
