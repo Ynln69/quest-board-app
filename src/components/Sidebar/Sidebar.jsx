@@ -1,9 +1,9 @@
 import {
-  SvgAdd,
+  SidebarBlock,
+  ButtonAdd,
   SvgLightning,
   Title,
   TitleBlock,
-  SidebarBlock,
   BoardTitleBlock,
   MyBoardTitle,
   NeedHelpBlock,
@@ -12,11 +12,10 @@ import {
   HelpContent,
   LogoutBtn,
   Flower,
-  BoardIcon,
   BoardList,
   EditIcon,
   BoardIcons,
-  TItleBoard,
+  TitleBoard,
 } from './Sidebar.styled';
 import sprite from '../../images/sprite.svg';
 import flower from '../../images/flower.png';
@@ -81,26 +80,24 @@ export function Sidebar({ theme, isOpen }) {
         </SvgLightning>
         <Title>Task Pro</Title>
       </TitleBlock>
-
       <MyBoardTitle>My boards</MyBoardTitle>
       <BoardTitleBlock>
         <p>Create a new board</p>
-        <button aria-label="add" type="button" onClick={handleModalType}>
-          <SvgAdd>
+        <ButtonAdd aria-label="add" type="button" onClick={handleModalType}>
+          <svg width={20} height={20}>
             <use href={`${sprite}#icon-plus`} />
-          </SvgAdd>
-        </button>
+          </svg>
+        </ButtonAdd>
       </BoardTitleBlock>
       <ul>
         {boards.map(board => (
           <BoardList key={board._id}>
-            <TItleBoard>
-              <BoardIcon>
+            <TitleBoard>
+              <svg width={18} height={18}>
                 <use href={`${sprite}#${board.icon}`} />
-              </BoardIcon>
-
+              </svg>
               {board.title}
-            </TItleBoard>
+            </TitleBoard>
             <BoardIcons>
               <button
                 type="button"
@@ -119,7 +116,6 @@ export function Sidebar({ theme, isOpen }) {
           </BoardList>
         ))}
       </ul>
-
       {isModalOpen && (
         <Modal
           isOpen={toggleModal}
@@ -133,25 +129,25 @@ export function Sidebar({ theme, isOpen }) {
           />
         </Modal>
       )}
-      <NeedHelpBlock className={`theme-${theme}`}>
+      <NeedHelpBlock>
         <Flower src={flower} alt="flower" />
-
         <HelpContent>
-          If you need help with TaskPro, check out our support resources or
-          reach out to our customer support team.
+          If you need help with <span>TaskPro</span>, check out our support
+          resources or reach out to our customer support team.
         </HelpContent>
-
         <NeedHelpButton type="button" name="help" onClick={showModal}>
           <SvgHelp>
             <use href={`${sprite}#icon-help`} />
           </SvgHelp>
           Need help?
         </NeedHelpButton>
-
         {isShow && <NeedHelpModal closeModal={closeModal} />}
       </NeedHelpBlock>
 
       <LogoutBtn type="button" name="logout" onClick={() => dispatch(logOut())}>
+        <svg width={32} height={32}>
+          <use xlinkHref={`${sprite}#icon-login`}></use>
+        </svg>
         Log out
       </LogoutBtn>
     </SidebarBlock>
