@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const Container = styled.li`
   border-radius: 2px;
-  min-width: 334px;
+  max-width: 334px;
 
   display: flex;
   flex-direction: column;
@@ -34,6 +34,8 @@ export const TaskList = styled.div`
 
   flex-grow: 1;
   min-height: 100px;
+  overflow-y: auto;
+  max-height: 478px;
 `;
 
 export const ContainerModal = styled.div`
