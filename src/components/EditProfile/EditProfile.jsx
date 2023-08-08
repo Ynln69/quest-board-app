@@ -23,7 +23,7 @@ import { selectUser } from 'redux/auth/selectors';
 import Sprite from '../../images/sprite.svg';
 import eyeUser from '../../images/eye-user.svg';
 
-const EditProfile = ({ onClose }) => {
+const EditProfile = ({ onSave }) => {
   const { username, email, password, avatarURL } = useSelector(selectUser);
   const [showPassword, setShowPassword] = useState(false);
   const [avatarNewURL, setAvatarNewURL] = useState(avatarURL);
@@ -48,7 +48,7 @@ const EditProfile = ({ onClose }) => {
     if (avatarNewURL !== values.newPhoto) {
       dispatch(updateUserAvatar(avatarNewURL));
     }
-    onClose();
+    onSave();
   };
 
   const handleAvatarClick = e => {
