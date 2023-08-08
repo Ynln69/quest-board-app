@@ -161,6 +161,9 @@ export const MainDashboard = ({ cardData, setCardData }) => {
             <Container {...provided.droppableProps} ref={provided.innerRef}>
               {cardData.columnOrder.map((columnId, index) => {
                 const column = cardData.columns[columnId];
+                if (!column) {
+                  return null;
+                }
                 const tasks = column.taskIds.map(
                   taskId => cardData.tasks[taskId]
                 );
@@ -181,7 +184,8 @@ export const MainDashboard = ({ cardData, setCardData }) => {
           )}
         </Droppable>
       </DragDropContext>
-      <li>
+
+      <div>
         <Button onClick={handlerVisible}>
           <BoxSvg>
             <SvgAdd>
@@ -190,7 +194,8 @@ export const MainDashboard = ({ cardData, setCardData }) => {
           </BoxSvg>
           Add another column
         </Button>
-      </li>
+      </div>
+
       {visible && (
         <>
           <AddColumn

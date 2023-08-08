@@ -73,13 +73,24 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
 
   const handleEdit = e => {
     handleVisibleEdit();
-    // console.log(column.title);
-    // console.log(column);
-    // column.title;
-    // const newColumn = {title: }
   };
 
-  const handleDelete = () => {};
+  const handleSubmitEdit = data => {
+    column.title = data;
+    handleVisibleEdit();
+  };
+
+  const handleDelete = () => {
+    if (tasks.length === 0) {
+      const newColumns = { ...cardData.columns };
+      delete newColumns[column.id];
+
+      setCardData(prevCardData => ({
+        ...prevCardData,
+        columns: newColumns,
+      }));
+    }
+  };
 
   return (
     <Draggable draggableId={column.id} index={index}>
@@ -124,7 +135,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
               title={'Edit column'}
               nameTitle={column.title}
               closeColumnModal={handleVisibleEdit}
-              handleSubmit={handleSubmit}
+              handleSubmit={handleSubmitEdit}
             />
           )}
           {visible && (
