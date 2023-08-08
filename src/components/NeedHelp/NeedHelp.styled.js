@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import { Field } from 'formik';
 
-export const Input = styled.input`
+export const Input = styled(Field)`
   width: 100%;
   margin-bottom: 14px;
   padding: 14px 18px;
@@ -25,7 +26,7 @@ export const Input = styled.input`
   }
 `;
 
-export const Textarea = styled.textarea`
+export const Textarea = styled(Field)`
   width: 100%;
   height: 120px;
   margin-bottom: 24px;
