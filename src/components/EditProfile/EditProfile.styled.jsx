@@ -1,54 +1,25 @@
 import styled from '@emotion/styled';
 import { Form, Field } from 'formik';
 
-export const Container = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  font-family: Poppins;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.36px;
-  background-color: rgba(21, 21, 21, 0.3);
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-`;
-
 export const EditProfileModal = styled.div`
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-width: 100%;
-padding: 24px;
+// position: absolute;
+// top: 50%;
+// left: 50%;
+// transform: translate(-50%, -50%);
+// width: 100%;
+// padding: 24px;
 
-border-radius: 8px;
-box-shadow: 0px 2px 4px 0px rgba(22, 22, 22, 1);
-// transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-background-color: var(--modal_bgc);
+// border-radius: 8px;
+// box-shadow: 0px 2px 4px 0px rgba(22, 22, 22, 1);
+// // transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+// background-color: var(--modal_bgc);
 
-cubic-bezier(0.4, 0, 0.2, 1)
- @media screen and (min-width: 375px) {
-  width: 335px;
-}
-@media screen and (min-width: 768px) {
-  width: 400px;
-`;
-
-export const Text = styled.p`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 14px;
-  gap: 14px;
-
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: -0.28px;
+// cubic-bezier(0.4, 0, 0.2, 1)
+//  @media screen and (min-width: 375px) {
+//   width: 335px;
+// }
+// @media screen and (min-width: 768px) {
+//   width: 400px;
 `;
 
 export const FormBox = styled(Form)`
@@ -56,16 +27,23 @@ export const FormBox = styled(Form)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 14px;
   gap: 14px;
-
-  font-size: 14px;
+   font-size: 14px;
   font-weight: 400;
   letter-spacing: -0.28px;
 `;
 
+export const LabelPass = styled.label`
+position: relative;
+width:100%;
+`;
+
+export const LabelText = styled.label`
+width:100%;
+`;
+
 export const FieldUser = styled(Field)`
-  width: 287px;
+  width:100%;
     height: 49px;
     color: var(--modal_main_color);
     background-color: var(--modal_field);
@@ -84,11 +62,6 @@ export const FieldUser = styled(Field)`
       opacity: 1;
       box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
     }
-
-    @media screen and (min-width: 768px) {
-      width: 352px;
-    }
-  }
 `;
 
 export const IconUserWrapper = styled.label`
@@ -152,6 +125,7 @@ export const FileInput = styled.input`
   position: absolute;
   opacity: 0;
   display: none;
+  width:100%
 `;
 
 export const NoneInput = styled.input`
@@ -186,6 +160,27 @@ export const IconPlus = styled.svg`
   width: 14px;
   height: 14px;
   stroke: #161616;
+`;
+
+export const PasswordView = styled.span`
+  position: absolute;
+  right: 18px;
+  top: 19px;
+  cursor: pointer;
+`;
+
+export const PasswordIcon = styled.img`
+  width: 16.5px;
+  height: 16px;
+  top: 50%;
+  right: 4px;
+`;
+
+export const Svg = styled.svg`
+  width: 16.5px;
+  height: 16px;
+  top: 50%;
+  right: 4px;
 `;
 
 // export const ModalCloseButton = styled.button`
