@@ -1,5 +1,6 @@
 export const handleRegisterFulfilled = (state, { payload: { user } }) => {
   state.email = user.email;
+  // state.isLoggedIn = true;
 };
 
 // export const handleGoogleRegisterFulfilled = (state, { payload }) => {
