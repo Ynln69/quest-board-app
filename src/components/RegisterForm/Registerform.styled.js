@@ -117,6 +117,7 @@ export const Svg = styled.svg`
   height: 16px;
   top: 50%;
   right: 4px;
+  fill: transparent;
 `;
 
 export const RegisterBtn = styled.button`

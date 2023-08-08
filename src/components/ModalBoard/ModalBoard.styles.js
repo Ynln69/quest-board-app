@@ -33,7 +33,7 @@ export const ErrorMsg = styled(ErrorMessage)`
 
 export const StyledSubtitle = styled.p`
   margin-bottom: 14px;
-  color: #161616;
+  color: var(--modal_main_color);
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;
@@ -53,21 +53,21 @@ export const StyledSVG = styled.svg`
   width: 18px;
   height: 18px;
   fill: rgba(0, 0, 0, 0);
-  stroke: rgba(22, 22, 22, 0.5);
+  stroke: var(--modal_second_color);
 `;
 
 export const StyledRadioField = styled(Field)`
   display: none;
   &:checked + img {
-    border: 1px solid rgba(190, 219, 176, 0.4);
+    border: 1px solid var(--modal_bgc);
     border-radius: 5px;
     transform: scale(1.2);
   }
   &:checked + svg {
-    stroke: #161616;
+    stroke: var(--modal_main_color);
   }
   &:hover + img {
-    border: 1px solid #bedbb0;
+    border: 1px solid var(--modal_bgc);
     border-radius: 5px;
   }
 `;
