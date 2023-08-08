@@ -50,3 +50,19 @@ export const handleRefreshUserFullfilled = (state, { payload: { user } }) => {
   state.avatarURL = user.avatarURL;
   state.isRefreshing = false;
 };
+
+export const handleUpdateUserFullfilled = (state, { payload: { data } }) => {
+  state.username = data.username;
+  state.email = data.email;
+  state.password = data.password;
+  state.token = data.token;
+  state.isLoggedIn = true;
+  state.id = data._id;
+  state.boards = data.boards;
+  state.theme = data.theme;
+  state.avatarURL = data.avatarURL;
+};
+
+export const handleUpdateAvatarUserFullfilled = (state, { payload }) => {
+  state.avatarURL = payload.avatarURL;
+};

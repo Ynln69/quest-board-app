@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import {
@@ -13,18 +14,31 @@ import {
   SaveBtn,
   Container,
 } from './EditProfile.styled';
-import { updateProfileData } from 'redux/user/profileSlice';
+import { updateUser, updateUserAvatar } from 'redux/auth/operations';
+import { selectUser } from 'redux/auth/selectors';
 import Sprite from '../../images/sprite.svg';
 
 const EditProfile = ({ onClose }) => {
-  const { avatarURL, username, email, password } = useSelector(
-    state => state.profile
-  );
+  const { username, email, password, avatarURL } = useSelector(selectUser);
+
+  const [avatarNewURL, setAvatarNewURL] = useState(avatarURL);
+
   const dispatch = useDispatch();
 
   const handleFormSubmit = async values => {
-    dispatch(updateProfileData(values));
-    onClose();
+    console.log(values);
+
+    dispatch(
+      updateUser({
+        username: values.newName,
+        email: values.newEmail,
+        password: values.newPassword,
+      })
+    );
+
+    if (avatarNewURL !== values.newPhoto) {
+      dispatch(updateUserAvatar(avatarNewURL));
+    }
   };
 
   const handleAvatarClick = e => {
@@ -32,8 +46,7 @@ const EditProfile = ({ onClose }) => {
     if (selectedFile && selectedFile.type.startsWith('image/')) {
       const formData = new FormData();
       formData.append('avatar', selectedFile);
-      dispatch(updateProfileData(formData));
-      // dispatch(updateProfileData({ newPhoto: selectedFile }));
+      setAvatarNewURL(formData);
     }
   };
 
@@ -43,7 +56,7 @@ const EditProfile = ({ onClose }) => {
         <p>Edit profile</p>
         <Formik
           initialValues={{
-            newPhoto: avatarURL,
+            newPhoto: avatarNewURL,
             newName: username,
             newEmail: email,
             newPassword: password,
@@ -52,7 +65,7 @@ const EditProfile = ({ onClose }) => {
         >
           {({ isSubmitting, values, setFieldValue }) => (
             <FormBox>
-              <IconUserWrapper onClick={handleAvatarClick}>
+              <IconUserWrapper>
                 {values.newPhoto ? (
                   <AvatarImage
                     type="file"
@@ -82,6 +95,7 @@ const EditProfile = ({ onClose }) => {
                         'newPhoto',
                         URL.createObjectURL(event.currentTarget.files[0])
                       );
+                      handleAvatarClick(event);
                     }}
                   />
                 </PlusBtn>
@@ -110,12 +124,6 @@ const EditProfile = ({ onClose }) => {
 };
 
 export default EditProfile;
-
-
-
-
-
-
 
 /* <PhotoInputWrapper>
                 {values.newPhoto ? (

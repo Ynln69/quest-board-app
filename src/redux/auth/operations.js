@@ -66,3 +66,29 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const updateUser = createAsyncThunk(
+  'auth/updateUser',
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.patch('/api/users/update', credentials);
+      console.log(res);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateUserAvatar = createAsyncThunk(
+  'auth/updateUserAvatar',
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.patch('/api/users/avatars', credentials);
+      console.log(res);
+      return res.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

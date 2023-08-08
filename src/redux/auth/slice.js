@@ -1,5 +1,12 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { register, logIn, logOut, refreshUser } from './operations';
+import {
+  register,
+  logIn,
+  logOut,
+  refreshUser,
+  updateUser,
+  updateUserAvatar,
+} from './operations';
 import * as handlersForRegisterLogin from './handlers';
 
 export const initialState = {
@@ -30,6 +37,14 @@ const authSlice = createSlice({
         handlersForRegisterLogin.handleRegisterFulfilled
       )
       .addCase(logIn.fulfilled, handlersForRegisterLogin.handleLoginFulfilled)
+      .addCase(
+        updateUser.fulfilled,
+        handlersForRegisterLogin.handleUpdateUserFullfilled
+      )
+      .addCase(
+        updateUserAvatar.fulfilled,
+        handlersForRegisterLogin.handleUpdateAvatarUserFullfilled
+      )
       .addMatcher(
         isAnyOf(refreshUser.pending, refreshUser.rejected),
         handlersForRegisterLogin.toggleIsRefreshing
