@@ -27,7 +27,7 @@ padding: 24px;
 
 border-radius: 8px;
 box-shadow: 0px 2px 4px 0px rgba(22, 22, 22, 1);
-transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+// transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 background-color: var(--modal_bgc);
 
 cubic-bezier(0.4, 0, 0.2, 1)
@@ -100,12 +100,12 @@ export const IconUserWrapper = styled.label`
   background-position: center;
   cursor: pointer;
 
-  &:hover,
-  &:focus,
-  &:active {
-    opacity: 1;
-    box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
-  }
+  // &:hover,
+  // &:focus,
+  // &:active {
+  //   opacity: 1;
+  //   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
+  // }
 `;
 
 export const AvatarImage = styled.img`
@@ -131,11 +131,18 @@ export const SaveBtn = styled.button`
   color: var(--plus_color);
   cursor: pointer;
 
-  &:hover,
+  // &:hover,
+  // &:focus,
+  // &:active {
+  //   background: var(--create_active);
+    // }
+
+    &:hover,
   &:focus,
   &:active {
-    background: var(--create_active);
-  }
+      opacity: 0.8;
+    }
+
   @media screen and (max-width: 768px) {
     width: 250px;
   }
@@ -163,13 +170,15 @@ export const PlusBtn = styled.button`
   width: 28px;
   height: 28px;
   border: none;
-  background-color: var(--add_photo_bgc);
+  background: var(--create_normal);
 
   transition: all 150ms linear;
   cursor: pointer;
 
-  &:hover {
-    opacity: 0.8;
+  &:hover,
+  &:focus,
+  &:active  {
+    background: var(--create_active);
   }
 `;
 

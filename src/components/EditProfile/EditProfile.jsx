@@ -30,12 +30,10 @@ const EditProfile = ({ onClose }) => {
   const handleAvatarClick = e => {
     const selectedFile = e.target.files[0];
     if (selectedFile && selectedFile.type.startsWith('image/')) {
-      
-      // const formData = new FormData();
-      // formData.append('avatar', selectedFile);
-      // dispatch(formData);
-      dispatch(updateProfileData({ newPhoto: selectedFile }));
-      onClose();
+      const formData = new FormData();
+      formData.append('avatar', selectedFile);
+      dispatch(updateProfileData(formData));
+      // dispatch(updateProfileData({ newPhoto: selectedFile }));
     }
   };
 
@@ -57,35 +55,35 @@ const EditProfile = ({ onClose }) => {
               <IconUserWrapper onClick={handleAvatarClick}>
                 {values.newPhoto ? (
                   <AvatarImage
-                   type="file"
-                  name="newPhoto"
-                  alt="Avatar"
-                  src={values.newPhoto}
-                  // onChange={e => {
-                  //   handleAvatarClick(e);
-                  //   setFieldValue('newPhoto', URL.createObjectURL(e.currentTarget.files[0]));
-                  // }}
+                    type="file"
+                    name="newPhoto"
+                    alt="Avatar"
+                    src={values.newPhoto}
                   />
                 ) : (
                   <svg className="icon-user" width="68" height="68">
                     <use href={`${Sprite}#icon-user`} />
                   </svg>
                 )}
-                <PlusBtn onClick={() => document.getElementById('newPhotoInput').click()}>
+                <PlusBtn
+                  onClick={() =>
+                    document.getElementById('newPhotoInput').click()
+                  }
+                >
                   <IconPlus>
                     <use href={`${Sprite}#icon-plus-us`} />
                   </IconPlus>
                   <NoneInput
-      type="file"
-      id="newPhotoInput"
-      name="newPhoto"
-      onChange={event => {
-        setFieldValue(
-          'newPhoto',
-          URL.createObjectURL(event.currentTarget.files[0])
-        );
-      }}
-    />
+                    type="file"
+                    id="newPhotoInput"
+                    name="newPhoto"
+                    onChange={event => {
+                      setFieldValue(
+                        'newPhoto',
+                        URL.createObjectURL(event.currentTarget.files[0])
+                      );
+                    }}
+                  />
                 </PlusBtn>
               </IconUserWrapper>
               <label>
@@ -112,6 +110,12 @@ const EditProfile = ({ onClose }) => {
 };
 
 export default EditProfile;
+
+
+
+
+
+
 
 /* <PhotoInputWrapper>
                 {values.newPhoto ? (
