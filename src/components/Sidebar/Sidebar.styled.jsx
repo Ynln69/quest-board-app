@@ -74,7 +74,7 @@ export const ButtonAdd = styled.button`
     background-color: var(--create_active);
   }
   > svg {
-    stroke: var(--plus_color);
+    stroke: var(--create_plus_color);
   }
 `;
 export const BoardList = styled.li`

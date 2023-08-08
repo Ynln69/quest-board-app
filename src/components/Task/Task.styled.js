@@ -10,7 +10,7 @@ export const LineContainer = styled.div`
   background: #8fa1d0;
 `;
 
-export const TaskContainer = styled.div`
+export const TaskContainer = styled.li`
   position: relative;
   padding: 14px 20px;
   border-top-right-radius: 8px;

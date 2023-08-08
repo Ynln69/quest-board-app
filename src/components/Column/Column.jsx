@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { Task } from 'components/Task/Task';
 import AddColumn from './AddColumn/AddColumn';
+import BtnColumn from './BtnColumn/BtnColumn';
 import {
   Container,
   Title,
@@ -12,9 +13,6 @@ import {
   ContainerModal,
   Svg,
   BoxSvg,
-  SvgAdd,
-  BoxAddSvg,
-  Button,
 } from './Column.styled';
 import sprite from '../../images/sprite.svg';
 
@@ -99,12 +97,16 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
           <TitleBox {...provided.dragHandleProps}>
             <Title>{column.title}</Title>
             <BoxSvg>
-              <Svg onClick={handleEdit}>
-                <use href={`${sprite}#icon-pencil`} />
-              </Svg>
-              <Svg onClick={handleDelete}>
-                <use href={`${sprite}#icon-trash`} />
-              </Svg>
+              <button onClick={handleEdit}>
+                <Svg>
+                  <use href={`${sprite}#icon-pencil`} />
+                </Svg>
+              </button>
+              <button onClick={handleDelete}>
+                <Svg>
+                  <use href={`${sprite}#icon-trash`} />
+                </Svg>
+              </button>
             </BoxSvg>
           </TitleBox>
           <Droppable droppableId={column.id} type="task">
@@ -121,15 +123,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
               </TaskList>
             )}
           </Droppable>
-          <Button onClick={handleVisible}>
-            <BoxAddSvg>
-              <SvgAdd>
-                <use href={`${sprite}#icon-plus`} />
-              </SvgAdd>
-            </BoxAddSvg>
-            Add another card
-          </Button>
-
+          <BtnColumn text={'Add another card'} onClick={handleVisible} />
           {showEditModal && (
             <AddColumn
               title={'Edit column'}

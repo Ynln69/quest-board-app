@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { v4 as uuidv4 } from 'uuid';
-
 import { Column } from 'components/Column/Column';
-
 //add Elvira
 import AddColumn from 'components/Column/AddColumn/AddColumn';
 import {
@@ -184,7 +182,6 @@ export const MainDashboard = ({ cardData, setCardData }) => {
           )}
         </Droppable>
       </DragDropContext>
-
       <div>
         <Button onClick={handlerVisible}>
           <BoxSvg>
@@ -195,7 +192,6 @@ export const MainDashboard = ({ cardData, setCardData }) => {
           Add another column
         </Button>
       </div>
-
       {visible && (
         <>
           <AddColumn
