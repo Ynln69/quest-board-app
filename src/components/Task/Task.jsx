@@ -48,7 +48,6 @@ export const Task = ({ task, index }) => {
                   </svg>
                 </button>
               </li>
-              <li></li>
               <li>
                 <button>
                   <svg width={16} height={16}>
