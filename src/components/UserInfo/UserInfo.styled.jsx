@@ -20,19 +20,6 @@ export const Avatar = styled.img`
   width: 32px;
   height: 32px;
   cursor: pointer;
+  stroke: transparent;
   
-  &.theme-light {
-    background-color: #F6F6F7;
-    fill: #FFFFFF;
-     }
-
-  &.theme-dark {
-    background-color: #161616;
-    fill: #FFFFFF;
-  }
-
-  &.theme-violet {
-    background-color: #ECEDFD;
-    fill: #FFFFFF;
-  }
    `;

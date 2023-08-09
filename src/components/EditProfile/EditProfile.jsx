@@ -21,7 +21,7 @@ import {
 import { updateUser, updateUserAvatar } from 'redux/auth/operations';
 import { selectUser } from 'redux/auth/selectors';
 import Sprite from '../../images/sprite.svg';
-import eyeUser from '../../images/eye-user.svg';
+import eyeHide from '../../images/eye-hide.svg';
 
 const EditProfile = ({ onSave }) => {
   const { username, email, password, avatarURL } = useSelector(selectUser);
@@ -124,7 +124,7 @@ const EditProfile = ({ onSave }) => {
               />
               <PasswordView onClick={togglePasswordVisibility}>
                 {showPassword ? (
-                  <PasswordIcon src={eyeUser} />
+                  <PasswordIcon src={eyeHide} />
                 ) : (
                   <Svg>
                     <use stroke="gray" href={`${Sprite}#eye-password`} />

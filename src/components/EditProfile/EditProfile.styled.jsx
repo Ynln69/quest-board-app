@@ -159,8 +159,9 @@ export const PlusBtn = styled.button`
 export const IconPlus = styled.svg`
   width: 14px;
   height: 14px;
-  stroke: #161616;
-`;
+  stroke: #161616; 
+  z-index: 99;
+  `;
 
 export const PasswordView = styled.span`
   position: absolute;
@@ -174,28 +175,13 @@ export const PasswordIcon = styled.img`
   height: 16px;
   top: 50%;
   right: 4px;
-`;
+  `;
 
 export const Svg = styled.svg`
   width: 16.5px;
   height: 16px;
   top: 50%;
   right: 4px;
+  fill: transparent;
 `;
 
-// export const ModalCloseButton = styled.button`
-//   width: 18px;
-//   height: 18px;
-//   position: absolute;
-//   right: 14px;
-//   top: 14px;
-//   border-radius: 50%;
-//   background-color: transparent;
-//   cursor: pointer;
-//   transition: background-color 250ms ease-in;
-//   stroke: var(--modal_main_color);
-
-//   &:hover,
-//   :focus {
-//   }
-// `;
