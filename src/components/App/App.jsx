@@ -7,8 +7,9 @@ import { RegisterForm } from 'components/RegisterForm/Registerform';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 
 import { Loader } from 'components/Loader/Loader';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
+import { selectIsRefreshing } from 'redux/auth/selectors';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
@@ -17,11 +18,15 @@ const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 export const App = () => {
   const dispatch = useDispatch();
 
+  const isRefreshing = useSelector(selectIsRefreshing);
+
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  return (
+  return isRefreshing ? (
+    <Loader />
+  ) : (
     <Suspense
       fallback={
         <div
@@ -54,19 +59,16 @@ export const App = () => {
         <Route
           path="/auth/register"
           element={
-            <RestrictedRoute redirectTo="/home" component={<RegisterForm />} />
+            <RestrictedRoute
+              redirectTo="/auth/login"
+              component={<RegisterForm />}
+            />
           }
         />
         <Route
           path="/auth/login"
           element={
             <RestrictedRoute redirectTo="/home" component={<LoginForm />} />
-          }
-        />
-        <Route
-          path="/home"
-          element={
-            <PrivateRoute redirectTo="/auth/login" component={<HomePage />} />
           }
         />
         <Route path="*" element={<NotFoundPage />} />
