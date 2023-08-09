@@ -11,6 +11,7 @@ import {
   MenuIcon,
   HeaderWrap,
   SelectIcon,
+  Text,
 } from './Header.styled';
 import Sprite from '../../images/sprite.svg';
 
@@ -52,7 +53,7 @@ const Header = () => {
   };
 
   const toggleThemeSelector = () => {
-    setThemeSelectorOpen(!isThemeSelectorOpen); // Toggle the state for isThemeSelectorOpen
+    setThemeSelectorOpen(!isThemeSelectorOpen);
   };
 
   return (
@@ -66,19 +67,18 @@ const Header = () => {
       <HeaderWrap>
         <HeaderNav>
           <div>
-            <SelectIcon
-              className={`icon-chevron-down theme-${theme}`}
-              width="16"
-              height="16"
-              onClick={toggleThemeSelector}
-            >
+            <SelectIcon width="16" height="16" onClick={toggleThemeSelector}>
               <use href={`${Sprite}#icon-chevron-down`} />
             </SelectIcon>
           </div>
-          Theme
+          <Text>Theme</Text>
         </HeaderNav>
         {isThemeSelectorOpen && (
-          <ThemeSelector onClose={() => setThemeSelectorOpen(false)} />
+          <ThemeSelector
+          isOpen={isThemeSelectorOpen} 
+          onClose={() => setThemeSelectorOpen(false)}
+          onToggleThemeSelector={toggleThemeSelector} 
+        />
         )}
         <UserInfo />
       </HeaderWrap>
@@ -88,7 +88,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-
-
