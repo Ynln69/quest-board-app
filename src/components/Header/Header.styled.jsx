@@ -24,7 +24,7 @@ export const Container = styled.div`
 export const MenuIcon = styled.svg`
   width: 24px;
   height: 24px;
-  color: var(--header_user_text);
+  stroke: var(--header_user_text);
 
   @media screen and (min-width: 375px) {
     width: 32px;

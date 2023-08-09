@@ -1,37 +1,32 @@
 import styled from '@emotion/styled';
-import Select from 'react-select';
 
-export const Container = styled.div`
+export const ThemeContainer = styled.div`
 position: relative;
-   }
 `;
 
-export const StyledSelect = styled(Select)`
-  /* Стилі для вибраних тем */
-  .css-1nmdiq5-menu {
-    position: absolute;
+export const ThemeList = styled.ul`
+position: absolute;
     top: 100%;
     left: -10%;
     transform: translate(-100%, 10%);
     width: 100px;
     height: 107px;
-    padding-left: 18px;
-    border-radius: 8px;
+    display: flex;
+  flex-direction: column;
+    padding: 18px 44px 18px 18px;
+    gap: 4px;
+  background: var(--theme_bgc);
+  box-shadow: 0px 4px 16px 0px var(--theme_shadow);
+  border-radius: 8px;
   border: 1px solid #BEDBB0;
-  background: #FCFCFC;
-  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10); 
-    z-index: 1;
-  }
+  cursor: pointer;
+  z-index: 99;
+    z-index: 3;
+   }
+`;
 
-  .css-1f769on{ 
-
-  }
-
-  /* Стилі для опцій */
- 
-  .css-d7l1ni-option 
-  {
-    font-family: Poppins;
+export const ThemeItem = styled.li`
+font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -43,21 +38,66 @@ export const StyledSelect = styled(Select)`
     &:hover {
       // background-color: var(--theme_active);
       color: var(--theme_text);
-    }
-  }
+   }
 `;
 
-export const SelectStyles = {
-  control: provided => ({
-    ...provided,
-    display: 'none',
-    // Додайте стилі для контролу (значення) Select
-  }),
-  option: provided => ({
-    ...provided,
-     // Приховати опції
-  }),
-};
+
+
+
+
+
+// export const StyledSelect = styled(Select)`
+//   /* Стилі для вибраних тем */
+//   .css-1nmdiq5-menu {
+//     position: absolute;
+//     top: 100%;
+//     left: -10%;
+//     transform: translate(-100%, 10%);
+//     width: 100px;
+//     height: 107px;
+//     padding-left: 18px;
+//     border-radius: 8px;
+//   border: 1px solid #BEDBB0;
+//   background: #FCFCFC;
+//   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10); 
+//     z-index: 1;
+//   }
+
+//   .css-1f769on{ 
+
+//   }
+
+//   /* Стилі для опцій */
+ 
+//   .css-d7l1ni-option 
+//   css-10wo9uf-option{
+//     font-family: Poppins;
+//   font-size: 14px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: normal;
+//   letter-spacing: -0.28px;
+//   color: var(--theme_color);
+//   background-color: var(--theme_bgc);
+//     cursor: pointer;
+//     &:hover {
+//       // background-color: var(--theme_active);
+//       color: var(--theme_text);
+//     }
+//   }
+// `;
+
+// export const SelectStyles = {
+//   control: provided => ({
+//     ...provided,
+//     display: 'none',
+//     // Додайте стилі для контролу (значення) Select
+//   }),
+//   option: provided => ({
+//     ...provided,
+//      // Приховати опції
+//   }),
+// };
 
 
 

@@ -101,7 +101,6 @@ export const SaveBtn = styled.button`
   background: var(--create_normal);
   border-radius: 8px;
   border: 1px solid var(--create_normal);
-  color: var(--plus_color);
   cursor: pointer;
 
   // &:hover,
@@ -154,6 +153,16 @@ export const PlusBtn = styled.button`
   &:active  {
     background: var(--create_active);
   }
+`;
+
+export const TextBtn = styled(Form)`
+font-family: Poppins;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: -0.28px;
+color: var(--save-color);
 `;
 
 export const IconPlus = styled.svg`
