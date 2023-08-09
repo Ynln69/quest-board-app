@@ -14,7 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <BrowserRouter basename="/quest-board-app">
-        <GoogleOAuthProvider clientId="305670474175 - vmep2emjp5dp8isbrqar3vv8n95j5tg7.apps.googleusercontent.com">
+        <GoogleOAuthProvider clientId="305670474175-vmep2emjp5dp8isbrqar3vv8n95j5tg7.apps.googleusercontent.com">
           <App />
         </GoogleOAuthProvider>
       </BrowserRouter>

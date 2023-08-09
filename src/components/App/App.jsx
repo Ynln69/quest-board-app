@@ -9,7 +9,7 @@ import { LoginForm } from 'components/LoginForm/LoginForm';
 import { Loader } from 'components/Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
-import { selectIsRefreshing } from 'redux/auth/selectors';
+import { selectIsRefreshing, selectIsLoggedIn } from 'redux/auth/selectors';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
@@ -18,11 +18,12 @@ const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 export const App = () => {
   const dispatch = useDispatch();
 
+  const isLoggedIn = useSelector(selectIsLoggedIn);
   const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshUser());
-  }, [dispatch]);
+  }, [dispatch, isLoggedIn]);
 
   return isRefreshing ? (
     <Loader />
