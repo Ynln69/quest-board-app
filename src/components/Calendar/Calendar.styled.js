@@ -91,6 +91,7 @@ export const CalendarContainer = styled.div`
   }
 
   & .react-datepicker__day--selected,
+  & .react-datepicker__day--outside-month:hover,
   & .react-datepicker__day:hover {
     background: var(--cal_days_bc_hover);
     border-radius: 50%;
@@ -103,7 +104,6 @@ export const CalendarContainer = styled.div`
     color: var(--cal_days_disabled);
   }
 
-  & .react-datepicker__day--outside-month:hover,
   & .react-datepicker__day--disabled:hover {
     background: var(--cal_bg_out_hover);
     color: var(--cal_days_out_hover);
