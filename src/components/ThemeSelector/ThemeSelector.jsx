@@ -2,12 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
 import { updateUser } from 'redux/auth/operations';
-import {
-  Container,
-  SelectContainer,
-  StyledSelect,
-  SelectStyles,
-} from './ThemeSelector.styled';
+import { Container, StyledSelect, SelectStyles } from './ThemeSelector.styled';
 
 const ThemeSelector = ({ isOpen, onClose }) => {
   const { theme } = useSelector(selectUser);
@@ -32,7 +27,7 @@ const ThemeSelector = ({ isOpen, onClose }) => {
     setCurrentTheme(newTheme);
 
     try {
-      await dispatch(updateUser({ theme: newTheme  }));
+      await dispatch(updateUser({ theme: newTheme }));
       onClose();
     } catch (error) {
       console.error('Failed to update theme:', error);
@@ -41,20 +36,16 @@ const ThemeSelector = ({ isOpen, onClose }) => {
 
   return (
     <Container>
-      <SelectContainer>
-        <StyledSelect
-          value={themeOptions.find(option => option.value === currentTheme)}
-          onChange={onHandleTheme}
-          options={themeOptions}
-          isSearchable={false}
-          styles={SelectStyles}
-          menuIsOpen={isOpen} 
-        />
-      </SelectContainer>
+      <StyledSelect
+        value={themeOptions.find(option => option.value === currentTheme)}
+        onChange={onHandleTheme}
+        options={themeOptions}
+        isSearchable={false}
+        styles={SelectStyles}
+        menuIsOpen={isOpen}
+      />
     </Container>
   );
 };
 
 export default ThemeSelector;
-
-

@@ -6,35 +6,42 @@ position: relative;
    }
 `;
 
-export const SelectContainer = styled.div`
-  position: absolute;
-  top: 100%;
-  left: -10%;
-  transform: translate(-100%, 10%);
-  width: 100px;
-  height: 107px;
-  /* Відобразити опції */
-  .css-1s2ci2r-menu {
-    z-index: 1;
-  }
-`;
-
 export const StyledSelect = styled(Select)`
   /* Стилі для вибраних тем */
-  .css-1wa3eu0-placeholder,
-  .css-1wa3eu0-singleValue {
-    color: var(--theme_text); // Змінюємо колір вибраних тем
-    overflow: hidden;
+  .css-1nmdiq5-menu {
+    position: absolute;
+    top: 100%;
+    left: -10%;
+    transform: translate(-100%, 10%);
+    width: 100px;
+    height: 107px;
+    padding-left: 18px;
+    border-radius: 8px;
+  border: 1px solid #BEDBB0;
+  background: #FCFCFC;
+  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10); 
+    z-index: 1;
+  }
+
+  .css-1f769on{ 
+
   }
 
   /* Стилі для опцій */
-  .css-1uccc91-singleOption,
-  .css-12jo7m5-option {
-    background-color: var(--theme_bgc);
-    color: var(--theme_color);
+ 
+  .css-d7l1ni-option 
+  {
+    font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  color: var(--theme_color);
+  background-color: var(--theme_bgc);
     cursor: pointer;
     &:hover {
-      background-color: var(--theme_active);
+      // background-color: var(--theme_active);
       color: var(--theme_text);
     }
   }
@@ -91,3 +98,27 @@ export const SelectStyles = {
 //   }
 // `;
 
+
+  // .css-1wa3eu0-singleValue {
+  //   // color: var(--close_active);
+  //      overflow: hidden;
+  // }
+
+   /* Відобразити опції */
+  //  .css-1s2ci2r-menu {
+     
+  // }
+
+  // export const SelectContainer = styled.div`
+//   position: absolute;
+//   top: 100%;
+//   left: -10%;
+//   transform: translate(-100%, 10%);
+//   width: 100px;
+//   height: 107px;
+//   // padding-left: 18px;
+//   border-radius: 8px;
+// border: 1px solid #BEDBB0;
+// background: #FCFCFC;
+// box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10); 
+// `;
