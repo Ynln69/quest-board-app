@@ -17,6 +17,7 @@ import {
   Svg,
   LabelPass,
   LabelText,
+  TextBtn,
 } from './EditProfile.styled';
 import { updateUser, updateUserAvatar } from 'redux/auth/operations';
 import { selectUser } from 'redux/auth/selectors';
@@ -135,7 +136,7 @@ const EditProfile = ({ onSave }) => {
             </LabelPass>
 
             <SaveBtn type="submit" disabled={isSubmitting}>
-              Save
+              <TextBtn>Save</TextBtn>
             </SaveBtn>
           </FormBox>
         )}
