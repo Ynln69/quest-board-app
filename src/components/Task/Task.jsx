@@ -51,13 +51,6 @@ export const Task = ({ task, index }) => {
               <li>
                 <button>
                   <svg width={16} height={16}>
-                    <use xlinkHref={`${sprite}#icon-arrow-circle`} />
-                  </svg>
-                </button>
-              </li>
-              <li>
-                <button>
-                  <svg width={16} height={16}>
                     <use xlinkHref={`${sprite}#icon-pencil`} />
                   </svg>
                 </button>

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { register } from '../../redux/auth/operations';
+import { register, logIn } from '../../redux/auth/operations';
 import { GoogleBtn } from 'components/GoogleBtn/GoogleBtn';
 
 import {
@@ -23,12 +23,12 @@ import {
 function Welcome() {
   // НЕ ВИДАЛЯТИ!!!1!!!!!!!!!!!!!
 
-  const [user, setUser] = useState([]);
-  const [profile, setProfile] = useState([]);
+  const [user, setUser] = useState(null);
+  const [profile, setProfile] = useState(null);
 
   const dispatch = useDispatch();
 
-  const login = useGoogleLogin({
+  const googleLogin = useGoogleLogin({
     onSuccess: codeResponse => {
       setUser(codeResponse);
     },
@@ -42,7 +42,6 @@ function Welcome() {
 
   useEffect(() => {
     if (user) {
-      // console.log(user.access_token);
       axios
         .get(
           `https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`,
@@ -56,12 +55,25 @@ function Welcome() {
         .then(res => {
           // console.log(res.data);
           setProfile(res.data);
+          console.log(res.data);
+
           dispatch(
             register({
-              username: profile.name,
-              email: profile.email,
+              username: res.data.name,
+              email: res.data.email,
               password: user.access_token,
             })
+          );
+
+          setTimeout(
+            () =>
+              dispatch(
+                logIn({
+                  email: res.data.email,
+                  password: user.access_token,
+                })
+              ),
+            1000
           );
         })
         .catch(err => console.log(err));
@@ -87,21 +99,21 @@ function Welcome() {
           <RegButton to="auth/register">Registration</RegButton>
           <LogButton to="auth/login">Log In</LogButton>
 
-          {profile ? (
+          {!profile ? (
+            <GoogleBtn
+              onClick={() => googleLogin()}
+              text={'Sign in with Google'}
+            ></GoogleBtn>
+          ) : (
             <div>
-              <img src={profile.picture} alt="user avatar" />
+              {/* <img src={profile.picture} alt="user avatar" />
               <h3>User Logged in</h3>
               <p>Name: {profile.name}</p>
               <p>Email Address: {profile.email}</p>
               <br />
-              <br />
+              <br /> */}
               <GoogleBtn onClick={logOut} text={'Log out'}></GoogleBtn>
             </div>
-          ) : (
-            <GoogleBtn
-              onClick={() => login()}
-              text={'Sign in with Google'}
-            ></GoogleBtn>
           )}
         </AuthWrapper>
       </Wrapper>

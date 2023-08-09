@@ -11,8 +11,6 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth/slice';
-import { profileReducer } from './user/profileSlice';
-import { themeReducer } from './theme/themeSlice';
 import { boardsReducer } from './boards/boardsSlice';
 
 const authPersistConfig = {
@@ -24,8 +22,6 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
-    profile: profileReducer,
-    theme: themeReducer,
     boards: boardsReducer,
   },
   middleware: getDefaultMiddleware =>
