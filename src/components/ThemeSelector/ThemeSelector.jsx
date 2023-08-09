@@ -26,10 +26,11 @@ const ThemeSelector = ({ onClose }) => {
   }, [currentTheme]);
 
   const onHandleTheme = async newTheme => {
+    console.log(newTheme);
     setCurrentTheme(newTheme);
 
     try {
-      await dispatch(updateUser({ theme: newTheme }));
+      await dispatch(updateUser({ theme: newTheme.toUpperCase() }));
       onClose();
     } catch (error) {
       console.error('Failed to update theme:', error);
