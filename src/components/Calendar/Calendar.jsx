@@ -2,16 +2,15 @@ import React, { useState, forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 import { subDays, addDays, formatDistanceToNowStrict } from 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
-import { Button, CalendarContainer } from './Calendar.styled';
+import { Button, CalendarContainer, Icon } from './Calendar.styled';
 import Sprite from '../../images/sprite.svg';
 
 export const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
-
+  // eslint-disable-next-line
   const result = formatDistanceToNowStrict(Date.parse(selectedDate), {
     includeSeconds: true,
   });
-  console.log(result);
 
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => {
     const formatDate = () => {
@@ -31,9 +30,9 @@ export const Calendar = () => {
     return (
       <Button onClick={onClick} ref={ref}>
         {formatDate(value)} {value}
-        <svg width="18" height="18" fill="#BEDBB0">
+        <Icon>
           <use href={`${Sprite}#icon-chevron-down-1`} />
-        </svg>
+        </Icon>
       </Button>
     );
   });
