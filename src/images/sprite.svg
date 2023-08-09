@@ -106,7 +106,7 @@
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2" d="M6.667 16h18.667"></path>
 </symbol>
 <symbol id="icon-chevron-down-1" viewBox="0 0 30 32">
-<path fill="none" stroke="#bedbb0"  stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.3684" d="M7.579 12.211l7.579 7.579 7.579-7.579"></path>
+<path fill="none"  stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.3684" d="M7.579 12.211l7.579 7.579 7.579-7.579"></path>
 </symbol>
 <symbol id="icon-icon-google" viewBox="0 0 32 32">
 <path fill="#ffc107" style="fill: var(--color1, #ffc107)" d="M29.074 13.389h-1.074v-0.055h-12v5.333h7.535c-1.099 3.105-4.053 5.333-7.535 5.333-4.418 0-8-3.582-8-8s3.582-8 8-8c2.039 0 3.895 0.769 5.307 2.026l3.771-3.771c-2.381-2.219-5.567-3.588-9.079-3.588-7.363 0-13.333 5.97-13.333 13.333s5.97 13.333 13.333 13.333c7.363 0 13.333-5.97 13.333-13.333 0-0.894-0.092-1.767-0.259-2.611z"></path>
