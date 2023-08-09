@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/quest-board-app/static/css/main.0a544167.css",
-    "main.js": "/quest-board-app/static/js/main.e1854385.js",
+    "main.js": "/quest-board-app/static/js/main.e856ea61.js",
     "static/js/544.507c6544.chunk.js": "/quest-board-app/static/js/544.507c6544.chunk.js",
     "static/js/786.5da79be9.chunk.js": "/quest-board-app/static/js/786.5da79be9.chunk.js",
     "static/js/196.c3334992.chunk.js": "/quest-board-app/static/js/196.c3334992.chunk.js",
@@ -17,7 +17,7 @@
     "index.html": "/quest-board-app/index.html",
     "static/media/eye-hide.svg": "/quest-board-app/static/media/eye-hide.accfc4141682c117e0a89ff4d886ee4d.svg",
     "main.0a544167.css.map": "/quest-board-app/static/css/main.0a544167.css.map",
-    "main.e1854385.js.map": "/quest-board-app/static/js/main.e1854385.js.map",
+    "main.e856ea61.js.map": "/quest-board-app/static/js/main.e856ea61.js.map",
     "544.507c6544.chunk.js.map": "/quest-board-app/static/js/544.507c6544.chunk.js.map",
     "786.5da79be9.chunk.js.map": "/quest-board-app/static/js/786.5da79be9.chunk.js.map",
     "196.c3334992.chunk.js.map": "/quest-board-app/static/js/196.c3334992.chunk.js.map",
@@ -25,6 +25,6 @@
   },
   "entrypoints": [
     "static/css/main.0a544167.css",
-    "static/js/main.e1854385.js"
+    "static/js/main.e856ea61.js"
   ]
 }
