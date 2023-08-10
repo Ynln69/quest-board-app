@@ -50,21 +50,13 @@ export const RegisterForm = () => {
       })
     );
 
-    // setTimeout(
     dispatch(
       logIn({
         email: user.email,
         password: user.password,
       })
-      // ),
-      // 500
     );
 
-    //   console.log(
-    //     form.elements.name.value,
-    //     form.elements.email.value,
-    //     form.elements.password.value
-    //   );
     form.elements.name.value = '';
     form.elements.email.value = '';
     form.elements.password.value = '';
