@@ -13,6 +13,10 @@ const ModalColumn = ({ handleSubmit, nameTitle }) => {
   };
 
   const handleFormSubmit = () => {
+    if (title.trim() === '') {
+      alert('Поле не може бути порожнім');
+      return;
+    }
     handleSubmit(title);
     handlerVisible();
   };
@@ -29,7 +33,7 @@ const ModalColumn = ({ handleSubmit, nameTitle }) => {
             setTitle(e.target.value);
           }}
         />
-        <BtnColumn type="submit" text={'Add'} />
+        <BtnColumn text={'Add'} />
       </FormContainer>
     </Formik>
   );

@@ -3,7 +3,7 @@ import { Button, BoxAddSvg, SvgAdd } from './BtnColumn.styled';
 
 const BtnColumn = ({ text, onClick }) => {
   return (
-    <Button onClick={onClick}>
+    <Button type="submit" onClick={onClick}>
       <BoxAddSvg>
         <SvgAdd>
           <use href={`${sprite}#icon-plus`} />
