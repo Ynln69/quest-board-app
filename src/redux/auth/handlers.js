@@ -43,16 +43,16 @@ export const handleRefreshUserFullfilled = (state, { payload }) => {
   state.isRefreshing = false;
 };
 
-export const handleUpdateUserFullfilled = (state, { payload: { data } }) => {
-  state.username = data.username;
-  state.email = data.email;
-  state.password = data.password;
-  state.token = data.token;
+export const handleUpdateUserFullfilled = (state, { payload }) => {
+  state.username = payload.username;
+  state.email = payload.email;
+  state.password = payload.password;
+  state.token = payload.token;
   state.isLoggedIn = true;
-  state.id = data._id;
-  state.boards = data.boards;
-  state.theme = data.theme;
-  state.avatarURL = data.avatarURL;
+  state.id = payload._id;
+  state.boards = payload.boards;
+  state.theme = payload.theme;
+  state.avatarURL = payload.avatarURL;
 };
 
 export const handleUpdateAvatarUserFullfilled = (state, { payload }) => {
