@@ -8,7 +8,8 @@ export const GoogleBtnCustom = styled.button`
 
   padding: 0 20px;
 
-  width: 100%;
+  min-width: 300px;
+  width: 344px;
   height: 49px;
 
   color: #161616;
