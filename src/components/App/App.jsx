@@ -5,7 +5,7 @@ import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
 import { RegisterForm } from 'components/RegisterForm/Registerform';
 import { LoginForm } from 'components/LoginForm/LoginForm';
-
+import { Dashboard } from 'components/Dashboard/Dashboard';
 import { Loader } from 'components/Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
@@ -53,10 +53,17 @@ export const App = () => {
           path="/auth/:id"
           element={<PrivateRoute redirectTo="/home" component={<AuthPage />} />}
         />
-        <Route
+         <Route
           path="/home"
           element={<PrivateRoute redirectTo="/" component={<HomePage />} />}
-        />
+        >
+          <Route
+            path="/home/:boardName"
+            element={
+              <PrivateRoute redirectTo="/home" component={<Dashboard />} />
+            }
+          />
+        </Route> 
         <Route
           path="/auth/register"
           element={
