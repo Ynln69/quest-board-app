@@ -6,6 +6,8 @@ export const GoogleBtnCustom = styled.button`
   align-items: center;
   gap: 8px;
 
+  padding: 0 20px;
+
   width: 100%;
   height: 49px;
 

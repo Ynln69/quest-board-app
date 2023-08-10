@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { register, logIn } from '../../redux/auth/operations';
+import { logIn, register } from '../../redux/auth/operations';
 import { GoogleBtn } from 'components/GoogleBtn/GoogleBtn';
 
 import {
@@ -21,8 +21,6 @@ import {
 } from './Welcome.styled';
 
 function Welcome() {
-  // НЕ ВИДАЛЯТИ!!!1!!!!!!!!!!!!!
-
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
 
@@ -52,16 +50,16 @@ function Welcome() {
             },
           }
         )
+
         .then(res => {
-          // console.log(res.data);
           setProfile(res.data);
-          console.log(res.data);
+          console.log(res.data.email);
 
           dispatch(
             register({
               username: res.data.name,
               email: res.data.email,
-              password: user.access_token,
+              password: `${res.data.id}!Taskpro`,
             })
           );
 
@@ -70,10 +68,10 @@ function Welcome() {
               dispatch(
                 logIn({
                   email: res.data.email,
-                  password: user.access_token,
+                  password: `${res.data.id}!Taskpro`,
                 })
               ),
-            1000
+            500
           );
         })
         .catch(err => console.log(err));
@@ -106,12 +104,6 @@ function Welcome() {
             ></GoogleBtn>
           ) : (
             <div>
-              {/* <img src={profile.picture} alt="user avatar" />
-              <h3>User Logged in</h3>
-              <p>Name: {profile.name}</p>
-              <p>Email Address: {profile.email}</p>
-              <br />
-              <br /> */}
               <GoogleBtn onClick={logOut} text={'Log out'}></GoogleBtn>
             </div>
           )}

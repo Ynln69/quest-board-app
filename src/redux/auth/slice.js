@@ -49,11 +49,6 @@ const authSlice = createSlice({
         isAnyOf(refreshUser.pending, refreshUser.rejected),
         handlersForRegisterLogin.toggleIsRefreshing
       );
-
-    // .addMatcher(
-    //   isAnyOf(register.fulfilled, logIn.fulfilled),
-    //   handlersForRegisterLogin.handleRegisterLoginFulfilled
-    // );
   },
 });
 
