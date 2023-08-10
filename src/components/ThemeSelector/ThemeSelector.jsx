@@ -27,7 +27,7 @@ const ThemeSelector = ({ onClose }) => {
       await dispatch(updateUser({ theme: newTheme.toUpperCase() }));
 
       // Зберігаємо нову тему в localStorage
-      localStorage.setItem('theme', newTheme);
+      // localStorage.setItem('theme', newTheme);
 
       onClose();
     } catch (error) {

@@ -16,7 +16,7 @@ import { boardsReducer } from './boards/boardsSlice';
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'theme', 'username'],
 };
 
 export const store = configureStore({
