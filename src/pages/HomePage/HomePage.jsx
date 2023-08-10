@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import Header from 'components/Header/Header';
 import { Sidebar } from 'components/Sidebar/Sidebar';
@@ -7,15 +7,20 @@ import { selectUser } from 'redux/auth/selectors';
 import { Container } from './HomePage.styled';
 
 const HomePage = () => {
-  const user = useSelector(selectUser);
-  const userTheme = user.theme || 'light';
+  const {theme} = useSelector(selectUser);
+
+  useEffect(() => {
+    document.body.classList.add(theme);
+}, 
+// eslint-disable-next-line
+[]);
 
   return (
-    <Container className={`theme-${userTheme}`}>
-      <Sidebar theme={userTheme} />
+    <Container>
+      <Sidebar theme={theme} />
       <div style={{ width: '100%' }}>
-        <Header theme={userTheme} />
-        <Dashboard theme={userTheme} />
+        <Header theme={theme} />
+        <Dashboard theme={theme} />
       </div>
     </Container>
   );
