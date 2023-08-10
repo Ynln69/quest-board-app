@@ -34,6 +34,12 @@ export const RegisterForm = () => {
 
     const form = event.currentTarget;
 
+    const passwordRegex =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,64}$/;
+    if (!passwordRegex.test(form.elements.password.value)) {
+      return;
+    }
+
     const user = {
       username: form.elements.name.value,
       email: form.elements.email.value,

@@ -32,6 +32,13 @@ export const LoginForm = () => {
   const handleSubmit = async event => {
     event.preventDefault();
     const form = event.currentTarget;
+
+    const passwordRegex =
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,64}$/;
+    if (!passwordRegex.test(form.elements.password.value)) {
+      return;
+    }
+
     dispatch(
       logIn({
         email: form.elements.email.value,
