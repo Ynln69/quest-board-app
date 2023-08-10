@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense, useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
@@ -53,7 +54,7 @@ export const App = () => {
           path="/auth/:id"
           element={<PrivateRoute redirectTo="/home" component={<AuthPage />} />}
         />
-         <Route
+        <Route
           path="/home"
           element={<PrivateRoute redirectTo="/" component={<HomePage />} />}
         >
@@ -63,7 +64,7 @@ export const App = () => {
               <PrivateRoute redirectTo="/home" component={<Dashboard />} />
             }
           />
-        </Route> 
+        </Route>
         <Route
           path="/auth/register"
           element={
@@ -81,6 +82,7 @@ export const App = () => {
         />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <ToastContainer />
     </Suspense>
   );
 };
