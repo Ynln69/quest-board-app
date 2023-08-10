@@ -70,8 +70,15 @@ export const refreshUser = createAsyncThunk(
 export const updateUser = createAsyncThunk(
   'auth/updateUser',
   async (credentials, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedUser = state.auth.token;
+
+    if (persistedUser === null) {
+      return thunkAPI.rejectWithValue('Unable to fetch user');
+    }
+    setAuthHeader(persistedUser);
     try {
-      console.log(credentials);
+   
       const res = await axios.patch('/api/users/current', credentials);
       console.log(res);
       return res.data;

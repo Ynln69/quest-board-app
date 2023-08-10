@@ -13,7 +13,7 @@ import {
   Text,
 } from './Header.styled';
 import Sprite from '../../images/sprite.svg';
-import { updateUser } from 'redux/auth/operations';
+// import { updateUser } from 'redux/auth/operations';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -22,10 +22,10 @@ const Header = () => {
   const [isThemeSelectorOpen, setThemeSelectorOpen] = useState(false);
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem('theme');
-    if (storedTheme) {
-      dispatch(updateUser({ theme: storedTheme }));
-    }
+    // const storedTheme = localStorage.getItem('theme');
+    // if (storedTheme) {
+    //   dispatch(updateUser({ theme: storedTheme }));
+    // }
     let timeout;
 
     if (isSideBarOpen) {

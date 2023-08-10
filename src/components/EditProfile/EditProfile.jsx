@@ -25,28 +25,27 @@ import Sprite from '../../images/sprite.svg';
 import eyeHide from '../../images/eye-hide.svg';
 
 const EditProfile = ({ onSave }) => {
-  const { username, email, password, avatarURL } = useSelector(selectUser);
+  const { username, theme, email, password, avatarURL } = useSelector(selectUser);
   const [showPassword, setShowPassword] = useState(false);
   const [avatarNewURL, setAvatarNewURL] = useState(avatarURL);
-
+    
   const dispatch = useDispatch();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleFormSubmit = async values => {
-    console.log(values);
-
+  const handleFormSubmit = async (formValues) => {
+    console.log(formValues);
     dispatch(
       updateUser({
-        username: values.newName,
-        email: values.newEmail,
-        password: values.newPassword,
+        username: formValues.newName,
+        email: formValues.newEmail,
+        password: formValues.newPassword,
+        theme,
       })
     );
-
-    if (avatarNewURL !== values.newPhoto) {
+    if (avatarNewURL !== formValues.newPhoto) {
       dispatch(updateUserAvatar(avatarNewURL));
     }
     onSave();
