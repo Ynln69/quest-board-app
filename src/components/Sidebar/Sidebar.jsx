@@ -39,13 +39,10 @@ export function Sidebar({ theme, isOpen }) {
   const boards = useSelector(selectBoards);
   const dispatch = useDispatch();
 
-  useEffect(
-    () => {
-      dispatch(getBoards());
-    },
-    [dispatch],
-    boards
-  );
+  useEffect(() => {
+    dispatch(getBoards());
+    console.log('dispatch sidebar');
+  }, [dispatch]);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);

@@ -38,7 +38,3 @@ export const handleFulfilled = (state, { payload }) => {
 export const handleGetBoardsFulfilled = (state, { payload }) => {
   return { ...state, boards: payload };
 };
-
-// export const handleRefreshUserFulfilled = (state, { payload }) => {
-//   console.log(payload);
-// };
