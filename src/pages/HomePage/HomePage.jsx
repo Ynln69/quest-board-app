@@ -2,12 +2,15 @@ import React, {useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import Header from 'components/Header/Header';
 import { Sidebar } from 'components/Sidebar/Sidebar';
-import { Dashboard } from 'components/Dashboard/Dashboard';
 import { selectUser } from 'redux/auth/selectors';
 import { Container } from './HomePage.styled';
-
+import { useLocation, Outlet } from 'react-router-dom';
+import { EmptyPage } from 'components/EmptyPage/EmptyPage';
+import { Suspense } from 'react';
 const HomePage = () => {
   const {theme} = useSelector(selectUser);
+  const location = useLocation();
+  const checkUrl = location.pathname.length > '/home/'.length;
 
   useEffect(() => {
     document.body.classList.add(theme);
@@ -16,13 +19,17 @@ const HomePage = () => {
 []);
 
   return (
-    <Container>
+    <><Container>
       <Sidebar theme={theme} />
       <div style={{ width: '100%' }}>
         <Header theme={theme} />
-        <Dashboard theme={theme} />
+        {!checkUrl && <EmptyPage theme={theme} />}
       </div>
-    </Container>
+    </Container><Container>
+   
+          <Outlet />
+        
+      </Container></>
   );
 };
 
