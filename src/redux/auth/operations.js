@@ -20,7 +20,6 @@ export const register = createAsyncThunk(
       const res = await axios.post('api/auth/register', credentials);
 
       setAuthHeader(res.data.token);
-      showToast('success', 'Registration is successful');
       return res.data;
     } catch (error) {
       showToast('error', 'Oops...something went wrong with registration');
@@ -35,7 +34,6 @@ export const logIn = createAsyncThunk(
     try {
       const res = await axios.post('api/auth/login', credentials);
       setAuthHeader(res.data.token);
-      showToast('success', 'LogIn is successful');
       return res.data;
     } catch (error) {
       showToast('error', 'Oops...something went wrong with logIn');
@@ -49,7 +47,6 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     await axios.post('api/auth/logout');
     clearAuthHeader();
     localStorage.clear();
-    showToast('success', 'Logout is successful');
   } catch (error) {
     showToast('error', 'Oops...something went wrong with logout');
     return thunkAPI.rejectWithValue(error.message);
@@ -91,6 +88,7 @@ export const updateUser = createAsyncThunk(
       console.log(res);
       return res.data;
     } catch (error) {
+      showToast('error', 'Oops...something went wrong.');
       console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -105,6 +103,7 @@ export const updateUserAvatar = createAsyncThunk(
       console.log(res);
       return res.data;
     } catch (error) {
+      showToast('error', 'Oops...something went wrong.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -128,6 +127,7 @@ export const needHelp = createAsyncThunk('help', async (formData, thunkAPI) => {
       return thunkAPI.rejectWithValue('Request failed');
     }
   } catch (error) {
+    showToast('error', 'Oops...something went wrong.');
     return thunkAPI.rejectWithValue(error.message);
   }
 });
