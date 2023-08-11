@@ -22,7 +22,26 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      if (error.code === 'ERR_BAD_REQUEST') {
+        showToast('info', 'User already registered.');
+        return thunkAPI.rejectWithValue(error.message);
+      }
       showToast('error', 'Oops...something went wrong with registration');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const googleRegister = createAsyncThunk(
+  'auth/register',
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.post('api/auth/register', credentials);
+
+      setAuthHeader(res.data.token);
+
+      return res.data;
+    } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
