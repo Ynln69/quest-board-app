@@ -1,8 +1,9 @@
-// export const handleRegisterFulfilled = ({ payload }) => {
-//   console.log(payload.message);
-// };
-
 export const handleLoginFulfilled = (state, { payload }) => {
+  state.token = payload.token;
+  state.isLoggedIn = true;
+};
+
+export const handleRegisterLoginFulfilled = (state, { payload }) => {
   state.token = payload.token;
   state.isLoggedIn = true;
 };
