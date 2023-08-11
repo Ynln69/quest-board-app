@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { logIn, register } from '../../redux/auth/operations';
+
+import { registerLogin } from '../../redux/auth/operations';
 import { Formik, Field } from 'formik';
 import {
   Container,
@@ -29,7 +30,7 @@ export const RegisterForm = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = async event => {
+  const handleSubmit = event => {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -48,23 +49,12 @@ export const RegisterForm = () => {
 
     console.log(user);
 
-    await dispatch(
-      register({
+    dispatch(
+      registerLogin({
         username: form.elements.name.value,
         email: form.elements.email.value,
         password: form.elements.password.value,
       })
-    );
-
-    setTimeout(
-      () =>
-        dispatch(
-          logIn({
-            email: user.email,
-            password: user.password,
-          })
-        ),
-      1500
     );
 
     form.elements.name.value = '';

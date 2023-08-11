@@ -13,17 +13,28 @@ const clearAuthHeader = () => {
   axios.defaults.headers.common.Authorization = '';
 };
 
-export const register = createAsyncThunk(
-  'auth/register',
+export const registerLogin = createAsyncThunk(
+  'auth/registerLogin',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('api/auth/register', credentials);
-
-      setAuthHeader(res.data.token);
-      return res.data;
+      const { email, username, password } = credentials;
+      const res = await axios.post('api/auth/register', {
+        email,
+        username,
+        password,
+      });
+      if (res.status === 201) {
+        const response = await axios.post('api/auth/login', {
+          email,
+          password,
+        });
+        setAuthHeader(response.data.token);
+        return response.data;
+      }
+      return;
     } catch (error) {
       if (error.code === 'ERR_BAD_REQUEST') {
-        showToast('info', 'User already registered.');
+        showToast('info', 'User already registered. Try to Log In');
         return thunkAPI.rejectWithValue(error.message);
       }
       showToast('error', 'Oops...something went wrong with registration');
@@ -36,11 +47,7 @@ export const googleRegister = createAsyncThunk(
   'auth/register',
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post('api/auth/register', credentials);
-
-      setAuthHeader(res.data.token);
-
-      return res.data;
+      await axios.post('api/auth/register', credentials);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

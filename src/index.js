@@ -21,5 +21,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </PersistGate>
   </Provider>
 );
-// 305670474175 - vmep2emjp5dp8isbrqar3vv8n95j5tg7.apps.googleusercontent.com; - new
-// 305670474175 - qgrqhq527laokt9pij62etp802t5tvar.apps.googleusercontent.com; - old
