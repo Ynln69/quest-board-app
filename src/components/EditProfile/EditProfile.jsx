@@ -125,7 +125,7 @@ const EditProfile = ({ onClose }) => {
               />
               <PasswordView onClick={togglePasswordVisibility}>
                 {showPassword ? (
-                  <PasswordIcon src={eyeHide} />
+                  <PasswordIcon src={eyeHide} alt="Hide Password"/>
                 ) : (
                   <Svg>
                     <use stroke="gray" href={`${Sprite}#eye-password`} />
