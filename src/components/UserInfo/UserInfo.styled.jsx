@@ -21,5 +21,4 @@ export const Avatar = styled.img`
   height: 32px;
   cursor: pointer;
   stroke: transparent;
-  
-   `;
+     `;

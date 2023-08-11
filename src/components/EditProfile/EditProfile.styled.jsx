@@ -27,7 +27,7 @@ export const FieldUser = styled(Field)`
   color: var(--modal_main_color);
   background-color: var(--modal_field);
   opacity: 0.4;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--input_color);
   padding-left: 18px;
   box-shadow: 0px 4px 16px rgba(22, 22, 22, 0.08);
   border-radius: 8px;
