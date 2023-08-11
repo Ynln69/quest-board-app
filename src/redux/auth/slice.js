@@ -1,6 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
-  register,
   logIn,
   logOut,
   refreshUser,
@@ -32,10 +31,10 @@ const authSlice = createSlice({
         refreshUser.fulfilled,
         handlersForRegisterLogin.handleRefreshUserFullfilled
       )
-      .addCase(
-        register.fulfilled,
-        handlersForRegisterLogin.handleRegisterFulfilled
-      )
+      // .addCase(
+      //   register.fulfilled,
+      //   handlersForRegisterLogin.handleRegisterFulfilled
+      // )
       .addCase(logIn.fulfilled, handlersForRegisterLogin.handleLoginFulfilled)
       .addCase(
         updateUser.fulfilled,
