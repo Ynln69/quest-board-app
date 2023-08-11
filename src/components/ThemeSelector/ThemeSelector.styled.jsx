@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const ThemeContainer = styled.div`
-position: relative;
+  position: relative;
 `;
 
 export const ThemeList = styled.ul`
@@ -18,7 +18,7 @@ position: absolute;
   background: var(--theme_bgc);
   box-shadow: 0px 4px 16px 0px var(--theme_shadow);
   border-radius: 8px;
-  border: 1px solid #BEDBB0;
+  border: 1px solid var(--theme_border);
   cursor: pointer;
   z-index: 99;
     z-index: 3;
@@ -26,25 +26,18 @@ position: absolute;
 `;
 
 export const ThemeItem = styled.li`
-font-family: Poppins;
+  font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.28px;
   color: var(--theme_color);
-  background-color: var(--theme_bgc);
-    cursor: pointer;
-    &:hover {
-      // background-color: var(--theme_active);
-      color: var(--theme_text);
-   }
+  cursor: pointer;
+  &:hover {
+    color: var(--theme_active);
+  }
 `;
-
-
-
-
-
 
 // export const StyledSelect = styled(Select)`
 //   /* Стилі для вибраних тем */
@@ -59,17 +52,17 @@ font-family: Poppins;
 //     border-radius: 8px;
 //   border: 1px solid #BEDBB0;
 //   background: #FCFCFC;
-//   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10); 
+//   box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10);
 //     z-index: 1;
 //   }
 
-//   .css-1f769on{ 
+//   .css-1f769on{
 
 //   }
 
 //   /* Стилі для опцій */
- 
-//   .css-d7l1ni-option 
+
+//   .css-d7l1ni-option
 //   css-10wo9uf-option{
 //     font-family: Poppins;
 //   font-size: 14px;
@@ -98,8 +91,6 @@ font-family: Poppins;
 //      // Приховати опції
 //   }),
 // };
-
-
 
 // export const Select = styled.select`
 //   // position: absolute;
@@ -138,18 +129,17 @@ font-family: Poppins;
 //   }
 // `;
 
+// .css-1wa3eu0-singleValue {
+//   // color: var(--close_active);
+//      overflow: hidden;
+// }
 
-  // .css-1wa3eu0-singleValue {
-  //   // color: var(--close_active);
-  //      overflow: hidden;
-  // }
+/* Відобразити опції */
+//  .css-1s2ci2r-menu {
 
-   /* Відобразити опції */
-  //  .css-1s2ci2r-menu {
-     
-  // }
+// }
 
-  // export const SelectContainer = styled.div`
+// export const SelectContainer = styled.div`
 //   position: absolute;
 //   top: 100%;
 //   left: -10%;
@@ -160,5 +150,5 @@ font-family: Poppins;
 //   border-radius: 8px;
 // border: 1px solid #BEDBB0;
 // background: #FCFCFC;
-// box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10); 
+// box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10);
 // `;

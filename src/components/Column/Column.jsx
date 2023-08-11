@@ -4,13 +4,14 @@ import { v4 as uuidv4 } from 'uuid';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { Task } from 'components/Task/Task';
 import AddColumn from './AddColumn/AddColumn';
+import Modal from '../Modal/Modal';
 import BtnColumn from './BtnColumn/BtnColumn';
+import AddEditCardModal from '../AddEditCard/AddEditCard';
 import {
   Container,
   Title,
   TitleBox,
   TaskList,
-  ContainerModal,
   Svg,
   BoxSvg,
 } from './Column.styled';
@@ -20,7 +21,9 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
   const [visible, setVisible] = useState(false);
   const [dataForModal, setDataForModal] = useState(column);
   const [titleTask, setTitleTask] = useState('');
+  const [descriptionTask, setDescriptionTask] = useState('');
   const [showEditModal, setShowEditModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   if (true === false) {
     console.log(setDataForModal);
@@ -41,7 +44,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
       [taskId]: {
         id: taskId,
         title: titleTask,
-        description: 'awdawd',
+        description: descriptionTask,
         priority: 'over',
         deadline: '22.33.44',
       },
@@ -123,7 +126,13 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
               </TaskList>
             )}
           </Droppable>
-          <BtnColumn text={'Add another card'} onClick={handleVisible} />
+          <BtnColumn
+            text={'Add another card'}
+            onClick={() => {
+              handleVisible();
+              setIsOpen(true);
+            }}
+          />
           {showEditModal && (
             <AddColumn
               title={'Edit column'}
@@ -133,22 +142,17 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
             />
           )}
           {visible && (
-            <ContainerModal>
-              Add Task
-              <label>
-                Task title
-                <input
-                  type="text"
-                  value={titleTask}
-                  onChange={e => {
-                    setTitleTask(e.target.value);
-                  }}
-                />
-              </label>
-              <button type="submit" onClick={handleSubmit}>
-                Add Task
-              </button>
-            </ContainerModal>
+            <Modal
+              handleClose={() => setIsOpen(false)}
+              isOpen={isOpen}
+              heading={'Add card'}
+            >
+              <AddEditCardModal
+                setTitleTask={setTitleTask}
+                setDescriptionTask={setDescriptionTask}
+                handleSubmit={handleSubmit}
+              />
+            </Modal>
           )}
         </Container>
       )}

@@ -69,15 +69,18 @@ function ModalBoard({ btnContent, closeModal, boardData }) {
 
     const newBoard = {
       id: boardId,
-      title: values.title,
+      title: values.title.trim(),
       icon: values.icon,
       background: values.background,
       boardsData: { tasks: {}, columns: {}, columnOrder: [] },
     };
     if (btnContent === 'Create') {
       dispatch(createBoard(newBoard));
-    } else {
-      console.log(newBoard);
+    } else if (
+      values.title !== boardData.title ||
+      values.icon !== boardData.icon ||
+      values.background !== boardData.background
+    ) {
       dispatch(editBoard({ newBoard, id: boardData._id }));
     }
 
@@ -147,6 +150,7 @@ function ModalBoard({ btnContent, closeModal, boardData }) {
 ModalBoard.propTypes = {
   btnContent: PropTypes.string.isRequired,
   closeModal: PropTypes.func.isRequired,
+  boardData: PropTypes.object,
 };
 
 export default ModalBoard;

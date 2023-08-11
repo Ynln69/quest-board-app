@@ -16,6 +16,8 @@ import {
   EditIcon,
   BoardIcons,
   TitleBoard,
+  Nav,
+  ButtonIcon,
 } from './Sidebar.styled';
 import sprite from '../../images/sprite.svg';
 import flower from '../../images/flower.png';
@@ -38,7 +40,6 @@ export function Sidebar({ theme, isOpen }) {
   const [isShow, setIsShow] = useState(false);
   const boards = useSelector(selectBoards);
   const dispatch = useDispatch();
-
   useEffect(
     () => {
       dispatch(getBoards());
@@ -74,12 +75,14 @@ export function Sidebar({ theme, isOpen }) {
 
   return (
     <SidebarBlock className={`theme-${theme} ${isOpen ? 'open' : 'closed'}`}>
-      <TitleBlock>
-        <SvgLightning>
-          <use href={`${sprite}#icon-logo`} />
-        </SvgLightning>
-        <Title>Task Pro</Title>
-      </TitleBlock>
+      <Nav to="/">
+        <TitleBlock>
+          <SvgLightning>
+            <use href={`${sprite}#icon-logo`} />
+          </SvgLightning>
+          <Title>Task Pro</Title>
+        </TitleBlock>
+      </Nav>
       <MyBoardTitle>My boards</MyBoardTitle>
       <BoardTitleBlock>
         <p>Create a new board</p>
@@ -92,14 +95,17 @@ export function Sidebar({ theme, isOpen }) {
       <ul>
         {boards.map(board => (
           <BoardList key={board._id}>
-            <TitleBoard>
-              <svg width={18} height={18}>
-                <use href={`${sprite}#${board.icon}`} />
-              </svg>
-              {board.title}
-            </TitleBoard>
+            <Nav to={`/home/${board.title}`}>
+              <TitleBoard>
+                <svg width={18} height={18}>
+                  <use href={`${sprite}#${board.icon}`} />
+                </svg>
+                {board.title}
+              </TitleBoard>
+           
+
             <BoardIcons>
-              <button
+              <ButtonIcon
                 type="button"
                 aria-label="edit"
                 data-board-id={board._id}
@@ -108,11 +114,19 @@ export function Sidebar({ theme, isOpen }) {
                 <EditIcon>
                   <use href={`${sprite}#icon-pencil`} />
                 </EditIcon>
-              </button>
-              <EditIcon onClick={() => dispatch(deleteBoard(board._id))}>
-                <use href={`${sprite}#icon-trash`} />
-              </EditIcon>
+              </ButtonIcon>
+              <ButtonIcon
+                type="button"
+                aria-label="edit"
+                data-board-id={board._id}
+                onClick={handleModalType}
+              >
+                <EditIcon onClick={() => dispatch(deleteBoard(board._id))}>
+                  <use href={`${sprite}#icon-trash`} />
+                </EditIcon>
+              </ButtonIcon>
             </BoardIcons>
+            </Nav>
           </BoardList>
         ))}
       </ul>

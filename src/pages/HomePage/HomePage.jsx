@@ -1,28 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Header from 'components/Header/Header';
 import { Sidebar } from 'components/Sidebar/Sidebar';
-import { Dashboard } from 'components/Dashboard/Dashboard';
 import { selectUser } from 'redux/auth/selectors';
 import { Container } from './HomePage.styled';
-
+import { useLocation, Outlet } from 'react-router-dom';
+import { EmptyPage } from 'components/EmptyPage/EmptyPage';
 const HomePage = () => {
-  const user = useSelector(selectUser);
-  const userTheme = user.theme || 'light';
+  const { theme } = useSelector(selectUser);
+  const location = useLocation();
+  const checkUrl = location.pathname.length > '/home/'.length;
+
+  useEffect(
+    () => {
+      document.body.classList.add(theme);
+    },
+    // eslint-disable-next-line
+    []
+  );
 
   return (
-    <Container className={`theme-${userTheme}`}>
-      <Sidebar theme={userTheme} />
-      <div style={{ width: '100%' }}>
-        <Header theme={userTheme} />
-        <Dashboard theme={userTheme} />
-      </div>
-    </Container>
+    <>
+      <Container>
+        <Sidebar theme={theme} />
+        <div style={{ width: '100%' }}>
+          <Header theme={theme} />
+          {!checkUrl && <EmptyPage theme={theme} />}
+        </div>
+      </Container>
+      <Container>
+        <Outlet />
+      </Container>
+    </>
   );
 };
 
 export default HomePage;
-
 
 // import React from 'react';
 // import { useSelector } from 'react-redux';
@@ -57,7 +70,6 @@ export default HomePage;
 
 // export default HomePage;
 
-
 // import React from 'react';
 // import { useSelector } from 'react-redux';
 // import { ThemeProvider } from 'hooks/themeContext';
@@ -89,8 +101,6 @@ export default HomePage;
 
 // export default HomePage;
 
-
-
 // import React from 'react';
 // import { useSelector } from 'react-redux';
 // import Header from 'components/Header/Header';
@@ -114,8 +124,6 @@ export default HomePage;
 // };
 
 // export default HomePage;
-
-
 
 // import React from 'react';
 // import { useSelector } from 'react-redux';

@@ -1,17 +1,10 @@
-export const handleRegisterFulfilled = (state, { payload: { user } }) => {
-  state.email = user.email;
-};
+// export const handleRegisterFulfilled = ({ payload }) => {
+//   console.log(payload.message);
+// };
 
 export const handleLoginFulfilled = (state, { payload }) => {
-  state.username = payload.username;
-  state.email = payload.email;
-  state.password = payload.password;
   state.token = payload.token;
   state.isLoggedIn = true;
-  state.id = payload._id;
-  state.boards = payload.boards;
-  state.theme = payload.theme;
-  state.avatarURL = payload.avatarURL;
 };
 
 export const handleLogOutFulfilled = state => {

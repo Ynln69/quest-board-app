@@ -18,6 +18,9 @@ function Modal({ children, isOpen, handleClose, heading }) {
   if (isOpen) {
     window.addEventListener('keydown', handleKeyDown);
   }
+  if (!isOpen) {
+    window.removeEventListener('keydown', handleKeyDown);
+  }
 
   return ReactDOM.createPortal(
     <Backdrop onClick={handleClose}>

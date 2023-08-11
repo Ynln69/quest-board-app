@@ -10,14 +10,14 @@ const ThemeSelector = ({ onClose }) => {
   const [currentTheme, setCurrentTheme] = useState(theme);
 
   useEffect(() => {
-    document.body.classList.remove('light', 'dark', 'violet');
+    document.body.classList.remove('LIGHT', 'DARK', 'VIOLET');
     document.body.classList.add(currentTheme);
   }, [currentTheme]);
 
   const themeOptions = [
-    { value: 'light', label: 'Light' },
-    { value: 'dark', label: 'Dark' },
-    { value: 'violet', label: 'Violet' },
+    { value: 'LIGHT', label: 'Light' },
+    { value: 'DARK', label: 'Dark' },
+    { value: 'VIOLET', label: 'Violet' },
   ];
 
   const onHandleTheme = async newTheme => {
@@ -25,9 +25,6 @@ const ThemeSelector = ({ onClose }) => {
 
     try {
       await dispatch(updateUser({ theme: newTheme.toUpperCase() }));
-
-      // Зберігаємо нову тему в localStorage
-      localStorage.setItem('theme', newTheme);
 
       onClose();
     } catch (error) {

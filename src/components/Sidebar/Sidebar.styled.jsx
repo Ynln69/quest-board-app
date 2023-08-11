@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 export const SidebarBlock = styled.aside`
   display: flex;
@@ -82,9 +83,14 @@ export const BoardList = styled.li`
   align-items: center;
   font-weight: 500;
   letter-spacing: -0.28px;
+  margin-bottom: 44px;
 `;
 export const TitleBoard = styled.div`
   display: flex;
+  > svg {
+    stroke: var(--nav_second_color);
+    margin-right: 8px;
+  }
 `;
 export const BoardIcons = styled.div`
   display: flex;
@@ -93,9 +99,17 @@ export const BoardIcons = styled.div`
 export const EditIcon = styled.svg`
   width: 16px;
   height: 16px;
-  margin-right: 8px;
 
-  stroke: var(--nav_second_color)
+  stroke: var(--nav_second_color);
+  opacity: 0.5;
+  fill: transparent;
+`;
+
+export const ButtonIcon = styled.button`
+  outline: none;
+  border: none;
+  background-color: transparent;
+  margin-right: 8px;
   &:last-child {
     margin-right: 0;
   }
@@ -145,7 +159,7 @@ export const LogoutBtn = styled.button`
   align-items: center;
   gap: 14px;
   border: none;
-
+margin-top: auto;
   color: var(--nav_main_color)
   font-family: Poppins;
   font-weight: 500;
@@ -163,4 +177,10 @@ export const LogoutBtn = styled.button`
 export const Flower = styled.img`
   margin-bottom: 14px;
   display: block;
+`;
+
+export const Nav = styled(NavLink)`
+display: flex;
+width: 100%;
+  color: var(--nav_main_color);
 `;
