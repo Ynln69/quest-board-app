@@ -58,6 +58,7 @@ export const SelectIcon = styled.svg`
   height: 16px;
   margin-left: 4px;
   stroke: var(--chevron-down);
+  fill: none;
   z-index: 999;
 `;
 
