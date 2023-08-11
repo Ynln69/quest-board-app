@@ -14,6 +14,8 @@ export const Container = styled.ul`
 `;
 
 export const Button = styled.button`
+  min-width: 334px;
+  max-height: 56px;
   display: flex;
   align-items: center;
   border-radius: 8px;
