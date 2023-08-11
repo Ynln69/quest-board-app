@@ -56,11 +56,15 @@ export const RegisterForm = () => {
       })
     );
 
-    dispatch(
-      logIn({
-        email: user.email,
-        password: user.password,
-      })
+    setTimeout(
+      () =>
+        dispatch(
+          logIn({
+            email: user.email,
+            password: user.password,
+          })
+        ),
+      1500
     );
 
     form.elements.name.value = '';

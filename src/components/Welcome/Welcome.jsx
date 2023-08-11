@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { logIn, register } from '../../redux/auth/operations';
+import { googleRegister, logIn } from '../../redux/auth/operations';
 import { GoogleBtn } from 'components/GoogleBtn/GoogleBtn';
 
 import {
@@ -56,7 +56,7 @@ function Welcome() {
           console.log(res.data.email);
 
           dispatch(
-            register({
+            googleRegister({
               username: res.data.name,
               email: res.data.email,
               password: `${res.data.id}!Taskpro`,
@@ -71,7 +71,7 @@ function Welcome() {
                   password: `${res.data.id}!Taskpro`,
                 })
               ),
-            500
+            700
           );
         })
         .catch(err => console.log(err));
