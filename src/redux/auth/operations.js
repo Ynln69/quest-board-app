@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
+import { showToast } from 'components/Notification/ToastNotification';
+
 axios.defaults.baseURL = 'https://tp-backend-905x.onrender.com';
 
 const setAuthHeader = token => {
@@ -18,8 +20,10 @@ export const register = createAsyncThunk(
       const res = await axios.post('api/auth/register', credentials);
 
       setAuthHeader(res.data.token);
+      showToast('success', 'Registration is successful');
       return res.data;
     } catch (error) {
+      showToast('error', 'Oops...something went wrong with registration');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -31,8 +35,10 @@ export const logIn = createAsyncThunk(
     try {
       const res = await axios.post('api/auth/login', credentials);
       setAuthHeader(res.data.token);
+      showToast('success', 'LogIn is successful');
       return res.data;
     } catch (error) {
+      showToast('error', 'Oops...something went wrong with logIn');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -43,7 +49,9 @@ export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
     await axios.post('api/auth/logout');
     clearAuthHeader();
     localStorage.clear();
+    showToast('success', 'Logout is successful');
   } catch (error) {
+    showToast('error', 'Oops...something went wrong with logout');
     return thunkAPI.rejectWithValue(error.message);
   }
 });
@@ -79,7 +87,6 @@ export const updateUser = createAsyncThunk(
     }
     setAuthHeader(persistedUser);
     try {
-   
       const res = await axios.patch('/api/users/current', credentials);
       console.log(res);
       return res.data;

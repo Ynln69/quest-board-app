@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import {
-  EditProfileModal,
   FormBox,
   AvatarImage,
   FieldUser,
@@ -24,18 +23,19 @@ import { selectUser } from 'redux/auth/selectors';
 import Sprite from '../../images/sprite.svg';
 import eyeHide from '../../images/eye-hide.svg';
 
-const EditProfile = ({ onSave }) => {
-  const { username, theme, email, password, avatarURL } = useSelector(selectUser);
+const EditProfile = ({ onClose }) => {
+  const { username, theme, email, password, avatarURL } =
+    useSelector(selectUser);
   const [showPassword, setShowPassword] = useState(false);
   const [avatarNewURL, setAvatarNewURL] = useState(avatarURL);
-    
+
   const dispatch = useDispatch();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleFormSubmit = async (formValues) => {
+  const handleFormSubmit = async formValues => {
     console.log(formValues);
     dispatch(
       updateUser({
@@ -48,10 +48,10 @@ const EditProfile = ({ onSave }) => {
     if (avatarNewURL !== formValues.newPhoto) {
       dispatch(updateUserAvatar(avatarNewURL));
     }
-    onSave();
   };
 
   const handleAvatarClick = e => {
+    e.preventDefault();
     const selectedFile = e.target.files[0];
     if (selectedFile && selectedFile.type.startsWith('image/')) {
       const formData = new FormData();
@@ -61,7 +61,7 @@ const EditProfile = ({ onSave }) => {
   };
 
   return (
-    <EditProfileModal>
+    <div>
       <Formik
         initialValues={{
           newPhoto: avatarNewURL,
@@ -87,6 +87,7 @@ const EditProfile = ({ onSave }) => {
                 </svg>
               )}
               <PlusBtn
+                type="button"
                 onClick={() => document.getElementById('newPhotoInput').click()}
               >
                 <IconPlus>
@@ -124,7 +125,7 @@ const EditProfile = ({ onSave }) => {
               />
               <PasswordView onClick={togglePasswordVisibility}>
                 {showPassword ? (
-                  <PasswordIcon src={eyeHide} />
+                  <PasswordIcon src={eyeHide} alt="Hide Password"/>
                 ) : (
                   <Svg>
                     <use stroke="gray" href={`${Sprite}#eye-password`} />
@@ -134,13 +135,20 @@ const EditProfile = ({ onSave }) => {
               <ErrorMessage name="newPassword" component="div" />
             </LabelPass>
 
-            <SaveBtn type="submit" disabled={isSubmitting}>
+            <SaveBtn
+              type="button"
+              disabled={isSubmitting}
+              onClick={() => {
+                handleFormSubmit(values);
+                onClose();
+              }}
+            >
               <TextBtn>Save</TextBtn>
             </SaveBtn>
           </FormBox>
         )}
       </Formik>
-    </EditProfileModal>
+    </div>
   );
 };
 

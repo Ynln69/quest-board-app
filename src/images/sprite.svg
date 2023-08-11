@@ -94,7 +94,7 @@
 <path fill="var(--svg-user-color)"  d="M29.060 32.853c0-1.723-0.339-3.429-0.999-5.020s-1.626-3.038-2.844-4.256c-1.218-1.218-2.664-2.184-4.256-2.844s-3.297-0.999-5.020-0.999c-1.723 0-3.429 0.339-5.020 0.999s-3.038 1.626-4.256 2.844c-1.218 1.218-2.184 2.664-2.844 4.256s-0.999 3.297-0.999 5.020h26.237z"></path>
 </symbol>
 <symbol id="icon-chevron-down" viewBox="0 0 30 32">
-<path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.8235" d="M7.529 12.235l7.529 7.529 7.529-7.529"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-width="2.824" d="m7.529 12.235 7.529 7.529 7.529-7.529"/>
 </symbol>
 <symbol id="icon-menu" viewBox="0 0 32 32">
 <path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M4 16h24"></path>
@@ -106,7 +106,7 @@
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2" d="M6.667 16h18.667"></path>
 </symbol>
 <symbol id="icon-chevron-down-1" viewBox="0 0 30 32">
-<path fill="none"  stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.3684" d="M7.579 12.211l7.579 7.579 7.579-7.579"></path>
+<path fill="none"  stroke="currentColor" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.3684" d="M7.579 12.211l7.579 7.579 7.579-7.579"></path>
 </symbol>
 <symbol id="icon-icon-google" viewBox="0 0 32 32">
 <path fill="#ffc107" style="fill: var(--color1, #ffc107)" d="M29.074 13.389h-1.074v-0.055h-12v5.333h7.535c-1.099 3.105-4.053 5.333-7.535 5.333-4.418 0-8-3.582-8-8s3.582-8 8-8c2.039 0 3.895 0.769 5.307 2.026l3.771-3.771c-2.381-2.219-5.567-3.588-9.079-3.588-7.363 0-13.333 5.97-13.333 13.333s5.97 13.333 13.333 13.333c7.363 0 13.333-5.97 13.333-13.333 0-0.894-0.092-1.767-0.259-2.611z"></path>

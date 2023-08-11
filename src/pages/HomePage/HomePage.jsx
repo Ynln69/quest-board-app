@@ -1,28 +1,37 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Header from 'components/Header/Header';
 import { Sidebar } from 'components/Sidebar/Sidebar';
-import { Dashboard } from 'components/Dashboard/Dashboard';
 import { selectUser } from 'redux/auth/selectors';
 import { Container } from './HomePage.styled';
-
+import { useLocation, Outlet } from 'react-router-dom';
+import { EmptyPage } from 'components/EmptyPage/EmptyPage';
 const HomePage = () => {
-  const {theme} = useSelector(selectUser);
+  const { theme } = useSelector(selectUser);
+  const location = useLocation();
+  const checkUrl = location.pathname.length > '/home/'.length;
 
-  useEffect(() => {
-    document.body.classList.add(theme);
-}, 
-// eslint-disable-next-line
-[]);
+  useEffect(
+    () => {
+      document.body.classList.add(theme);
+    },
+    // eslint-disable-next-line
+    []
+  );
 
   return (
-    <Container>
-      <Sidebar theme={theme} />
-      <div style={{ width: '100%' }}>
-        <Header theme={theme} />
-        <Dashboard theme={theme} />
-      </div>
-    </Container>
+    <>
+      <Container>
+        <Sidebar theme={theme} />
+        <div style={{ width: '100%' }}>
+          <Header theme={theme} />
+          {!checkUrl && <EmptyPage theme={theme} />}
+        </div>
+      </Container>
+      <Container>
+        <Outlet />
+      </Container>
+    </>
   );
 };
 
