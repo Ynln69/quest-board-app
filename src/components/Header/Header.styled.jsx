@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
+export const PageHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,10 +21,16 @@ export const Container = styled.div`
   }
 `;
 
+export const MenuBtn = styled.div`
+width: 32px;
+height: 32px;
+border: none;
+`;
+
 export const MenuIcon = styled.svg`
   width: 24px;
   height: 24px;
-  stroke: var(--header_user_text);
+  stroke: var(--header_bgc);
 
   @media screen and (min-width: 375px) {
     width: 32px;
@@ -40,6 +46,7 @@ export const HeaderWrap = styled.div`
   display: flex;
   align-items: center;
   gap: 14px;
+  margin-left: auto;
 `;
 
 export const HeaderNav = styled.div`
