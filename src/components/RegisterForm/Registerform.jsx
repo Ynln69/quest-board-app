@@ -30,7 +30,7 @@ export const RegisterForm = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event, { resetForm }) => {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -49,17 +49,9 @@ export const RegisterForm = () => {
 
     console.log(user);
 
-    dispatch(
-      registerLogin({
-        username: form.elements.name.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
+    dispatch(registerLogin(user));
 
-    form.elements.name.value = '';
-    form.elements.email.value = '';
-    form.elements.password.value = '';
+    resetForm();
   };
 
   return (

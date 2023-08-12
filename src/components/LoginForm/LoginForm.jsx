@@ -29,7 +29,7 @@ export const LoginForm = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event, { resetForm }) => {
     event.preventDefault();
     const form = event.currentTarget;
 
@@ -51,8 +51,7 @@ export const LoginForm = () => {
       password: form.elements.password.value,
     });
 
-    form.elements.email.value = '';
-    form.elements.password.value = '';
+    resetForm();
   };
 
   return (

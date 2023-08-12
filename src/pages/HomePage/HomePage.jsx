@@ -4,12 +4,13 @@ import Header from 'components/Header/Header';
 import { Sidebar } from 'components/Sidebar/Sidebar';
 import { selectUser } from 'redux/auth/selectors';
 import { Container } from './HomePage.styled';
-import { useLocation, Outlet } from 'react-router-dom';
-import { EmptyPage } from 'components/EmptyPage/EmptyPage';
+import { Outlet } from 'react-router-dom';
+import { Dashboard } from 'components/Dashboard/Dashboard';
+// import { EmptyPage } from 'components/EmptyPage/EmptyPage';
 const HomePage = () => {
   const { theme } = useSelector(selectUser);
-  const location = useLocation();
-  const checkUrl = location.pathname.length > '/home/'.length;
+  // const location = useLocation();
+  // const checkUrl = location.pathname.length > '/home/'.length;
 
   useEffect(
     () => {
@@ -22,10 +23,11 @@ const HomePage = () => {
   return (
     <>
       <Container>
-        <Sidebar theme={theme} />
+        <Sidebar />
         <div style={{ width: '100%' }}>
-          <Header theme={theme} />
-          {!checkUrl && <EmptyPage theme={theme} />}
+          <Header />
+          <Dashboard />
+          {/* {!checkUrl && <EmptyPage theme={theme} />} */}
         </div>
       </Container>
       <Container>
