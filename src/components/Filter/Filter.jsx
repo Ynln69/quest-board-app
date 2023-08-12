@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Formik, Form } from 'formik';
+// import { Formik, Form } from 'formik';
 import {
-  RadioButton,
-  LabelWrapper,
+  Container,
+  RadioButtonWrap,
+  RadioWrapper,
+  RadioButtonInput,
+  RadioButtonLabel,
   ContainerWarepper,
   DecorativeElement,
+  TextLabel,
   Button,
 } from './Filter.styled';
 import { filterPriority } from '../../redux/filter/filterSlice';
@@ -30,15 +34,72 @@ const Filter = () => {
 
   return (
     <div>
+      <Container>
       <DecorativeElement />
       <ContainerWarepper>
-        <h3>Label color</h3>
+        <TextLabel>Label color</TextLabel>
         <Button type="button" onClick={onClickAll}>
           Show all
         </Button>
       </ContainerWarepper>
+      </Container>
+      
 
-      <Formik
+      <RadioButtonWrap>
+        <RadioWrapper>
+        <RadioButtonInput
+          type="radio"
+          name="priority"
+          value="without priority"
+          checked={selectedPriority === 'without priority'}
+          onChange={handleFilteredPriority}
+          backgroundColor="#bab8b8"
+        />
+        <RadioButtonLabel>Without priority</RadioButtonLabel>
+        </RadioWrapper>
+        
+
+        <RadioWrapper>
+        <RadioButtonInput
+          type="radio"
+          name="priority"
+          value="low"
+          checked={selectedPriority === 'low'}
+          onChange={handleFilteredPriority}
+          backgroundColor="#8FA1D0"
+        />
+        <RadioButtonLabel>Low</RadioButtonLabel>
+
+        </RadioWrapper>
+        
+        <RadioWrapper>
+        <RadioButtonInput
+          type="radio"
+          name="priority"
+          value="medium"
+          checked={selectedPriority === 'medium'}
+          onChange={handleFilteredPriority}
+          backgroundColor="#E09CB5"
+        />
+        <RadioButtonLabel>Medium</RadioButtonLabel>
+
+        </RadioWrapper>
+        
+        <RadioWrapper>
+        <RadioButtonInput
+          type="radio"
+          name="priority"
+          value="high"
+          checked={selectedPriority === 'high'}
+          onChange={handleFilteredPriority}
+          backgroundColor="#BEDBB0"
+        />
+        <RadioButtonLabel>High</RadioButtonLabel>
+        </RadioWrapper>
+        
+      </RadioButtonWrap>
+
+      {/* <Formik
         initialValues={{ selectedValue: '' }}
         onSubmit={values => {
           console.log('Selected value:', values.selectedValue);
@@ -95,7 +156,7 @@ const Filter = () => {
             </LabelWrapper>
           </Form>
         )}
-      </Formik>
+      </Formik> */}
     </div>
   );
 };

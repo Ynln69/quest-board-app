@@ -40,7 +40,7 @@ export const Heading = styled.h3`
   /* margin-bottom: 24px; */
   margin-bottom: ${props => props.marginBottom || '24px'};
   color: var(--modal_main_color);
-  font-family: Poppins;
+  font-family: 'Poppins';
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
