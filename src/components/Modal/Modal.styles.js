@@ -7,7 +7,7 @@ export const Backdrop = styled.div`
 
   width: 100%;
   height: 100%;
-
+  z-index: 1;
   background-color: rgba(21, 21, 21, 0.3);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
