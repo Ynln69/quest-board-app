@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import UserInfo from 'components/UserInfo/UserInfo';
 import { selectUser } from 'redux/auth/selectors';
 import { Sidebar } from 'components/Sidebar/Sidebar';
+import { Backdrop } from 'components/Modal/Modal.styles';
 import ThemeSelector from 'components/ThemeSelector/ThemeSelector';
 import {
   Container,
@@ -59,7 +60,7 @@ const Header = () => {
           <use href={`${Sprite}#icon-menu`} />
         </MenuIcon>
       </div>
-      {isSideBarOpen && <Sidebar />}
+      {isSideBarOpen && <Backdrop><Sidebar /></Backdrop>}
       <HeaderWrap>
         <HeaderNav>
           <div>
