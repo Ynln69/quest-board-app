@@ -20,13 +20,13 @@ export const DecorativeElement = styled.div`
     /* top: 0;
     left: 0; */
     width: 100%;
-    border-top: 1px solid rgba(22, 22, 22, 0.1);
+    border-top: 1px solid rgba(22, 22, 22, 0.10);;
   }
 `;
 
 export const ContainerWarepper = styled.div`
   display: flex;
-  justify-content: space-between;
+   justify-content: space-between;
   /* flex-direction: row; */
   /* gap: 130px; */
   /* margin-top: 14px; */
