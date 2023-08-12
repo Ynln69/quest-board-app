@@ -1,3 +1,4 @@
 import { addBoardSchema } from './addBoardSchema';
+import { addTaskSchema } from './addTaskSchema';
 
-export { addBoardSchema };
+export { addBoardSchema, addTaskSchema };
