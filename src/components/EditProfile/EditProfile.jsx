@@ -22,6 +22,7 @@ import { updateUser, updateUserAvatar } from 'redux/auth/operations';
 import { selectUser } from 'redux/auth/selectors';
 import Sprite from '../../images/sprite.svg';
 import eyeHide from '../../images/eye-hide.svg';
+import { showToast } from 'components/Notification/ToastNotification';
 
 const EditProfile = ({ onClose }) => {
   const { username, theme, email, password, avatarURL } =
@@ -48,6 +49,8 @@ const EditProfile = ({ onClose }) => {
     if (avatarNewURL !== formValues.newPhoto) {
       dispatch(updateUserAvatar(avatarNewURL));
     }
+    onClose();
+    showToast('success', 'User updated successfully.');
   };
 
   const handleAvatarClick = e => {
@@ -57,6 +60,8 @@ const EditProfile = ({ onClose }) => {
       const formData = new FormData();
       formData.append('avatar', selectedFile);
       setAvatarNewURL(formData);
+    } else {
+      showToast('error', 'Invalid file format. Please select an image.');
     }
   };
 
@@ -121,11 +126,13 @@ const EditProfile = ({ onClose }) => {
             <LabelPass>
               <FieldUser
                 type={showPassword ? 'text' : 'password'}
-                id="password"
+                id='password'
+                name="password" 
+               placeholder='Enter Password'
               />
               <PasswordView onClick={togglePasswordVisibility}>
                 {showPassword ? (
-                  <PasswordIcon src={eyeHide} alt="Hide Password"/>
+                  <PasswordIcon src={eyeHide} alt="Hide Password" />
                 ) : (
                   <Svg>
                     <use stroke="gray" href={`${Sprite}#eye-password`} />
@@ -135,14 +142,7 @@ const EditProfile = ({ onClose }) => {
               <ErrorMessage name="newPassword" component="div" />
             </LabelPass>
 
-            <SaveBtn
-              type="button"
-              disabled={isSubmitting}
-              onClick={() => {
-                handleFormSubmit(values);
-                onClose();
-              }}
-            >
+            <SaveBtn type="submit" disabled={isSubmitting}>
               <TextBtn>Save</TextBtn>
             </SaveBtn>
           </FormBox>
