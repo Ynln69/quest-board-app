@@ -67,8 +67,6 @@ button {
   padding: 0;
 }
 
-
-
 // loader styles
 
 #page {
@@ -154,4 +152,9 @@ button {
   to {
     transform: rotateX(70deg) rotateZ(630deg);
   }
+}
+
+.simplebar-content {
+  padding: 20px; /* Пример настройки отступов внутри контейнера */
+  background-color: #f5f5f5; /* Пример настройки цвета фона */
 }

@@ -15,12 +15,7 @@ import { Calendar } from '../Calendar/Calendar';
 import sprite from '../../images/sprite.svg';
 import { Form, Formik } from 'formik';
 import { addTaskSchema } from 'schemas';
-
-const initialValues = {
-  title: '',
-  description: '',
-  priority: '',
-};
+import { v4 as uuidv4 } from 'uuid';
 
 // function AddEditCardModal({
 //   setTitleTask,
@@ -101,14 +96,31 @@ const initialValues = {
 //   );
 // }
 
-function AddEditCardModal() {
-  const handleSubmit = (values, { resetForm }) => {};
+function AddEditCardModal({ handleSubmit, editedTask }) {
+  console.log(editedTask);
+  const handleSubmitAdd = (values, { resetForm }) => {
+    console.log(values);
+    console.log('add');
+    handleSubmit(values.title, values.description);
+  };
+
+  const handleSubmitEdit = (values, { resetForm }) => {
+    console.log(values);
+    console.log('edit');
+    handleSubmit(editedTask.id, values.title, values.description);
+  };
+
+  const initialValues = {
+    title: editedTask ? editedTask.title : '',
+    description: editedTask ? editedTask.description : '',
+    priority: editedTask ? editedTask.priority : '',
+  };
 
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={addTaskSchema}
-      onSubmit={handleSubmit}
+      // validationSchema={addTaskSchema}
+      onSubmit={editedTask ? handleSubmitEdit : handleSubmitAdd}
     >
       {({ handleChange, values }) => (
         <Form autoComplete="off">

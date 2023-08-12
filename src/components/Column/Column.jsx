@@ -29,15 +29,8 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
 
   const handleShowEditCardModal = task => {
     setEditedTask(task);
-    setTimeout(() => {
-      console.log(editedTask);
-    }, 1000);
     setShowEditCardModal(true);
   };
-
-  if (true === false) {
-    console.log(setDataForModal);
-  }
 
   const handleVisible = () => {
     setVisible(!visible);
@@ -47,14 +40,14 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
     setShowEditModal(!showEditModal);
   };
 
-  const handleSubmit = () => {
+  const handleSubmitAdd = (title, description) => {
     const taskId = `1${uuidv4().replace(/-/g, '')}`;
 
     const newTask = {
       [taskId]: {
         id: taskId,
-        title: titleTask,
-        description: descriptionTask,
+        title: title,
+        description: description,
         priority: 'over',
         deadline: '22.33.44',
       },
@@ -80,6 +73,48 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
     }));
 
     handleVisible();
+  };
+
+  const handleSubmitEditCard = (id, title, description) => {
+    const updatedTask = {
+      ...cardData.tasks[id],
+      title: title,
+      description: description,
+      priority: 'over',
+      deadline: '22.33.44',
+    };
+
+    setCardData(prevCardData => ({
+      ...prevCardData,
+      tasks: {
+        ...prevCardData.tasks,
+        [id]: updatedTask,
+      },
+    }));
+
+    setShowEditCardModal(false);
+  };
+
+  const handleSubmitDeleteCard = id => {
+    const newTasks = { ...cardData.tasks };
+    delete newTasks[id];
+
+    const newColumns = { ...cardData.columns };
+    const columnId = dataForModal.id;
+
+    const newColumn = {
+      ...newColumns[columnId],
+      taskIds: newColumns[columnId].taskIds.filter(taskId => taskId !== id),
+    };
+
+    setCardData(prevCardData => ({
+      ...prevCardData,
+      tasks: newTasks,
+      columns: {
+        ...prevCardData.columns,
+        [columnId]: newColumn,
+      },
+    }));
   };
 
   const handleEdit = e => {
@@ -135,6 +170,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
                     task={task}
                     index={index}
                     handleShowEditCardModal={handleShowEditCardModal}
+                    handleSubmitDeleteCard={handleSubmitDeleteCard}
                   />
                 ))}
                 {provided.placeholder}
@@ -154,7 +190,10 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
               handleClose={() => setShowEditCardModal(false)}
               isOpen={showEditCardModal}
             >
-              <AddEditCardModal editedTask={editedTask} />
+              <AddEditCardModal
+                editedTask={editedTask}
+                handleSubmit={handleSubmitEditCard}
+              />
             </Modal>
           )}
           {showEditModal && (
@@ -171,11 +210,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
               isOpen={isOpen}
               heading={'Add card'}
             >
-              <AddEditCardModal
-                setTitleTask={setTitleTask}
-                setDescriptionTask={setDescriptionTask}
-                handleSubmit={handleSubmit}
-              />
+              <AddEditCardModal handleSubmit={handleSubmitAdd} />
             </Modal>
           )}
         </Container>

@@ -18,7 +18,13 @@ import {
 } from './Task.styled';
 import sprite from '../../images/sprite.svg';
 
-export const Task = ({ task, index, isOpen, handleShowEditCardModal }) => {
+export const Task = ({
+  task,
+  index,
+  isOpen,
+  handleShowEditCardModal,
+  handleSubmitDeleteCard,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
@@ -68,7 +74,7 @@ export const Task = ({ task, index, isOpen, handleShowEditCardModal }) => {
                 </button>
               </li>
               <li>
-                <button>
+                <button onClick={() => handleSubmitDeleteCard(task.id)}>
                   <svg width={16} height={16}>
                     <use xlinkHref={`${sprite}#icon-trash`} />
                   </svg>
