@@ -1,32 +1,39 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Formik, Form } from 'formik';
-import { RadioButton, LabelWrapper, ContainerWarepper, Button } from './Filter.styled';
-import {filterPriority} from '../../redux/filter/filterSlice';
+import {
+  RadioButton,
+  LabelWrapper,
+  ContainerWarepper,
+  Button,
+} from './Filter.styled';
+import { filterPriority } from '../../redux/filter/filterSlice';
 
 const Filter = () => {
   const [selectedPriority, setSelectedPriority] = useState('');
 
   const dispatch = useDispatch();
-  
+
   const handleFilteredPriority = evt => {
     setSelectedPriority(evt.target.value);
+
     dispatch(filterPriority(evt.target.value));
     console.log(evt.target.value);
-  }
+  };
 
   const onClickAll = () => {
     setSelectedPriority('all');
     dispatch(filterPriority('all'));
-    console.log(dispatch(filterPriority('all')));
-  }
-
+    // console.log(dispatch(filterPriority('all')));
+  };
 
   return (
     <div>
       <ContainerWarepper>
         <h3>Label color</h3>
-        <Button type="button" onClick={onClickAll}>Show all</Button>
+        <Button type="button" onClick={onClickAll}>
+          Show all
+        </Button>
       </ContainerWarepper>
 
       <Formik
@@ -92,14 +99,6 @@ const Filter = () => {
 };
 
 export default Filter;
-
-
-
-
-
-
-
-
 
 // import { FormControlLabel } from '@mui/material';
 // import { RadioWrapper } from './Filter.styled';

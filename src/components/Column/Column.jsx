@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Droppable, Draggable } from 'react-beautiful-dnd';
@@ -17,13 +17,29 @@ import {
 } from './Column.styled';
 import sprite from '../../images/sprite.svg';
 
+import { selectFilterPriority } from 'redux/filter/filterSelector';
+import { useSelector } from 'react-redux';
+
 export const Column = ({ column, tasks, index, cardData, setCardData }) => {
+  const property = useSelector(selectFilterPriority);
   const [visible, setVisible] = useState(false);
   const [dataForModal, setDataForModal] = useState(column);
   const [titleTask, setTitleTask] = useState('');
   const [descriptionTask, setDescriptionTask] = useState('');
   const [showEditModal, setShowEditModal] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [filteredTasks, setFilteredTasks] = useState(tasks);
+
+  useEffect(() => {
+    const newFilteredTasks = tasks.filter(task => {
+      if (property === 'all') {
+        return true;
+      }
+      return task.priority === property;
+    });
+
+    setFilteredTasks(newFilteredTasks);
+  }, [property, tasks]);
 
   if (true === false) {
     console.log(setDataForModal);
@@ -119,9 +135,18 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
                 {...provided.droppableProps}
                 isDraggingOver={snapshot.isDraggingOver}
               >
-                {tasks.map((task, index) => (
+                {filteredTasks.map((task, index) => (
                   <Task key={task.id} task={task} index={index} />
                 ))}
+                {/* {tasks.map((task, index) => {
+                  // return <Task key={task.id} task={task} index={index} />;
+                  if (property === 'all') {
+                    return <Task key={task.id} task={task} index={index} />;
+                  }
+                  if (property === task.priority) {
+                    return <Task key={task.id} task={task} index={index} />;
+                  }
+                })} */}
                 {provided.placeholder}
               </TaskList>
             )}

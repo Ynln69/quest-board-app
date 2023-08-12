@@ -7,6 +7,7 @@ import { ContainerDashboard } from './Dashboard.styled';
 
 export const Dashboard = () => {
   // в cardData я поместил именно обект boardsData отдельной boards
+
   const [cardData, setCardData] = useState(
     initialUserModel.boards[0].boardsData
   );

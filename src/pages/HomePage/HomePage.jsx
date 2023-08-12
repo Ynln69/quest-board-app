@@ -6,6 +6,8 @@ import { selectUser } from 'redux/auth/selectors';
 import { Container } from './HomePage.styled';
 import { useLocation, Outlet } from 'react-router-dom';
 import { EmptyPage } from 'components/EmptyPage/EmptyPage';
+import { Dashboard } from 'components/Dashboard/Dashboard';
+
 const HomePage = () => {
   const { theme } = useSelector(selectUser);
   const location = useLocation();
@@ -25,7 +27,8 @@ const HomePage = () => {
         <Sidebar theme={theme} />
         <div style={{ width: '100%' }}>
           <Header theme={theme} />
-          {!checkUrl && <EmptyPage theme={theme} />}
+          {/* {!checkUrl && <EmptyPage theme={theme} />} */}
+          <Dashboard />
         </div>
       </Container>
       <Container>
