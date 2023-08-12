@@ -1,11 +1,34 @@
 import styled from '@emotion/styled';
 
+// export const Container = styled.div`
+//   display: flex;
+// `;
+
+export const DecorativeElement = styled.div`
+  position: relative;
+  width: 290px;
+  margin-bottom: 14px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid rgba(22, 22, 22, 0.1);
+  }
+`;
+
 export const ContainerWarepper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 28px;
+  /* flex-direction: row; */
+  /* gap: 130px; */
+  margin-top: 14px;
+  /* margin-top: 28px; */
   margin-bottom: 14px;
 `;
+
 export const Button = styled.button`
   border: none;
   background: transparent;

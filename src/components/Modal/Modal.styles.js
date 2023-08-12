@@ -27,16 +27,18 @@ export const ModalWindow = styled.div`
   background-color: var(--modal_bgc);
 
   @media screen and (min-width: 375px) {
-    width: 335px;
+    width: ${props => props.width || '335px'}
+    /* width: 335px; */
   }
   @media screen and (min-width: 768px) {
-    width: 400px;
+    /* width: 400px; */
+    width: ${props => props.width || '400px'}
   }
 `;
 
 export const Heading = styled.h3`
-  margin-bottom: 24px;
-
+  /* margin-bottom: 24px; */
+  margin-bottom: ${props => props.marginBottom || '24px'};
   color: var(--modal_main_color);
   font-family: Poppins;
   font-size: 18px;

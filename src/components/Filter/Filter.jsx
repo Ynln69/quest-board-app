@@ -5,6 +5,7 @@ import {
   RadioButton,
   LabelWrapper,
   ContainerWarepper,
+  DecorativeElement,
   Button,
 } from './Filter.styled';
 import { filterPriority } from '../../redux/filter/filterSlice';
@@ -29,6 +30,7 @@ const Filter = () => {
 
   return (
     <div>
+      <DecorativeElement />
       <ContainerWarepper>
         <h3>Label color</h3>
         <Button type="button" onClick={onClickAll}>
