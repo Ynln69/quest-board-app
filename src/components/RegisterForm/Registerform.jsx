@@ -49,9 +49,17 @@ export const RegisterForm = () => {
 
     console.log(user);
 
-    dispatch(registerLogin(user));
+    dispatch(
+      registerLogin({
+        username: form.elements.name.value,
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
 
-    resetForm();
+    form.elements.name.value = '';
+    form.elements.email.value = '';
+    form.elements.password.value = '';
   };
 
   return (

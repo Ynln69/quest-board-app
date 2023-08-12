@@ -4,7 +4,7 @@ export const LineContainer = styled.div`
   position: absolute;
   width: 4px;
   top: 0;
-  left: -4px;
+  left: 0px;
   height: 100%;
   border-radius: 4px 0px 0px 4px;
   background: #8fa1d0;
