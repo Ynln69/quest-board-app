@@ -24,6 +24,16 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
   const [descriptionTask, setDescriptionTask] = useState('');
   const [showEditModal, setShowEditModal] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [showEditCardModal, setShowEditCardModal] = useState(false);
+  const [editedTask, setEditedTask] = useState(null);
+
+  const handleShowEditCardModal = task => {
+    setEditedTask(task);
+    setTimeout(() => {
+      console.log(editedTask);
+    }, 1000);
+    setShowEditCardModal(true);
+  };
 
   if (true === false) {
     console.log(setDataForModal);
@@ -120,7 +130,12 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
                 isDraggingOver={snapshot.isDraggingOver}
               >
                 {tasks.map((task, index) => (
-                  <Task key={task.id} task={task} index={index} />
+                  <Task
+                    key={task.id}
+                    task={task}
+                    index={index}
+                    handleShowEditCardModal={handleShowEditCardModal}
+                  />
                 ))}
                 {provided.placeholder}
               </TaskList>
@@ -133,6 +148,15 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
               setIsOpen(true);
             }}
           />
+          {showEditCardModal && (
+            <Modal
+              heading={'Edit card'}
+              handleClose={() => setShowEditCardModal(false)}
+              isOpen={showEditCardModal}
+            >
+              <AddEditCardModal editedTask={editedTask} />
+            </Modal>
+          )}
           {showEditModal && (
             <AddColumn
               title={'Edit column'}

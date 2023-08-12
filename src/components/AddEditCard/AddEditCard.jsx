@@ -14,12 +14,17 @@ import {
 import { Calendar } from '../Calendar/Calendar';
 import sprite from '../../images/sprite.svg';
 
-function AddEditCardModal({ setTitleTask, handleSubmit, setDescriptionTask }) {
+function AddEditCardModal({
+  setTitleTask,
+  handleSubmit,
+  setDescriptionTask,
+  editedTask,
+}) {
   const [newTitle, setNewTitle] = useState('');
-  
+  console.log(editedTask);
   const handleDescriptionChange = event => {
     setDescriptionTask(event.target.value);
-  }
+  };
 
   const handleTitleChange = event => {
     setNewTitle(event.target.value);

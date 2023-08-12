@@ -18,10 +18,11 @@ import {
 } from './Task.styled';
 import sprite from '../../images/sprite.svg';
 
-export const Task = ({ task, index, isOpen }) => {
+export const Task = ({ task, index, isOpen, handleShowEditCardModal }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
+    console.log(isModalOpen);
     setIsModalOpen(true);
   };
 
@@ -60,7 +61,7 @@ export const Task = ({ task, index, isOpen }) => {
                 </button>
               </li>
               <li>
-                <button onClick={handleOpenModal}>
+                <button onClick={() => handleShowEditCardModal(task)}>
                   <svg width={16} height={16}>
                     <use xlinkHref={`${sprite}#icon-pencil`} />
                   </svg>
