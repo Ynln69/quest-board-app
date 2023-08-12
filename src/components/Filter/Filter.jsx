@@ -4,6 +4,7 @@ import { Formik, Form } from 'formik';
 import {
   RadioButton,
   LabelWrapper,
+  Container,
   ContainerWarepper,
   DecorativeElement,
   Button,
@@ -30,13 +31,15 @@ const Filter = () => {
 
   return (
     <div>
-      <DecorativeElement />
-      <ContainerWarepper>
-        <h3>Label color</h3>
-        <Button type="button" onClick={onClickAll}>
-          Show all
-        </Button>
-      </ContainerWarepper>
+      <Container>
+        <DecorativeElement />
+        <ContainerWarepper>
+          <h3>Label color</h3>
+          <Button type="button" onClick={onClickAll}>
+            Show all
+          </Button>
+        </ContainerWarepper>
+      </Container>
 
       <Formik
         initialValues={{ selectedValue: '' }}

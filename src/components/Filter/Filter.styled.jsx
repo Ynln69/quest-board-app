@@ -3,30 +3,37 @@ import styled from '@emotion/styled';
 // export const Container = styled.div`
 //   display: flex;
 // `;
+export const Container = styled.div`
+display: flex;
+flex-direction: column;
+  margin-bottom: 14px;
+  gap: 14px;
+`;
 
 export const DecorativeElement = styled.div`
   position: relative;
-  width: 290px;
-  margin-bottom: 14px;
+  width:  100%;
+ 
 
   &::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
+    padding-bottom: 14px;
+    // top: 0;
+    // left: 0;
     width: 100%;
-    border-top: 1px solid rgba(22, 22, 22, 0.1);
+    border-top: 1px solid rgba(22, 22, 22, 0.10);;
   }
 `;
 
 export const ContainerWarepper = styled.div`
   display: flex;
-  justify-content: space-between;
+   justify-content: space-between;
   /* flex-direction: row; */
   /* gap: 130px; */
-  margin-top: 14px;
+  // margin-top: 14px;
   /* margin-top: 28px; */
-  margin-bottom: 14px;
+  // margin-bottom: 14px;
 `;
 
 export const Button = styled.button`
