@@ -28,7 +28,7 @@ const HomePage = () => {
         <div style={{ width: '100%' }}>
           <Header />
           <Dashboard />
-          {/* {!checkUrl && <EmptyPage theme={theme} />} */}
+          {!checkUrl && <EmptyPage theme={theme} />}
         </div>
       </Container>
       <Container>
