@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Backdrop = styled.div`
+export const Backdrop = styled.section`
   position: fixed;
   top: 0;
   left: 0;
