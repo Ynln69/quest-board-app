@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/quest-board-app/static/css/main.1b8f0dd2.css",
-    "main.js": "/quest-board-app/static/js/main.d76af0a4.js",
-    "static/js/544.4b647feb.chunk.js": "/quest-board-app/static/js/544.4b647feb.chunk.js",
+    "main.js": "/quest-board-app/static/js/main.4e31f5c3.js",
+    "static/js/544.61d8e84e.chunk.js": "/quest-board-app/static/js/544.61d8e84e.chunk.js",
     "static/js/786.5da79be9.chunk.js": "/quest-board-app/static/js/786.5da79be9.chunk.js",
     "static/js/656.6edb6bcc.chunk.js": "/quest-board-app/static/js/656.6edb6bcc.chunk.js",
     "static/media/Poppins-Regular.woff": "/quest-board-app/static/media/Poppins-Regular.eb7f33fefaf7106ac3a0.woff",
@@ -12,17 +12,17 @@
     "static/media/Poppins-Regular.woff2": "/quest-board-app/static/media/Poppins-Regular.037e68504b90f9cba901.woff2",
     "static/media/Poppins-Medium.woff2": "/quest-board-app/static/media/Poppins-Medium.1bb2cc2b927e6590391c.woff2",
     "static/media/Poppins-SemiBold.woff2": "/quest-board-app/static/media/Poppins-SemiBold.e4258fa809f81555ab07.woff2",
-    "static/media/sprite.svg": "/quest-board-app/static/media/sprite.f094d52ea057d513ee8f3da4ea20390a.svg",
+    "static/media/sprite.svg": "/quest-board-app/static/media/sprite.cd77e15e1859d7f6b05dd16b53883415.svg",
     "index.html": "/quest-board-app/index.html",
     "static/media/eye-hide.svg": "/quest-board-app/static/media/eye-hide.accfc4141682c117e0a89ff4d886ee4d.svg",
     "main.1b8f0dd2.css.map": "/quest-board-app/static/css/main.1b8f0dd2.css.map",
-    "main.d76af0a4.js.map": "/quest-board-app/static/js/main.d76af0a4.js.map",
-    "544.4b647feb.chunk.js.map": "/quest-board-app/static/js/544.4b647feb.chunk.js.map",
+    "main.4e31f5c3.js.map": "/quest-board-app/static/js/main.4e31f5c3.js.map",
+    "544.61d8e84e.chunk.js.map": "/quest-board-app/static/js/544.61d8e84e.chunk.js.map",
     "786.5da79be9.chunk.js.map": "/quest-board-app/static/js/786.5da79be9.chunk.js.map",
     "656.6edb6bcc.chunk.js.map": "/quest-board-app/static/js/656.6edb6bcc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1b8f0dd2.css",
-    "static/js/main.d76af0a4.js"
+    "static/js/main.4e31f5c3.js"
   ]
 }
