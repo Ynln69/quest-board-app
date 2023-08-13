@@ -41,14 +41,6 @@ export const RegisterForm = () => {
       return;
     }
 
-    const user = {
-      username: form.elements.name.value,
-      email: form.elements.email.value,
-      password: form.elements.password.value,
-    };
-
-    console.log(user);
-
     dispatch(
       registerLogin({
         username: form.elements.name.value,
