@@ -2,9 +2,9 @@ import { Formik, ErrorMessage, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { needHelp } from '../../redux/auth/operations';
-import { MainButton } from 'components/Button/Button';
 import { Input, Textarea } from './NeedHelp.styled';
 import { HelpSchema } from 'schemas/helpSchema';
+import MainButton from 'components/MainButton';
 
 const initialValues = {
   email: '',

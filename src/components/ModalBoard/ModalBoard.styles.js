@@ -2,9 +2,9 @@ import styled from '@emotion/styled';
 import { ErrorMessage, Field } from 'formik';
 
 export const StyledInputField = styled(Field)`
-  width: 302px;
   padding: 14px 18px;
   margin-bottom: 24px;
+  width: 100%;
 
   border-radius: 8px;
   border: 1px solid var(--input_color);
@@ -17,6 +17,8 @@ export const StyledInputField = styled(Field)`
   outline: none;
   text-transform: capitalize;
 
+  transition: all 500ms;
+
   &:hover,
   &:focus,
   &:active {
@@ -27,7 +29,12 @@ export const StyledInputField = styled(Field)`
 
 export const ErrorMsg = styled(ErrorMessage)`
   color: red;
+  font-family: Poppins;
   font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.28px;
   margin-bottom: 10px;
 `;
 
@@ -54,12 +61,14 @@ export const StyledSVG = styled.svg`
   height: 18px;
   fill: rgba(0, 0, 0, 0);
   stroke: var(--modal_second_color);
+  transition: all 500ms;
 `;
 
 export const StyledRadioField = styled(Field)`
   display: none;
+  transition: all 500ms;
   &:checked + img {
-    border: 1px solid var(--modal_bgc);
+    border: 1px solid var(--modal_data_color);
     border-radius: 5px;
     transform: scale(1.2);
   }
@@ -67,7 +76,7 @@ export const StyledRadioField = styled(Field)`
     stroke: var(--modal_main_color);
   }
   &:hover + img {
-    border: 1px solid var(--modal_bgc);
+    border: 1px solid var(--active_btn);
     border-radius: 5px;
   }
 `;
@@ -76,7 +85,13 @@ export const BgImagesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
-  width: 252px;
-  height: 60px;
   margin-bottom: 40px;
+  margin-right: 20px;
+
+  @media screen and (min-width: 335px) {
+    margin-right: 35px;
+  }
+  @media screen and (min-width: 375px) {
+    margin-right: 50px;
+  }
 `;

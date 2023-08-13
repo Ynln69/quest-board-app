@@ -14,9 +14,13 @@ import {
   StyledSVG,
   StyledSubtitle,
 } from './ModalBoard.styles';
-import { MainButton } from 'components/Button/Button';
 import { useDispatch } from 'react-redux';
 import { createBoard, editBoard } from 'redux/boards/boardOperations';
+import MainButton from 'components/MainButton';
+import { useSelector } from 'react-redux';
+import { selectTheme } from 'redux/auth/selectors';
+import { selectRefreshError } from 'redux/boards/boardsSelectors';
+import { Loader } from 'components/Loader/Loader';
 
 const icons = [
   'icon-project',
@@ -50,6 +54,8 @@ const backgrounds = [
 
 function ModalBoard({ btnContent, closeModal, boardData }) {
   const dispatch = useDispatch();
+  const theme = useSelector(selectTheme).toLowerCase();
+  const { isRefreshing, error } = useSelector(selectRefreshError);
 
   const initialValues =
     btnContent === 'Create'
@@ -87,63 +93,103 @@ function ModalBoard({ btnContent, closeModal, boardData }) {
     resetForm();
     closeModal();
   };
+  if (error) {
+    return (
+      <p style={{ fontSize: '40px', color: 'red', textAlign: 'center' }}>
+        Ops, something went wrong
+        <br />
+        {error}
+      </p>
+    );
+  }
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={addBoardSchema}
-      onSubmit={handleSubmit}
-    >
-      {({ handleChange, values }) => (
-        <Form autoComplete="off">
-          <StyledInputField
-            type="text"
-            name="title"
-            placeholder="Title"
-            onChange={handleChange}
-            value={values.title}
-          />
-          <ErrorMsg name="title" component="p" />
-          <StyledSubtitle>Icons</StyledSubtitle>
-          <IconsWrapper>
-            {icons.map(icon => (
-              <label key={nanoid()}>
-                <StyledRadioField
-                  type="radio"
-                  name="icon"
-                  value={icon}
-                  onChange={handleChange}
-                  checked={values.icon === icon}
-                />
-                <StyledSVG>
-                  <use href={`${sprite}#${icon}`}></use>
-                </StyledSVG>
-              </label>
-            ))}
-          </IconsWrapper>
-          <StyledSubtitle>Background</StyledSubtitle>
-          <BgImagesWrapper>
-            {backgrounds.map((background, i) => (
-              <label key={nanoid()}>
-                <StyledRadioField
-                  type="radio"
-                  name="background"
-                  value={background}
-                  onChange={handleChange}
-                  checked={values.background === background}
-                />
-                <img
-                  src={require(`../../images/backgrounds/${background}.jpg`)}
-                  alt={`background variant ${i + 1}`}
-                  width="28"
-                />
-              </label>
-            ))}
-          </BgImagesWrapper>
-          <MainButton type="submit">{btnContent}</MainButton>
-        </Form>
-      )}
-    </Formik>
+    <>
+      {isRefreshing && <Loader />}
+      <Formik
+        initialValues={initialValues}
+        validationSchema={addBoardSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ handleChange, values }) => (
+          <Form autoComplete="off">
+            <StyledInputField
+              type="text"
+              name="title"
+              placeholder="Title"
+              onChange={handleChange}
+              value={values.title}
+            />
+            <ErrorMsg name="title" component="p" />
+            <StyledSubtitle>Icons</StyledSubtitle>
+            <IconsWrapper>
+              {icons.map(icon => (
+                <label key={nanoid()}>
+                  <StyledRadioField
+                    type="radio"
+                    name="icon"
+                    value={icon}
+                    onChange={handleChange}
+                    checked={values.icon === icon}
+                  />
+                  <StyledSVG>
+                    <use href={`${sprite}#${icon}`}></use>
+                  </StyledSVG>
+                </label>
+              ))}
+            </IconsWrapper>
+            <StyledSubtitle>Background</StyledSubtitle>
+            <BgImagesWrapper>
+              {backgrounds.map((background, i) => (
+                <label key={nanoid()}>
+                  <StyledRadioField
+                    type="radio"
+                    name="background"
+                    value={background}
+                    onChange={handleChange}
+                    checked={values.background === background}
+                  />
+
+                  {i === 0 && theme === 'dark' && (
+                    <img
+                      src={require(`../../images/backgrounds/${background}_dark.png`)}
+                      alt={`background variant ${i + 1}`}
+                      width="28"
+                    />
+                  )}
+
+                  {i === 0 && theme === 'violet' && (
+                    <img
+                      src={require(`../../images/backgrounds/${background}_violet.png`)}
+                      alt={`background variant ${i + 1}`}
+                      width="28"
+                    />
+                  )}
+
+                  {i === 0 && theme === 'light' && (
+                    <img
+                      src={require(`../../images/backgrounds/${background}_light.png`)}
+                      alt={`background variant ${i + 1}`}
+                      width="28"
+                    />
+                  )}
+                  {i >= 1 && (
+                    <img
+                      src={require(`../../images/backgrounds/${background}.png`)}
+                      alt={`background variant ${i + 1}`}
+                      width="28"
+                    />
+                  )}
+                </label>
+              ))}
+            </BgImagesWrapper>
+            <MainButton type="submit" showPlus={true}>
+              {btnContent}
+            </MainButton>
+          </Form>
+        )}
+      </Formik>
+    </>
   );
 }
 
