@@ -44,15 +44,12 @@ const getModalStyles = ({ modalType, viewportWidth }) => {
     styles += `
           max-width: ${maxWidth}px;
           width: ${width}px`;
-
   } else if (modalType === 'modalHelp' || modalType === 'editProfile') {
     const maxWidth = viewportWidth >= 320 && viewportWidth <= 374 ? 335 : null;
     const width = viewportWidth >= 375 ? 400 : null;
     styles += `
     max-width: ${maxWidth}px;
     width: ${width}px`;
-
-
   } else if (modalType === 'modalFilter') {
     if (viewportWidth >= 320) {
       styles += `

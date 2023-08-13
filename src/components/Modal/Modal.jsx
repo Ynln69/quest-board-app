@@ -4,12 +4,19 @@ import ReactDOM from 'react-dom';
 import Sprite from '../../images/sprite.svg';
 import { Backdrop, CloseBtn, Heading, ModalWindow } from './Modal.styles';
 
-function Modal({ children, isOpen, handleClose, heading, modalType, headingMarginBottom }) {
+function Modal({
+  children,
+  isOpen,
+  handleClose,
+  heading,
+  modalType,
+  headingMarginBottom,
+}) {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
-      setViewportWidth(window.innerWidth);
+      setViewportWidth(window.outerWidth);
     };
 
     window.addEventListener('resize', handleResize);
@@ -19,6 +26,7 @@ function Modal({ children, isOpen, handleClose, heading, modalType, headingMargi
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+  console.log(window);
 
   if (!isOpen) return null;
 
