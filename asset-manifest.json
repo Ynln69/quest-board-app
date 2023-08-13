@@ -1,10 +1,12 @@
 {
   "files": {
     "main.css": "/quest-board-app/static/css/main.1b8f0dd2.css",
-    "main.js": "/quest-board-app/static/js/main.947d803b.js",
+    "main.js": "/quest-board-app/static/js/main.b1f6fc7b.js",
     "static/js/544.61d8e84e.chunk.js": "/quest-board-app/static/js/544.61d8e84e.chunk.js",
     "static/js/786.5da79be9.chunk.js": "/quest-board-app/static/js/786.5da79be9.chunk.js",
     "static/js/115.8c9a7f96.chunk.js": "/quest-board-app/static/js/115.8c9a7f96.chunk.js",
+    "static/js/146.e349ba95.chunk.js": "/quest-board-app/static/js/146.e349ba95.chunk.js",
+    "static/js/973.42222fbc.chunk.js": "/quest-board-app/static/js/973.42222fbc.chunk.js",
     "static/media/Poppins-Regular.woff": "/quest-board-app/static/media/Poppins-Regular.eb7f33fefaf7106ac3a0.woff",
     "static/media/Poppins-Medium.woff": "/quest-board-app/static/media/Poppins-Medium.9de653bb3161fcb43443.woff",
     "static/media/Poppins-SemiBold.woff": "/quest-board-app/static/media/Poppins-SemiBold.4b2ae28bc415edfe9fd6.woff",
@@ -17,13 +19,15 @@
     "index.html": "/quest-board-app/index.html",
     "static/media/eye-hide.svg": "/quest-board-app/static/media/eye-hide.accfc4141682c117e0a89ff4d886ee4d.svg",
     "main.1b8f0dd2.css.map": "/quest-board-app/static/css/main.1b8f0dd2.css.map",
-    "main.947d803b.js.map": "/quest-board-app/static/js/main.947d803b.js.map",
+    "main.b1f6fc7b.js.map": "/quest-board-app/static/js/main.b1f6fc7b.js.map",
     "544.61d8e84e.chunk.js.map": "/quest-board-app/static/js/544.61d8e84e.chunk.js.map",
     "786.5da79be9.chunk.js.map": "/quest-board-app/static/js/786.5da79be9.chunk.js.map",
-    "115.8c9a7f96.chunk.js.map": "/quest-board-app/static/js/115.8c9a7f96.chunk.js.map"
+    "115.8c9a7f96.chunk.js.map": "/quest-board-app/static/js/115.8c9a7f96.chunk.js.map",
+    "146.e349ba95.chunk.js.map": "/quest-board-app/static/js/146.e349ba95.chunk.js.map",
+    "973.42222fbc.chunk.js.map": "/quest-board-app/static/js/973.42222fbc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1b8f0dd2.css",
-    "static/js/main.947d803b.js"
+    "static/js/main.b1f6fc7b.js"
   ]
 }
