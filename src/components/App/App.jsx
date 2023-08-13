@@ -7,7 +7,7 @@ import RestrictedRoute from 'components/RestrictedRoute';
 import { RegisterForm } from 'components/RegisterForm/Registerform';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 import { Dashboard } from 'components/Dashboard/Dashboard';
-import { Loader } from 'components/Loader/Loader';
+import Loader from 'components/Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
 import { selectIsRefreshing, selectIsLoggedIn } from 'redux/auth/selectors';
@@ -36,7 +36,6 @@ export const App = () => {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            height: '100vh',
           }}
         >
           <Loader color="#BEDBB0" size={20} />

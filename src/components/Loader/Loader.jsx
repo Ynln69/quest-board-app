@@ -2,7 +2,7 @@
 
 import { LoaderCont } from './Loader.styled';
 
-export const Loader = () => {
+const Loader = () => {
   return (
     <LoaderCont>
       {/* <PropagateLoader color="#BEDBB0" size={20} /> */}
@@ -18,3 +18,5 @@ export const Loader = () => {
     </LoaderCont>
   );
 };
+
+export default Loader;

@@ -13,8 +13,7 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.16;
-  font-family: -apple-system, BlinkMacSystemFont, 'Poppins', 'Segoe UI',
-    'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Poppins';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -66,8 +65,6 @@ button {
   cursor: pointer;
   padding: 0;
 }
-
-
 
 // loader styles
 
