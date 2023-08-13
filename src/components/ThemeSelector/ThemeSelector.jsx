@@ -8,19 +8,19 @@ const ThemeSelector = ({ onClose }) => {
   const { theme } = useSelector(selectUser);
   const dispatch = useDispatch();
   const [currentTheme, setCurrentTheme] = useState(theme);
-
-  useEffect(() => {
-    document.body.classList.remove('LIGHT', 'DARK', 'VIOLET');
-    document.body.classList.add(currentTheme);
-  }, [currentTheme]);
-
   const themeOptions = [
     { value: 'LIGHT', label: 'Light' },
     { value: 'DARK', label: 'Dark' },
     { value: 'VIOLET', label: 'Violet' },
   ];
 
-  const onHandleTheme = async newTheme => {
+  useEffect(() => {
+    document.body.classList.remove('LIGHT', 'DARK', 'VIOLET');
+    document.body.classList.add(currentTheme);
+  }, [currentTheme]);
+
+  
+    const onHandleTheme = async newTheme => {
     setCurrentTheme(newTheme);
 
     try {
