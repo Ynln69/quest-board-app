@@ -3,7 +3,7 @@ import {
   ButtonAdd,
   SvgLightning,
   Title,
-  TitleBlock,
+  NavLogo,
   BoardTitleBlock,
   MyBoardTitle,
   NeedHelpBlock,
@@ -19,6 +19,8 @@ import {
   ProjectIcon,
   BoardTitle,
   Nav,
+  Section,
+  MainBoard,
   ButtonIcon,
 } from './Sidebar.styled';
 import sprite from '../../images/sprite.svg';
@@ -73,15 +75,15 @@ export function Sidebar({ theme, isOpen }) {
 
   return (
     <SidebarBlock className={`theme-${theme} ${isOpen ? 'open' : 'closed'}`}>
-      <Nav to="/">
-        <TitleBlock>
-          <SvgLightning>
+       <NavLogo to="/">
+        <SvgLightning>
             <use href={`${sprite}#icon-logo`} />
           </SvgLightning>
           <Title>Task Pro</Title>
-        </TitleBlock>
-      </Nav>
+      </NavLogo>
+      <Section>
       <MyBoardTitle>My boards</MyBoardTitle>
+    
       <BoardTitleBlock>
         <p>Create a new board</p>
         <ButtonAdd aria-label="add" type="button" onClick={handleModalType}>
@@ -90,7 +92,9 @@ export function Sidebar({ theme, isOpen }) {
           </svg>
         </ButtonAdd>
       </BoardTitleBlock>
-      <ul>
+     
+     <MainBoard>
+     <ul>
         {boards.map(board => (
           <BoardList key={board._id}>
             <Nav to={`/home/${board.title}`}>
@@ -127,6 +131,9 @@ export function Sidebar({ theme, isOpen }) {
           </BoardList>
         ))}
       </ul>
+     </MainBoard>
+     
+      </Section>
       {isModalOpen && (
         <Modal
           isOpen={toggleModal}
@@ -142,7 +149,7 @@ export function Sidebar({ theme, isOpen }) {
         </Modal>
       )}
       <NeedHelpBlock>
-        <Flower src={flower} alt="flower" />
+        <Flower src={flower} alt="flower" width={54} height={78} />
         <HelpContent>
           If you need help with <span>TaskPro</span>, check out our support
           resources or reach out to our customer support team.
