@@ -85,7 +85,7 @@ function Welcome() {
         <Logo />
         <LogoWrapper>
           <Icon>
-            <use href={`${icons}#icon-logo`} />
+            <use href={`${icons}#icon-logo-welcome`} />
           </Icon>
           <Title>TASK PRO</Title>
         </LogoWrapper>
