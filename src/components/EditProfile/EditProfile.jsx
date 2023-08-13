@@ -6,6 +6,7 @@ import MainButton from 'components/MainButton';
 import {
   FormBox,
   AvatarImage,
+  Label,
   FieldUser,
   NoneInput,
   PlusBtn,
@@ -15,8 +16,7 @@ import {
   PasswordIcon,
   Svg,
   LabelPass,
-  LabelText,
-} from './EditProfile.styled';
+ } from './EditProfile.styled';
 import { updateUser, updateUserAvatar } from 'redux/auth/operations';
 import { selectUser } from 'redux/auth/selectors';
 import Sprite from '../../images/sprite.svg';
@@ -112,15 +112,15 @@ const EditProfile = ({ onClose }) => {
             </PlusBtn>
           </IconUserWrapper>
 
-          <LabelText>
+          <Label>
             <FieldUser type="text" name="newName" />
             <ErrorMessage name="newName" component="div" />
-          </LabelText>
+          </Label>
 
-          <LabelText>
+          <Label>
             <FieldUser type="email" name="newEmail" />
             <ErrorMessage name="newEmail" component="div" />
-          </LabelText>
+          </Label>
 
           <LabelPass>
             <FieldUser

@@ -1,21 +1,14 @@
 import styled from '@emotion/styled';
 
 export const ThemeContainer = styled.div`
-  position: relative;
-  // position: fixed;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
-  // height: 100%;
-  // z-index: 1;
-  // background-color: rgba(21, 21, 21, 0.3);
-`;
+  position: fixed;
+  `;
 
 export const ThemeList = styled.ul`
 position: absolute;
-top: 100%;
-    left: -10%;
-    transform: translate(-100%, 10%);
+top: 0%;
+    left: -15%;
+    transform: translate(0%, 15%);
     width: 100px;
     height: 107px;
     display: flex;
