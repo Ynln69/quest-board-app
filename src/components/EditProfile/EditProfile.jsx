@@ -16,7 +16,7 @@ import {
   PasswordIcon,
   Svg,
   LabelPass,
- } from './EditProfile.styled';
+} from './EditProfile.styled';
 import { updateUser, updateUserAvatar } from 'redux/auth/operations';
 import { selectUser } from 'redux/auth/selectors';
 import Sprite from '../../images/sprite.svg';
@@ -24,7 +24,7 @@ import eyeHide from '../../images/eye-hide.svg';
 import { showToast } from 'components/Notification/ToastNotification';
 
 const EditProfile = ({ onClose }) => {
-  const { username, theme, email, password, avatarURL } =
+  const { username, theme, email, avatarURL } =
     useSelector(selectUser);
   const [showPassword, setShowPassword] = useState(false);
   const [avatarNewURL, setAvatarNewURL] = useState(avatarURL);
@@ -36,14 +36,15 @@ const EditProfile = ({ onClose }) => {
   };
 
   const handleFormSubmit = async formValues => {
-    dispatch(
-      updateUser({
-        username: formValues.newName,
-        email: formValues.newEmail,
-        password: formValues.newPassword,
-        theme,
-      })
-    );
+    if (username !== formValues.username || email !== formValues.email)
+      dispatch(
+        updateUser({
+          username: formValues.newName,
+          email: formValues.newEmail,
+          theme,
+        })
+      );
+
     if (avatarNewURL !== formValues.newPhoto) {
       dispatch(updateUserAvatar(avatarNewURL));
     }
@@ -69,7 +70,6 @@ const EditProfile = ({ onClose }) => {
         newPhoto: avatarNewURL,
         newName: username,
         newEmail: email,
-        newPassword: password,
       }}
       onSubmit={handleFormSubmit}
     >
