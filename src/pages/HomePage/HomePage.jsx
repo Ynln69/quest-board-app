@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Header from 'components/Header/Header';
 import { Sidebar } from 'components/Sidebar/Sidebar';
 import { selectUser } from 'redux/auth/selectors';
 import { Container } from './HomePage.styled';
-import { useLocation, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { Dashboard } from 'components/Dashboard/Dashboard';
 import { EmptyPage } from 'components/EmptyPage/EmptyPage';
 const HomePage = () => {
   const { theme } = useSelector(selectUser);
@@ -22,9 +24,10 @@ const HomePage = () => {
   return (
     <>
       <Container>
-        <Sidebar theme={theme} />
+        <Sidebar />
         <div style={{ width: '100%' }}>
-          <Header theme={theme} />
+          <Header />
+          <Dashboard />
           {!checkUrl && <EmptyPage theme={theme} />}
         </div>
       </Container>

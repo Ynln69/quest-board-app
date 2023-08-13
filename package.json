@@ -28,6 +28,8 @@
     "react-toastify": "^9.1.3",
     "redux-persist": "^6.0.0",
     "sass": "^1.64.2",
+    "simplebar": "^6.2.5",
+    "simplebar-react": "^3.2.4",
     "uuidv4": "^6.2.13",
     "web-vitals": "^2.1.3",
     "yup": "^1.2.0"

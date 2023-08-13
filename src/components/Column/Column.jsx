@@ -20,14 +20,15 @@ import sprite from '../../images/sprite.svg';
 export const Column = ({ column, tasks, index, cardData, setCardData }) => {
   const [visible, setVisible] = useState(false);
   const [dataForModal, setDataForModal] = useState(column);
-  const [titleTask, setTitleTask] = useState('');
-  const [descriptionTask, setDescriptionTask] = useState('');
   const [showEditModal, setShowEditModal] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [showEditCardModal, setShowEditCardModal] = useState(false);
+  const [editedTask, setEditedTask] = useState(null);
 
-  if (true === false) {
-    console.log(setDataForModal);
-  }
+  const handleShowEditCardModal = task => {
+    setEditedTask(task);
+    setShowEditCardModal(true);
+  };
 
   const handleVisible = () => {
     setVisible(!visible);
@@ -37,20 +38,21 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
     setShowEditModal(!showEditModal);
   };
 
-  const handleSubmit = () => {
+  const handleSubmitAdd = (title, description) => {
     const taskId = `1${uuidv4().replace(/-/g, '')}`;
 
     const newTask = {
       [taskId]: {
         id: taskId,
-        title: titleTask,
-        description: descriptionTask,
+        title: title,
+        description: description,
         priority: 'over',
         deadline: '22.33.44',
       },
     };
 
     const columnId = dataForModal.id;
+    console.log(setDataForModal);
 
     const newColumn = {
       ...cardData.columns[columnId],
@@ -70,6 +72,48 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
     }));
 
     handleVisible();
+  };
+
+  const handleSubmitEditCard = (id, title, description) => {
+    const updatedTask = {
+      ...cardData.tasks[id],
+      title: title,
+      description: description,
+      priority: 'over',
+      deadline: '22.33.44',
+    };
+
+    setCardData(prevCardData => ({
+      ...prevCardData,
+      tasks: {
+        ...prevCardData.tasks,
+        [id]: updatedTask,
+      },
+    }));
+
+    setShowEditCardModal(false);
+  };
+
+  const handleSubmitDeleteCard = id => {
+    const newTasks = { ...cardData.tasks };
+    delete newTasks[id];
+
+    const newColumns = { ...cardData.columns };
+    const columnId = dataForModal.id;
+
+    const newColumn = {
+      ...newColumns[columnId],
+      taskIds: newColumns[columnId].taskIds.filter(taskId => taskId !== id),
+    };
+
+    setCardData(prevCardData => ({
+      ...prevCardData,
+      tasks: newTasks,
+      columns: {
+        ...prevCardData.columns,
+        [columnId]: newColumn,
+      },
+    }));
   };
 
   const handleEdit = e => {
@@ -120,7 +164,13 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
                 isDraggingOver={snapshot.isDraggingOver}
               >
                 {tasks.map((task, index) => (
-                  <Task key={task.id} task={task} index={index} />
+                  <Task
+                    key={task.id}
+                    task={task}
+                    index={index}
+                    handleShowEditCardModal={handleShowEditCardModal}
+                    handleSubmitDeleteCard={handleSubmitDeleteCard}
+                  />
                 ))}
                 {provided.placeholder}
               </TaskList>
@@ -133,6 +183,18 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
               setIsOpen(true);
             }}
           />
+          {showEditCardModal && (
+            <Modal
+              heading={'Edit card'}
+              handleClose={() => setShowEditCardModal(false)}
+              isOpen={showEditCardModal}
+            >
+              <AddEditCardModal
+                editedTask={editedTask}
+                handleSubmit={handleSubmitEditCard}
+              />
+            </Modal>
+          )}
           {showEditModal && (
             <AddColumn
               title={'Edit column'}
@@ -147,11 +209,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
               isOpen={isOpen}
               heading={'Add card'}
             >
-              <AddEditCardModal
-                setTitleTask={setTitleTask}
-                setDescriptionTask={setDescriptionTask}
-                handleSubmit={handleSubmit}
-              />
+              <AddEditCardModal handleSubmit={handleSubmitAdd} />
             </Modal>
           )}
         </Container>

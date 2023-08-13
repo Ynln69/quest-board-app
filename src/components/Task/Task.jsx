@@ -1,3 +1,5 @@
+import { Draggable } from 'react-beautiful-dnd';
+
 import {
   LineContainer,
   TaskContainer,
@@ -10,10 +12,21 @@ import {
   TaskDeadline,
   TestListIcon,
 } from './Task.styled';
-import { Draggable } from 'react-beautiful-dnd';
 import sprite from '../../images/sprite.svg';
 
-export const Task = ({ task, index }) => {
+export const Task = ({
+  task,
+  index,
+  handleShowEditCardModal,
+  handleSubmitDeleteCard,
+}) => {
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // const handleOpenModal = () => {
+  //   console.log(isModalOpen);
+  //   setIsModalOpen(true);
+  // };
+
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided, snapshot) => (
@@ -49,14 +62,14 @@ export const Task = ({ task, index }) => {
                 </button>
               </li>
               <li>
-                <button>
+                <button onClick={() => handleShowEditCardModal(task)}>
                   <svg width={16} height={16}>
                     <use xlinkHref={`${sprite}#icon-pencil`} />
                   </svg>
                 </button>
               </li>
               <li>
-                <button>
+                <button onClick={() => handleSubmitDeleteCard(task.id)}>
                   <svg width={16} height={16}>
                     <use xlinkHref={`${sprite}#icon-trash`} />
                   </svg>
@@ -64,6 +77,11 @@ export const Task = ({ task, index }) => {
               </li>
             </TestListIcon>
           </TaskBox>
+          {/* {isModalOpen && (
+            <Modal heading={'Edit card'} isOpen={isOpen}>
+              <AddEditCardModal />
+            </Modal>
+          )} */}
         </TaskContainer>
       )}
     </Draggable>
