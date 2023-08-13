@@ -14,15 +14,15 @@ export const FormBox = styled(Form)`
 
 export const LabelPass = styled.label`
   position: relative;
-  width: 100%;
+  // width: 100%;
 `;
 
 export const LabelText = styled.label`
-  width: 100%;
+  // width: 100%;
 `;
 
 export const FieldUser = styled(Field)`
-  width: 100%;
+  width: 287px;
   height: 49px;
   color: var(--modal_main_color);
   background-color: var(--modal_field);
@@ -66,32 +66,32 @@ export const AvatarImage = styled.img`
   object-fit: cover;
 `;
 
-export const SaveBtn = styled.button`
-  width: 100%;
-  height: 49px;
-  margin-top: 24px;
-  text-align: center;
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.28px;
-  background: var(--create_normal);
-  border-radius: 8px;
-  border: 1px solid var(--create_normal);
-  cursor: pointer;
+// export const SaveBtn = styled.button`
+//   width: 100%;
+//   height: 49px;
+//   margin-top: 24px;
+//   text-align: center;
+//   font-family: Poppins;
+//   font-size: 14px;
+//   font-style: normal;
+//   font-weight: 500;
+//   line-height: normal;
+//   letter-spacing: -0.28px;
+//   background: var(--create_normal);
+//   border-radius: 8px;
+//   border: 1px solid var(--create_normal);
+//   cursor: pointer;
 
-  &:hover,
-  &:focus,
-  &:active {
-    opacity: 0.8;
-  }
+//   &:hover,
+//   &:focus,
+//   &:active {
+//     opacity: 0.8;
+//   }
 
-  @media screen and (max-width: 768px) {
-    width: 250px;
-  }
-`;
+//   @media screen and (max-width: 768px) {
+//     width: 250px;
+//   }
+// `;
 
 export const FileInput = styled.input`
   position: absolute;
@@ -128,15 +128,15 @@ export const PlusBtn = styled.button`
   }
 `;
 
-export const TextBtn = styled(Form)`
-  font-family: Poppins;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.28px;
-  color: var(--save-color);
-`;
+// export const TextBtn = styled(Form)`
+//   font-family: Poppins;
+//   font-size: 14px;
+//   font-style: normal;
+//   font-weight: 500;
+//   line-height: normal;
+//   letter-spacing: -0.28px;
+//   color: var(--save-color);
+// `;
 
 export const IconPlus = styled.svg`
   width: 14px;
@@ -160,7 +160,7 @@ export const PasswordIcon = styled.img`
 `;
 
 export const Svg = styled.svg`
-  width: 16.5px;
+  width: 16px;
   height: 16px;
   top: 50%;
   right: 4px;

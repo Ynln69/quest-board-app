@@ -6,7 +6,6 @@ export const PageHeader = styled.header`
   justify-content: space-between;
   width: auto;
   max-width: 100%;
-  // color: #ffffff;
   height: 68px;
   padding: 14px 20px;
   background-color: var(--header_bgc);
@@ -47,10 +46,11 @@ export const HeaderWrap = styled.div`
   align-items: center;
   gap: 14px;
   margin-left: auto;
+  position: relative;
 `;
 
 export const HeaderNav = styled.div`
-// position: relative;
+position: relative;
 display: inline-flex;
 justify-content: center;
 align-items: center;
@@ -67,7 +67,7 @@ export const SelectIcon = styled.svg`
   stroke: var(--chevron-down);
   fill: none;
   z-index: 999;
-`;
+ `;
 
 export const Text = styled.div`
 color: var(--header_theme_text);
