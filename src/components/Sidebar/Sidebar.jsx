@@ -16,6 +16,8 @@ import {
   EditIcon,
   BoardIcons,
   TitleBoard,
+  ProjectIcon,
+  BoardTitle,
   Nav,
   ButtonIcon,
 } from './Sidebar.styled';
@@ -40,13 +42,9 @@ export function Sidebar({ theme, isOpen }) {
   const [isShow, setIsShow] = useState(false);
   const boards = useSelector(selectBoards);
   const dispatch = useDispatch();
-  useEffect(
-    () => {
-      dispatch(getBoards());
-    },
-    [dispatch],
-    boards
-  );
+  useEffect(() => {
+    dispatch(getBoards());
+  }, [dispatch]);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -97,35 +95,34 @@ export function Sidebar({ theme, isOpen }) {
           <BoardList key={board._id}>
             <Nav to={`/home/${board.title}`}>
               <TitleBoard>
-                <svg width={18} height={18}>
+                <ProjectIcon width={18} height={18}>
                   <use href={`${sprite}#${board.icon}`} />
-                </svg>
-                {board.title}
+                </ProjectIcon>
+                <BoardTitle>{board.title}</BoardTitle>
               </TitleBoard>
-           
 
-            <BoardIcons>
-              <ButtonIcon
-                type="button"
-                aria-label="edit"
-                data-board-id={board._id}
-                onClick={handleModalType}
-              >
-                <EditIcon>
-                  <use href={`${sprite}#icon-pencil`} />
-                </EditIcon>
-              </ButtonIcon>
-              <ButtonIcon
-                type="button"
-                aria-label="edit"
-                data-board-id={board._id}
-                onClick={handleModalType}
-              >
-                <EditIcon onClick={() => dispatch(deleteBoard(board._id))}>
-                  <use href={`${sprite}#icon-trash`} />
-                </EditIcon>
-              </ButtonIcon>
-            </BoardIcons>
+              <BoardIcons>
+                <ButtonIcon
+                  type="button"
+                  aria-label="edit"
+                  data-board-id={board._id}
+                  onClick={handleModalType}
+                >
+                  <EditIcon>
+                    <use href={`${sprite}#icon-pencil`} />
+                  </EditIcon>
+                </ButtonIcon>
+                <ButtonIcon
+                  type="button"
+                  aria-label="edit"
+                  data-board-id={board._id}
+                  onClick={handleModalType}
+                >
+                  <EditIcon onClick={() => dispatch(deleteBoard(board._id))}>
+                    <use href={`${sprite}#icon-trash`} />
+                  </EditIcon>
+                </ButtonIcon>
+              </BoardIcons>
             </Nav>
           </BoardList>
         ))}
@@ -135,6 +132,7 @@ export function Sidebar({ theme, isOpen }) {
           isOpen={toggleModal}
           handleClose={toggleModal}
           heading={modalType === actionsList.add ? 'New board' : 'Edit board'}
+          modalType={'modalBoard'}
         >
           <ModalBoard
             btnContent={modalType === actionsList.add ? 'Create' : 'Edit'}

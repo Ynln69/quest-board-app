@@ -3,6 +3,7 @@ import {
   logIn,
   logOut,
   refreshUser,
+  registerLogin,
   updateUser,
   updateUserAvatar,
 } from './operations';
@@ -31,11 +32,11 @@ const authSlice = createSlice({
         refreshUser.fulfilled,
         handlersForRegisterLogin.handleRefreshUserFullfilled
       )
-      // .addCase(
-      //   register.fulfilled,
-      //   handlersForRegisterLogin.handleRegisterFulfilled
-      // )
       .addCase(logIn.fulfilled, handlersForRegisterLogin.handleLoginFulfilled)
+      .addCase(
+        registerLogin.fulfilled,
+        handlersForRegisterLogin.handleRegisterLoginFulfilled
+      )
       .addCase(
         updateUser.fulfilled,
         handlersForRegisterLogin.handleUpdateUserFullfilled

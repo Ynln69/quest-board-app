@@ -1,15 +1,19 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled/macro';
 import { NavLink } from 'react-router-dom';
 
 export const SidebarBlock = styled.aside`
   display: flex;
   flex-direction: column;
-  width: 260px;
+  width: 225px;
   min-height: 100vh;
   padding: 24px;
 
   background-color: var(--nav_bgc);
   color: var(--nav_main_color);
+
+  @media (min-width: 768px) {
+    width: 260px;
+  }
   @media (max-width: 1439px) {
     display: none;
   }
@@ -82,19 +86,19 @@ export const BoardList = styled.li`
   display: flex;
   align-items: center;
   font-weight: 500;
+  margin: 0 -24px;
+  align-items: center;
   letter-spacing: -0.28px;
-  margin-bottom: 44px;
+  margin-bottom: 4px;
 `;
 export const TitleBoard = styled.div`
   display: flex;
-  > svg {
-    stroke: var(--nav_second_color);
-    margin-right: 8px;
-  }
+  align-items: center;
 `;
 export const BoardIcons = styled.div`
-  display: flex;
+  display: none;
   margin-left: auto;
+  margin-right: 20px;
 `;
 export const EditIcon = styled.svg`
   width: 16px;
@@ -120,13 +124,8 @@ export const NeedHelpBlock = styled.div`
   margin-bottom: 24px;
   padding: 20px;
   margin-top: auto;
-
   background-color: var(--need_bgc);
   color: var(--nav_main_color);
-
-  @media (max-width: 768px) {
-    display: none;
-  }
 `;
 
 export const HelpContent = styled.p`
@@ -179,8 +178,38 @@ export const Flower = styled.img`
   display: block;
 `;
 
+export const BoardTitle = styled.p`
+  color: var(--board_second_color);
+`;
+export const ProjectIcon = styled.svg`
+  stroke: var(--board_second_color);
+  fill: transparent;
+  margin-right: 8px;
+  margin-left: 24px;
+`;
 export const Nav = styled(NavLink)`
-display: flex;
-width: 100%;
-  color: var(--nav_main_color);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  &.active {
+    color: var(--board_main_color);
+    background-color: var(--board_active_bgc);
+    &:after {
+      display: flex;
+      content: '';
+      border-radius: 4px 0px 0px 4px;
+      background: var(--border_bgc);
+      width: 4px;
+    }
+    ${BoardIcons} {
+      display: flex;
+    }
+    ${BoardTitle} {
+      color: var(--board_active_color);
+    }
+    ${ProjectIcon} {
+      stroke: var(--board_active_icon);
+    }
+  }
 `;

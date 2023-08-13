@@ -3,6 +3,7 @@ import { Formik } from 'formik';
 
 import BtnColumn from '../BtnColumn/BtnColumn';
 import { FormContainer, Input } from './ModalColumn.styled';
+import { showToast } from '../../Notification/ToastNotification';
 
 const ModalColumn = ({ handleSubmit, nameTitle }) => {
   const [visible, setVisible] = useState(false);
@@ -14,7 +15,7 @@ const ModalColumn = ({ handleSubmit, nameTitle }) => {
 
   const handleFormSubmit = () => {
     if (title.trim() === '') {
-      alert('Поле не може бути порожнім');
+      showToast('error', 'The title column cannot be empty. Enter a title!');
       return;
     }
     handleSubmit(title);

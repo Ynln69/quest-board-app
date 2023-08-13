@@ -71,7 +71,7 @@ function Welcome() {
                   password: `${res.data.id}!Taskpro`,
                 })
               ),
-            700
+            500
           );
         })
         .catch(err => console.log(err));
