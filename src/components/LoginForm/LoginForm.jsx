@@ -46,11 +46,6 @@ export const LoginForm = () => {
       })
     );
 
-    console.log({
-      email: form.elements.email.value,
-      password: form.elements.password.value,
-    });
-
     form.elements.email.value = '';
     form.elements.password.value = '';
   };
