@@ -55,7 +55,7 @@ display: inline-flex;
 justify-content: center;
 align-items: center;
 gap: 4px;
-margin-right: 14px;
+// margin-right: 14px;
 width: 80px;
 cursor: pointer;
 `;
