@@ -42,13 +42,9 @@ export function Sidebar({ theme, isOpen }) {
   const [isShow, setIsShow] = useState(false);
   const boards = useSelector(selectBoards);
   const dispatch = useDispatch();
-  useEffect(
-    () => {
-      dispatch(getBoards());
-    },
-    [dispatch],
-    boards
-  );
+  useEffect(() => {
+    dispatch(getBoards());
+  }, [dispatch]);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -99,7 +95,7 @@ export function Sidebar({ theme, isOpen }) {
           <BoardList key={board._id}>
             <Nav to={`/home/${board.title}`}>
               <TitleBoard>
-              <ProjectIcon width={18} height={18}>
+                <ProjectIcon width={18} height={18}>
                   <use href={`${sprite}#${board.icon}`} />
                 </ProjectIcon>
                 <BoardTitle>{board.title}</BoardTitle>
@@ -120,6 +116,7 @@ export function Sidebar({ theme, isOpen }) {
                   type="button"
                   aria-label="edit"
                   data-board-id={board._id}
+                  onClick={handleModalType}
                 >
                   <EditIcon onClick={() => dispatch(deleteBoard(board._id))}>
                     <use href={`${sprite}#icon-trash`} />
@@ -135,6 +132,7 @@ export function Sidebar({ theme, isOpen }) {
           isOpen={toggleModal}
           handleClose={toggleModal}
           heading={modalType === actionsList.add ? 'New board' : 'Edit board'}
+          modalType={'modalBoard'}
         >
           <ModalBoard
             btnContent={modalType === actionsList.add ? 'Create' : 'Edit'}

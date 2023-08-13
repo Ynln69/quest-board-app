@@ -10,15 +10,23 @@ export const Backdrop = styled.section`
   z-index: 1;
   background-color: rgba(21, 21, 21, 0.3);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  overflow: auto;
 `;
 
-export const ModalWindow = styled.div`
+const getModalStyles = ({ modalType, viewportWidth }) => {
+  let styles = `
+
+    /* =============================== Спільні стилі для всіх модалок ========================================*/
+  
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   padding: 24px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 
   border-radius: 8px;
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.05);
@@ -26,12 +34,34 @@ export const ModalWindow = styled.div`
 
   background-color: var(--modal_bgc);
 
-  @media screen and (min-width: 375px) {
-    width: 335px;
+  // ===========================================================================================================
+  `;
+
+  if (
+    modalType === 'modalBoard' &&
+    viewportWidth >= 320 &&
+    viewportWidth <= 374
+  ) {
+    styles += `
+      max-width: 335px;
+    `;
+  } else if (modalType === 'modalBoard' && viewportWidth >= 375) {
+    styles += `
+     width: 350px;
+    `;
   }
-  @media screen and (min-width: 768px) {
-    width: 400px;
-  }
+
+  //   @media screen and (min-width: 375px) {
+  //   width: 335px;
+  // }
+  // @media screen and (min-width: 768px) {
+  //   width: 400px;
+
+  return styles;
+};
+
+export const ModalWindow = styled.div`
+  ${getModalStyles}
 `;
 
 export const Heading = styled.h3`
