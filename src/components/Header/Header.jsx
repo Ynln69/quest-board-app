@@ -15,7 +15,6 @@ import {
   Text,
 } from './Header.styled';
 import Sprite from '../../images/sprite.svg';
-// import { updateUser } from 'redux/auth/operations';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -24,7 +23,7 @@ const Header = () => {
   const [isThemeSelectorOpen, setThemeSelectorOpen] = useState(false);
 
   useEffect(() => {
-      let timeout;
+    let timeout;
 
     if (isSideBarOpen) {
       timeout = setTimeout(() => {
@@ -56,26 +55,27 @@ const Header = () => {
 
   return (
     <PageHeader>
-      <MenuBtn type='button' onClick={toggleSideBar}>
-        <MenuIcon className={`icon-menu theme-${theme}`} width="32" height="32">
+      <MenuBtn type="button" onClick={toggleSideBar}>
+        <MenuIcon className={`icon-menu theme-${theme}`} width="24" height="24">
           <use href={`${Sprite}#icon-menu`} />
         </MenuIcon>
       </MenuBtn>
-      {isSideBarOpen && <Backdrop><Sidebar /></Backdrop>}
+      {isSideBarOpen && (
+        <Backdrop>
+          <Sidebar />
+        </Backdrop>
+      )}
       <HeaderWrap>
         <HeaderNav>
-        <Text>Theme</Text>
+          <Text>Theme</Text>
           <div>
             <SelectIcon width="16" height="16" onClick={toggleThemeSelector}>
               <use href={`${Sprite}#icon-chevron-down`} />
             </SelectIcon>
           </div>
-          
         </HeaderNav>
         {isThemeSelectorOpen && (
-          <ThemeSelector
-            onClose={() => setThemeSelectorOpen(false)}
-          />
+          <ThemeSelector onClose={() => setThemeSelectorOpen(false)} />
         )}
         <UserInfo />
       </HeaderWrap>
@@ -85,8 +85,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-
-
-
