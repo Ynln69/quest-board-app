@@ -5,6 +5,7 @@ display: flex;
 align-items: center;
 gap: 8px;
 margin-left: 14px;
+padding: 0;
 `;
 
 export const Avatar = styled.img`
