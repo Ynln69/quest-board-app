@@ -1,8 +1,4 @@
-import { useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
-
-import AddEditCardModal from 'components/AddEditCard/AddEditCard';
-import Modal from 'components/Modal/Modal';
 
 import {
   LineContainer,
@@ -21,16 +17,15 @@ import sprite from '../../images/sprite.svg';
 export const Task = ({
   task,
   index,
-  isOpen,
   handleShowEditCardModal,
   handleSubmitDeleteCard,
 }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpenModal = () => {
-    console.log(isModalOpen);
-    setIsModalOpen(true);
-  };
+  // const handleOpenModal = () => {
+  //   console.log(isModalOpen);
+  //   setIsModalOpen(true);
+  // };
 
   return (
     <Draggable draggableId={task.id} index={index}>
@@ -82,11 +77,11 @@ export const Task = ({
               </li>
             </TestListIcon>
           </TaskBox>
-          {isModalOpen && (
+          {/* {isModalOpen && (
             <Modal heading={'Edit card'} isOpen={isOpen}>
               <AddEditCardModal />
             </Modal>
-          )}
+          )} */}
         </TaskContainer>
       )}
     </Draggable>

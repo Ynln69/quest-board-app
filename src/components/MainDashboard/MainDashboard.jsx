@@ -12,8 +12,6 @@ import {
   SvgAdd,
 } from './MainDashboard.styled';
 import sprite from '../../images/sprite.svg';
-import SimpleBar from 'simplebar-react';
-import 'simplebar/dist/simplebar.min.css';
 
 export const MainDashboard = ({ cardData, setCardData }) => {
   // кто будет делать этот блок, обратите внимание что именно приходит в cardData
@@ -62,9 +60,6 @@ export const MainDashboard = ({ cardData, setCardData }) => {
   };
 
   const onDragEnd = result => {
-    document.body.style.color = 'inherit';
-    document.body.style.backgroundColor = 'inherit';
-
     const { destination, source, draggableId, type } = result;
 
     if (!destination) {

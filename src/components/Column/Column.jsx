@@ -20,8 +20,6 @@ import sprite from '../../images/sprite.svg';
 export const Column = ({ column, tasks, index, cardData, setCardData }) => {
   const [visible, setVisible] = useState(false);
   const [dataForModal, setDataForModal] = useState(column);
-  const [titleTask, setTitleTask] = useState('');
-  const [descriptionTask, setDescriptionTask] = useState('');
   const [showEditModal, setShowEditModal] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [showEditCardModal, setShowEditCardModal] = useState(false);
@@ -54,6 +52,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
     };
 
     const columnId = dataForModal.id;
+    console.log(setDataForModal);
 
     const newColumn = {
       ...cardData.columns[columnId],

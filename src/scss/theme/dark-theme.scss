@@ -11,20 +11,18 @@ body.DARK {
 
   --cal_border: #bedbb0;
   --cal_background: #1f1f1f;
-  --cal_arrows:#ffffff;
+  --cal_arrows: #ffffff;
   --cal_arrows_active: #9dc888;
   --cal_month: #ffffff;
-  --cal_month_border: #FFFFFF33;
-  --cal_day_name: #FFFFFF80;
-  --cal_days: #FFFFFF;
-  --cal_days_hover: #1F1F1F;
+  --cal_month_border: #ffffff33;
+  --cal_day_name: #ffffff80;
+  --cal_days: #ffffff;
+  --cal_days_hover: #1f1f1f;
   --cal_days_out_hover: #16161666;
-  --cal_bg_out_hover: #FFFFFF33;
+  --cal_bg_out_hover: #ffffff33;
   --cal_days_bc_hover: #bedbb0;
-  --cal_days_disabled: #FFFFFF33;
-  --cal_btn_color:#bedbb0;
-
-
+  --cal_days_disabled: #ffffff33;
+  --cal_btn_color: #bedbb0;
 
   --header_bgc: #161616;
   --header_theme_text: rgba(255, 255, 255, 0.8);
@@ -33,7 +31,7 @@ body.DARK {
   --border_theme: #bedbb0;
   --border_theme: #ecedfd;
   --theme_bgc: #151515;
-  --theme_border: #BEDBB0;
+  --theme_border: #bedbb0;
   --theme_shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
   --header_user_text: #ffffff;
   --user_bgc: #1f1f1f;
@@ -48,9 +46,9 @@ body.DARK {
   --board_second_color: rgba(255, 255, 255, 0.5);
   --icon_active_color: #bedbb0;
   --board_active_color: #ffffff;
-  --board_active_bgc: #1F1F1F;
+  --board_active_bgc: #1f1f1f;
   --board_active_icon: #ffffff;
-  --border_bgc: #BEDBB0;
+  --border_bgc: #bedbb0;
 
   --modal_bgc: #161616;
   --modal_main_color: #ffffff;
@@ -82,6 +80,9 @@ body.DARK {
 
   --svg-bg-color: #1f1f1f;
   --svg-user-color: #151515;
-  --chevron-down: rgba(255, 255, 255, 0.80);
+  --chevron-down: rgba(255, 255, 255, 0.8);
   --save-color: #161616;
+
+  --scroll-wrapp: rgba(255, 255, 255, 0.1);
+  --scroll: #161616;
 }

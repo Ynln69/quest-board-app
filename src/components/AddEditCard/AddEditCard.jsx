@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {
   ButtonIcon,
   ButtonIconWrap,
@@ -14,8 +13,6 @@ import {
 import { Calendar } from '../Calendar/Calendar';
 import sprite from '../../images/sprite.svg';
 import { Form, Formik } from 'formik';
-import { addTaskSchema } from 'schemas';
-import { v4 as uuidv4 } from 'uuid';
 
 // function AddEditCardModal({
 //   setTitleTask,
