@@ -30,6 +30,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
     setShowEditCardModal(true);
   };
 
+
   const handleVisible = () => {
     setVisible(!visible);
   };
@@ -37,7 +38,6 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
   const handleVisibleEdit = () => {
     setShowEditModal(!showEditModal);
   };
-
   const handleSubmitAdd = (title, description) => {
     const taskId = `1${uuidv4().replace(/-/g, '')}`;
 
@@ -159,21 +159,22 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
           <Droppable droppableId={column.id} type="task">
             {(provided, snapshot) => (
               <TaskList
-                ref={provided.innerRef}
-                {...provided.droppableProps}
-                isDraggingOver={snapshot.isDraggingOver}
-              >
-                {tasks.map((task, index) => (
-                  <Task
-                    key={task.id}
-                    task={task}
-                    index={index}
-                    handleShowEditCardModal={handleShowEditCardModal}
-                    handleSubmitDeleteCard={handleSubmitDeleteCard}
-                  />
-                ))}
-                {provided.placeholder}
-              </TaskList>
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+              isDraggingOver={snapshot.isDraggingOver}
+            >
+              {tasks.map((task, index) => (
+                <Task
+                  key={task.id}
+                  task={task}
+                  index={index}
+                  handleShowEditCardModal={handleShowEditCardModal}
+                  handleSubmitDeleteCard={handleSubmitDeleteCard}
+                />
+              ))}
+              {provided.placeholder}
+            </TaskList>
+
             )}
           </Droppable>
           <BtnColumn
@@ -208,6 +209,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
               handleClose={() => setIsOpen(false)}
               isOpen={isOpen}
               heading={'Add card'}
+              modalType={'modalCard'}
             >
               <AddEditCardModal handleSubmit={handleSubmitAdd} />
             </Modal>

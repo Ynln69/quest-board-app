@@ -24,6 +24,7 @@ const NeedHelpForm = ({ handleCloseModal }) => {
         resetForm(initialValues);
         handleCloseModal();
       } else {
+        console.log('Request failed')
       }
     } catch (err) {
       console.log('Error:', err.message);

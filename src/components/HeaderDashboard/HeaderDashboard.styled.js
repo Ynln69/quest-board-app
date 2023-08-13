@@ -15,3 +15,11 @@ export const HeadText = styled.p`
   line-height: normal;
   letter-spacing: -0.36px;
 `;
+
+export const Button = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+
+`
