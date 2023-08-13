@@ -20,7 +20,7 @@ import MainButton from 'components/MainButton';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/selectors';
 import { selectRefreshError } from 'redux/boards/boardsSelectors';
-import { Loader } from 'components/Loader/Loader';
+import Loader from 'components/Loader/Loader';
 
 const icons = [
   'icon-project',
