@@ -30,7 +30,7 @@ export const RegisterForm = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (event, { resetForm }) => {
+  const handleSubmit = event => {
     event.preventDefault();
 
     const form = event.currentTarget;
