@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const HeadContainer = styled.div`
+export const HeadContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;

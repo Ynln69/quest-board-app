@@ -48,13 +48,30 @@ export const Svg = styled.svg`
 `;
 
 export const TaskList = styled.ul`
-  padding: 8px;
   max-height: 478px;
   transition: background-color 0.2s ease;
   background-color: ${props => (props.isDraggingOver ? 'inherit' : 'inherit')};
 
   flex-grow: 1;
   min-height: 100px;
+
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 15px; /* ширина для вертикального скролла */
+    background-color: #161616;
+    border-radius: 9em;
+  }
+
+  /* ползунок скроллбара */
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 9em;
+    transition: 0.5s ease;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
 `;
 
 export const ContainerModal = styled.div`

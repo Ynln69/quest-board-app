@@ -45,7 +45,8 @@ const getModalStyles = ({ modalType, viewportWidth }) => {
     styles += `
       max-width: 335px;
     `;
-  } else if (modalType === 'modalBoard' && viewportWidth >= 375) {
+  }
+  if (modalType === 'modalBoard' && viewportWidth >= 375) {
     styles += `
     width: 350px;
     `;
@@ -72,7 +73,23 @@ const getModalStyles = ({ modalType, viewportWidth }) => {
       max-width: 300px;
     `;
   }
-
+  if (
+    modalType === 'editprofile' &&
+    viewportWidth >= 375 &&
+    viewportWidth <= 767
+  ) {
+    styles += `
+  width: 335px;
+ `;
+  }
+  if (
+    modalType === 'editprofile' &&
+        viewportWidth >= 768
+  ) {
+    styles += `
+  width: 400px;
+ `;
+  }
   //   @media screen and (min-width: 375px) {
   //   width: 335px;
   // }

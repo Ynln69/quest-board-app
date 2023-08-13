@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
+import MainButton from 'components/MainButton';
 import {
   FormBox,
   AvatarImage,
@@ -10,8 +11,7 @@ import {
   PlusBtn,
   IconPlus,
   IconUserWrapper,
-  SaveBtn,
-  PasswordView,
+   PasswordView,
   PasswordIcon,
   Svg,
   LabelPass,
@@ -37,7 +37,6 @@ const EditProfile = ({ onClose }) => {
   };
 
   const handleFormSubmit = async formValues => {
-    console.log(formValues);
     dispatch(
       updateUser({
         username: formValues.newName,
@@ -66,8 +65,7 @@ const EditProfile = ({ onClose }) => {
   };
 
   return (
-    <div>
-      <Formik
+         <Formik
         initialValues={{
           newPhoto: avatarNewURL,
           newName: username,
@@ -85,6 +83,8 @@ const EditProfile = ({ onClose }) => {
                   name="newPhoto"
                   alt="Avatar"
                   src={values.newPhoto}
+                  width="68"
+                  height="68"
                 />
               ) : (
                 <svg className="icon-user" width="68" height="68">
@@ -95,7 +95,7 @@ const EditProfile = ({ onClose }) => {
                 type="button"
                 onClick={() => document.getElementById('newPhotoInput').click()}
               >
-                <IconPlus>
+                <IconPlus width="14" height="14">
                   <use href={`${Sprite}#icon-plus-us`} />
                 </IconPlus>
                 <NoneInput
@@ -126,15 +126,20 @@ const EditProfile = ({ onClose }) => {
             <LabelPass>
               <FieldUser
                 type={showPassword ? 'text' : 'password'}
-                id='password'
-                name="password" 
-               placeholder='Enter Password'
+                id="password"
+                name="password"
+                placeholder="Enter Password"
               />
               <PasswordView onClick={togglePasswordVisibility}>
                 {showPassword ? (
-                  <PasswordIcon src={eyeHide} alt="Hide Password" />
+                  <PasswordIcon
+                    src={eyeHide}
+                    alt="Hide Password"
+                    width="16"
+                    height="16"
+                  />
                 ) : (
-                  <Svg>
+                  <Svg width="16" height="16">
                     <use stroke="gray" href={`${Sprite}#eye-password`} />
                   </Svg>
                 )}
@@ -142,13 +147,13 @@ const EditProfile = ({ onClose }) => {
               <ErrorMessage name="newPassword" component="div" />
             </LabelPass>
 
-            <SaveBtn type="submit" disabled={isSubmitting}>
-              <TextBtn>Save</TextBtn>
-            </SaveBtn>
+            <MainButton type="submit" disabled={isSubmitting} >
+             Save
+            </MainButton>
           </FormBox>
         )}
       </Formik>
-    </div>
+   
   );
 };
 

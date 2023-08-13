@@ -1,10 +1,23 @@
 import styled from '@emotion/styled';
 
-export const MainContainer = styled.div`
+export const MainContainer = styled.section`
   display: flex;
   padding: 0 24px 36px 24px;
   gap: 34px;
-  overflow-x: auto;
+
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 12px; /* ширина для вертикального скролла */
+    background-color: #161616;
+    border-radius: 12px;
+  }
+
+  /* ползунок скроллбара */
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 9em;
+    transition: 0.5s ease;
+  }
 `;
 
 export const Container = styled.ul`

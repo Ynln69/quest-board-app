@@ -60,9 +60,6 @@ export const MainDashboard = ({ cardData, setCardData }) => {
   };
 
   const onDragEnd = result => {
-    document.body.style.color = 'inherit';
-    document.body.style.backgroundColor = 'inherit';
-
     const { destination, source, draggableId, type } = result;
 
     if (!destination) {

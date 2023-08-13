@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Field } from 'formik';
 
 export const ButtonIcon = styled.svg`
   width: 14px;
@@ -55,7 +56,7 @@ export const RadioButtonWrap = styled.div`
   margin: 0px 0px 14px 0px;
 `;
 
-export const RadioButtonInput = styled.input`
+export const RadioButtonInput = styled(Field)`
   position: relative;
 
   &::after {
@@ -68,7 +69,7 @@ export const RadioButtonInput = styled.input`
     top: -0.5px;
     left: -0.5px;
     position: absolute;
-    background-color: ${props => props.backgroundColor || '#fff'};
+    background-color: ${({ backgroundColor }) => backgroundColor || '#fff'};
   }
 
   &:checked::after {
@@ -81,9 +82,9 @@ export const RadioButtonInput = styled.input`
     display: inline-block;
     visibility: visible;
     position: absolute;
-    background-color: ${props => props.backgroundColor || '#fff'};
+    background-color: ${({ backgroundColor }) => backgroundColor || '#fff'};
     border: 2px solid white;
-    box-shadow: 0 0 0 1px ${props => props.backgroundColor || '#fff'};
+    box-shadow: 0 0 0 1px ${({ backgroundColor }) => backgroundColor || '#fff'};
   }
 
   margin: 0px;
@@ -107,7 +108,7 @@ export const ModalTitle = styled.h1`
   @media (min-width: 768px) {
   }
 `;
-export const TitleInput = styled.input`
+export const TitleInput = styled(Field)`
   font-size: 14px;
   font-weight: 400;
   width: 100%;
@@ -129,7 +130,7 @@ export const TitleInput = styled.input`
     color: rgba(22, 22, 22, 1);
   }
 `;
-export const DescriptionInput = styled.textarea`
+export const DescriptionInput = styled(Field)`
   font-size: 14px;
   font-weight: 400;
   width: 100%;
