@@ -8,7 +8,7 @@ const handleCLoseModal = () => {
 }
 
   return (
-    <Modal  isOpen={true} heading={'Filters'} handleClose={handleCLoseModal} headingMarginBottom={"14px"}  modalWidth={"300px"}>
+    <Modal  isOpen={true} heading={'Filters'} handleClose={handleCLoseModal} modalType={'modalFilter'} headingMarginBottom={"14px"}>
       <Filter />
     </Modal>
   );

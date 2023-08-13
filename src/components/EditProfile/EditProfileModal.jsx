@@ -9,10 +9,10 @@ const EditProfileModal = ({ onClose }) => {
   return (
     <div>
       <Modal
-      modalType={'editprofile'}
         isOpen={true}
         handleClose={handleCloseModal}
         heading={'Edit profile'}
+        modalType={'editProfile'}
       >
         <EditProfile onClose={handleCloseModal} />
       </Modal>

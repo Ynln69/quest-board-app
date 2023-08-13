@@ -26,7 +26,7 @@ export const DecorativeElement = styled.div`
 
 export const ContainerWarepper = styled.div`
   display: flex;
-   justify-content: space-between;
+  justify-content: space-between;
   /* flex-direction: row; */
   /* gap: 130px; */
   /* margin-top: 14px; */

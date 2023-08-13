@@ -9,7 +9,7 @@ const NeedHelpModal = ({ closeModal }) => {
 
   return (
     <div>
-      <Modal isOpen={true} handleClose={handleCloseModal} heading={'Need help'}>
+      <Modal isOpen={true} handleClose={handleCloseModal} heading={'Need help'} modalType={'modalHelp'}>
       <NeedHelpForm handleCloseModal={handleCloseModal} />
       </Modal>
     </div>

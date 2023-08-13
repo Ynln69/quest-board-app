@@ -209,6 +209,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
               handleClose={() => setIsOpen(false)}
               isOpen={isOpen}
               heading={'Add card'}
+              modalType={'modalCard'}
             >
               <AddEditCardModal handleSubmit={handleSubmitAdd} />
             </Modal>
