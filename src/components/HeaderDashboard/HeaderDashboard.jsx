@@ -10,7 +10,7 @@ import FilterModal from '../Filter/FilterModal';
 import sprite from '../../images/sprite.svg';
 import { useParams } from 'react-router-dom';
 
-export const HeaderDashboard = ({ boardName }) => {
+export const HeaderDashboard = () => {
   const [isShowModal, setIsShowModal] = useState(false);
   const { boardName } = useParams();
   const toogleShowModal = () => {
