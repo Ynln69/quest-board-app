@@ -6,6 +6,7 @@ import MainButton from 'components/MainButton';
 import {
   FormBox,
   AvatarImage,
+  Label,
   FieldUser,
   NoneInput,
   PlusBtn,
@@ -15,7 +16,6 @@ import {
   PasswordIcon,
   Svg,
   LabelPass,
-  LabelText,
 } from './EditProfile.styled';
 import { updateUser, updateUserAvatar } from 'redux/auth/operations';
 import { selectUser } from 'redux/auth/selectors';
@@ -24,7 +24,7 @@ import eyeHide from '../../images/eye-hide.svg';
 import { showToast } from 'components/Notification/ToastNotification';
 
 const EditProfile = ({ onClose }) => {
-  const { username, theme, email, password, avatarURL } =
+  const { username, theme, email, avatarURL } =
     useSelector(selectUser);
   const [showPassword, setShowPassword] = useState(false);
   const [avatarNewURL, setAvatarNewURL] = useState(avatarURL);
@@ -36,14 +36,15 @@ const EditProfile = ({ onClose }) => {
   };
 
   const handleFormSubmit = async formValues => {
-    dispatch(
-      updateUser({
-        username: formValues.newName,
-        email: formValues.newEmail,
-        password: formValues.newPassword,
-        theme,
-      })
-    );
+    if (username !== formValues.username || email !== formValues.email)
+      dispatch(
+        updateUser({
+          username: formValues.newName,
+          email: formValues.newEmail,
+          theme,
+        })
+      );
+
     if (avatarNewURL !== formValues.newPhoto) {
       dispatch(updateUserAvatar(avatarNewURL));
     }
@@ -69,7 +70,6 @@ const EditProfile = ({ onClose }) => {
         newPhoto: avatarNewURL,
         newName: username,
         newEmail: email,
-        newPassword: password,
       }}
       onSubmit={handleFormSubmit}
     >
@@ -86,7 +86,7 @@ const EditProfile = ({ onClose }) => {
                 height="68"
               />
             ) : (
-              <svg className="icon-user" width="68" height="68">
+              <svg width="68" height="68">
                 <use href={`${Sprite}#icon-user`} />
               </svg>
             )}
@@ -112,15 +112,15 @@ const EditProfile = ({ onClose }) => {
             </PlusBtn>
           </IconUserWrapper>
 
-          <LabelText>
+          <Label>
             <FieldUser type="text" name="newName" />
             <ErrorMessage name="newName" component="div" />
-          </LabelText>
+          </Label>
 
-          <LabelText>
+          <Label>
             <FieldUser type="email" name="newEmail" />
             <ErrorMessage name="newEmail" component="div" />
-          </LabelText>
+          </Label>
 
           <LabelPass>
             <FieldUser

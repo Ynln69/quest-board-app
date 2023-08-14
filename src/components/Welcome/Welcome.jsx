@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { googleRegister, logIn } from '../../redux/auth/operations';
 import { GoogleBtn } from 'components/GoogleBtn/GoogleBtn';
+import { showToast } from 'components/Notification/ToastNotification';
 
 import {
   Container,
@@ -30,7 +31,7 @@ function Welcome() {
     onSuccess: codeResponse => {
       setUser(codeResponse);
     },
-    onError: error => console.log('Login Failed:', error),
+    onError: error => showToast('error', `Login failed. ${error.message}`),
   });
 
   const logOut = () => {
@@ -53,7 +54,6 @@ function Welcome() {
 
         .then(res => {
           setProfile(res.data);
-          console.log(res.data.email);
 
           dispatch(
             googleRegister({
@@ -74,7 +74,7 @@ function Welcome() {
             500
           );
         })
-        .catch(err => console.log(err));
+        .catch(err => showToast('error', `Oops.. ${err.message}`));
     }
     // eslint-disable-next-line
   }, [user]);
@@ -85,7 +85,7 @@ function Welcome() {
         <Logo />
         <LogoWrapper>
           <Icon>
-            <use href={`${icons}#icon-logo`} />
+            <use href={`${icons}#icon-logo-welcome`} />
           </Icon>
           <Title>TASK PRO</Title>
         </LogoWrapper>

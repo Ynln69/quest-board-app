@@ -10,19 +10,20 @@ export const FormBox = styled(Form)`
   font-size: 14px;
   font-weight: 400;
   letter-spacing: -0.28px;
+  margin: auto;
 `;
 
 export const LabelPass = styled.label`
   position: relative;
-  // width: 100%;
+  width: 100%;
 `;
 
-export const LabelText = styled.label`
-  // width: 100%;
+export const Label = styled.label`
+  width: 100%;
 `;
 
 export const FieldUser = styled(Field)`
-  width: 287px;
+  width: 100%;
   height: 49px;
   color: var(--modal_main_color);
   background-color: var(--modal_field);
@@ -41,13 +42,6 @@ export const FieldUser = styled(Field)`
     opacity: 1;
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
   }
-
-  @media screen and (min-width: 375px) {
-    width: 287px;
-  }
-  @media screen and (min-width: 768px) {
-    width: 352px;
-  }
 `;
 
 export const IconUserWrapper = styled.label`
@@ -64,40 +58,13 @@ export const AvatarImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 8px;
 `;
-
-// export const SaveBtn = styled.button`
-//   width: 100%;
-//   height: 49px;
-//   margin-top: 24px;
-//   text-align: center;
-//   font-family: Poppins;
-//   font-size: 14px;
-//   font-style: normal;
-//   font-weight: 500;
-//   line-height: normal;
-//   letter-spacing: -0.28px;
-//   background: var(--create_normal);
-//   border-radius: 8px;
-//   border: 1px solid var(--create_normal);
-//   cursor: pointer;
-
-//   &:hover,
-//   &:focus,
-//   &:active {
-//     opacity: 0.8;
-//   }
-
-//   @media screen and (max-width: 768px) {
-//     width: 250px;
-//   }
-// `;
 
 export const FileInput = styled.input`
   position: absolute;
   opacity: 0;
   display: none;
-  width: 100%;
 `;
 
 export const NoneInput = styled.input`
@@ -127,16 +94,6 @@ export const PlusBtn = styled.button`
     background: var(--create_active);
   }
 `;
-
-// export const TextBtn = styled(Form)`
-//   font-family: Poppins;
-//   font-size: 14px;
-//   font-style: normal;
-//   font-weight: 500;
-//   line-height: normal;
-//   letter-spacing: -0.28px;
-//   color: var(--save-color);
-// `;
 
 export const IconPlus = styled.svg`
   width: 14px;

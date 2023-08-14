@@ -1,8 +1,7 @@
 import { Suspense, useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
-import { selectUser } from 'redux/auth/selectors';
+import { selectUser, selectIsLoggedIn } from 'redux/auth/selectors';
 
 import Header from 'components/Header/Header';
 import Loader from 'components/Loader/Loader';
@@ -15,15 +14,22 @@ import {
   LinkToCreate,
 } from './HomePage.styled';
 import { selectBoards } from 'redux/boards/boardsSelectors';
+import { showToast } from 'components/Notification/ToastNotification';
 
 const HomePage = () => {
-  const { theme } = useSelector(selectUser);
   const buttonAddRef = useRef();
   const boards = useSelector(selectBoards);
+  const { theme, username } = useSelector(selectUser);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(
     () => {
       document.body.classList.add(theme);
+      setTimeout(() => {
+        if (isLoggedIn) {
+          showToast('success', `Welcome, ${username}!`);
+        }
+      });
     },
     // eslint-disable-next-line
     []

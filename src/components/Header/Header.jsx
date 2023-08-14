@@ -25,7 +25,7 @@ const Header = () => {
   useEffect(() => {
     let timeout;
 
-    if (isSideBarOpen) {
+    if (isSideBarOpen || isThemeSelectorOpen) {
       timeout = setTimeout(() => {
         document.addEventListener('click', handleOutsideClick);
       }, 100);
@@ -37,11 +37,14 @@ const Header = () => {
       clearTimeout(timeout);
       document.removeEventListener('click', handleOutsideClick);
     };
-  }, [dispatch, isSideBarOpen]);
+  }, [dispatch, isSideBarOpen, isThemeSelectorOpen]);
 
   const handleOutsideClick = e => {
     if (!e.target.closest('aside')) {
       setSideBarOpen(false);
+    }
+    if (!e.target.closest('theme')) { 
+      setThemeSelectorOpen(false);
     }
   };
 
@@ -66,13 +69,11 @@ const Header = () => {
         </Backdrop>
       )}
       <HeaderWrap>
-        <HeaderNav>
+        <HeaderNav onClick={toggleThemeSelector}>
           <Text>Theme</Text>
-          <div>
-            <SelectIcon width="16" height="16" onClick={toggleThemeSelector}>
-              <use href={`${Sprite}#icon-chevron-down`} />
-            </SelectIcon>
-          </div>
+          <SelectIcon width="16" height="16" >
+            <use href={`${Sprite}#icon-chevron-down`} />
+          </SelectIcon>
         </HeaderNav>
         {isThemeSelectorOpen && (
           <ThemeSelector onClose={() => setThemeSelectorOpen(false)} />

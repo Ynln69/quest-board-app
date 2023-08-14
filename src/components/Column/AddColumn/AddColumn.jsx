@@ -8,7 +8,12 @@ const AddColumn = ({ closeColumnModal, handleSubmit, title, nameTitle }) => {
 
   return (
     <div>
-      <Modal isOpen={true} handleClose={handleCloseModal} heading={title}>
+      <Modal
+        isOpen={true}
+        handleClose={handleCloseModal}
+        heading={title}
+        modalType={'modalBoard'}
+      >
         <ModalColumn handleSubmit={handleSubmit} nameTitle={nameTitle} />
       </Modal>
     </div>

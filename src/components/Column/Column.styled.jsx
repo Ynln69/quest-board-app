@@ -48,7 +48,7 @@ export const Svg = styled.svg`
 `;
 
 export const TaskList = styled.ul`
-  max-height: 478px;
+  height: calc(100vh - 330px);
   transition: background-color 0.2s ease;
   background-color: ${props => (props.isDraggingOver ? 'inherit' : 'inherit')};
 
@@ -56,21 +56,22 @@ export const TaskList = styled.ul`
   min-height: 100px;
 
   overflow: auto;
+
+  @media screen and (min-width: 768px) {
+    height: calc(100vh - 374px);
+  }
   &::-webkit-scrollbar {
-    width: 15px; /* ширина для вертикального скролла */
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
     background-color: #161616;
-    border-radius: 9em;
+    border-radius: 12px;
   }
 
-  /* ползунок скроллбара */
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 9em;
-    transition: 0.5s ease;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
     background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
   }
 `;
 

@@ -32,7 +32,7 @@ const ThemeSelector = ({ onClose }) => {
   };
 
   return (
-    <ThemeContainer>
+    <ThemeContainer className="theme">
       <ThemeList>
         {themeOptions.map(option => (
           <ThemeItem
