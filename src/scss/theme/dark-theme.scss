@@ -48,7 +48,7 @@ body.DARK {
   --board_active_bgc: #1f1f1f;
   --board_active_icon: #ffffff;
   --border_bgc: #bedbb0;
-  --board_color: rgba(255, 255, 255, 0.50);
+  --board_color: rgba(255, 255, 255, 0.5);
 
   --modal_bgc: #161616;
   --modal_main_color: #ffffff;
@@ -83,6 +83,6 @@ body.DARK {
   --chevron-down: rgba(255, 255, 255, 0.8);
   --save-color: #161616;
 
-  --scroll-wrapp: rgba(255, 255, 255, 0.1);
-  --scroll: #161616;
+  --scroll-wrapp: #121212;
+  --scroll: rgba(255, 255, 255, 0.1);
 }

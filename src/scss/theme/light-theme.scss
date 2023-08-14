@@ -13,7 +13,7 @@ body.LIGHT {
   --cal_background: #ffffff;
   --cal_arrows: #161616cc;
   --cal_arrows_active: #9dc888;
-  --cal_month:#161616;
+  --cal_month: #161616;
   --cal_month_border: #16161633;
   --cal_day_name: #16161680;
   --cal_days: #161616;
@@ -30,7 +30,7 @@ body.LIGHT {
   --theme_active: #bedbb0;
   --border_theme: #bedbb0;
   --theme_bgc: #fcfcfc;
-  --theme_border: #BEDBB0;
+  --theme_border: #bedbb0;
   --theme_shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
   --header_user_text: #161616;
   --user_bgc: #f6f6f7;
@@ -38,21 +38,21 @@ body.LIGHT {
   --add_photo_bgc: #bedbb0;
   --plus_color: #161616;
 
-  --board_bgc: #F6F6F7;
+  --board_bgc: #f6f6f7;
   --board_filter_color: rgba(22, 22, 22, 0.8);
   --board_task_bgc: #ffffff;
   --board_main_color: #161616;
   --board_second_color: rgba(22, 22, 22, 0.5);
   --icon_active_color: #bedbb0;
   --board_active_color: #161616;
-  --board_active_bgc: #F6F6F7;
+  --board_active_bgc: #f6f6f7;
   --board_active_icon: #161616;
-  --border_bgc: #BEDBB0;
-  --board_color: rgba(22, 22, 22, 0.50);
+  --border_bgc: #bedbb0;
+  --board_color: rgba(22, 22, 22, 0.5);
 
   --modal_bgc: #fcfcfc;
-  --modal_svg_img_bg_color: #F6F6F7;
-  --modal_svg_img_stroke_color: #1616161A;
+  --modal_svg_img_bg_color: #f6f6f7;
+  --modal_svg_img_stroke_color: #1616161a;
   --modal_main_color: #161616;
   --modal_second_color: rgba(22, 22, 22, 0.5);
   --modal_data_color: #bedbb0;
@@ -81,6 +81,9 @@ body.LIGHT {
   --line_color: rgba(22, 22, 22, 0.1);
   --svg-bg-color: #f6f6f7;
   --svg-user-color: #ffffff;
-  --chevron-down: rgba(22, 22, 22, 0.80);
+  --chevron-down: rgba(22, 22, 22, 0.8);
   --save-color: #161616;
+
+  --scroll: #e8e8e8;
+  --scroll-wrapp: rgba(22, 22, 22, 0.1);
 }

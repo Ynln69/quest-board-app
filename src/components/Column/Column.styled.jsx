@@ -48,30 +48,29 @@ export const Svg = styled.svg`
 `;
 
 export const TaskList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   height: calc(100vh - 374px);
   transition: background-color 0.2s ease;
   background-color: ${props => (props.isDraggingOver ? 'inherit' : 'inherit')};
 
   flex-grow: 1;
-  min-height: 100px;
-
-  overflow: auto;
-
-  @media screen and (min-width: 768px) {
-    height: calc(100vh - 374px);
-  }
+  overflow-y: auto;
   &::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: #161616;
     border-radius: 12px;
+    width: 8px;
+    background: var(--scroll);
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: var(--scroll-wrapp);
     border-radius: 12px;
+    width: 8px;
+  }
+
+  @media screen and (min-width: 768px) {
+    height: calc(100vh - 374px);
   }
 `;
 
