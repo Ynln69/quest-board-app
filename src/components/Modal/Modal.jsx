@@ -4,12 +4,19 @@ import ReactDOM from 'react-dom';
 import Sprite from '../../images/sprite.svg';
 import { Backdrop, CloseBtn, Heading, ModalWindow } from './Modal.styles';
 
-function Modal({ children, isOpen, handleClose, heading, modalType }) {
+function Modal({
+  children,
+  isOpen,
+  handleClose,
+  heading,
+  modalType,
+  headingMarginBottom,
+}) {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const handleResize = () => {
-      setViewportWidth(window.innerWidth);
+      setViewportWidth(window.outerWidth);
     };
 
     window.addEventListener('resize', handleResize);
@@ -19,6 +26,7 @@ function Modal({ children, isOpen, handleClose, heading, modalType }) {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+  console.log(window);
 
   if (!isOpen) return null;
 
@@ -44,7 +52,7 @@ function Modal({ children, isOpen, handleClose, heading, modalType }) {
         modalType={modalType}
         viewportWidth={viewportWidth}
       >
-        <Heading>{heading}</Heading>
+        <Heading marginBottom={headingMarginBottom}>{heading}</Heading>
         <CloseBtn onClick={handleClose}>
           <use xlinkHref={`${Sprite}#icon-x-close`} />
         </CloseBtn>

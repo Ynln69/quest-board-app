@@ -5,14 +5,15 @@ export const SidebarBlock = styled.aside`
   display: flex;
   flex-direction: column;
   width: 225px;
-  min-height: 100vh;
-  padding: 24px;
+  min-height: 100%;
+  padding: 14px;
 
   background-color: var(--nav_bgc);
   color: var(--nav_main_color);
 
   @media (min-width: 768px) {
     width: 260px;
+    padding: 24px;
   }
   @media (max-width: 1439px) {
     display: none;
@@ -26,10 +27,9 @@ export const SidebarBlock = styled.aside`
     z-index: 1;
   }
 `;
-export const TitleBlock = styled.div`
+export const NavLogo = styled(NavLink)`
   display: flex;
   align-items: center;
-  margin-bottom: 60px;
 `;
 export const SvgLightning = styled.svg`
   width: 32px;
@@ -56,7 +56,6 @@ export const BoardTitleBlock = styled.div`
   display: flex;
   gap: 50px;
   align-items: center;
-  margin-bottom: 40px;
   padding: 14px 0;
   border-top: 1px solid var(--line_color);
   border-bottom: 1px solid var(--line_color);
@@ -86,10 +85,13 @@ export const BoardList = styled.li`
   display: flex;
   align-items: center;
   font-weight: 500;
-  margin: 0 -24px;
+
   align-items: center;
   letter-spacing: -0.28px;
   margin-bottom: 4px;
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 export const TitleBoard = styled.div`
   display: flex;
@@ -122,18 +124,28 @@ export const ButtonIcon = styled.button`
 export const NeedHelpBlock = styled.div`
   border-radius: 8px;
   margin-bottom: 24px;
-  padding: 20px;
   margin-top: auto;
+
+  padding: 20px;
   background-color: var(--need_bgc);
   color: var(--nav_main_color);
+  @media screen and (max-width: 768px) {
+    padding: 14px;
+  }
 `;
 
 export const HelpContent = styled.p`
-  line-height: 20px;
-  letter-spacing: -0.28px;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.24px;
   color: var(--nav_main_color);
   > span {
     color: var(--span_color);
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.28px;
   }
 `;
 export const NeedHelpButton = styled.button`
@@ -158,8 +170,8 @@ export const LogoutBtn = styled.button`
   align-items: center;
   gap: 14px;
   border: none;
-margin-top: auto;
-  color: var(--nav_main_color)
+
+  color: var(--nav_main_color);
   font-family: Poppins;
   font-weight: 500;
   font-size: 16px;
@@ -179,10 +191,10 @@ export const Flower = styled.img`
 `;
 
 export const BoardTitle = styled.p`
-  color: var(--board_second_color);
+  color: var(--board_color);
 `;
 export const ProjectIcon = styled.svg`
-  stroke: var(--board_second_color);
+  stroke: var(--board_color);
   fill: transparent;
   margin-right: 8px;
   margin-left: 24px;
@@ -192,16 +204,11 @@ export const Nav = styled(NavLink)`
   justify-content: space-between;
   width: 100%;
   height: 60px;
+
   &.active {
     color: var(--board_main_color);
     background-color: var(--board_active_bgc);
-    &:after {
-      display: flex;
-      content: '';
-      border-radius: 4px 0px 0px 4px;
-      background: var(--border_bgc);
-      width: 4px;
-    }
+
     ${BoardIcons} {
       display: flex;
     }
@@ -211,5 +218,32 @@ export const Nav = styled(NavLink)`
     ${ProjectIcon} {
       stroke: var(--board_active_icon);
     }
+  }
+`;
+
+export const MainBoard = styled.div`
+  padding: 0;
+  margin: 40px -14px 0 -14px;
+  height: 140px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--border_bgc);
+    border-radius: 4px 0px 0px 4px;
+    height: 61px;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin: 40px -24px 0 -24px;
+  }
+`;
+
+export const Section = styled.div`
+  padding-top: 70px;
+  @media screen snd (min-width: 768px) {
+    padding-top: 60px;
   }
 `;

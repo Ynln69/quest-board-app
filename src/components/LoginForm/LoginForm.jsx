@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
 import { Formik, Field } from 'formik';
-
+import { showToast } from 'components/Notification/ToastNotification';
 import {
   Container,
   Wrapper,
@@ -45,11 +45,6 @@ export const LoginForm = () => {
         password: form.elements.password.value,
       })
     );
-
-    console.log({
-      email: form.elements.email.value,
-      password: form.elements.password.value,
-    });
 
     form.elements.email.value = '';
     form.elements.password.value = '';

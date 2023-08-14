@@ -37,42 +37,25 @@ const getModalStyles = ({ modalType, viewportWidth }) => {
   // ===========================================================================================================
   `;
 
-  if (
-    modalType === 'modalBoard' &&
-    viewportWidth >= 320 &&
-    viewportWidth <= 374
-  ) {
+  if (modalType === 'modalBoard' || modalType === 'modalCard') {
+    const maxWidth = viewportWidth >= 320 && viewportWidth <= 374 ? 335 : null;
+    const width = viewportWidth >= 375 ? 350 : null;
+
     styles += `
-      max-width: 335px;
-    `;
-  }
-  if (modalType === 'modalBoard' && viewportWidth >= 375) {
+          max-width: ${maxWidth}px;
+          width: ${width}px`;
+  } else if (modalType === 'modalHelp' || modalType === 'editProfile') {
+    const maxWidth = viewportWidth >= 320 && viewportWidth <= 374 ? 335 : null;
+    const width = viewportWidth >= 375 ? 400 : null;
     styles += `
-     width: 350px;
-    `;
+    max-width: ${maxWidth}px;
+    width: ${width}px`;
+  } else if (modalType === 'modalFilter') {
+    if (viewportWidth >= 320) {
+      styles += `
+      width: 300px`;
+    }
   }
-  if (
-    modalType === 'editprofile' &&
-    viewportWidth >= 375 &&
-    viewportWidth <= 767
-  ) {
-    styles += `
-  width: 335px;
- `;
-  }
-  if (
-    modalType === 'editprofile' &&
-        viewportWidth >= 768
-  ) {
-    styles += `
-  width: 400px;
- `;
-  }
-  //   @media screen and (min-width: 375px) {
-  //   width: 335px;
-  // }
-  // @media screen and (min-width: 768px) {
-  //   width: 400px;
 
   return styles;
 };
@@ -82,10 +65,9 @@ export const ModalWindow = styled.div`
 `;
 
 export const Heading = styled.h3`
-  margin-bottom: 24px;
-
+  margin-bottom: ${props => props.marginBottom || '24px'};
   color: var(--modal_main_color);
-  font-family: Poppins;
+  font-family: 'Poppins';
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
