@@ -1,0 +1,121 @@
+{
+    "teamMembers": [
+      {
+        "index": 2,
+        "name": "Яна Луніна",
+        "role": "Team Lead/Developer",
+        "avatar": "/creators/5.jpg",
+        "telegram": "@ynln69",
+        "github": "https://github.com/Ynln69",
+        "linkedin": "https://www.linkedin.com/in/yana-lunina/"
+      },
+      {
+        "index": 3,
+        "name": "Ольга Кривулько",
+        "role": "Scrum Master/Developer",
+        "avatar": "image",
+        "telegram": "@olgakryv",
+        "github": "OlgaOO7",
+        "linkedin": "https://www.linkedin.com/in/olga-kryvulko/"
+      },
+      {
+        "index": 4,
+        "name": "Сергій Кульбашний",
+        "role": "BackEnd Developer",
+        "avatar": "image",
+        "telegram": "https://t.me/Eugensson",
+        "github": "https://github.com/Eugensson",
+        "linkedin": "https://www.linkedin.com/in/serhii-kulbashnyi"
+      },
+      {
+        "index": 5,
+        "name": "Ярослав Ребрина",
+        "role": "BackEnd Developer",
+        "avatar": "image",
+        "telegram": "https://t.me/yarikDobriy",
+        "github": "https://github.com/YaroslavRebrina",
+        "linkedin": "https://www.linkedin.com/in/yaroslav-rebrina-82038026b/"
+      },
+      {
+        "index": 6,
+        "name": "Віктор Адамович",
+        "role": "BackEnd Developer",
+        "avatar": "image",
+        "telegram": "",
+        "github": "",
+        "linkedin": ""
+      },
+      {
+        "index": 7,
+        "name": "Юрій Василенко",
+        "role": "FullStack Developer",
+        "avatar": "image",
+        "telegram": "",
+        "github": "",
+        "linkedin": ""
+      },
+      {
+        "index": 8,
+        "name": "Олексій Кочуров",
+        "role": "FrontEnd Developer",
+        "avatar": "image",
+        "telegram": "https://t.me/OleksiiKchrv/",
+        "github": "https://github.com/Oleksii1994/",
+        "linkedin": "http://linkedin.com/in/oleksii-kochurov-510619254"
+      },
+      {
+        "index": 9,
+        "name": "Іван Пантелюк",
+        "role": "FrontEnd Developer",
+        "avatar": "image",
+        "telegram": "https://t.me/johnnywalker57",
+        "github": "https://github.com/ivanpanteliuk",
+        "linkedin": "https://www.linkedin.com/in/serhii-kulbashnyi"
+      },
+      {
+        "index": 10,
+        "name": "Олег Торба",
+        "role": "FrontEnd Developer",
+        "avatar": "image",
+        "telegram": "",
+        "github": "",
+        "linkedin": ""
+      },
+      {
+        "index": 11,
+        "name": "Людмила Козицька",
+        "role": "FrontEnd Developer",
+        "avatar": "image",
+        "telegram": "",
+        "github": "",
+        "linkedin": ""
+      },
+      {
+        "index": 12,
+        "name": "Олександр Клин",
+        "role": "FrontEnd Developer",
+        "avatar": "image",
+        "telegram": "@sanytol",
+        "github": "https://github.com/shklyn",
+        "linkedin": "https://www.linkedin.com/in/oleksandr-klyn"
+      },
+      {
+        "index": 13,
+        "name": "Ельвіра Будна",
+        "role": "FrontEnd Developer",
+        "avatar": "image",
+        "telegram": "https://t.me/ElviraBudna",
+        "github": "https://github.com/ElviraBudna",
+        "linkedin": "https://www.linkedin.com/in/elvira-budna/"
+      },
+      {
+        "index": 14,
+        "name": "Інна Покидько",
+        "role": "FrontEnd Developer",
+        "avatar": "image",
+        "telegram": "https://t.me/InnaPokydko",
+        "github": "https://github.com/InnaPokydko",
+        "linkedin": "https://www.linkedin.com/in/inna-pokydko-a6a652152/"
+      }
+    ]
+  }
