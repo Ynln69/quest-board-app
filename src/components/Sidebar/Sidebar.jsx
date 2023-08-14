@@ -43,7 +43,7 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState(actionsList.add);
   const [boardData, setBoardData] = useState(null);
-  const [isShow, setIsShow] = useState(false);
+  const [isShowHelp, setIsShowHelp] = useState(false);
   const boards = useSelector(selectBoards);
   const dispatch = useDispatch();
 
@@ -68,13 +68,9 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
     }
   };
 
-  const showModal = () => {
-    setIsShow(true);
-  };
-
-  const closeModal = () => {
-    setIsShow(false);
-  };
+  const toogleHelpModal = () => {
+    setIsShowHelp(!isShowHelp);
+  }
 
   return (
     <SidebarBlock className={`theme-${theme} ${isOpen ? 'open' : 'closed'}`}>
@@ -159,13 +155,13 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
           If you need help with <span>TaskPro</span>, check out our support
           resources or reach out to our customer support team.
         </HelpContent>
-        <NeedHelpButton type="button" name="help" onClick={showModal}>
+        <NeedHelpButton type="button" name="help" onClick={toogleHelpModal}>
           <SvgHelp>
             <use href={`${sprite}#icon-help`} />
           </SvgHelp>
           Need help?
         </NeedHelpButton>
-        {isShow && <NeedHelpModal closeModal={closeModal} />}
+        {isShowHelp && <NeedHelpModal closeModal={toogleHelpModal} />}
       </NeedHelpBlock>
 
       <LogoutBtn type="button" name="logout" onClick={() => dispatch(logOut())}>
