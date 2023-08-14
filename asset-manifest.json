@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/quest-board-app/static/css/main.398f4e8e.css",
-    "main.js": "/quest-board-app/static/js/main.c648b71d.js",
-    "static/js/544.041f98fb.chunk.js": "/quest-board-app/static/js/544.041f98fb.chunk.js",
+    "main.css": "/quest-board-app/static/css/main.b7d8d31d.css",
+    "main.js": "/quest-board-app/static/js/main.45358984.js",
+    "static/js/544.a6c29095.chunk.js": "/quest-board-app/static/js/544.a6c29095.chunk.js",
     "static/js/786.5da79be9.chunk.js": "/quest-board-app/static/js/786.5da79be9.chunk.js",
     "static/js/574.744563bf.chunk.js": "/quest-board-app/static/js/574.744563bf.chunk.js",
     "static/js/146.e349ba95.chunk.js": "/quest-board-app/static/js/146.e349ba95.chunk.js",
@@ -18,16 +18,16 @@
     "static/media/need-help-img.png": "/quest-board-app/static/media/need-help-img.60d0fb1e516d497e38f6.png",
     "index.html": "/quest-board-app/index.html",
     "static/media/eye-hide.svg": "/quest-board-app/static/media/eye-hide.accfc4141682c117e0a89ff4d886ee4d.svg",
-    "main.398f4e8e.css.map": "/quest-board-app/static/css/main.398f4e8e.css.map",
-    "main.c648b71d.js.map": "/quest-board-app/static/js/main.c648b71d.js.map",
-    "544.041f98fb.chunk.js.map": "/quest-board-app/static/js/544.041f98fb.chunk.js.map",
+    "main.b7d8d31d.css.map": "/quest-board-app/static/css/main.b7d8d31d.css.map",
+    "main.45358984.js.map": "/quest-board-app/static/js/main.45358984.js.map",
+    "544.a6c29095.chunk.js.map": "/quest-board-app/static/js/544.a6c29095.chunk.js.map",
     "786.5da79be9.chunk.js.map": "/quest-board-app/static/js/786.5da79be9.chunk.js.map",
     "574.744563bf.chunk.js.map": "/quest-board-app/static/js/574.744563bf.chunk.js.map",
     "146.e349ba95.chunk.js.map": "/quest-board-app/static/js/146.e349ba95.chunk.js.map",
     "973.fb8e79a0.chunk.js.map": "/quest-board-app/static/js/973.fb8e79a0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.398f4e8e.css",
-    "static/js/main.c648b71d.js"
+    "static/css/main.b7d8d31d.css",
+    "static/js/main.45358984.js"
   ]
 }
