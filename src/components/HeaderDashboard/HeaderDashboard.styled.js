@@ -12,19 +12,13 @@ export const HeadText = styled.p`
   font-family: 'Poppins';
   font-weight: 500;
   font-size: 18px;
-  line-height: normal;
   letter-spacing: -0.36px;
 `;
 
-export const FilterBtnWrapper = styled.div`
-display: flex;
-gap: 8px;
-`;
-
-export const Button = styled.button`
+export const ButtonFilter = styled.button`
   display: flex;
   align-items: center;
-  
+  gap: 8px;  
   padding: 0%;
   border: none;
 
