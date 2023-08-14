@@ -16,10 +16,24 @@ export const HeadText = styled.p`
   letter-spacing: -0.36px;
 `;
 
-export const Button = styled.div`
+export const FilterBtnWrapper = styled.div`
+display: flex;
+gap: 8px;
+`;
+
+export const Button = styled.button`
   display: flex;
   align-items: center;
-  background-color: transparent;
+  
+  padding: 0%;
   border: none;
+
+  color: var(--board_main_color);
+  background-color: transparent;
+`;
+
+export const FilterSvg = styled.svg`
+  stroke: var(--chevron-down);
+  fill: transparent;
 
 `
