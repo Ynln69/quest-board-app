@@ -24,6 +24,7 @@ export const editBoard = createAsyncThunk(
   'boards/editBoard/',
   async ({ newBoard, id }, { rejectWithValue }) => {
     try {
+      console.log(newBoard);
       const { data } = await axios.patch(`/api/boards/${id}`, newBoard);
       return data;
     } catch (error) {
