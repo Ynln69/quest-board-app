@@ -171,7 +171,7 @@ export const LogoutBtn = styled.button`
   gap: 14px;
   border: none;
 
-  color: var(--nav_main_color)
+  color: var(--nav_main_color);
   font-family: Poppins;
   font-weight: 500;
   font-size: 16px;

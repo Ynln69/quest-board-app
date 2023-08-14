@@ -20,7 +20,7 @@ export const DecorativeElement = styled.div`
     /* top: 0;
     left: 0; */
     width: 100%;
-    border-top: 1px solid rgba(22, 22, 22, 0.10);;
+    border-top: 1px solid #161616;;
   }
 `;
 
@@ -35,26 +35,28 @@ export const ContainerWarepper = styled.div`
 `;
 
 export const TextLabel = styled.h3`
+  color: var(--nav_main_color);
   font-family: 'Poppins';
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.28px;
-  color: #161616;
 `;
 
 export const Button = styled.button`
+  border: none;
+
+  color: rgba(22, 22, 22, 0.5);
+  background: transparent;
   font-family: ' Poppins';
   font-size: 12px;
   font-style: normal;
   line-height: normal;
   letter-spacing: -0.24px;
   text-decoration-line: underline;
-  color: rgba(22, 22, 22, 0.5);
-  background: transparent;
-  border: none;
 `;
+
 export const RadioButtonWrap = styled.div`
   display: flex;
   flex-direction: column;
