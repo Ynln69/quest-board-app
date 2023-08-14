@@ -14,12 +14,14 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
+  width: 300px;
   background: #161616;
   border-radius: 8px;
-  padding: 40px;
+  padding: 24px;
 
-  @media screen and (max-width: 768px) {
-    padding: 24px;
+  @media screen and (min-width: 768px) {
+    width: 424px;
+    padding: 40px;
   }
 `;
 
@@ -63,7 +65,6 @@ export const Inputs = styled.div`
   gap: 14px;
 
   input {
-    width: 287px;
     height: 49px;
     left: 40px;
     top: 107px;
@@ -85,10 +86,6 @@ export const Inputs = styled.div`
       opacity: 1;
       box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
     }
-
-    @media screen and (min-width: 768px) {
-      width: 326px;
-    }
   }
 `;
 export const PasswordInput = styled.div`
@@ -101,19 +98,19 @@ export const PasswordInput = styled.div`
 export const PasswordView = styled.span`
   position: absolute;
   right: 18px;
-  top: 19px;
+  top: 16px;
   cursor: pointer;
 `;
 
 export const PasswordIcon = styled.img`
-  width: 16.5px;
+  width: 16px;
   height: 16px;
   top: 50%;
   right: 4px;
 `;
 
 export const Svg = styled.svg`
-  width: 16.5px;
+  width: 16px;
   height: 16px;
   top: 50%;
   right: 4px;
@@ -140,10 +137,6 @@ export const RegisterBtn = styled.button`
   border: none;
 
   cursor: pointer;
-
-  @media screen and (max-width: 768px) {
-    width: 287px;
-  }
 `;
 
 export const ErrorText = styled(ErrorMessage)`

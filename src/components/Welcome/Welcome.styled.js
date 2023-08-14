@@ -76,7 +76,7 @@ export const Title = styled.p`
 `;
 
 export const Text = styled.p`
-  width: 335px;
+  width: 300px;
 
   margin-top: 25px;
 
@@ -102,7 +102,7 @@ export const AuthWrapper = styled.div`
 `;
 
 export const RegButton = styled(NavLink)`
-  width: 335px;
+  width: 300px;
 
   padding: 14px 0;
 
@@ -127,7 +127,7 @@ export const RegButton = styled(NavLink)`
 `;
 
 export const LogButton = styled(NavLink)`
-  width: 335px;
+  width: 300px;
 
   font-size: 14px;
   font-style: normal;
