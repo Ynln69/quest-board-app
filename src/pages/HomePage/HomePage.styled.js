@@ -5,6 +5,7 @@ export const HomeContainer = styled.div`
   display: flex;
   justify-content: left;
   width: 100%;
+  height: 100vh;
   color: var(--board_bgc);
 `;
 
@@ -13,13 +14,14 @@ export const Container = styled.div`
 `;
 export const HomeSection = styled.section`
   width: 100%;
-  height: 100vh;
+  height: 90%;
   display: flex;
   margin-left: auto;
   margin-right: auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   @media screen and (min-width: 375px) {
     width: 375px;
   }
