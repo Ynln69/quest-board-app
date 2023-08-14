@@ -1,8 +1,7 @@
+import { Form, Formik } from 'formik';
+import MainButton from 'components/MainButton';
+import { Calendar } from '../Calendar/Calendar';
 import {
-  ButtonIcon,
-  ButtonIconWrap,
-  ButtonContentWrap,
-  ButtonText,
   TitleInput,
   DescriptionInput,
   ModalText,
@@ -10,9 +9,6 @@ import {
   RadioButtonInput,
   CalendarWrap,
 } from './AddEditCard.styled';
-import { Calendar } from '../Calendar/Calendar';
-import sprite from '../../images/sprite.svg';
-import { Form, Formik } from 'formik';
 
 // function AddEditCardModal({
 //   setTitleTask,
@@ -163,14 +159,9 @@ function AddEditCardModal({ handleSubmit, editedTask }) {
           <CalendarWrap>
             <Calendar />
           </CalendarWrap>
-          <ButtonContentWrap type="submit">
-            <ButtonIconWrap>
-              <ButtonIcon>
-                <use stroke="white" href={`${sprite}#icon-plus`} />
-              </ButtonIcon>
-            </ButtonIconWrap>
-            <ButtonText>Add</ButtonText>
-          </ButtonContentWrap>
+          <MainButton type="submit" showPlus={true}>
+            Add
+          </MainButton>
         </Form>
       )}
     </Formik>
