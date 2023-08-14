@@ -17,15 +17,19 @@ import {
   BoxSvg,
 } from './Column.styled';
 import sprite from '../../images/sprite.svg';
-
 import { selectFilterPriority } from 'redux/filter/filterSelector';
 import { useSelector } from 'react-redux';
 
-export const Column = ({ column, tasks, index, cardData, setCardData }) => {
+export const Column = ({
+  column,
+  tasks,
+  index,
+  cardData,
+  setCardData,
+  setEditFlag,
+}) => {
   const property = useSelector(selectFilterPriority);
   const [filteredTasks, setFilteredTasks] = useState(tasks);
-  // const [titleTask, setTitleTask] = useState('');
-  // const [descriptionTask, setDescriptionTask] = useState('');
 
   const [visible, setVisible] = useState(false);
   const [dataForModal, setDataForModal] = useState(column);
@@ -54,7 +58,6 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
     setShowEditCardModal(true);
   };
 
-
   const handleVisible = () => {
     setVisible(!visible);
   };
@@ -62,7 +65,8 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
   const handleVisibleEdit = () => {
     setShowEditModal(!showEditModal);
   };
-  const handleSubmitAdd = (title, description) => {
+
+  const handleSubmitAdd = (title, description, priority) => {
     const taskId = `1${uuidv4().replace(/-/g, '')}`;
 
     const newTask = {
@@ -71,19 +75,20 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
         // title: titleTask,
         title: title,
         description: description,
-        priority: 'over',
+        priority: priority,
         deadline: '22.33.44',
       },
     };
 
     const columnId = dataForModal.id;
-    console.log(setDataForModal);
+    // console.log(setDataForModal);
 
     const newColumn = {
       ...cardData.columns[columnId],
       taskIds: [...cardData.columns[columnId].taskIds, taskId],
     };
 
+    setEditFlag(true);
     setCardData(prevCardData => ({
       ...prevCardData,
       tasks: {
@@ -108,6 +113,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
       deadline: '22.33.44',
     };
 
+    setEditFlag(true);
     setCardData(prevCardData => ({
       ...prevCardData,
       tasks: {
@@ -131,6 +137,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
       taskIds: newColumns[columnId].taskIds.filter(taskId => taskId !== id),
     };
 
+    setEditFlag(true);
     setCardData(prevCardData => ({
       ...prevCardData,
       tasks: newTasks,
@@ -162,6 +169,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
       const newColumns = { ...cardData.columns };
       delete newColumns[column.id];
 
+      setEditFlag(true);
       setCardData(prevCardData => ({
         ...prevCardData,
         columns: newColumns,
@@ -191,11 +199,11 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
           <Droppable droppableId={column.id} type="task">
             {(provided, snapshot) => (
               <TaskList
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-              isDraggingOver={snapshot.isDraggingOver}
-            >
-              {/* {tasks.map((task, index) => (
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+                isDraggingOver={snapshot.isDraggingOver}
+              >
+                {/* {tasks.map((task, index) => (
                 <Task
                   key={task.id}
                   task={task}
@@ -205,9 +213,14 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
                 />
               ))} */}
 
-                  {filteredTasks.map((task, index) => (
-                  <Task key={task.id} task={task} index={index} handleShowEditCardModal={handleShowEditCardModal}
-                  handleSubmitDeleteCard={handleSubmitDeleteCard} />
+                {filteredTasks.map((task, index) => (
+                  <Task
+                    key={task.id}
+                    task={task}
+                    index={index}
+                    handleShowEditCardModal={handleShowEditCardModal}
+                    handleSubmitDeleteCard={handleSubmitDeleteCard}
+                  />
                 ))}
                 {/* {tasks.map((task, index) => {
                   // return <Task key={task.id} task={task} index={index} />;
@@ -218,9 +231,8 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
                     return <Task key={task.id} task={task} index={index} />;
                   }
                 })} */}
-              {provided.placeholder}
-            </TaskList>
-
+                {provided.placeholder}
+              </TaskList>
             )}
           </Droppable>
           <BtnColumn

@@ -13,7 +13,7 @@ import {
 } from './MainDashboard.styled';
 import sprite from '../../images/sprite.svg';
 
-export const MainDashboard = ({ cardData, setCardData }) => {
+export const MainDashboard = ({ cardData, setCardData, setEditFlag }) => {
   // кто будет делать этот блок, обратите внимание что именно приходит в cardData
   const [visible, setVisible] = useState(false);
 
@@ -32,6 +32,7 @@ export const MainDashboard = ({ cardData, setCardData }) => {
       },
     };
 
+    setEditFlag(true);
     setCardData({
       ...cardData,
       columns: {
@@ -45,19 +46,19 @@ export const MainDashboard = ({ cardData, setCardData }) => {
   };
   // Эти три функции ниже отвечают за главный функционал переставления карточек между колонками и в колонках
   // а так же за анимацию при их передвижение
-  const onDragStart = () => {
-    document.body.style.color = 'inherit';
-    document.body.style.transition = 'background-color 0.2s ease';
-  };
+  // const onDragStart = () => {
+  //   document.body.style.color = 'inherit';
+  //   document.body.style.transition = 'background-color 0.2s ease';
+  // };
 
-  const onDragUpdate = update => {
-    const { destination } = update;
-    const opacity = destination
-      ? destination.index / Object.keys(cardData.tasks).length
-      : 0;
+  // const onDragUpdate = update => {
+  //   const { destination } = update;
+  //   const opacity = destination
+  //     ? destination.index / Object.keys(cardData.tasks).length
+  //     : 0;
 
-    document.body.style.backgroundColor = `rgba(153, 141, 217, ${opacity})`;
-  };
+  //   document.body.style.backgroundColor = `rgba(153, 141, 217, ${opacity})`;
+  // };
 
   const onDragEnd = result => {
     const { destination, source, draggableId, type } = result;
@@ -83,6 +84,7 @@ export const MainDashboard = ({ cardData, setCardData }) => {
         columnOrder: newColumnOrder,
       };
 
+      setEditFlag(true);
       setCardData(newState);
 
       return;
@@ -109,6 +111,7 @@ export const MainDashboard = ({ cardData, setCardData }) => {
         },
       };
 
+      setEditFlag(true);
       setCardData(newState);
       return;
     }
@@ -137,14 +140,15 @@ export const MainDashboard = ({ cardData, setCardData }) => {
       },
     };
 
+    setEditFlag(true);
     setCardData(newState);
   };
 
   return (
     <MainContainer>
       <DragDropContext
-        onDragStart={onDragStart}
-        onDragUpdate={onDragUpdate}
+        // onDragStart={onDragStart}
+        // onDragUpdate={onDragUpdate}
         onDragEnd={onDragEnd}
       >
         <Droppable
@@ -171,6 +175,7 @@ export const MainDashboard = ({ cardData, setCardData }) => {
                     index={index}
                     cardData={cardData}
                     setCardData={setCardData}
+                    setEditFlag={setEditFlag}
                   />
                 );
               })}

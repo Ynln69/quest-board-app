@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 
 import Sprite from '../../images/sprite.svg';
@@ -14,6 +14,19 @@ function Modal({
 }) {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
+  const handleKeyDown = useCallback(
+    event => {
+      if (event.key === 'Escape') {
+        handleClose();
+      }
+    },
+    [handleClose]
+  );
+
+  if (isOpen) {
+    window.addEventListener('keydown', handleKeyDown);
+  }
+
   useEffect(() => {
     const handleResize = () => {
       setViewportWidth(window.outerWidth);
@@ -21,29 +34,15 @@ function Modal({
 
     window.addEventListener('resize', handleResize);
     handleResize();
-
+    document.body.style.overflow = 'hidden';
     return () => {
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'auto';
     };
-  }, []);
-  console.log(window);
+  }, [handleKeyDown]);
 
   if (!isOpen) return null;
-
-  document.body.style.overflow = isOpen ? 'hidden' : 'visible';
-
-  const handleKeyDown = event => {
-    if (event.key === 'Escape') {
-      handleClose();
-    }
-  };
-
-  if (isOpen) {
-    window.addEventListener('keydown', handleKeyDown);
-  }
-  if (!isOpen) {
-    window.removeEventListener('keydown', handleKeyDown);
-  }
 
   return ReactDOM.createPortal(
     <Backdrop onClick={handleClose}>
