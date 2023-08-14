@@ -102,6 +102,7 @@ export const AuthWrapper = styled.div`
 `;
 
 export const RegButton = styled(NavLink)`
+  box-sizing: border-box;
   width: 300px;
 
   padding: 14px 0;
@@ -117,9 +118,19 @@ export const RegButton = styled(NavLink)`
 
   text-align: center;
 
+  border: 1px solid transparent;
   border-radius: 8px;
   cursor: pointer;
   text-transform: none;
+  transition-property: color background scale border;
+  transition-duration: 300ms;
+
+  &:hover {
+    background-color: #ffffffcc;
+    color: #161616;
+    scale: 1.05;
+    border: 1px solid #161616;
+  }
 
   @media screen and (min-width: 768px) {
     width: 344px;
@@ -127,6 +138,7 @@ export const RegButton = styled(NavLink)`
 `;
 
 export const LogButton = styled(NavLink)`
+  display: inline-block;
   width: 300px;
 
   font-size: 14px;
@@ -142,6 +154,12 @@ export const LogButton = styled(NavLink)`
   border-radius: 8px;
   cursor: pointer;
   text-transform: none;
+  transition-property: scale;
+  transition-duration: 300ms;
+
+  &:hover {
+    scale: 1.2;
+  }
 
   @media screen and (min-width: 768px) {
     width: 344px;
