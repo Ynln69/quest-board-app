@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { showToast } from '../Notification/ToastNotification';
 
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { Task } from 'components/Task/Task';
@@ -126,6 +127,13 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
   };
 
   const handleDelete = () => {
+    if (tasks.length > 0) {
+      showToast(
+        'error',
+        'You cannot delete as long as there are uncompleted tasks in the column!'
+      );
+      return;
+    }
     if (tasks.length === 0) {
       const newColumns = { ...cardData.columns };
       delete newColumns[column.id];
