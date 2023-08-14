@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 export const LineContainer = styled.div`
   position: absolute;
@@ -7,7 +8,25 @@ export const LineContainer = styled.div`
   left: 0px;
   height: 100%;
   border-radius: 4px 0px 0px 4px;
-  background: #8fa1d0;
+  background-color: #bab8b8;
+
+  ${props =>
+    props.priority === 'low' &&
+    css`
+      background-color: #8fa1d0;
+    `}
+
+  ${props =>
+    props.priority === 'medium' &&
+    css`
+      background-color: #e09cb5;
+    `}
+
+    ${props =>
+    props.priority === 'high' &&
+    css`
+      background-color: #bedbb0;
+    `}
 `;
 
 export const TaskContainer = styled.li`
@@ -79,7 +98,25 @@ export const TaskPrior = styled.div`
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: violet;
+    background-color: #bab8b8;
+
+    ${props =>
+      props.priority === 'low' &&
+      css`
+        background-color: #8fa1d0;
+      `}
+
+    ${props =>
+      props.priority === 'medium' &&
+      css`
+        background-color: #e09cb5;
+      `}
+
+    ${props =>
+      props.priority === 'high' &&
+      css`
+        background-color: #bedbb0;
+      `}
   }
 `;
 

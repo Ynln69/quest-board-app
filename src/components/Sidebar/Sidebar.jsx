@@ -27,7 +27,8 @@ import sprite from '../../images/sprite.svg';
 import flower from '../../images/need-help-img.png';
 
 import { useState, useEffect, forwardRef } from 'react';
-
+// eslint-disable-next-line
+import { showToast } from 'components/Notification/ToastNotification';
 import { logOut } from 'redux/auth/operations';
 import NeedHelpModal from 'components/NeedHelp/NeedHelpModal';
 import { deleteBoard } from 'redux/boards/boardOperations';
@@ -46,6 +47,8 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
   const [isShowHelp, setIsShowHelp] = useState(false);
   const boards = useSelector(selectBoards);
   const dispatch = useDispatch();
+
+  console.log(useSelector(selectBoards));
 
   useEffect(() => {
     dispatch(getBoards());
@@ -70,7 +73,22 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
 
   const toogleHelpModal = () => {
     setIsShowHelp(!isShowHelp);
-  }
+  };
+
+  const handleDelete = id => {
+    // if (
+    //   boards.filter(board => board._id === id)[0].boardsData.columnOrder
+    //     .length !== 0
+    // ) {
+    //   console.log('Всё пропало');
+    //   showToast('error', 'To remove, clean the board!');
+    //   return;
+    // }
+    // console.log('удалено');
+    // dispatch(deleteBoard(board._id));
+
+    dispatch(deleteBoard(id));
+  };
 
   return (
     <SidebarBlock className={`theme-${theme} ${isOpen ? 'open' : 'closed'}`}>
@@ -122,7 +140,7 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
                     </ButtonIcon>
                     <ButtonIcon
                       type="button"
-                      onClick={() => dispatch(deleteBoard(board._id))}
+                      onClick={() => handleDelete(board._id)}
                     >
                       <EditIcon>
                         <use href={`${sprite}#icon-trash`} />

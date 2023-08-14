@@ -28,7 +28,7 @@ export const Calendar = () => {
     };
 
     return (
-      <Button onClick={onClick} ref={ref}>
+      <Button type="button" onClick={onClick} ref={ref}>
         {formatDate(value)} {value}
         <Icon>
           <use href={`${Sprite}#icon-chevron-down-1`} />
