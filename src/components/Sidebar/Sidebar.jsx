@@ -27,6 +27,7 @@ import sprite from '../../images/sprite.svg';
 import flower from '../../images/need-help-img.png';
 
 import { useState, useEffect, forwardRef } from 'react';
+// eslint-disable-next-line
 import { showToast } from 'components/Notification/ToastNotification';
 import { logOut } from 'redux/auth/operations';
 import NeedHelpModal from 'components/NeedHelp/NeedHelpModal';
@@ -72,7 +73,7 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
 
   const toogleHelpModal = () => {
     setIsShowHelp(!isShowHelp);
-  }
+  };
 
   const handleDelete = id => {
     // if (
