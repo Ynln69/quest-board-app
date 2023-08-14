@@ -12,19 +12,12 @@ import { editBoard } from 'redux/boards/boardOperations';
 export const Dashboard = () => {
   const dispatch = useDispatch();
   const { boardName } = useParams();
-
   const boards = useSelector(selectBoards);
-  console.log(boards);
   const board = boards.filter(board => board.title === boardName)[0];
-
-  console.log(board);
-
   const [cardData, setCardData] = useState(
     board !== undefined ? board.boardsData : null
   );
   const [editFlag, setEditFlag] = useState(false);
-
-  console.log(cardData);
 
   useEffect(() => {
     const selectedBoard = boards.find(board => board.title === boardName);
@@ -35,13 +28,10 @@ export const Dashboard = () => {
 
   useEffect(() => {
     if (editFlag) {
-      console.log('editBoard');
       const newBoard = {
         ...board,
         boardsData: cardData,
       };
-
-      console.log(newBoard);
 
       dispatch(editBoard({ newBoard, id: newBoard._id }));
     }
