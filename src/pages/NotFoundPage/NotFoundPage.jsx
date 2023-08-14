@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import { BtnText, Container, Button, Image } from './NotFoundPae.styled';
+import { Container, Image, BackLink } from './NotFoundPae.styled';
 import notFoundImage from '../../images/404.png';
 import { Text } from 'components/Welcome/Welcome.styled';
 
@@ -10,13 +9,7 @@ const NotFoundPage = () => {
       <Text>
         Oooops! We can't seem to find <br />a page you are looking for...
       </Text>
-      <div>
-        <Button>
-          <Link to="/">
-            <BtnText>Back to homepage</BtnText>
-          </Link>
-        </Button>
-      </div>
+      <BackLink to="/">Back to homepage</BackLink>
     </Container>
   );
 };

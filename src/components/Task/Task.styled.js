@@ -36,7 +36,7 @@ export const TaskContainer = styled.li`
   border-bottom-right-radius: 8px;
   background-color: ${props =>
     props.isDragging ? 'var(--board_task_bgc)' : 'var(--board_task_bgc)'};
-  margin-bottom: 8px;
+  margin-right: 8px;
 `;
 
 export const TaskTitle = styled.h2`

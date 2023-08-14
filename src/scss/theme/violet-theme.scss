@@ -29,9 +29,9 @@ body.VIOLET {
   --theme_color: #161616;
   --theme_active: #5255bc;
   --border_theme: #ecedfd;
-  --theme_bgc: #FCFCFC;
-  --theme_border: #ECEDFD;
-  --theme_shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.10);
+  --theme_bgc: #fcfcfc;
+  --theme_border: #ecedfd;
+  --theme_shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
   --header_user_text: #161616;
   --user_bgc: #ecedfd;
   --user_icon: #ffffff;
@@ -45,10 +45,10 @@ body.VIOLET {
   --board_second_color: rgba(22, 22, 22, 0.5);
   --icon_active_color: #5255bc;
   --board_active_color: #ffffff;
-  --board_active_bgc: rgba(255, 255, 255, 0.50);
+  --board_active_bgc: rgba(255, 255, 255, 0.5);
   --board_active_icon: #ffffff;
   --border_bgc: #ffffff;
-  --board_color: rgba(255, 255, 255, 0.50);
+  --board_color: rgba(255, 255, 255, 0.5);
 
   --modal_bgc: #fcfcfc;
   --modal_main_color: #161616;
@@ -79,6 +79,9 @@ body.VIOLET {
   --line_color: rgba(22, 22, 22, 0.1);
   --svg-bg-color: #ecedfd;
   --svg-user-color: #ffffff;
-  --chevron-down: rgba(22, 22, 22, 0.80);
+  --chevron-down: rgba(22, 22, 22, 0.8);
   --save-color: #ffffff;
+
+  --scroll-wrapp: #b8bcfd;
+  --scroll: #ffffff;
 }
