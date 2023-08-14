@@ -83,7 +83,7 @@ export const PlusBtn = styled.button`
   width: 28px;
   height: 28px;
   border: none;
-  background: var(--user_bgc);
+  background-color: var(--border_theme);
 
   transition: all 150ms linear;
   cursor: pointer;
@@ -99,7 +99,7 @@ export const IconPlus = styled.svg`
   width: 14px;
   height: 14px;
   stroke: #161616;
-  z-index: 99;
+  z-index: 1;
 `;
 
 export const PasswordView = styled.span`
