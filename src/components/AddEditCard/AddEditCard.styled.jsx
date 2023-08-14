@@ -69,7 +69,9 @@ export const RadioButtonInput = styled(Field)`
     top: -0.5px;
     left: -0.5px;
     position: absolute;
-    background-color: ${({ backgroundColor }) => backgroundColor || '#fff'};
+    background-color: ${({ style: { backgroundColor } }) => {
+      return backgroundColor || '#fff';
+    }};
   }
 
   &:checked::after {
@@ -82,9 +84,11 @@ export const RadioButtonInput = styled(Field)`
     display: inline-block;
     visibility: visible;
     position: absolute;
-    background-color: ${({ backgroundColor }) => backgroundColor || '#fff'};
+    background-color: ${({ style: { backgroundColor } }) =>
+      backgroundColor || '#fff'};
     border: 2px solid white;
-    box-shadow: 0 0 0 1px ${({ backgroundColor }) => backgroundColor || '#fff'};
+    box-shadow: 0 0 0 1px
+      ${({ style: { backgroundColor } }) => backgroundColor || '#fff'};
   }
 
   margin: 0px;

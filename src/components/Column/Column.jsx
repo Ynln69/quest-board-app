@@ -30,7 +30,6 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
     setShowEditCardModal(true);
   };
 
-
   const handleVisible = () => {
     setVisible(!visible);
   };
@@ -38,7 +37,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
   const handleVisibleEdit = () => {
     setShowEditModal(!showEditModal);
   };
-  const handleSubmitAdd = (title, description) => {
+  const handleSubmitAdd = (title, description, priority) => {
     const taskId = `1${uuidv4().replace(/-/g, '')}`;
 
     const newTask = {
@@ -46,13 +45,13 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
         id: taskId,
         title: title,
         description: description,
-        priority: 'over',
+        priority: priority,
         deadline: '22.33.44',
       },
     };
 
     const columnId = dataForModal.id;
-    console.log(setDataForModal);
+    // console.log(setDataForModal);
 
     const newColumn = {
       ...cardData.columns[columnId],
@@ -159,22 +158,21 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
           <Droppable droppableId={column.id} type="task">
             {(provided, snapshot) => (
               <TaskList
-              ref={provided.innerRef}
-              {...provided.droppableProps}
-              isDraggingOver={snapshot.isDraggingOver}
-            >
-              {tasks.map((task, index) => (
-                <Task
-                  key={task.id}
-                  task={task}
-                  index={index}
-                  handleShowEditCardModal={handleShowEditCardModal}
-                  handleSubmitDeleteCard={handleSubmitDeleteCard}
-                />
-              ))}
-              {provided.placeholder}
-            </TaskList>
-
+                ref={provided.innerRef}
+                {...provided.droppableProps}
+                isDraggingOver={snapshot.isDraggingOver}
+              >
+                {tasks.map((task, index) => (
+                  <Task
+                    key={task.id}
+                    task={task}
+                    index={index}
+                    handleShowEditCardModal={handleShowEditCardModal}
+                    handleSubmitDeleteCard={handleSubmitDeleteCard}
+                  />
+                ))}
+                {provided.placeholder}
+              </TaskList>
             )}
           </Droppable>
           <BtnColumn

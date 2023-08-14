@@ -94,23 +94,18 @@ import { Form, Formik } from 'formik';
 // }
 
 function AddEditCardModal({ handleSubmit, editedTask }) {
-  console.log(editedTask);
-  const handleSubmitAdd = (values, { resetForm }) => {
-    console.log(values);
-    console.log('add');
-    handleSubmit(values.title, values.description);
+  const handleSubmitAdd = ({ title, description, priority }, { resetForm }) => {
+    handleSubmit(title, description, priority);
   };
 
   const handleSubmitEdit = (values, { resetForm }) => {
-    console.log(values);
-    console.log('edit');
     handleSubmit(editedTask.id, values.title, values.description);
   };
 
   const initialValues = {
     title: editedTask ? editedTask.title : '',
     description: editedTask ? editedTask.description : '',
-    priority: editedTask ? editedTask.priority : '',
+    priority: editedTask ? editedTask.priority : 'no-priority',
   };
 
   return (
@@ -137,27 +132,31 @@ function AddEditCardModal({ handleSubmit, editedTask }) {
             onChange={handleChange}
           ></DescriptionInput>
           <ModalText>Label color</ModalText>
-          <RadioButtonWrap>
+          <RadioButtonWrap role="group" aria-labelledby="priority-radio-group">
             <RadioButtonInput
               type="radio"
-              name="color"
-              backgroundColor="#8FA1D0"
-            ></RadioButtonInput>
+              name="priority"
+              style={{ backgroundColor: '#8FA1D0' }}
+              value={'low'}
+            />
             <RadioButtonInput
               type="radio"
-              name="color"
-              backgroundColor="#E09CB5"
-            ></RadioButtonInput>
+              name="priority"
+              style={{ backgroundColor: '#E09CB5' }}
+              value={'medium'}
+            />
             <RadioButtonInput
               type="radio"
-              name="color"
-              backgroundColor="#BEDBB0"
-            ></RadioButtonInput>
+              name="priority"
+              style={{ backgroundColor: '#BEDBB0' }}
+              value={'high'}
+            />
             <RadioButtonInput
               type="radio"
-              name="color"
-              backgroundColor="#bab8b8"
-            ></RadioButtonInput>
+              name="priority"
+              style={{ backgroundColor: '#bab8b8' }}
+              value={'no-priority'}
+            />
           </RadioButtonWrap>
           <ModalText>Deadline</ModalText>
           <CalendarWrap>

@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense, useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -14,9 +14,12 @@ import {
   TitlePage,
   LinkToCreate,
 } from './HomePage.styled';
+import { selectBoards } from 'redux/boards/boardsSelectors';
 
 const HomePage = () => {
   const { theme } = useSelector(selectUser);
+  const buttonAddRef = useRef();
+  const boards = useSelector(selectBoards);
 
   useEffect(
     () => {
@@ -26,23 +29,36 @@ const HomePage = () => {
     []
   );
 
+  const handleModalBoardCreateClick = () => {
+    const clickEvent = new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true,
+      view: window,
+    });
+    buttonAddRef.current.dispatchEvent(clickEvent);
+  };
+
   return (
     <HomeContainer>
-      <Sidebar />
+      <Sidebar ref={buttonAddRef} />
       <Container>
         <Header />
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
-        <HomeSection>
-          <TitlePage>
-            Before starting your project, it is essential{' '}
-            <LinkToCreate>to create a board</LinkToCreate> to visualize and
-            track all the necessary tasks and milestones. This board serves as a
-            powerful tool to organize the workflow and ensure effective
-            collaboration among team members.
-          </TitlePage>
-        </HomeSection>
+        {boards.length === 0 && (
+          <HomeSection>
+            <TitlePage>
+              Before starting your project, it is essential{' '}
+              <LinkToCreate onClick={handleModalBoardCreateClick}>
+                to create a board
+              </LinkToCreate>
+              to visualize and track all the necessary tasks and milestones.
+              This board serves as a powerful tool to organize the workflow and
+              ensure effective collaboration among team members.
+            </TitlePage>
+          </HomeSection>
+        )}
       </Container>
     </HomeContainer>
   );

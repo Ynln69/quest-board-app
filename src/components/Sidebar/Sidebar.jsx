@@ -23,7 +23,7 @@ import {
 } from './Sidebar.styled';
 import sprite from '../../images/sprite.svg';
 import flower from '../../images/flower.png';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, forwardRef } from 'react';
 import { logOut } from 'redux/auth/operations';
 import NeedHelpModal from 'components/NeedHelp/NeedHelpModal';
 import { deleteBoard } from 'redux/boards/boardOperations';
@@ -35,13 +35,14 @@ import ModalBoard from 'components/ModalBoard';
 
 const actionsList = { add: 'add', edit: 'edit' };
 
-export function Sidebar({ theme, isOpen }) {
+export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState(actionsList.add);
   const [boardData, setBoardData] = useState(null);
   const [isShow, setIsShow] = useState(false);
   const boards = useSelector(selectBoards);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getBoards());
   }, [dispatch]);
@@ -84,7 +85,12 @@ export function Sidebar({ theme, isOpen }) {
       <MyBoardTitle>My boards</MyBoardTitle>
       <BoardTitleBlock>
         <p>Create a new board</p>
-        <ButtonAdd aria-label="add" type="button" onClick={handleModalType}>
+        <ButtonAdd
+          ref={ref}
+          aria-label="add"
+          type="button"
+          onClick={handleModalType}
+        >
           <svg width={20} height={20}>
             <use href={`${sprite}#icon-plus`} />
           </svg>
@@ -114,11 +120,9 @@ export function Sidebar({ theme, isOpen }) {
                 </ButtonIcon>
                 <ButtonIcon
                   type="button"
-                  aria-label="edit"
-                  data-board-id={board._id}
-                  onClick={handleModalType}
+                  onClick={() => dispatch(deleteBoard(board._id))}
                 >
-                  <EditIcon onClick={() => dispatch(deleteBoard(board._id))}>
+                  <EditIcon>
                     <use href={`${sprite}#icon-trash`} />
                   </EditIcon>
                 </ButtonIcon>
@@ -129,7 +133,7 @@ export function Sidebar({ theme, isOpen }) {
       </ul>
       {isModalOpen && (
         <Modal
-          isOpen={toggleModal}
+          isOpen={isModalOpen}
           handleClose={toggleModal}
           heading={modalType === actionsList.add ? 'New board' : 'Edit board'}
           modalType={'modalBoard'}
@@ -164,4 +168,4 @@ export function Sidebar({ theme, isOpen }) {
       </LogoutBtn>
     </SidebarBlock>
   );
-}
+});
