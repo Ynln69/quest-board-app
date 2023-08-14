@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
-export const MainContainer = styled.section`
+export const MainContainer = styled.div`
   display: flex;
-  padding: 0 24px 36px 24px;
+  padding-bottom: 52px;
   gap: 34px;
 
   overflow: auto;

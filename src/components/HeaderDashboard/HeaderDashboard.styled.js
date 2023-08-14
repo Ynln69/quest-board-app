@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 
-export const HeadContainer = styled.section`
+export const HeadContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 24px;
+  margin-bottom: 40px;
 `;
 
 export const HeadText = styled.p`
