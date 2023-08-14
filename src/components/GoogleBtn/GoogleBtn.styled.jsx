@@ -11,7 +11,7 @@ export const GoogleBtnCustom = styled.button`
   min-width: 300px;
   width: 344px;
   height: 49px;
-
+  font-display: block;
   color: #161616;
   text-align: center;
   font-family: 'Poppins';
