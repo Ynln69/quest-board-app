@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-
+import { showToast } from 'components/Notification/ToastNotification';
 import { registerLogin } from '../../redux/auth/operations';
 import { Formik, Field } from 'formik';
 import {
@@ -38,6 +38,10 @@ export const RegisterForm = () => {
     const passwordRegex =
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,64}$/;
     if (!passwordRegex.test(form.elements.password.value)) {
+      showToast(
+        'error',
+        'Wrong format of password. You can use some of these special symbols "@$!%*#?&"'
+      );
       return;
     }
 
