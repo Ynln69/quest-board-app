@@ -2,13 +2,12 @@ import styled from '@emotion/styled';
 
 export const ThemeContainer = styled.div`
   position: fixed;
-  `;
+`;
 
 export const ThemeList = styled.ul`
 position: absolute;
-top: 0%;
-    left: -15%;
-    transform: translate(0%, 15%);
+top: 28px;
+  left: 5px;
     width: 100px;
     height: 107px;
     display: flex;
@@ -21,7 +20,6 @@ top: 0%;
   border: 1px solid var(--theme_border);
   cursor: pointer;
   z-index: 99;
-    z-index: 3;
    }
 `;
 

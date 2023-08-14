@@ -1,10 +1,6 @@
 import styled from '@emotion/styled';
 import { Form, Field } from 'formik';
 
-// export const Container = styled.div`
-// position: fixed;
-// `;
-
 export const FormBox = styled(Form)`
   display: flex;
   flex-direction: column;
@@ -62,6 +58,7 @@ export const AvatarImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 8px;
 `;
 
 export const FileInput = styled.input`

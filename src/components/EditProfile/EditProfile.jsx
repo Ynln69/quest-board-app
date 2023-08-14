@@ -86,7 +86,7 @@ const EditProfile = ({ onClose }) => {
                 height="68"
               />
             ) : (
-              <svg className="icon-user" width="68" height="68">
+              <svg width="68" height="68">
                 <use href={`${Sprite}#icon-user`} />
               </svg>
             )}
