@@ -50,3 +50,7 @@ export const Textarea = styled(Field)`
     box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
   }
 `;
+
+export const ErrorText = styled.span`
+color: red;
+`

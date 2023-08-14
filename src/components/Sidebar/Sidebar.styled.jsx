@@ -224,7 +224,7 @@ export const Nav = styled(NavLink)`
 export const MainBoard = styled.div`
   padding: 0;
   margin: 40px -14px 0 -14px;
-  height: 140px;
+  max-height: 130px;
   overflow-y: scroll;
   &::-webkit-scrollbar {
     width: 4px;
