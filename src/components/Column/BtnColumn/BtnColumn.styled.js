@@ -10,7 +10,7 @@ export const Button = styled.button`
   border: none;
   padding: 14px 78px;
   cursor: pointer;
-
+  font-display: block;
   color: var(--text_btn);
   background: var(--normal_btn);
   font-family: 'Poppins';

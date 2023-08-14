@@ -17,15 +17,19 @@ import {
   BoxSvg,
 } from './Column.styled';
 import sprite from '../../images/sprite.svg';
-
 import { selectFilterPriority } from 'redux/filter/filterSelector';
 import { useSelector } from 'react-redux';
 
-export const Column = ({ column, tasks, index, cardData, setCardData }) => {
+export const Column = ({
+  column,
+  tasks,
+  index,
+  cardData,
+  setCardData,
+  setEditFlag,
+}) => {
   const property = useSelector(selectFilterPriority);
   const [filteredTasks, setFilteredTasks] = useState(tasks);
-  // const [titleTask, setTitleTask] = useState('');
-  // const [descriptionTask, setDescriptionTask] = useState('');
 
   const [visible, setVisible] = useState(false);
   const [dataForModal, setDataForModal] = useState(column);
@@ -61,6 +65,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
   const handleVisibleEdit = () => {
     setShowEditModal(!showEditModal);
   };
+
   const handleSubmitAdd = (title, description, priority) => {
     const taskId = `1${uuidv4().replace(/-/g, '')}`;
 
@@ -83,6 +88,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
       taskIds: [...cardData.columns[columnId].taskIds, taskId],
     };
 
+    setEditFlag(true);
     setCardData(prevCardData => ({
       ...prevCardData,
       tasks: {
@@ -107,6 +113,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
       deadline: '22.33.44',
     };
 
+    setEditFlag(true);
     setCardData(prevCardData => ({
       ...prevCardData,
       tasks: {
@@ -130,6 +137,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
       taskIds: newColumns[columnId].taskIds.filter(taskId => taskId !== id),
     };
 
+    setEditFlag(true);
     setCardData(prevCardData => ({
       ...prevCardData,
       tasks: newTasks,
@@ -161,6 +169,7 @@ export const Column = ({ column, tasks, index, cardData, setCardData }) => {
       const newColumns = { ...cardData.columns };
       delete newColumns[column.id];
 
+      setEditFlag(true);
       setCardData(prevCardData => ({
         ...prevCardData,
         columns: newColumns,

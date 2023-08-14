@@ -21,7 +21,6 @@ export const HeaderDashboard = () => {
         </FilterSvg>
         Filters
       </ButtonFilter>
-
       {isShowModal && <FilterModal closeModal={toogleShowModal} />}
     </HeadContainer>
   );
