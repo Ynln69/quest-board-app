@@ -64,7 +64,7 @@ export const ModalWindow = styled.div`
   ${getModalStyles}
 `;
 
-export const Heading = styled.h3`
+export const Heading = styled.h2`
   margin-bottom: ${props => props.marginBottom || '24px'};
   color: var(--modal_main_color);
   font-family: 'Poppins';
