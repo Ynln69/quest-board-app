@@ -12,16 +12,27 @@ export const Container = styled.div`
   flex-grow: 1;
 `;
 export const HomeSection = styled.section`
+  width: 100%;
+  height: 100vh;
   display: flex;
+  margin-left: auto;
+  margin-right: auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100vh;
+  @media screen and (min-width: 375px) {
+    width: 375px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1180px;
+  }
 `;
 
 export const TitlePage = styled.p`
-  width: 486px;
+  width: 335px;
 
   color: var(--board_second_color);
   font-size: 14px;
@@ -29,6 +40,9 @@ export const TitlePage = styled.p`
   line-height: 18px;
   letter-spacing: -0.28px;
   text-align: center;
+  @media screen and (min-width: 768px) {
+    width: 486px;
+  }
 `;
 
 export const LinkToCreate = styled.button`

@@ -33,7 +33,7 @@ export const DescriptionInput = styled(Field)`
   resize: none;
   outline: none;
   opacity: 0.4;
-
+  font-display: block;
   color: var(--modal_main_color);
   background-color: var(--modal_bgc);
   font-family: 'Poppins';

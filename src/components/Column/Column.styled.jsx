@@ -48,7 +48,7 @@ export const Svg = styled.svg`
 `;
 
 export const TaskList = styled.ul`
-  height: calc(100vh - 330px);
+  height: calc(100vh - 374px);
   transition: background-color 0.2s ease;
   background-color: ${props => (props.isDraggingOver ? 'inherit' : 'inherit')};
 

@@ -5,14 +5,14 @@ import { filterPriority } from '../../redux/filter/filterSlice';
 
 import {
   Container,
+  DecorativeElement,
+  ContainerWrapper,
+  TextLabel,
+  ButtonAll,
   RadioButtonWrap,
   RadioWrapper,
   RadioButtonInput,
   RadioButtonLabel,
-  ContainerWarepper,
-  DecorativeElement,
-  TextLabel,
-  Button,
 } from './Filter.styled';
 
 const Filter = () => {
@@ -24,25 +24,23 @@ const Filter = () => {
     setSelectedPriority(evt.target.value);
 
     dispatch(filterPriority(evt.target.value));
-    console.log(evt.target.value);
   };
 
   const onClickAll = () => {
     setSelectedPriority('all');
     dispatch(filterPriority('all'));
-    // console.log(dispatch(filterPriority('all')));
   };
 
   return (
     <div>
       <Container>
         <DecorativeElement />
-        <ContainerWarepper>
+        <ContainerWrapper>
           <TextLabel>Label color</TextLabel>
-          <Button type="button" onClick={onClickAll}>
+          <ButtonAll type="button" onClick={onClickAll}>
             Show all
-          </Button>
-        </ContainerWarepper>
+          </ButtonAll>
+        </ContainerWrapper>
       </Container>
 
       <RadioButtonWrap>

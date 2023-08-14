@@ -121,7 +121,7 @@ export const LoginBtn = styled.button`
   width: 100%;
   height: 49px;
   margin-top: 24px;
-
+  font-display: block;
   color: #161616;
   text-align: center;
   font-family: 'Poppins';
@@ -137,6 +137,12 @@ export const LoginBtn = styled.button`
   border: none;
 
   cursor: pointer;
+  transition-property: background;
+  transition-duration: 250ms;
+
+  &:hover {
+    background: #ebf4e7;
+  }
 `;
 
 export const ErrorText = styled(ErrorMessage)`
