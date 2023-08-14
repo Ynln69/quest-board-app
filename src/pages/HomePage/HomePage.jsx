@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from 'react';
+import { Suspense, useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectUser, selectIsLoggedIn } from 'redux/auth/selectors';
@@ -13,10 +13,12 @@ import {
   TitlePage,
   LinkToCreate,
 } from './HomePage.styled';
-
+import { selectBoards } from 'redux/boards/boardsSelectors';
 import { showToast } from 'components/Notification/ToastNotification';
 
 const HomePage = () => {
+  const buttonAddRef = useRef();
+  const boards = useSelector(selectBoards);
   const { theme, username } = useSelector(selectUser);
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
@@ -33,23 +35,36 @@ const HomePage = () => {
     []
   );
 
+  const handleModalBoardCreateClick = () => {
+    const clickEvent = new MouseEvent('click', {
+      bubbles: true,
+      cancelable: true,
+      view: window,
+    });
+    buttonAddRef.current.dispatchEvent(clickEvent);
+  };
+
   return (
     <HomeContainer>
-      <Sidebar />
+      <Sidebar ref={buttonAddRef} />
       <Container>
         <Header />
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
-        <HomeSection>
-          <TitlePage>
-            Before starting your project, it is essential{' '}
-            <LinkToCreate>to create a board</LinkToCreate> to visualize and
-            track all the necessary tasks and milestones. This board serves as a
-            powerful tool to organize the workflow and ensure effective
-            collaboration among team members.
-          </TitlePage>
-        </HomeSection>
+        {boards.length === 0 && (
+          <HomeSection>
+            <TitlePage>
+              Before starting your project, it is essential{' '}
+              <LinkToCreate onClick={handleModalBoardCreateClick}>
+                to create a board
+              </LinkToCreate>
+              to visualize and track all the necessary tasks and milestones.
+              This board serves as a powerful tool to organize the workflow and
+              ensure effective collaboration among team members.
+            </TitlePage>
+          </HomeSection>
+        )}
       </Container>
     </HomeContainer>
   );
