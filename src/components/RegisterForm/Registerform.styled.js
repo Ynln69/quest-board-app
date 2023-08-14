@@ -121,7 +121,7 @@ export const RegisterBtn = styled.button`
   width: 100%;
   height: 49px;
   margin-top: 24px;
-
+  font-display: block;
   color: #161616;
   text-align: center;
   font-family: 'Poppins';

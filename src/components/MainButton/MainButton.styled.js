@@ -27,7 +27,7 @@ export const StyledButton = styled.button`
   color: var(--text_btn);
   background: var(--normal_btn);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
+  font-display: block;
   font-family: Poppins;
   font-size: 14px;
   font-style: normal;

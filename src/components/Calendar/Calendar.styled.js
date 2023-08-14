@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const CalendarContainer = styled.div`
   & .react-datepicker {
+    font-display: block;
     font-family: 'Poppins', sans-serif;
     border-radius: 8px;
     padding: 18px;

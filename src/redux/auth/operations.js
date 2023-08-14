@@ -111,11 +111,11 @@ export const updateUser = createAsyncThunk(
     setAuthHeader(persistedUser);
     try {
       const res = await axios.patch('/api/users/current', credentials);
-      console.log(res);
+
       return res.data;
     } catch (error) {
       showToast('error', 'Oops...something went wrong.');
-      console.log(error);
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -126,7 +126,7 @@ export const updateUserAvatar = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.patch('/api/users/avatars', credentials);
-      console.log(res);
+
       return res.data;
     } catch (error) {
       showToast('error', 'Oops...something went wrong.');
