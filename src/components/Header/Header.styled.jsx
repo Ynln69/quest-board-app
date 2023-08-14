@@ -11,7 +11,6 @@ export const PageHeader = styled.header`
   background-color: var(--header_bgc);
   color: var(--header_theme_text);
 
-
   @media (max-width: 1440px) {
     padding: 18px 32px;
   }
@@ -21,9 +20,9 @@ export const PageHeader = styled.header`
 `;
 
 export const MenuBtn = styled.div`
-width: 32px;
-height: 32px;
-border: none;
+  width: 32px;
+  height: 32px;
+  border: none;
 `;
 
 export const MenuIcon = styled.svg`
@@ -43,38 +42,36 @@ export const MenuIcon = styled.svg`
 
 export const HeaderWrap = styled.div`
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 14px;
-  margin-left: auto;
   position: relative;
-`;
+ `;
 
 export const HeaderNav = styled.div`
-position: relative;
-display: inline-flex;
-justify-content: center;
-align-items: center;
-gap: 4px;
-margin-right: 14px;
-width: 80px;
-cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 80px;
+  cursor: pointer;
 `;
 
 export const SelectIcon = styled.svg`
   width: 16px;
   height: 16px;
-  margin-left: 4px;
+  align-items: baseline;
   stroke: var(--chevron-down);
   fill: none;
   z-index: 999;
- `;
+`;
 
 export const Text = styled.div`
-color: var(--header_theme_text);
-font-family: Poppins;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: -0.28px;
+  color: var(--header_theme_text);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
 `;

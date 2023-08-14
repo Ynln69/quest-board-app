@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { showToast } from '../Notification/ToastNotification';
 
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { Task } from 'components/Task/Task';
@@ -16,6 +17,8 @@ import {
   BoxSvg,
 } from './Column.styled';
 import sprite from '../../images/sprite.svg';
+import { selectFilterPriority } from 'redux/filter/filterSelector';
+import { useSelector } from 'react-redux';
 
 export const Column = ({
   column,
@@ -25,12 +28,30 @@ export const Column = ({
   setCardData,
   setEditFlag,
 }) => {
+  const property = useSelector(selectFilterPriority);
+  const [filteredTasks, setFilteredTasks] = useState(tasks);
+
   const [visible, setVisible] = useState(false);
   const [dataForModal, setDataForModal] = useState(column);
   const [showEditModal, setShowEditModal] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [showEditCardModal, setShowEditCardModal] = useState(false);
   const [editedTask, setEditedTask] = useState(null);
+
+  useEffect(() => {
+    const newFilteredTasks = tasks.filter(task => {
+      if (property === 'all') {
+        return true;
+      }
+      return task.priority === property;
+    });
+
+    setFilteredTasks(newFilteredTasks);
+  }, [property, tasks]);
+
+  if (true === false) {
+    console.log(setDataForModal);
+  }
 
   const handleShowEditCardModal = task => {
     setEditedTask(task);
@@ -51,6 +72,7 @@ export const Column = ({
     const newTask = {
       [taskId]: {
         id: taskId,
+        // title: titleTask,
         title: title,
         description: description,
         priority: priority,
@@ -91,7 +113,7 @@ export const Column = ({
       deadline: '22.33.44',
     };
 
-    setEditFlag(true)
+    setEditFlag(true);
     setCardData(prevCardData => ({
       ...prevCardData,
       tasks: {
@@ -115,7 +137,7 @@ export const Column = ({
       taskIds: newColumns[columnId].taskIds.filter(taskId => taskId !== id),
     };
 
-    setEditFlag(true)
+    setEditFlag(true);
     setCardData(prevCardData => ({
       ...prevCardData,
       tasks: newTasks,
@@ -136,6 +158,13 @@ export const Column = ({
   };
 
   const handleDelete = () => {
+    if (tasks.length > 0) {
+      showToast(
+        'error',
+        'You cannot delete as long as there are uncompleted tasks in the column!'
+      );
+      return;
+    }
     if (tasks.length === 0) {
       const newColumns = { ...cardData.columns };
       delete newColumns[column.id];
@@ -174,7 +203,17 @@ export const Column = ({
                 {...provided.droppableProps}
                 isDraggingOver={snapshot.isDraggingOver}
               >
-                {tasks.map((task, index) => (
+                {/* {tasks.map((task, index) => (
+                <Task
+                  key={task.id}
+                  task={task}
+                  index={index}
+                  handleShowEditCardModal={handleShowEditCardModal}
+                  handleSubmitDeleteCard={handleSubmitDeleteCard}
+                />
+              ))} */}
+
+                {filteredTasks.map((task, index) => (
                   <Task
                     key={task.id}
                     task={task}
@@ -183,6 +222,15 @@ export const Column = ({
                     handleSubmitDeleteCard={handleSubmitDeleteCard}
                   />
                 ))}
+                {/* {tasks.map((task, index) => {
+                  // return <Task key={task.id} task={task} index={index} />;
+                  if (property === 'all') {
+                    return <Task key={task.id} task={task} index={index} />;
+                  }
+                  if (property === task.priority) {
+                    return <Task key={task.id} task={task} index={index} />;
+                  }
+                })} */}
                 {provided.placeholder}
               </TaskList>
             )}
@@ -222,6 +270,11 @@ export const Column = ({
               modalType={'modalCard'}
             >
               <AddEditCardModal handleSubmit={handleSubmitAdd} />
+              {/* <AddEditCardModal
+                setTitleTask={setTitleTask}
+                setDescriptionTask={setDescriptionTask}
+                handleSubmit={handleSubmit}
+              /> */}
             </Modal>
           )}
         </Container>

@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense, useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
-import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
 import { RegisterForm } from 'components/RegisterForm/Registerform';
@@ -15,6 +14,9 @@ import { selectIsRefreshing, selectIsLoggedIn } from 'redux/auth/selectors';
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
+const NotFoundPage = lazy(() =>
+  import('../../pages/NotFoundPage/NotFoundPage')
+);
 
 export const App = () => {
   const dispatch = useDispatch();

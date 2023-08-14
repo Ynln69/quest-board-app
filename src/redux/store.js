@@ -20,16 +20,11 @@ const authPersistConfig = {
   whitelist: ['token', 'theme', 'username'],
 };
 
-const filterPersistConfig = {
-  key: 'filter',
-  storage,
-}
-
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     boards: boardsReducer,
-    filter: persistReducer(filterPersistConfig, filterReducer),
+    filter: filterReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
