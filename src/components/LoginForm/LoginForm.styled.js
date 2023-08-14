@@ -137,6 +137,12 @@ export const LoginBtn = styled.button`
   border: none;
 
   cursor: pointer;
+  transition-property: background;
+  transition-duration: 250ms;
+
+  &:hover {
+    background: #ebf4e7;
+  }
 `;
 
 export const ErrorText = styled(ErrorMessage)`
