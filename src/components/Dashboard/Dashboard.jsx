@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 import { HeaderDashboard } from 'components/HeaderDashboard/HeaderDashboard';
 import { MainDashboard } from 'components/MainDashboard/MainDashboard';
-import { initialUserModel } from 'schemas/initialUserModal';
 import { ContainerDashboard } from './Dashboard.styled';
 
 import { selectBoards } from 'redux/boards/boardsSelectors';
