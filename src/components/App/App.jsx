@@ -9,7 +9,7 @@ import { Dashboard } from 'components/Dashboard/Dashboard';
 import Loader from 'components/Loader/Loader';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshUser } from 'redux/auth/operations';
-import { selectIsRefreshing, selectIsLoggedIn } from 'redux/auth/selectors';
+import { selectIsRefreshing } from 'redux/auth/selectors';
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));
@@ -22,12 +22,12 @@ const TeamPage = lazy(() => import('../../pages/TeamPage/TeamPage'));
 export const App = () => {
   const dispatch = useDispatch();
 
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+  // const isLoggedIn = useSelector(selectIsLoggedIn);
   const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshUser());
-  }, [dispatch, isLoggedIn]);
+  }, [dispatch]);
 
   return isRefreshing ? (
     <Loader />
@@ -62,9 +62,7 @@ export const App = () => {
         >
           <Route
             path="/home/:boardName"
-            element={
-              <PrivateRoute redirectTo="/home" component={<Dashboard />} />
-            }
+            element={<PrivateRoute redirectTo="/" component={<Dashboard />} />}
           />
         </Route>
         <Route
