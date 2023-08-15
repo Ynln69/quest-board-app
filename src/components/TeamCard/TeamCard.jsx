@@ -11,7 +11,6 @@ import {
 } from './TeamCard.styled';
 
 const TeamCard = ({ name, role, avatar, telegram, github, linkedin }) => {
-  console.log(avatar);
   return (
     <div>
       <StyledCard>
