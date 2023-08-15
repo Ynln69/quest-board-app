@@ -88,7 +88,20 @@ function ModalBoard({ btnContent, closeModal, boardData }) {
           'Board with this title already exists. Choose another name, please!'
         );
       }
-      dispatch(createBoard(newBoard));
+
+      const newBoardWithData = {
+        id: boardId,
+        title: values.title.trim(),
+        icon: values.icon,
+        background: values.background,
+        boardsData: {
+          tasks: {},
+          columns: {},
+          columnOrder: [],
+        },
+      };
+
+      dispatch(createBoard(newBoardWithData));
     } else if (
       values.title !== boardData.title ||
       values.icon !== boardData.icon ||
@@ -104,6 +117,8 @@ function ModalBoard({ btnContent, closeModal, boardData }) {
           'Board with this title already exists. Choose another name, please!'
         );
       }
+      console.log('newBoard', newBoard);
+      console.log('boardData', boardData);
       dispatch(editBoard({ newBoard, id: boardData._id }));
     }
 
