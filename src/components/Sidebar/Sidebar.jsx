@@ -22,6 +22,7 @@ import {
   Section,
   MainBoard,
   ButtonIcon,
+  TitleHidden,
 } from './Sidebar.styled';
 import sprite from '../../images/sprite.svg';
 import flower from '../../images/need-help-img.png';
@@ -92,6 +93,7 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
 
   return (
     <SidebarBlock className={`theme-${theme} ${isOpen ? 'open' : 'closed'}`}>
+      <TitleHidden>Task boards page</TitleHidden>
       <NavLogo to="/">
         <SvgLightning>
           <use href={`${sprite}#icon-logo`} />
