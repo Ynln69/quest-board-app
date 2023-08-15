@@ -34,6 +34,8 @@ export const TaskContainer = styled.li`
   padding: 14px 20px;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   background-color: ${props =>
     props.isDragging ? 'var(--board_task_bgc)' : 'var(--board_task_bgc)'};
   margin-right: 8px;
@@ -163,4 +165,16 @@ export const TestListIcon = styled.ul`
       }
     }
   }
+`;
+
+export const IconBell = styled.svg`
+  stroke: var(--modal_second_color);
+  fill: rgba(0, 0, 0, 0);
+
+  ${props =>
+    props.isActive &&
+    css`
+      stroke: var(--cal_btn_color);
+      fill: rgba(0, 0, 0, 0);
+    `}
 `;
