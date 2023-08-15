@@ -168,10 +168,14 @@ export const Column = ({
     if (tasks.length === 0) {
       const newColumns = { ...cardData.columns };
       delete newColumns[column.id];
+      const newColumnOrder = cardData.columnOrder.filter(
+        order => order !== column.id
+      );
 
       setEditFlag(true);
       setCardData(prevCardData => ({
         ...prevCardData,
+        columnOrder: newColumnOrder,
         columns: newColumns,
       }));
     }

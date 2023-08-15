@@ -36,16 +36,16 @@ export const Task = ({
           ref={provided.innerRef}
           isDragging={snapshot.isDragging}
         >
-          <LineContainer />
+          <LineContainer priority={task.priority} />
           {/* <button onClick={() => console.log('awdawd')}></button> */}
           <TaskTitle>{task.title}</TaskTitle>
           <TaskDesc>{task.description}</TaskDesc>
           <TaskVector />
           <TaskBox>
             <TaskContent>
-              <TaskPrior>
-                {/* <p>{task.priority}</p> */}
-                <p>Priority</p>
+              <TaskPrior priority={task.priority}>
+                <p>{task.priority}</p>
+                {/* <p>Priority</p> */}
                 <div />
               </TaskPrior>
               <TaskDeadline>

@@ -24,8 +24,11 @@ import {
   ButtonIcon,
 } from './Sidebar.styled';
 import sprite from '../../images/sprite.svg';
-import flower from '../../images/flower.png';
+import flower from '../../images/need-help-img.png';
+
 import { useState, useEffect, forwardRef } from 'react';
+// eslint-disable-next-line
+import { showToast } from 'components/Notification/ToastNotification';
 import { logOut } from 'redux/auth/operations';
 import NeedHelpModal from 'components/NeedHelp/NeedHelpModal';
 import { deleteBoard } from 'redux/boards/boardOperations';
@@ -41,9 +44,11 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState(actionsList.add);
   const [boardData, setBoardData] = useState(null);
-  const [isShow, setIsShow] = useState(false);
+  const [isShowHelp, setIsShowHelp] = useState(false);
   const boards = useSelector(selectBoards);
   const dispatch = useDispatch();
+
+  console.log(useSelector(selectBoards));
 
   useEffect(() => {
     dispatch(getBoards());
@@ -66,12 +71,23 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
     }
   };
 
-  const showModal = () => {
-    setIsShow(true);
+  const toogleHelpModal = () => {
+    setIsShowHelp(!isShowHelp);
   };
 
-  const closeModal = () => {
-    setIsShow(false);
+  const handleDelete = id => {
+    // if (
+    //   boards.filter(board => board._id === id)[0].boardsData.columnOrder
+    //     .length !== 0
+    // ) {
+    //   console.log('Всё пропало');
+    //   showToast('error', 'To remove, clean the board!');
+    //   return;
+    // }
+    // console.log('удалено');
+    // dispatch(deleteBoard(board._id));
+
+    dispatch(deleteBoard(id));
   };
 
   return (
@@ -124,7 +140,7 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
                     </ButtonIcon>
                     <ButtonIcon
                       type="button"
-                      onClick={() => dispatch(deleteBoard(board._id))}
+                      onClick={() => handleDelete(board._id)}
                     >
                       <EditIcon>
                         <use href={`${sprite}#icon-trash`} />
@@ -157,13 +173,13 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
           If you need help with <span>TaskPro</span>, check out our support
           resources or reach out to our customer support team.
         </HelpContent>
-        <NeedHelpButton type="button" name="help" onClick={showModal}>
+        <NeedHelpButton type="button" name="help" onClick={toogleHelpModal}>
           <SvgHelp>
             <use href={`${sprite}#icon-help`} />
           </SvgHelp>
           Need help?
         </NeedHelpButton>
-        {isShow && <NeedHelpModal closeModal={closeModal} />}
+        {isShowHelp && <NeedHelpModal closeModal={toogleHelpModal} />}
       </NeedHelpBlock>
 
       <LogoutBtn type="button" name="logout" onClick={() => dispatch(logOut())}>

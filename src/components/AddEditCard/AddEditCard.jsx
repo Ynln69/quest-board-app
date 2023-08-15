@@ -101,7 +101,7 @@ function AddEditCardModal({ handleSubmit, editedTask }) {
   const initialValues = {
     title: editedTask ? editedTask.title : '',
     description: editedTask ? editedTask.description : '',
-    priority: editedTask ? editedTask.priority : 'no-priority',
+    priority: editedTask ? editedTask.priority : 'without priority',
   };
 
   return (
@@ -151,7 +151,7 @@ function AddEditCardModal({ handleSubmit, editedTask }) {
               type="radio"
               name="priority"
               style={{ backgroundColor: '#bab8b8' }}
-              value={'no-priority'}
+              value={'without priority'}
             />
           </RadioButtonWrap>
           <ModalText>Deadline</ModalText>

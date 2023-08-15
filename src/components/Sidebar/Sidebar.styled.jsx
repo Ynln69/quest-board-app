@@ -37,14 +37,14 @@ export const SvgLightning = styled.svg`
   margin-right: 8px;
   border-radius: 6px;
 `;
-export const Title = styled.h3`
+export const Title = styled.h1`
   color: var(--nav_main_color);
   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-family: Poppins;
   font-weight: 600;
   letter-spacing: -0.64px;
 `;
-export const MyBoardTitle = styled.p`
+export const MyBoardTitle = styled.h2`
   margin-bottom: 8px;
 
   color: var(--nav_second_color);
@@ -224,7 +224,7 @@ export const Nav = styled(NavLink)`
 export const MainBoard = styled.div`
   padding: 0;
   margin: 40px -14px 0 -14px;
-  height: 140px;
+  max-height: 130px;
   overflow-y: scroll;
   &::-webkit-scrollbar {
     width: 4px;

@@ -16,7 +16,7 @@ export const StyledInputField = styled(Field)`
   font-size: 14px;
   outline: none;
   text-transform: capitalize;
-
+color: var(--modal_main_color);
   transition: all 500ms;
 
   &:hover,

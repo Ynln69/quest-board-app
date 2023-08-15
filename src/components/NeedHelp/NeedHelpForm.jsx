@@ -1,10 +1,13 @@
 import { Formik, ErrorMessage, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import { needHelp } from '../../redux/auth/operations';
-import { Input, Textarea } from './NeedHelp.styled';
 import { HelpSchema } from 'schemas/helpSchema';
 import MainButton from 'components/MainButton';
+import { showToast } from '../Notification/ToastNotification';
+
+import { Input, Textarea, ErrorText } from './NeedHelp.styled';
 
 const initialValues = {
   email: '',
@@ -20,14 +23,14 @@ const NeedHelpForm = ({ handleCloseModal }) => {
     try {
       const result = await dispatch(needHelp({ email, comment }));
       if (needHelp.fulfilled.match(result)) {
-        console.log('Request successful');
+        showToast('success', 'Request sent successful');
         resetForm(initialValues);
         handleCloseModal();
       } else {
-        console.log('Request failed')
+        showToast('error', 'Request failed. Please try again.');
       }
     } catch (err) {
-      console.log('Error:', err.message);
+      showToast('error', `Request failed. ${err.message}`);
     }
   };
 
@@ -41,7 +44,10 @@ const NeedHelpForm = ({ handleCloseModal }) => {
         {({ errors, touched, submitCount }) => (
           <Form autoComplete="off">
             <Input type="email" name="email" placeholder="Email address" />
-            <ErrorMessage name="email" />
+            <ErrorText>
+              {' '}
+              <ErrorMessage name="email" />
+            </ErrorText>
             <div>
               <Textarea
                 component="textarea"
@@ -51,7 +57,9 @@ const NeedHelpForm = ({ handleCloseModal }) => {
                   resize: 'none',
                 }}
               />
-              <ErrorMessage name="comment" />
+              <ErrorText>
+                <ErrorMessage name="comment" />
+              </ErrorText>
               {submitCount > 0 &&
                 errors.comment &&
                 (!touched.comment || touched.comment) && (

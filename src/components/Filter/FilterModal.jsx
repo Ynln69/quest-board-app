@@ -2,7 +2,6 @@ import Modal from '../Modal/Modal';
 import Filter from './Filter';
 
 const FilterModal = ({closeModal}) => {
-  
 const handleCLoseModal = () => {
   closeModal();
 }

@@ -5,18 +5,17 @@ export const MainContainer = styled.div`
   padding-bottom: 52px;
   gap: 34px;
 
-  overflow: auto;
+  overflow-x: auto;
   &::-webkit-scrollbar {
-    width: 12px; /* ширина для вертикального скролла */
-    background-color: #161616;
     border-radius: 12px;
+    height: 12px;
+    background: var(--scroll);
   }
 
-  /* ползунок скроллбара */
   &::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 9em;
-    transition: 0.5s ease;
+    height: 12px;
+    background-color: var(--scroll-wrapp);
+    border-radius: 12px;
   }
 `;
 

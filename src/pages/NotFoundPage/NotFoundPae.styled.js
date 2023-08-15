@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   display: flex;
@@ -25,7 +26,14 @@ export const Image = styled.img`
   }
 `;
 
-export const BtnText = styled.span`
+export const BackLink = styled(Link)`
+  padding: 14px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: #161616;
+  border: 2px solid #161616;
+
   color: #fff;
   text-align: center;
   font-family: Poppins;
@@ -33,13 +41,11 @@ export const BtnText = styled.span`
   font-style: normal;
   font-weight: 500;
   letter-spacing: -0.28px;
-`;
 
-export const Button = styled.button`
-  padding: 14px 14px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  background: #161616;
-  border: none;
+  &:hover,
+  &:focus {
+    color: #161616;
+    background-color: #fff;
+    border: 2px solid #161616;
+  }
 `;
