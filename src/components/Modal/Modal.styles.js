@@ -37,7 +37,11 @@ const getModalStyles = ({ modalType, viewportWidth }) => {
   // ===========================================================================================================
   `;
 
-  if (modalType === 'modalBoard' || modalType === 'modalCard') {
+  if (
+    modalType === 'modalBoard' ||
+    modalType === 'modalCard' ||
+    modalType === 'modalColumn'
+  ) {
     const maxWidth = viewportWidth >= 320 && viewportWidth <= 374 ? 335 : null;
     const width = viewportWidth >= 375 ? 350 : null;
 

@@ -19,8 +19,9 @@ import { createBoard, editBoard } from 'redux/boards/boardOperations';
 import MainButton from 'components/MainButton';
 import { useSelector } from 'react-redux';
 import { selectTheme } from 'redux/auth/selectors';
-import { selectRefreshError } from 'redux/boards/boardsSelectors';
+import { selectBoards, selectRefreshError } from 'redux/boards/boardsSelectors';
 import Loader from 'components/Loader/Loader';
+import { showToast } from 'components/Notification/ToastNotification';
 
 const icons = [
   'icon-project',
@@ -55,7 +56,8 @@ const backgrounds = [
 function ModalBoard({ btnContent, closeModal, boardData }) {
   const dispatch = useDispatch();
   const theme = useSelector(selectTheme).toLowerCase();
-  const { isRefreshing, error } = useSelector(selectRefreshError);
+  const { isRefreshing } = useSelector(selectRefreshError);
+  const boards = useSelector(selectBoards);
 
   const initialValues =
     btnContent === 'Create'
@@ -78,30 +80,36 @@ function ModalBoard({ btnContent, closeModal, boardData }) {
       title: values.title.trim(),
       icon: values.icon,
       background: values.background,
-      boardsData: { tasks: {}, columns: {}, columnOrder: [] },
     };
     if (btnContent === 'Create') {
+      if (boards.some(board => board.title === values.title.trim())) {
+        return showToast(
+          'error',
+          'Board with this title already exists. Choose another name, please!'
+        );
+      }
       dispatch(createBoard(newBoard));
     } else if (
       values.title !== boardData.title ||
       values.icon !== boardData.icon ||
       values.background !== boardData.background
     ) {
+      if (
+        boards.some(
+          board => board.title === values.title && board._id !== boardData._id
+        )
+      ) {
+        return showToast(
+          'error',
+          'Board with this title already exists. Choose another name, please!'
+        );
+      }
       dispatch(editBoard({ newBoard, id: boardData._id }));
     }
 
     resetForm();
     closeModal();
   };
-  if (error) {
-    return (
-      <p style={{ fontSize: '40px', color: 'red', textAlign: 'center' }}>
-        Ops, something went wrong
-        <br />
-        {error}
-      </p>
-    );
-  }
 
   return (
     <>

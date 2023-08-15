@@ -49,8 +49,6 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
   const boards = useSelector(selectBoards);
   const dispatch = useDispatch();
 
-  console.log(useSelector(selectBoards));
-
   useEffect(() => {
     dispatch(getBoards());
   }, [dispatch]);
