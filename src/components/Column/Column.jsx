@@ -66,7 +66,7 @@ export const Column = ({
     setShowEditModal(!showEditModal);
   };
 
-  const handleSubmitAdd = (title, description, priority) => {
+  const handleSubmitAdd = (title, description, priority, deadline) => {
     const taskId = `1${uuidv4().replace(/-/g, '')}`;
 
     const newTask = {
@@ -76,7 +76,7 @@ export const Column = ({
         title: title,
         description: description,
         priority: priority,
-        deadline: '22.33.44',
+        deadline: deadline,
       },
     };
 
@@ -104,13 +104,13 @@ export const Column = ({
     handleVisible();
   };
 
-  const handleSubmitEditCard = (id, title, description) => {
+  const handleSubmitEditCard = (id, title, description, priority, deadline) => {
     const updatedTask = {
       ...cardData.tasks[id],
       title: title,
       description: description,
-      priority: 'over',
-      deadline: '22.33.44',
+      priority: priority,
+      deadline: deadline,
     };
 
     setEditFlag(true);
