@@ -57,7 +57,7 @@ const HomePage = () => {
               Before starting your project, it is essential{' '}
               <LinkToCreate type="button" onClick={handleModalBoardCreateClick}>
                 to create a board
-              </LinkToCreate>
+              </LinkToCreate>{' '}
               to visualize and track all the necessary tasks and milestones.
               This board serves as a powerful tool to organize the workflow and
               ensure effective collaboration among team members.

@@ -121,6 +121,7 @@ function ModalBoard({ btnContent, closeModal, boardData }) {
         );
       }
       dispatch(editBoard({ newBoard, id: boardData._id }));
+      navigate(newBoard.title);
     }
 
     resetForm();
