@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 
 import { HeaderDashboard } from 'components/HeaderDashboard/HeaderDashboard';
 import { MainDashboard } from 'components/MainDashboard/MainDashboard';
-import { ContainerDashboard } from './Dashboard.styled';
+import { ContainerDashboard, DynamicContainer } from './Dashboard.styled';
 
 import { selectBoards } from 'redux/boards/boardsSelectors';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { editBoard } from 'redux/boards/boardOperations';
+import { boardBackgrounds } from 'constants/boardBackgrounds';
 
 export const Dashboard = () => {
   const dispatch = useDispatch();
@@ -37,18 +38,34 @@ export const Dashboard = () => {
     }
   }, [cardData, editFlag, board, dispatch]);
 
+  const handleBackground = () => {
+    const boardBg =
+      boards.find(board => board.title === boardName)?.background || 'bg1';
+    if (boardBg === 'bg1') {
+      return 'bg1';
+    }
+    const photo = boardBackgrounds.find(photo => photo[boardBg]);
+    return photo[boardBg];
+  };
+
   return (
-    <ContainerDashboard>
-      {board !== undefined && (
-        <>
-          <HeaderDashboard boardName={board.title} />
-          <MainDashboard
-            cardData={cardData}
-            setCardData={setCardData}
-            setEditFlag={setEditFlag}
-          />
-        </>
+    <>
+      {boards.length !== 0 && (
+        <DynamicContainer photo={handleBackground()}>
+          <ContainerDashboard>
+            {board !== undefined && (
+              <>
+                <HeaderDashboard boardName={board.title} />
+                <MainDashboard
+                  cardData={cardData}
+                  setCardData={setCardData}
+                  setEditFlag={setEditFlag}
+                />
+              </>
+            )}
+          </ContainerDashboard>
+        </DynamicContainer>
       )}
-    </ContainerDashboard>
+    </>
   );
 };

@@ -4,9 +4,7 @@ import { showToast } from '../Notification/ToastNotification';
 
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { Task } from 'components/Task/Task';
-import AddColumn from './AddColumn/AddColumn';
 import Modal from '../Modal/Modal';
-import BtnColumn from './BtnColumn/BtnColumn';
 import AddEditCardModal from '../AddEditCard/AddEditCard';
 import {
   Container,
@@ -19,6 +17,8 @@ import {
 import sprite from '../../images/sprite.svg';
 import { selectFilterPriority } from 'redux/filter/filterSelector';
 import { useSelector } from 'react-redux';
+import MainButton from 'components/MainButton';
+import ModalColumn from '../ModalColumn/ModalColumn';
 
 export const Column = ({
   column,
@@ -239,18 +239,21 @@ export const Column = ({
               </TaskList>
             )}
           </Droppable>
-          <BtnColumn
-            text={'Add another card'}
+          <MainButton
+            showPlus={true}
             onClick={() => {
               handleVisible();
               setIsOpen(true);
             }}
-          />
+          >
+            Add another card
+          </MainButton>
           {showEditCardModal && (
             <Modal
-              heading={'Edit card'}
               handleClose={() => setShowEditCardModal(false)}
-              isOpen={showEditCardModal}
+              isOpen={isOpen}
+              heading={'Edit card'}
+              modalType={'modalColumn'}
             >
               <AddEditCardModal
                 editedTask={editedTask}
@@ -259,12 +262,17 @@ export const Column = ({
             </Modal>
           )}
           {showEditModal && (
-            <AddColumn
-              title={'Edit column'}
-              nameTitle={column.title}
-              closeColumnModal={handleVisibleEdit}
-              handleSubmit={handleSubmitEdit}
-            />
+            <Modal
+              isOpen={showEditModal}
+              handleClose={handleVisibleEdit}
+              heading={'Edit column'}
+              modalType={'modalBoard'}
+            >
+              <ModalColumn
+                handleSubmit={handleSubmitEdit}
+                nameTitle={column.title}
+              />
+            </Modal>
           )}
           {visible && (
             <Modal
@@ -274,11 +282,6 @@ export const Column = ({
               modalType={'modalCard'}
             >
               <AddEditCardModal handleSubmit={handleSubmitAdd} />
-              {/* <AddEditCardModal
-                setTitleTask={setTitleTask}
-                setDescriptionTask={setDescriptionTask}
-                handleSubmit={handleSubmit}
-              /> */}
             </Modal>
           )}
         </Container>
