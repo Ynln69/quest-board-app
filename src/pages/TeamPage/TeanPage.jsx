@@ -2,7 +2,7 @@ import React from 'react';
 import TeamCard from 'components/TeamCard/TeamCard';
 import teamMembersData from '../../data/team.json'
 import { Col } from 'react-bootstrap';
-import { ContainerWrap, Text, RowContainer } from './TeamPage.styled';
+import { ContainerWrap, RowContainer, Text } from './TeamPage.styled';
 
 const TeamPage = () => {
   const teamMembers = teamMembersData || [];
@@ -10,7 +10,7 @@ const TeamPage = () => {
   try {
     return (
       <ContainerWrap>
-        <Text>Our Dream Team</Text>
+        <Text>WEB RENGERS</Text>
         <RowContainer>
           {teamMembers.map((member, index) => (
             <Col key={index} sm={4}>
@@ -29,7 +29,7 @@ const TeamPage = () => {
     );
   } catch (error) {
     console.error('Error rendering team members:', error);
-    return null; // or a placeholder/error message
+    return null; 
   }
   
 };
