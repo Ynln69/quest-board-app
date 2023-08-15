@@ -1,7 +1,7 @@
 import { Suspense, useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectUser, selectIsLoggedIn } from 'redux/auth/selectors';
+import { selectUser } from 'redux/auth/selectors';
 
 import Header from 'components/Header/Header';
 import Loader from 'components/Loader/Loader';
@@ -14,25 +14,19 @@ import {
   LinkToCreate,
 } from './HomePage.styled';
 import { selectBoards } from 'redux/boards/boardsSelectors';
-import { showToast } from 'components/Notification/ToastNotification';
+
 const HomePage = () => {
   const buttonAddRef = useRef();
   const boards = useSelector(selectBoards);
-  const { theme, username } = useSelector(selectUser);
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const { theme } = useSelector(selectUser);
 
-  useEffect(
-    () => {
+  document.body.classList.add(theme);
+  useEffect(() => {
+    document.body.classList.add(theme);
+    setTimeout(() => {
       document.body.classList.add(theme);
-      setTimeout(() => {
-        if (isLoggedIn) {
-          showToast('success', `Welcome, ${username}!`);
-        }
-      });
-    },
-    // eslint-disable-next-line
-    []
-  );
+    }, 100);
+  }, [theme]);
 
   const handleModalBoardCreateClick = () => {
     const clickEvent = new MouseEvent('click', {
