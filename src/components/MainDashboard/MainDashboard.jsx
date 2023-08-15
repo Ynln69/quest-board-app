@@ -158,7 +158,7 @@ export const MainDashboard = ({ cardData, setCardData, setEditFlag }) => {
         >
           {provided => (
             <Container {...provided.droppableProps} ref={provided.innerRef}>
-              {cardData.columnOrder.map((columnId, index) => {
+              {cardData?.columnOrder.map((columnId, index) => {
                 const column = cardData.columns[columnId];
                 if (!column) {
                   return null;
