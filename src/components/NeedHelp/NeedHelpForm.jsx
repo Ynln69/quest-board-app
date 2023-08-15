@@ -1,4 +1,4 @@
-import { Formik, ErrorMessage, Form } from 'formik';
+import { Formik, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -7,7 +7,12 @@ import { HelpSchema } from 'schemas/helpSchema';
 import MainButton from 'components/MainButton';
 import { showToast } from '../Notification/ToastNotification';
 
-import { Input, Textarea, ErrorText } from './NeedHelp.styled';
+import {
+  Input,
+  Textarea,
+  ErrorText,
+  // ErrorUntouchComment,
+} from './NeedHelp.styled';
 
 const initialValues = {
   email: '',
@@ -26,9 +31,10 @@ const NeedHelpForm = ({ handleCloseModal }) => {
         showToast('success', 'Request sent successful');
         resetForm(initialValues);
         handleCloseModal();
-      } else {
-        showToast('error', 'Request failed. Please try again.');
-      }
+      } 
+      // else {
+      //   showToast('error', 'Request failed. Please try again.');
+      // }
     } catch (err) {
       showToast('error', `Request failed. ${err.message}`);
     }
@@ -41,13 +47,14 @@ const NeedHelpForm = ({ handleCloseModal }) => {
         validationSchema={HelpSchema}
         onSubmit={handleSubmit}
       >
-        {({ errors, touched, submitCount }) => (
+        {/* {({ errors, touched, submitCount }) => ( */}
           <Form autoComplete="off">
             <Input type="email" name="email" placeholder="Email address" />
-            <ErrorText>
+            <ErrorText name="email" component="div" />
+            {/* <ErrorText>
               {' '}
               <ErrorMessage name="email" />
-            </ErrorText>
+            </ErrorText> */}
             <div>
               <Textarea
                 component="textarea"
@@ -57,18 +64,21 @@ const NeedHelpForm = ({ handleCloseModal }) => {
                   resize: 'none',
                 }}
               />
-              <ErrorText>
+              <ErrorText name="comment" component="div"/>
+              {/* <ErrorText>
                 <ErrorMessage name="comment" />
-              </ErrorText>
-              {submitCount > 0 &&
+              </ErrorText> */}
+              {/* {submitCount > 0 &&
                 errors.comment &&
                 (!touched.comment || touched.comment) && (
-                  <div>Please enter a comment</div>
-                )}
+                  <ErrorUntouchComment>
+                    Please enter a comment
+                  </ErrorUntouchComment>
+                )} */}
             </div>
             <MainButton type="submit">Send</MainButton>
           </Form>
-        )}
+        {/* )} */}
       </Formik>
     </div>
   );

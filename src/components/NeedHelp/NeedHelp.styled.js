@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Field } from 'formik';
+import { Field, ErrorMessage } from 'formik';
 
 export const Input = styled(Field)`
   width: 100%;
@@ -51,6 +51,10 @@ export const Textarea = styled(Field)`
   }
 `;
 
-export const ErrorText = styled.span`
-color: red;
+export const ErrorText = styled(ErrorMessage)`
+color: var(--modal_second_color);
+`;
+
+export const ErrorUntouchComment = styled.div`
+color: var(--modal_second_color);
 `

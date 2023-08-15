@@ -35,7 +35,7 @@ export const TextLabel = styled.h3`
 export const ButtonAll = styled.button`
   border: none;
 
-  color: var(--board_second_color);
+  color: var(--modal_second_color);
   background: transparent;
   font-family: ' Poppins';
   font-size: 12px;
@@ -65,9 +65,10 @@ export const RadioButtonInput = styled.input`
 
   &::after {
     content: '';
+    margin-top: 1.2px;
     width: 15px;
     height: 15px;
-    border-radius: 15px;
+    border-radius: 16.5px;
     display: inline-block;
     visibility: visible;
     top: -0.5px;
@@ -105,7 +106,7 @@ export const RadioButtonInput = styled.input`
 `;
 
 export const RadioButtonLabel = styled.label`
-  color: var(--board_second_color);
+  color: var(--modal_second_color);
   font-family: 'Poppins';
   font-size: 12px;
   letter-spacing: -0.24px;

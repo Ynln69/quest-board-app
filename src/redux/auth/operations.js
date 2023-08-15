@@ -153,7 +153,7 @@ export const needHelp = createAsyncThunk('help', async (formData, thunkAPI) => {
       return thunkAPI.rejectWithValue('Request failed');
     }
   } catch (error) {
-    showToast('error', 'Oops...something went wrong.');
+    showToast('error', 'Request failed. Please try again');
     return thunkAPI.rejectWithValue(error.message);
   }
 });
