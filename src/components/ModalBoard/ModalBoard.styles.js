@@ -2,6 +2,8 @@ import styled from '@emotion/styled';
 import { ErrorMessage, Field } from 'formik';
 
 export const StyledInputField = styled(Field)`
+  color: var(--modal_main_color);
+
   padding: 14px 18px;
   margin-bottom: 24px;
   width: 100%;

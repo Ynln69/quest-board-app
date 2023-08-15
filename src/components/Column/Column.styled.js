@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const Container = styled.li`
   border-radius: 2px;
-  max-width: 334px;
+  width: 334px;
 
   display: flex;
   flex-direction: column;

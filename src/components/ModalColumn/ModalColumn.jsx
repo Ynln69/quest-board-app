@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { Formik } from 'formik';
 
-import BtnColumn from '../BtnColumn/BtnColumn';
 import { FormContainer, Input } from './ModalColumn.styled';
-import { showToast } from '../../Notification/ToastNotification';
+import { showToast } from '../Notification/ToastNotification';
+import MainButton from 'components/MainButton';
 
 const ModalColumn = ({ handleSubmit, nameTitle }) => {
   const [visible, setVisible] = useState(false);
@@ -34,7 +34,9 @@ const ModalColumn = ({ handleSubmit, nameTitle }) => {
             setTitle(e.target.value);
           }}
         />
-        <BtnColumn text={'Add'} />
+        <MainButton type={'submit'} showPlus={true}>
+          Add
+        </MainButton>
       </FormContainer>
     </Formik>
   );

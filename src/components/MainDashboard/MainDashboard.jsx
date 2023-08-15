@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { v4 as uuidv4 } from 'uuid';
 import { Column } from 'components/Column/Column';
-//add Elvira
-import AddColumn from 'components/Column/AddColumn/AddColumn';
 import {
   MainContainer,
   Container,
@@ -12,6 +10,8 @@ import {
   SvgAdd,
 } from './MainDashboard.styled';
 import sprite from '../../images/sprite.svg';
+import Modal from 'components/Modal/Modal';
+import ModalColumn from 'components/ModalColumn/ModalColumn';
 
 export const MainDashboard = ({ cardData, setCardData, setEditFlag }) => {
   // кто будет делать этот блок, обратите внимание что именно приходит в cardData
@@ -195,13 +195,14 @@ export const MainDashboard = ({ cardData, setCardData, setEditFlag }) => {
         </Button>
       </div>
       {visible && (
-        <>
-          <AddColumn
-            closeColumnModal={handlerVisible}
-            handleSubmit={handleSubmit}
-            title={'Add column'}
-          />
-        </>
+        <Modal
+          handleClose={handlerVisible}
+          heading={'Add column'}
+          isOpen={visible}
+          modalType={'modalColumn'}
+        >
+          <ModalColumn handleSubmit={handleSubmit} />
+        </Modal>
       )}
     </MainContainer>
   );
