@@ -6,9 +6,14 @@ export const ContainerWrap = styled(Container)`
   gap: 50px;
   flex-wrap: wrap;
   align-items: center;
-  width: 1100px;
-  margin-left: 40px;
+  width: 100%;
+  // margin-left: 40px;
+  background-image: url( 'https://hrcareerconsultants.com/wp-content/uploads/2021/06/Hr-career-consultants-1200x497.jpg ');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 20% center;
 `;
+
 export const Text = styled.h1`
   color: #ffffff;
 `;
