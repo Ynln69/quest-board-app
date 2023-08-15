@@ -37,7 +37,21 @@ export const SvgLightning = styled.svg`
   margin-right: 8px;
   border-radius: 6px;
 `;
-export const Title = styled.h1`
+export const TitleHidden = styled.h1`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+`;
+
+export const Title = styled.p`
   color: var(--nav_main_color);
   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-family: Poppins;
