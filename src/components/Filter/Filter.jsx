@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -15,7 +16,7 @@ import {
   RadioButtonLabel,
 } from './Filter.styled';
 
-const Filter = () => {
+const Filter = ({closeModal}) => {
   const [selectedPriority, setSelectedPriority] = useState('');
 
   const dispatch = useDispatch();
@@ -24,11 +25,13 @@ const Filter = () => {
     setSelectedPriority(evt.target.value);
 
     dispatch(filterPriority(evt.target.value));
+    closeModal();
   };
 
   const onClickAll = () => {
     setSelectedPriority('all');
     dispatch(filterPriority('all'));
+    closeModal();
   };
 
   return (
@@ -97,3 +100,8 @@ const Filter = () => {
 };
 
 export default Filter;
+
+Filter.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+};
+

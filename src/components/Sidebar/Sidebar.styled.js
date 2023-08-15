@@ -261,3 +261,13 @@ export const Section = styled.div`
     padding-top: 60px;
   }
 `;
+
+export const NavTeam = styled(NavLink)`
+  display: flex;
+  // padding-top: 20px;
+  align-items: center;
+  justify-content: center;
+  color: var(--board_main_color);
+  font-weight: 400;
+  font-size: 12px;
+`;
