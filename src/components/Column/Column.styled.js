@@ -53,7 +53,7 @@ export const TaskList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  height: calc(100vh - 374px);
+  height: calc(100vh - 324px);
   transition: background-color 0.2s ease;
   background-color: ${props => (props.isDraggingOver ? 'inherit' : 'inherit')};
 
@@ -77,7 +77,7 @@ export const TaskList = styled.ul`
   }
 
   @media screen and (min-width: 768px) {
-    height: calc(100vh - 374px);
+    height: calc(100vh - 324px);
   }
 `;
 

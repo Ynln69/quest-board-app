@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const MainContainer = styled.div`
   display: flex;
-  padding-bottom: 52px;
+  padding-bottom: 16px;
   gap: 34px;
 
   overflow-x: auto;
@@ -60,6 +60,7 @@ export const BoxSvg = styled.span`
   margin-right: 7px;
 `;
 export const SvgAdd = styled.svg`
+  display: block;
   width: 14px;
   height: 14px;
   stroke: var(--add_plus_color);

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { filterPriority } from '../../redux/filter/filterSlice';
+import { filterPriorityOptions } from '../../constants/filterPriorityOptions';
 
 import {
   Container,
@@ -16,7 +17,7 @@ import {
   RadioButtonLabel,
 } from './Filter.styled';
 
-const Filter = ({closeModal}) => {
+const Filter = ({ closeModal }) => {
   const [selectedPriority, setSelectedPriority] = useState('');
 
   const dispatch = useDispatch();
@@ -47,7 +48,21 @@ const Filter = ({closeModal}) => {
       </Container>
 
       <RadioButtonWrap>
-        <RadioWrapper>
+        {filterPriorityOptions.map(option => (
+          <RadioWrapper key={option.value}>
+            <RadioButtonInput
+              type="radio"
+              name="priority"
+              value={option.value}
+              checked={selectedPriority === option.value}
+              onChange={handleFilteredPriority}
+              backgroundColor={option.backgroundColor}
+            />
+            <RadioButtonLabel>{option.label}</RadioButtonLabel>
+          </RadioWrapper>
+        ))}
+
+        {/* <RadioWrapper>
           <RadioButtonInput
             type="radio"
             name="priority"
@@ -57,9 +72,9 @@ const Filter = ({closeModal}) => {
             backgroundColor="#bab8b8"
           />
           <RadioButtonLabel>Without priority</RadioButtonLabel>
-        </RadioWrapper>
+        </RadioWrapper> */}
 
-        <RadioWrapper>
+        {/* <RadioWrapper>
           <RadioButtonInput
             type="radio"
             name="priority"
@@ -93,7 +108,7 @@ const Filter = ({closeModal}) => {
             backgroundColor="#BEDBB0"
           />
           <RadioButtonLabel>High</RadioButtonLabel>
-        </RadioWrapper>
+        </RadioWrapper> */}
       </RadioButtonWrap>
     </div>
   );
@@ -104,4 +119,3 @@ export default Filter;
 Filter.propTypes = {
   closeModal: PropTypes.func.isRequired,
 };
-
