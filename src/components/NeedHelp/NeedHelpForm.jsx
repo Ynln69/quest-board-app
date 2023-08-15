@@ -11,7 +11,6 @@ import {
   Input,
   Textarea,
   ErrorText,
-  // ErrorUntouchComment,
 } from './NeedHelp.styled';
 
 const initialValues = {
@@ -32,9 +31,6 @@ const NeedHelpForm = ({ handleCloseModal }) => {
         resetForm(initialValues);
         handleCloseModal();
       } 
-      // else {
-      //   showToast('error', 'Request failed. Please try again.');
-      // }
     } catch (err) {
       showToast('error', `Request failed. ${err.message}`);
     }
@@ -47,14 +43,9 @@ const NeedHelpForm = ({ handleCloseModal }) => {
         validationSchema={HelpSchema}
         onSubmit={handleSubmit}
       >
-        {/* {({ errors, touched, submitCount }) => ( */}
           <Form autoComplete="off">
             <Input type="email" name="email" placeholder="Email address" />
             <ErrorText name="email" component="div" />
-            {/* <ErrorText>
-              {' '}
-              <ErrorMessage name="email" />
-            </ErrorText> */}
             <div>
               <Textarea
                 component="textarea"
@@ -65,20 +56,9 @@ const NeedHelpForm = ({ handleCloseModal }) => {
                 }}
               />
               <ErrorText name="comment" component="div"/>
-              {/* <ErrorText>
-                <ErrorMessage name="comment" />
-              </ErrorText> */}
-              {/* {submitCount > 0 &&
-                errors.comment &&
-                (!touched.comment || touched.comment) && (
-                  <ErrorUntouchComment>
-                    Please enter a comment
-                  </ErrorUntouchComment>
-                )} */}
             </div>
             <MainButton type="submit">Send</MainButton>
           </Form>
-        {/* )} */}
       </Formik>
     </div>
   );
