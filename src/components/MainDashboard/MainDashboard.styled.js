@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const MainContainer = styled.div`
   display: flex;
-  padding-bottom: 52px;
+  padding-bottom: 16px;
   gap: 34px;
 
   overflow-x: auto;
