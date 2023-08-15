@@ -35,6 +35,7 @@ export const Dashboard = () => {
       };
 
       dispatch(editBoard({ newBoard, id: newBoard._id }));
+      setEditFlag(false);
     }
   }, [cardData, editFlag, board, dispatch]);
 

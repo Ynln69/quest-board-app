@@ -117,8 +117,6 @@ function ModalBoard({ btnContent, closeModal, boardData }) {
           'Board with this title already exists. Choose another name, please!'
         );
       }
-      console.log('newBoard', newBoard);
-      console.log('boardData', boardData);
       dispatch(editBoard({ newBoard, id: boardData._id }));
     }
 
