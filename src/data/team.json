@@ -1,64 +1,64 @@
-{
-    "teamMembers": [
+
+    [
       {
-        "index": 2,
+        "index": 1,
         "name": "Яна Луніна",
         "role": "Team Lead/Developer",
-        "avatar": "/creators/5.jpg",
+        "avatar": "https://res.cloudinary.com/dyaazq8dl/image/upload/v1692092981/Yana_azhfqb.jpg",
         "telegram": "@ynln69",
         "github": "https://github.com/Ynln69",
         "linkedin": "https://www.linkedin.com/in/yana-lunina/"
       },
       {
-        "index": 3,
+        "index": 2,
         "name": "Ольга Кривулько",
         "role": "Scrum Master/Developer",
-        "avatar": "image",
+        "avatar": "https://res.cloudinary.com/dyaazq8dl/image/upload/v1692092981/Olja_mpxwqy.jpg",
         "telegram": "@olgakryv",
         "github": "OlgaOO7",
         "linkedin": "https://www.linkedin.com/in/olga-kryvulko/"
       },
       {
-        "index": 4,
+        "index": 3,
         "name": "Сергій Кульбашний",
         "role": "BackEnd Developer",
-        "avatar": "image",
+        "avatar": "https://res.cloudinary.com/dyaazq8dl/image/upload/v1692092980/Kulbashnyi_kjkjwz.jpg",
         "telegram": "https://t.me/Eugensson",
         "github": "https://github.com/Eugensson",
         "linkedin": "https://www.linkedin.com/in/serhii-kulbashnyi"
       },
       {
-        "index": 5,
+        "index": 4,
         "name": "Ярослав Ребрина",
         "role": "BackEnd Developer",
-        "avatar": "image",
+        "avatar": "https://res.cloudinary.com/dyaazq8dl/image/upload/v1692092981/Yaroslav_rxhenl.jpg",
         "telegram": "https://t.me/yarikDobriy",
         "github": "https://github.com/YaroslavRebrina",
         "linkedin": "https://www.linkedin.com/in/yaroslav-rebrina-82038026b/"
       },
       {
-        "index": 6,
+        "index": 5,
         "name": "Віктор Адамович",
         "role": "BackEnd Developer",
-        "avatar": "image",
-        "telegram": "",
-        "github": "",
-        "linkedin": ""
+        "avatar": "https://res.cloudinary.com/dyaazq8dl/image/upload/v1692092980/12_gjghtf.jpg",
+        "telegram": "t.me/addavikt",
+        "github": "https://github.com/addaviktory",
+        "linkedin": "https://www.linkedin.com/in/viktor-adamovych-2068a826a"
       },
       {
-        "index": 7,
+        "index": 6,
         "name": "Юрій Василенко",
         "role": "FullStack Developer",
-        "avatar": "image",
-        "telegram": "",
-        "github": "",
-        "linkedin": ""
+        "avatar": "https://res.cloudinary.com/dyaazq8dl/image/upload/v1692092979/3_bt2m7s.jpg",
+        "telegram": "https://t.me/dvb10",
+        "github": "https://github.com/VasilenkoYurii",
+        "linkedin": "https://www.linkedin.com/in/yurii-vasilenko/"
       },
       {
         "index": 8,
         "name": "Олексій Кочуров",
         "role": "FrontEnd Developer",
-        "avatar": "image",
+        "avatar": "https://res.cloudinary.com/dyaazq8dl/image/upload/v1692092981/Lesyk_y5omno.jpg",
         "telegram": "https://t.me/OleksiiKchrv/",
         "github": "https://github.com/Oleksii1994/",
         "linkedin": "http://linkedin.com/in/oleksii-kochurov-510619254"
@@ -67,7 +67,7 @@
         "index": 9,
         "name": "Іван Пантелюк",
         "role": "FrontEnd Developer",
-        "avatar": "image",
+        "avatar": "https://res.cloudinary.com/dyaazq8dl/image/upload/v1692092980/10_epurfc.jpg",
         "telegram": "https://t.me/johnnywalker57",
         "github": "https://github.com/ivanpanteliuk",
         "linkedin": "https://www.linkedin.com/in/serhii-kulbashnyi"
@@ -76,25 +76,25 @@
         "index": 10,
         "name": "Олег Торба",
         "role": "FrontEnd Developer",
-        "avatar": "image",
-        "telegram": "",
-        "github": "",
-        "linkedin": ""
+        "avatar": "https://res.cloudinary.com/dyaazq8dl/image/upload/v1692092981/Oleg_qcqgrz.jpg",
+        "telegram": "https://t.me/oleg_torba",
+        "github": "https://github.com/oleg-torba",
+        "linkedin": "https://www.linkedin.com/in/oleh-torba/"
       },
       {
         "index": 11,
         "name": "Людмила Козицька",
         "role": "FrontEnd Developer",
-        "avatar": "image",
-        "telegram": "",
-        "github": "",
-        "linkedin": ""
+        "avatar": "https://res.cloudinary.com/dyaazq8dl/image/upload/v1692092981/Luda_u9eu7a.jpg",
+        "telegram": "https://t.me/liudmyla_kozytska",
+        "github": "https://github.com/LiudmylaKozytska",
+        "linkedin": "https://www.linkedin.com/in/liudmyla-kozytska"
       },
       {
         "index": 12,
         "name": "Олександр Клин",
         "role": "FrontEnd Developer",
-        "avatar": "image",
+        "avatar": "https://res.cloudinary.com/dyaazq8dl/image/upload/v1692092980/KlunOl_udfghl.jpg",
         "telegram": "@sanytol",
         "github": "https://github.com/shklyn",
         "linkedin": "https://www.linkedin.com/in/oleksandr-klyn"
@@ -103,7 +103,7 @@
         "index": 13,
         "name": "Ельвіра Будна",
         "role": "FrontEnd Developer",
-        "avatar": "image",
+        "avatar": "https://res.cloudinary.com/dyaazq8dl/image/upload/v1692092980/Elvira_kwsznm.jpg",
         "telegram": "https://t.me/ElviraBudna",
         "github": "https://github.com/ElviraBudna",
         "linkedin": "https://www.linkedin.com/in/elvira-budna/"
@@ -112,10 +112,10 @@
         "index": 14,
         "name": "Інна Покидько",
         "role": "FrontEnd Developer",
-        "avatar": "image",
+        "avatar": "https://res.cloudinary.com/dyaazq8dl/image/upload/v1692092980/Inna_tlchnl.jpg",
         "telegram": "https://t.me/InnaPokydko",
         "github": "https://github.com/InnaPokydko",
         "linkedin": "https://www.linkedin.com/in/inna-pokydko-a6a652152/"
       }
     ]
-  }
+  

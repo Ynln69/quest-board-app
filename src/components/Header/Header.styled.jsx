@@ -63,8 +63,7 @@ export const SelectIcon = styled.svg`
   align-items: baseline;
   stroke: var(--chevron-down);
   fill: none;
-  z-index: 999;
-`;
+ `;
 
 export const Text = styled.div`
   color: var(--header_theme_text);

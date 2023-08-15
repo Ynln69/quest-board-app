@@ -1,17 +1,12 @@
-import React, { useState, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
-import { subDays, addDays, formatDistanceToNowStrict } from 'date-fns';
-import 'react-datepicker/dist/react-datepicker.css';
-import { Button, CalendarContainer, Icon } from './Calendar.styled';
+import { subDays, addDays } from 'date-fns';
+
+import { Button, Icon, CalendarContainer } from './Calendar.styled';
 import Sprite from '../../images/sprite.svg';
+import 'react-datepicker/dist/react-datepicker.css';
 
-export const Calendar = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  // eslint-disable-next-line
-  const result = formatDistanceToNowStrict(Date.parse(selectedDate), {
-    includeSeconds: true,
-  });
-
+export const Calendar = ({ selectedDate, setSelectedDate }) => {
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => {
     const formatDate = () => {
       const today = new Date();
@@ -26,7 +21,6 @@ export const Calendar = () => {
         return '';
       }
     };
-
     return (
       <Button type="button" onClick={onClick} ref={ref}>
         {formatDate(value)} {value}
