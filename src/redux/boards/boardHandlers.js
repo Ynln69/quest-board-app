@@ -27,7 +27,7 @@ export const handlePending = (state, { payload }) => {
 
 export const handleRejected = (state, { payload }) => {
   state.error = payload;
-  state.isLoading = false;
+  state.isRefreshing = false;
 };
 
 export const handleFulfilled = (state, { payload }) => {

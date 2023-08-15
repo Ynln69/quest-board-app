@@ -17,7 +17,7 @@ const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 const NotFoundPage = lazy(() =>
   import('../../pages/NotFoundPage/NotFoundPage')
 );
-const TeamPage = lazy(() => import('../../pages/TeamPage/TeanPage'));
+const TeamPage = lazy(() => import('../../pages/TeamPage/TeamPage'));
 
 export const App = () => {
   const dispatch = useDispatch();

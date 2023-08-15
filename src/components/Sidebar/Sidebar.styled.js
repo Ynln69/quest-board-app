@@ -5,7 +5,7 @@ export const SidebarBlock = styled.aside`
   display: flex;
   flex-direction: column;
   width: 225px;
-  min-height: 100%;
+  height: 100vh;
   padding: 14px;
 
   background-color: var(--nav_bgc);
