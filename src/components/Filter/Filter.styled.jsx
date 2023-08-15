@@ -51,7 +51,7 @@ export const RadioButtonWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin: 14px 0px 0px 0px;
+  margin: 15px 0px 0px 0px;
 `;
 
 export const RadioWrapper = styled.div`
