@@ -72,7 +72,6 @@ export const Column = ({
     const newTask = {
       [taskId]: {
         id: taskId,
-        // title: titleTask,
         title: title,
         description: description,
         priority: priority,
@@ -81,7 +80,6 @@ export const Column = ({
     };
 
     const columnId = dataForModal.id;
-    // console.log(setDataForModal);
 
     const newColumn = {
       ...cardData.columns[columnId],
@@ -220,16 +218,6 @@ export const Column = ({
                 {...provided.droppableProps}
                 isDraggingOver={snapshot.isDraggingOver}
               >
-                {/* {tasks.map((task, index) => (
-                <Task
-                  key={task.id}
-                  task={task}
-                  index={index}
-                  handleShowEditCardModal={handleShowEditCardModal}
-                  handleSubmitDeleteCard={handleSubmitDeleteCard}
-                />
-              ))} */}
-
                 {filteredTasks.map((task, index) => (
                   <Task
                     key={task.id}
@@ -239,15 +227,6 @@ export const Column = ({
                     handleSubmitDeleteCard={handleSubmitDeleteCard}
                   />
                 ))}
-                {/* {tasks.map((task, index) => {
-                  // return <Task key={task.id} task={task} index={index} />;
-                  if (property === 'all') {
-                    return <Task key={task.id} task={task} index={index} />;
-                  }
-                  if (property === task.priority) {
-                    return <Task key={task.id} task={task} index={index} />;
-                  }
-                })} */}
                 {provided.placeholder}
               </TaskList>
             )}

@@ -21,8 +21,6 @@ const TeamPage = lazy(() => import('../../pages/TeamPage/TeamPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
-
-  // const isLoggedIn = useSelector(selectIsLoggedIn);
   const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {

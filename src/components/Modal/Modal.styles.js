@@ -16,9 +16,6 @@ export const Backdrop = styled.section`
 
 const getModalStyles = ({ modalType, viewportWidth }) => {
   let styles = `
-
-    /* =============================== Спільні стилі для всіх модалок ========================================*/
-  
   position: absolute;
   top: 50%;
   left: 50%;

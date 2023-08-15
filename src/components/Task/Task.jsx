@@ -25,14 +25,6 @@ export const Task = ({
   const formatDate = format(new Date(), 'dd/MM/yyyy');
 
   const isDeadline = task.deadline === formatDate;
-
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // const handleOpenModal = () => {
-  //   console.log(isModalOpen);
-  //   setIsModalOpen(true);
-  // };
-
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided, snapshot) => (
@@ -43,7 +35,7 @@ export const Task = ({
           isDragging={snapshot.isDragging}
         >
           <LineContainer priority={task.priority} />
-          {/* <button onClick={() => console.log('awdawd')}></button> */}
+
           <TaskTitle>{task.title}</TaskTitle>
           <TaskDesc>{task.description}</TaskDesc>
           <TaskVector />
@@ -51,7 +43,7 @@ export const Task = ({
             <TaskContent>
               <TaskPrior priority={task.priority}>
                 <p>{task.priority}</p>
-                {/* <p>Priority</p> */}
+
                 <div />
               </TaskPrior>
               <TaskDeadline>
@@ -87,11 +79,6 @@ export const Task = ({
               </li>
             </TestListIcon>
           </TaskBox>
-          {/* {isModalOpen && (
-            <Modal heading={'Edit card'} isOpen={isOpen}>
-              <AddEditCardModal />
-            </Modal>
-          )} */}
         </TaskContainer>
       )}
     </Draggable>

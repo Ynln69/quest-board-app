@@ -13,85 +13,6 @@ import {
   CalendarWrap,
 } from './AddEditCard.styled';
 
-// function AddEditCardModal({
-//   setTitleTask,
-//   handleSubmit,
-//   setDescriptionTask,
-//   editedTask,
-// }) {
-//   const [newTitle, setNewTitle] = useState('');
-//   console.log(editedTask);
-//   const handleDescriptionChange = event => {
-//     setDescriptionTask(event.target.value);
-//   };
-
-//   const handleTitleChange = event => {
-//     setNewTitle(event.target.value);
-//     setTitleTask(event.target.value);
-//   };
-
-//   const handleButtonSubmit = event => {
-//     event.preventDefault();
-//     handleSubmit();
-//   };
-
-//   return (
-//     <>
-//       <TitleInput
-//         autoFocus
-//         name="title"
-//         placeholder="Title"
-//         type="text"
-//         value={newTitle}
-//         onChange={handleTitleChange}
-//       ></TitleInput>
-
-//       <DescriptionInput
-//         autoFocus
-//         name="description"
-//         type="text"
-//         placeholder="Description"
-//         onChange={handleDescriptionChange}
-//       ></DescriptionInput>
-//       <ModalText>Label color</ModalText>
-//       <RadioButtonWrap>
-//         <RadioButtonInput
-//           type="radio"
-//           name="color"
-//           backgroundColor="#8FA1D0"
-//         ></RadioButtonInput>
-//         <RadioButtonInput
-//           type="radio"
-//           name="color"
-//           backgroundColor="#E09CB5"
-//         ></RadioButtonInput>
-//         <RadioButtonInput
-//           type="radio"
-//           name="color"
-//           backgroundColor="#BEDBB0"
-//         ></RadioButtonInput>
-//         <RadioButtonInput
-//           type="radio"
-//           name="color"
-//           backgroundColor="#bab8b8"
-//         ></RadioButtonInput>
-//       </RadioButtonWrap>
-//       <ModalText>Deadline</ModalText>
-//       <CalendarWrap>
-//         <Calendar />
-//       </CalendarWrap>
-//       <ButtonContentWrap type="submit" onClick={handleButtonSubmit}>
-//         <ButtonIconWrap>
-//           <ButtonIcon>
-//             <use stroke="white" href={`${sprite}#icon-plus`} />
-//           </ButtonIcon>
-//         </ButtonIconWrap>
-//         <ButtonText>Add</ButtonText>
-//       </ButtonContentWrap>
-//     </>
-//   );
-// }
-
 function AddEditCardModal({ handleSubmit, editedTask }) {
   const [selectedDate, setSelectedDate] = useState(new Date());
 
@@ -125,7 +46,6 @@ function AddEditCardModal({ handleSubmit, editedTask }) {
   return (
     <Formik
       initialValues={initialValues}
-      // validationSchema={addTaskSchema}
       onSubmit={editedTask ? handleSubmitEdit : handleSubmitAdd}
     >
       {({ handleChange, values }) => (

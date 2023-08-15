@@ -61,54 +61,6 @@ const Filter = ({ closeModal }) => {
             <RadioButtonLabel>{option.label}</RadioButtonLabel>
           </RadioWrapper>
         ))}
-
-        {/* <RadioWrapper>
-          <RadioButtonInput
-            type="radio"
-            name="priority"
-            value="without priority"
-            checked={selectedPriority === 'without priority'}
-            onChange={handleFilteredPriority}
-            backgroundColor="#bab8b8"
-          />
-          <RadioButtonLabel>Without priority</RadioButtonLabel>
-        </RadioWrapper> */}
-
-        {/* <RadioWrapper>
-          <RadioButtonInput
-            type="radio"
-            name="priority"
-            value="low"
-            checked={selectedPriority === 'low'}
-            onChange={handleFilteredPriority}
-            backgroundColor="#8FA1D0"
-          />
-          <RadioButtonLabel>Low</RadioButtonLabel>
-        </RadioWrapper>
-
-        <RadioWrapper>
-          <RadioButtonInput
-            type="radio"
-            name="priority"
-            value="medium"
-            checked={selectedPriority === 'medium'}
-            onChange={handleFilteredPriority}
-            backgroundColor="#E09CB5"
-          />
-          <RadioButtonLabel>Medium</RadioButtonLabel>
-        </RadioWrapper>
-
-        <RadioWrapper>
-          <RadioButtonInput
-            type="radio"
-            name="priority"
-            value="high"
-            checked={selectedPriority === 'high'}
-            onChange={handleFilteredPriority}
-            backgroundColor="#BEDBB0"
-          />
-          <RadioButtonLabel>High</RadioButtonLabel>
-        </RadioWrapper> */}
       </RadioButtonWrap>
     </div>
   );

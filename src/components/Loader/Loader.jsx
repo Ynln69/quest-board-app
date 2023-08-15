@@ -1,11 +1,8 @@
-// import { PropagateLoader } from 'react-spinners';
-
 import { LoaderCont } from './Loader.styled';
 
 const Loader = () => {
   return (
     <LoaderCont>
-      {/* <PropagateLoader color="#BEDBB0" size={20} /> */}
       <div id="page">
         <div id="container">
           <div id="ring"></div>
