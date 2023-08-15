@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/quest-board-app/static/css/main.df97ec54.css",
-    "main.js": "/quest-board-app/static/js/main.11848f61.js",
+    "main.js": "/quest-board-app/static/js/main.f2326436.js",
     "static/js/544.a6c29095.chunk.js": "/quest-board-app/static/js/544.a6c29095.chunk.js",
     "static/js/786.5da79be9.chunk.js": "/quest-board-app/static/js/786.5da79be9.chunk.js",
-    "static/js/730.093210b9.chunk.js": "/quest-board-app/static/js/730.093210b9.chunk.js",
+    "static/js/730.76de9209.chunk.js": "/quest-board-app/static/js/730.76de9209.chunk.js",
     "static/js/146.b2eba504.chunk.js": "/quest-board-app/static/js/146.b2eba504.chunk.js",
     "static/js/616.7dc11cf8.chunk.js": "/quest-board-app/static/js/616.7dc11cf8.chunk.js",
     "static/js/833.ac7b5243.chunk.js": "/quest-board-app/static/js/833.ac7b5243.chunk.js",
@@ -21,10 +21,10 @@
     "index.html": "/quest-board-app/index.html",
     "static/media/eye-hide.svg": "/quest-board-app/static/media/eye-hide.accfc4141682c117e0a89ff4d886ee4d.svg",
     "main.df97ec54.css.map": "/quest-board-app/static/css/main.df97ec54.css.map",
-    "main.11848f61.js.map": "/quest-board-app/static/js/main.11848f61.js.map",
+    "main.f2326436.js.map": "/quest-board-app/static/js/main.f2326436.js.map",
     "544.a6c29095.chunk.js.map": "/quest-board-app/static/js/544.a6c29095.chunk.js.map",
     "786.5da79be9.chunk.js.map": "/quest-board-app/static/js/786.5da79be9.chunk.js.map",
-    "730.093210b9.chunk.js.map": "/quest-board-app/static/js/730.093210b9.chunk.js.map",
+    "730.76de9209.chunk.js.map": "/quest-board-app/static/js/730.76de9209.chunk.js.map",
     "146.b2eba504.chunk.js.map": "/quest-board-app/static/js/146.b2eba504.chunk.js.map",
     "616.7dc11cf8.chunk.js.map": "/quest-board-app/static/js/616.7dc11cf8.chunk.js.map",
     "833.ac7b5243.chunk.js.map": "/quest-board-app/static/js/833.ac7b5243.chunk.js.map",
@@ -32,6 +32,6 @@
   },
   "entrypoints": [
     "static/css/main.df97ec54.css",
-    "static/js/main.11848f61.js"
+    "static/js/main.f2326436.js"
   ]
 }
