@@ -22,6 +22,7 @@ import { selectTheme } from 'redux/auth/selectors';
 import { selectBoards, selectRefreshError } from 'redux/boards/boardsSelectors';
 import Loader from 'components/Loader/Loader';
 import { showToast } from 'components/Notification/ToastNotification';
+import { useNavigate } from 'react-router-dom';
 
 const icons = [
   'icon-project',
@@ -58,6 +59,7 @@ function ModalBoard({ btnContent, closeModal, boardData }) {
   const theme = useSelector(selectTheme).toLowerCase();
   const { isRefreshing } = useSelector(selectRefreshError);
   const boards = useSelector(selectBoards);
+  const navigate = useNavigate();
 
   const initialValues =
     btnContent === 'Create'
@@ -102,6 +104,7 @@ function ModalBoard({ btnContent, closeModal, boardData }) {
       };
 
       dispatch(createBoard(newBoardWithData));
+      navigate(newBoardWithData.title);
     } else if (
       values.title !== boardData.title ||
       values.icon !== boardData.icon ||
