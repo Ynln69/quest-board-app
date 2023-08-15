@@ -19,16 +19,17 @@ export const PageHeader = styled.header`
   }
 `;
 
-export const MenuBtn = styled.div`
+export const MenuBtn = styled.button`
   width: 32px;
   height: 32px;
   border: none;
+  background-color: transparent;
 `;
 
 export const MenuIcon = styled.svg`
   width: 24px;
   height: 24px;
-  stroke: var(--header_bgc);
+ stroke: var(--header_user_text);
 
   @media screen and (min-width: 375px) {
     width: 32px;
@@ -42,7 +43,7 @@ export const MenuIcon = styled.svg`
 
 export const HeaderWrap = styled.div`
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 14px;
   position: relative;
  `;

@@ -22,6 +22,7 @@ import { selectTheme } from 'redux/auth/selectors';
 import { selectBoards, selectRefreshError } from 'redux/boards/boardsSelectors';
 import Loader from 'components/Loader/Loader';
 import { showToast } from 'components/Notification/ToastNotification';
+import { useNavigate } from 'react-router-dom';
 
 const icons = [
   'icon-project',
@@ -58,6 +59,7 @@ function ModalBoard({ btnContent, closeModal, boardData }) {
   const theme = useSelector(selectTheme).toLowerCase();
   const { isRefreshing } = useSelector(selectRefreshError);
   const boards = useSelector(selectBoards);
+  const navigate = useNavigate();
 
   const initialValues =
     btnContent === 'Create'
@@ -88,7 +90,21 @@ function ModalBoard({ btnContent, closeModal, boardData }) {
           'Board with this title already exists. Choose another name, please!'
         );
       }
-      dispatch(createBoard(newBoard));
+
+      const newBoardWithData = {
+        id: boardId,
+        title: values.title.trim(),
+        icon: values.icon,
+        background: values.background,
+        boardsData: {
+          tasks: {},
+          columns: {},
+          columnOrder: [],
+        },
+      };
+
+      dispatch(createBoard(newBoardWithData));
+      navigate(newBoardWithData.title);
     } else if (
       values.title !== boardData.title ||
       values.icon !== boardData.icon ||
@@ -105,6 +121,7 @@ function ModalBoard({ btnContent, closeModal, boardData }) {
         );
       }
       dispatch(editBoard({ newBoard, id: boardData._id }));
+      navigate(newBoard.title);
     }
 
     resetForm();

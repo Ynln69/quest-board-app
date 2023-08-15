@@ -14,7 +14,6 @@ import Modal from 'components/Modal/Modal';
 import ModalColumn from 'components/ModalColumn/ModalColumn';
 
 export const MainDashboard = ({ cardData, setCardData, setEditFlag }) => {
-  // кто будет делать этот блок, обратите внимание что именно приходит в cardData
   const [visible, setVisible] = useState(false);
 
   const handlerVisible = () => {
@@ -25,11 +24,9 @@ export const MainDashboard = ({ cardData, setCardData, setEditFlag }) => {
     const columnId = `2${uuidv4().replace(/-/g, '')}`;
 
     const newColumn = {
-      [columnId]: {
-        id: columnId,
-        title: data,
-        taskIds: [],
-      },
+      id: columnId,
+      title: data,
+      taskIds: [],
     };
 
     setEditFlag(true);
@@ -37,28 +34,13 @@ export const MainDashboard = ({ cardData, setCardData, setEditFlag }) => {
       ...cardData,
       columns: {
         ...cardData.columns,
-        ...newColumn,
+        [columnId]: newColumn,
       },
-      columnOrder: [...cardData.columnOrder, ...[columnId]],
+      columnOrder: [...cardData.columnOrder, columnId],
     });
 
     handlerVisible();
   };
-  // Эти три функции ниже отвечают за главный функционал переставления карточек между колонками и в колонках
-  // а так же за анимацию при их передвижение
-  // const onDragStart = () => {
-  //   document.body.style.color = 'inherit';
-  //   document.body.style.transition = 'background-color 0.2s ease';
-  // };
-
-  // const onDragUpdate = update => {
-  //   const { destination } = update;
-  //   const opacity = destination
-  //     ? destination.index / Object.keys(cardData.tasks).length
-  //     : 0;
-
-  //   document.body.style.backgroundColor = `rgba(153, 141, 217, ${opacity})`;
-  // };
 
   const onDragEnd = result => {
     const { destination, source, draggableId, type } = result;
@@ -146,16 +128,8 @@ export const MainDashboard = ({ cardData, setCardData, setEditFlag }) => {
 
   return (
     <MainContainer>
-      <DragDropContext
-        // onDragStart={onDragStart}
-        // onDragUpdate={onDragUpdate}
-        onDragEnd={onDragEnd}
-      >
-        <Droppable
-          droppableId="all-columns"
-          direction="horizontal"
-          type="column"
-        >
+      <DragDropContext onDragEnd={onDragEnd}>
+        <Droppable droppableId="all-columns" direction="horizontal" type="column">
           {provided => (
             <Container {...provided.droppableProps} ref={provided.innerRef}>
               {cardData?.columnOrder.map((columnId, index) => {
@@ -163,9 +137,7 @@ export const MainDashboard = ({ cardData, setCardData, setEditFlag }) => {
                 if (!column) {
                   return null;
                 }
-                const tasks = column.taskIds.map(
-                  taskId => cardData.tasks[taskId]
-                );
+                const tasks = column.taskIds.map(taskId => cardData.tasks[taskId]);
 
                 return (
                   <Column
@@ -207,3 +179,4 @@ export const MainDashboard = ({ cardData, setCardData, setEditFlag }) => {
     </MainContainer>
   );
 };
+ 

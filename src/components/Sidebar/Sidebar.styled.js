@@ -257,7 +257,18 @@ export const MainBoard = styled.div`
 
 export const Section = styled.div`
   padding-top: 70px;
-  @media screen snd (min-width: 768px) {
+  padding-bottom: 20px;
+  @media screen and (min-width: 768px) {
     padding-top: 60px;
   }
+`;
+
+export const NavTeam = styled(NavLink)`
+  display: flex;
+  padding-top: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--board_main_color);
+  font-weight: 400;
+  font-size: 12px;
 `;

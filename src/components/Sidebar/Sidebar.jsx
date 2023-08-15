@@ -23,13 +23,12 @@ import {
   MainBoard,
   ButtonIcon,
   TitleHidden,
+  NavTeam,
 } from './Sidebar.styled';
 import sprite from '../../images/sprite.svg';
 import flower from '../../images/need-help-img.png';
 
 import { useState, useEffect, forwardRef } from 'react';
-// eslint-disable-next-line
-import { showToast } from 'components/Notification/ToastNotification';
 import { logOut } from 'redux/auth/operations';
 import NeedHelpModal from 'components/NeedHelp/NeedHelpModal';
 import { deleteBoard } from 'redux/boards/boardOperations';
@@ -38,7 +37,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getBoards } from 'redux/boards/boardOperations';
 import Modal from 'components/Modal/Modal';
 import ModalBoard from 'components/ModalBoard';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const actionsList = { add: 'add', edit: 'edit' };
 
@@ -189,7 +188,7 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
         </svg>
         Log out
       </LogoutBtn>
-      <Link to="/home/team">TeamPage</Link>
+      <NavTeam to="/home/team">WEB RENGERS</NavTeam>
     </SidebarBlock>
   );
 });
