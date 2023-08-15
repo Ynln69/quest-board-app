@@ -2,13 +2,14 @@ import styled from '@emotion/styled';
 
 export const Container = styled.li`
   border-radius: 2px;
-  width: 334px;
 
   display: flex;
   flex-direction: column;
   gap: 8px;
+  position: relative;
 `;
 export const TitleBox = styled.div`
+  width: 334px;
   min-height: 56px;
   display: flex;
   justify-content: space-between;
@@ -48,6 +49,7 @@ export const Svg = styled.svg`
 `;
 
 export const TaskList = styled.ul`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -57,13 +59,18 @@ export const TaskList = styled.ul`
 
   flex-grow: 1;
   overflow-y: auto;
+
   &::-webkit-scrollbar {
+    position: absolute;
+    right: -16px;
     border-radius: 12px;
     width: 8px;
     background: var(--scroll);
   }
 
   &::-webkit-scrollbar-thumb {
+    position: absolute;
+    right: -16px;
     background-color: var(--scroll-wrapp);
     border-radius: 12px;
     width: 8px;
