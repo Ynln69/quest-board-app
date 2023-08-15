@@ -38,6 +38,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getBoards } from 'redux/boards/boardOperations';
 import Modal from 'components/Modal/Modal';
 import ModalBoard from 'components/ModalBoard';
+import { Link } from 'react-router-dom';
 
 const actionsList = { add: 'add', edit: 'edit' };
 
@@ -48,8 +49,6 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
   const [isShowHelp, setIsShowHelp] = useState(false);
   const boards = useSelector(selectBoards);
   const dispatch = useDispatch();
-
-  console.log(useSelector(selectBoards));
 
   useEffect(() => {
     dispatch(getBoards());
@@ -190,6 +189,7 @@ export const Sidebar = forwardRef(({ theme, isOpen }, ref) => {
         </svg>
         Log out
       </LogoutBtn>
+      <Link to="/home/team">TeamPage</Link>
     </SidebarBlock>
   );
 });

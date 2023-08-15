@@ -15,7 +15,6 @@ import {
 } from './HomePage.styled';
 import { selectBoards } from 'redux/boards/boardsSelectors';
 import { showToast } from 'components/Notification/ToastNotification';
-
 const HomePage = () => {
   const buttonAddRef = useRef();
   const boards = useSelector(selectBoards);
@@ -56,7 +55,7 @@ const HomePage = () => {
           <HomeSection>
             <TitlePage>
               Before starting your project, it is essential{' '}
-              <LinkToCreate onClick={handleModalBoardCreateClick}>
+              <LinkToCreate type="button" onClick={handleModalBoardCreateClick}>
                 to create a board
               </LinkToCreate>
               to visualize and track all the necessary tasks and milestones.
