@@ -153,7 +153,20 @@ export const Column = ({
   };
 
   const handleSubmitEdit = data => {
-    column.title = data;
+    const updatedColumn = {
+      ...column,
+      title: data,
+    };
+
+    setEditFlag(true);
+    setCardData(prevCardData => ({
+      ...prevCardData,
+      columns: {
+        ...prevCardData.columns,
+        [column.id]: updatedColumn,
+      },
+    }));
+
     handleVisibleEdit();
   };
 
