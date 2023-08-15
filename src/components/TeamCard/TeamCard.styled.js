@@ -2,14 +2,14 @@ import styled from '@emotion/styled';
 import { Card } from 'react-bootstrap';
 
 export const StyledCard = styled(Card)`
-  border-radius: 40px 0 40px 0;
+  // border-radius: 40px 0 40px 0;
+  border: none;
   display: flex;
   justify-content: center;
   transition: transform 0.3s;
-  margin: 20px;
+  margin: 10px;
   width: 180px;
-  height: 225px;
-  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
+  height: 280px;
 
   &:hover {
     transform: translateY(-10px);
@@ -17,25 +17,32 @@ export const StyledCard = styled(Card)`
 `;
 
 export const StyledCardImg = styled(Card.Img)`
-  width: 100px;
-  height: 150px;
+border-radius: 40px 0 40px 0;
+box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
+  width: 150px;
+  height: 180px;
   object-fit: cover;
 `;
 
 export const StyledCardBody = styled(Card.Body)`
+display: flex;
+flex-direction: column;
+align-items: center;
   text-align: center;
   width: 200px;
+  gap: 8px;
 `;
 
 export const StyledCardTitle = styled(Card.Title)`
-  font-size: 1.25rem;
-  margin-bottom: 10px;
+font-family: Poppins;
+font-size: 16px;
+font-weight: 400;
+letter-spacing: -0.28px;
 `;
 
 export const StyledCardText = styled(Card.Text)`
-  font-size: 1rem;
+font-size: 12px;
   color: #777;
-  margin-bottom: 20px;
 `;
 
 export const SocialLinks = styled.div`
@@ -44,7 +51,7 @@ export const SocialLinks = styled.div`
 `;
 
 export const SocialIcon = styled.a`
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   margin: 0 10px;
   color: #333;
   transition: color 0.3s;

@@ -1,29 +1,37 @@
 import React from 'react';
 import TeamCard from 'components/TeamCard/TeamCard';
-import teamMembers from '../../team.json';
+import teamMembersData from '../../data/team.json'
 import { Col } from 'react-bootstrap';
-import { ContainerWrap, Text, RowContainer } from './TeamPage.styled';
+import { ContainerWrap, RowContainer, Text } from './TeamPage.styled';
 
 const TeamPage = () => {
-  return (
-    <ContainerWrap>
-      <Text>Our Dream Team</Text>
-      <RowContainer>
-        {teamMembers.map((member, index) => (
-          <Col key={index} sm={4}>
-            <TeamCard
-              name={member.name}
-              role={member.role}
-              avatar={member.avatar}
-              telegram={member.telegram}
-              github={member.github}
-              linkedin={member.linkedin}
-            />
-          </Col>
-        ))}
-      </RowContainer>
-    </ContainerWrap>
-  );
+  const teamMembers = teamMembersData || [];
+  console.log(teamMembers);
+  try {
+    return (
+      <ContainerWrap>
+        <Text>WEB RENGERS</Text>
+        <RowContainer>
+          {teamMembers.map((member, index) => (
+            <Col key={index} sm={4}>
+              <TeamCard
+                name={member.name}
+                role={member.role}
+                avatar={member.avatar}
+                telegram={member.telegram}
+                github={member.github}
+                linkedin={member.linkedin}
+              />
+            </Col>
+          ))}
+        </RowContainer>
+      </ContainerWrap>
+    );
+  } catch (error) {
+    console.error('Error rendering team members:', error);
+    return null; 
+  }
+  
 };
 
 export default TeamPage;
