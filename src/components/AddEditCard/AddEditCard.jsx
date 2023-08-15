@@ -1,6 +1,9 @@
+import React, { useState } from 'react';
 import { Form, Formik } from 'formik';
+import { format } from 'date-fns';
 import MainButton from 'components/MainButton';
 import { Calendar } from '../Calendar/Calendar';
+
 import {
   TitleInput,
   DescriptionInput,
@@ -90,18 +93,33 @@ import {
 // }
 
 function AddEditCardModal({ handleSubmit, editedTask }) {
-  const handleSubmitAdd = ({ title, description, priority }, { resetForm }) => {
-    handleSubmit(title, description, priority);
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
+  const handleSubmitAdd = (
+    { title, description, priority, deadline },
+    { resetForm }
+  ) => {
+    const formattedDeadline = format(new Date(selectedDate), 'dd/MM/yyyy');
+    handleSubmit(title, description, priority, formattedDeadline);
   };
 
   const handleSubmitEdit = (values, { resetForm }) => {
-    handleSubmit(editedTask.id, values.title, values.description);
+    const formattedDeadline = format(new Date(selectedDate), 'dd/MM/yyyy');
+
+    handleSubmit(
+      editedTask.id,
+      values.title,
+      values.description,
+      values.priority,
+      formattedDeadline
+    );
   };
 
   const initialValues = {
     title: editedTask ? editedTask.title : '',
     description: editedTask ? editedTask.description : '',
     priority: editedTask ? editedTask.priority : 'without priority',
+    deadline: editedTask ? editedTask.deadline : selectedDate,
   };
 
   return (
@@ -156,7 +174,10 @@ function AddEditCardModal({ handleSubmit, editedTask }) {
           </RadioButtonWrap>
           <ModalText>Deadline</ModalText>
           <CalendarWrap>
-            <Calendar />
+            <Calendar
+              selectedDate={selectedDate}
+              setSelectedDate={setSelectedDate}
+            />
           </CalendarWrap>
           <MainButton type="submit" showPlus={true}>
             Add
