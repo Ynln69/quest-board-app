@@ -11,8 +11,10 @@ import {
   TaskPrior,
   TaskDeadline,
   TestListIcon,
+  IconBell,
 } from './Task.styled';
 import sprite from '../../images/sprite.svg';
+import { format } from 'date-fns';
 
 export const Task = ({
   task,
@@ -20,6 +22,10 @@ export const Task = ({
   handleShowEditCardModal,
   handleSubmitDeleteCard,
 }) => {
+  const formatDate = format(new Date(), 'dd/MM/yyyy');
+
+  const isDeadline = task.deadline === formatDate;
+
   // const [isModalOpen, setIsModalOpen] = useState(false);
 
   // const handleOpenModal = () => {
@@ -55,21 +61,25 @@ export const Task = ({
             </TaskContent>
             <TestListIcon>
               <li>
-                <button>
-                  <svg width={16} height={16}>
-                    <use xlinkHref={`${sprite}#icon-bell`} />
-                  </svg>
-                </button>
+                <IconBell isActive={isDeadline} width={16} height={16}>
+                  <use xlinkHref={`${sprite}#icon-bell`} />
+                </IconBell>
               </li>
               <li>
-                <button onClick={() => handleShowEditCardModal(task)}>
+                <button
+                  type="button"
+                  onClick={() => handleShowEditCardModal(task)}
+                >
                   <svg width={16} height={16}>
                     <use xlinkHref={`${sprite}#icon-pencil`} />
                   </svg>
                 </button>
               </li>
               <li>
-                <button onClick={() => handleSubmitDeleteCard(task.id)}>
+                <button
+                  type="button"
+                  onClick={() => handleSubmitDeleteCard(task.id)}
+                >
                   <svg width={16} height={16}>
                     <use xlinkHref={`${sprite}#icon-trash`} />
                   </svg>
