@@ -51,6 +51,7 @@ export const SvgWrapper = styled.div`
 `;
 
 export const SvgAdd = styled.svg`
+  display: block;
   width: 14px;
   height: 14px;
   stroke: var(--plus_color);

@@ -60,6 +60,7 @@ export const BoxSvg = styled.span`
   margin-right: 7px;
 `;
 export const SvgAdd = styled.svg`
+  display: block;
   width: 14px;
   height: 14px;
   stroke: var(--add_plus_color);
