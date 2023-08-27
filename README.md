@@ -13,3 +13,20 @@ convenience, we have also implemented registration through a Google account.
 
 After registration, the user is directed to the home page, where they can start
 working with the application immediately. ![HomePage](./assets/homepage.png)
+
+The application's functionality includes:
+
+1. Creating a new board (where users can add columns with tasks).
+   ![Add board](./assets/createNewBoard.png)
+2. Editing boards (users can choose a suitable label and background for the
+   board). ![Edit board](./assets/editBoard.png)
+3. Editing columns. ![Add column](./assets/addColumn.png)
+4. Creating/editing tasks (users can set task priorities and due dates).
+   ![Add task](./assets/addTask.png) ![Edit task](./assets/editTask.png)
+5. Task filtering. ![Filter](./assets/filter.png)
+6. Changing the app's theme. ![Theme](./assets/filter.png)
+7. Modifying user profiles (the ability to set an avatar, change name, email,
+   and password). ![Edit Profile](./assets/editProfile.png)
+8. Technical support (if users have specific questions or suggestions for
+   improving the application, they can send us an email).
+   ![Need Help](./assets/needHelp.png)
