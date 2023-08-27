@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import UserInfo from 'components/UserInfo/UserInfo';
+
 import { selectUser } from 'redux/auth/selectors';
+
+import UserInfo from 'components/UserInfo/UserInfo';
 import { Sidebar } from 'components/Sidebar/Sidebar';
 import { Backdrop } from 'components/Modal/Modal.styles';
 import ThemeSelector from 'components/ThemeSelector/ThemeSelector';

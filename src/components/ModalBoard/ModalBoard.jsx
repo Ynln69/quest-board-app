@@ -1,10 +1,20 @@
-import React from 'react';
-import { Formik, Form } from 'formik';
 import PropTypes from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
 import { nanoid } from '@reduxjs/toolkit';
-import sprite from '../../images/sprite.svg';
+import { Formik, Form } from 'formik';
+import { v4 as uuidv4 } from 'uuid';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { createBoard, editBoard } from 'redux/boards/boardOperations';
+import { selectTheme } from 'redux/auth/selectors';
+import { selectBoards, selectRefreshError } from 'redux/boards/boardsSelectors';
+
+import MainButton from 'components/MainButton';
+import Loader from 'components/Loader/Loader';
+import { showToast } from 'components/Notification/ToastNotification';
+
 import { addBoardSchema } from 'schemas';
+
 import {
   BgImagesWrapper,
   ErrorMsg,
@@ -14,15 +24,7 @@ import {
   StyledSVG,
   StyledSubtitle,
 } from './ModalBoard.styles';
-import { useDispatch } from 'react-redux';
-import { createBoard, editBoard } from 'redux/boards/boardOperations';
-import MainButton from 'components/MainButton';
-import { useSelector } from 'react-redux';
-import { selectTheme } from 'redux/auth/selectors';
-import { selectBoards, selectRefreshError } from 'redux/boards/boardsSelectors';
-import Loader from 'components/Loader/Loader';
-import { showToast } from 'components/Notification/ToastNotification';
-import { useNavigate } from 'react-router-dom';
+import sprite from '../../images/sprite.svg';
 
 const icons = [
   'icon-project',

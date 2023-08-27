@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { selectBoards } from 'redux/boards/boardsSelectors';
+import { useParams } from 'react-router';
+import { editBoard } from 'redux/boards/boardOperations'; 
 
 import { HeaderDashboard } from 'components/HeaderDashboard/HeaderDashboard';
 import { MainDashboard } from 'components/MainDashboard/MainDashboard';
-import { ContainerDashboard, DynamicContainer } from './Dashboard.styled';
 
-import { selectBoards } from 'redux/boards/boardsSelectors';
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router';
-import { editBoard } from 'redux/boards/boardOperations';
 import { boardBackgrounds } from 'constants/boardBackgrounds';
+
+import { ContainerDashboard, DynamicContainer } from './Dashboard.styled';
 
 export const Dashboard = () => {
   const dispatch = useDispatch();

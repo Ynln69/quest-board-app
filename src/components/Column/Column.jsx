@@ -1,11 +1,15 @@
-import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { showToast } from '../Notification/ToastNotification';
-
 import { Droppable, Draggable } from 'react-beautiful-dnd';
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
+import { selectFilterPriority } from 'redux/filter/filterSelector';
+
 import { Task } from 'components/Task/Task';
 import Modal from '../Modal/Modal';
 import AddEditCardModal from '../AddEditCard/AddEditCard';
+import { showToast } from '../Notification/ToastNotification';
+
 import {
   Container,
   Title,
@@ -15,8 +19,7 @@ import {
   BoxSvg,
 } from './Column.styled';
 import sprite from '../../images/sprite.svg';
-import { selectFilterPriority } from 'redux/filter/filterSelector';
-import { useSelector } from 'react-redux';
+
 import MainButton from 'components/MainButton';
 import ModalColumn from '../ModalColumn/ModalColumn';
 

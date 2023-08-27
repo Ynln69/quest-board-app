@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { HeadContainer, HeadText, ButtonFilter, FilterSvg } from './HeaderDashboard.styled';
-import FilterModal from '../Filter/FilterModal';
-import sprite from '../../images/sprite.svg';
 import { useParams } from 'react-router-dom';
+
+import FilterModal from '../Filter/FilterModal';
+
+import { HeadContainer, HeadText, ButtonFilter, FilterSvg } from './HeaderDashboard.styled';
+import sprite from '../../images/sprite.svg';
 
 export const HeaderDashboard = () => {
   const [isShowModal, setIsShowModal] = useState(false);

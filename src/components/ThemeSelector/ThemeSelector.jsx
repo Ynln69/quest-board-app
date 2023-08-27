@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
 import { selectUser } from 'redux/auth/selectors';
 import { updateUser } from 'redux/auth/operations';
+
 import { ThemeContainer, ThemeList, ThemeItem } from './ThemeSelector.styled';
 
 const ThemeSelector = ({ onClose }) => {

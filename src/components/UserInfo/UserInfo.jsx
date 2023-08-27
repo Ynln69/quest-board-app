@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+
+import { selectUser } from 'redux/auth/selectors';
+
 import { Container, Avatar, UserIcon } from './UserInfo.styled';
 import EditProfileModal from 'components/EditProfile/EditProfileModal';
+
 import Sprite from '../../images/sprite.svg';
-import { selectUser } from 'redux/auth/selectors';
 
 const UserInfo = ({ theme }) => {
   const { username, avatarURL } = useSelector(selectUser);

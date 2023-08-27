@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import Modal from '../Modal/Modal';
 import Filter from './Filter';
 

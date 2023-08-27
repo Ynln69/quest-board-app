@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import { needHelp } from '../../redux/auth/operations';
 import { HelpSchema } from 'schemas/helpSchema';
+
 import MainButton from 'components/MainButton';
 import { showToast } from '../Notification/ToastNotification';
 

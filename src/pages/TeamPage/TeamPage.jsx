@@ -1,7 +1,9 @@
 import React from 'react';
-import TeamCard from 'components/TeamCard/TeamCard';
-import teamMembersData from '../../data/team.json';
 import { Col } from 'react-bootstrap';
+
+import teamMembersData from '../../data/team.json';
+import TeamCard from 'components/TeamCard/TeamCard';
+
 import { ContainerWrap, RowContainer, Text } from './TeamPage.styled';
 
 const TeamPage = () => {

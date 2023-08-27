@@ -1,8 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { updateUser, updateUserAvatar } from 'redux/auth/operations';
+import { selectUser } from 'redux/auth/selectors';
+
 import MainButton from 'components/MainButton';
+import { showToast } from 'components/Notification/ToastNotification';
+
 import {
   FormBox,
   AvatarImage,
@@ -17,11 +23,10 @@ import {
   Svg,
   LabelPass,
 } from './EditProfile.styled';
-import { updateUser, updateUserAvatar } from 'redux/auth/operations';
-import { selectUser } from 'redux/auth/selectors';
+
 import Sprite from '../../images/sprite.svg';
 import eyeHide from '../../images/eye-hide.svg';
-import { showToast } from 'components/Notification/ToastNotification';
+
 
 const EditProfile = ({ onClose }) => {
   const { username, theme, email, avatarURL } =

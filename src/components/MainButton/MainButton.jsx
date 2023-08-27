@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import { StyledButton, SvgAdd, SvgWrapper } from './MainButton.styled';
 import sprite from '../../images/sprite.svg';
 

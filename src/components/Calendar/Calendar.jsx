@@ -1,10 +1,11 @@
-import React, { forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 import { subDays, addDays } from 'date-fns';
+import { forwardRef } from 'react';
 
 import { Button, Icon, CalendarContainer } from './Calendar.styled';
-import Sprite from '../../images/sprite.svg';
+
 import 'react-datepicker/dist/react-datepicker.css';
+import Sprite from '../../images/sprite.svg';
 
 export const Calendar = ({ selectedDate, setSelectedDate }) => {
   const ExampleCustomInput = forwardRef(({ value, onClick }, ref) => {

@@ -1,7 +1,9 @@
 import { Suspense, useEffect, useRef } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+
 import { selectUser } from 'redux/auth/selectors';
+import { selectBoards } from 'redux/boards/boardsSelectors';
 
 import Header from 'components/Header/Header';
 import Loader from 'components/Loader/Loader';
@@ -13,7 +15,6 @@ import {
   TitlePage,
   LinkToCreate,
 } from './HomePage.styled';
-import { selectBoards } from 'redux/boards/boardsSelectors';
 
 const HomePage = () => {
   const buttonAddRef = useRef();

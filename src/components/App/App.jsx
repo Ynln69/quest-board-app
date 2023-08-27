@@ -1,15 +1,18 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense, useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { refreshUser } from 'redux/auth/operations';
+import { selectIsRefreshing } from 'redux/auth/selectors';
+
 import PrivateRoute from 'components/PrivateRoute';
 import RestrictedRoute from 'components/RestrictedRoute';
 import { RegisterForm } from 'components/RegisterForm/Registerform';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 import { Dashboard } from 'components/Dashboard/Dashboard';
 import Loader from 'components/Loader/Loader';
-import { useDispatch, useSelector } from 'react-redux';
-import { refreshUser } from 'redux/auth/operations';
-import { selectIsRefreshing } from 'redux/auth/selectors';
+
 
 const WelcomePage = lazy(() => import('../../pages/WelcomePage/WelcomePage'));
 const AuthPage = lazy(() => import('../../pages/AuthPage/AuthPage'));

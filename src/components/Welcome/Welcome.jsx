@@ -1,12 +1,12 @@
-import React from 'react';
-import icons from '../../images/sprite.svg';
-import { useState, useEffect } from 'react';
-import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
+import { googleLogout, useGoogleLogin } from '@react-oauth/google';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+
 import { googleRegister, logIn } from '../../redux/auth/operations';
 import { GoogleBtn } from 'components/GoogleBtn/GoogleBtn';
 import { showToast } from 'components/Notification/ToastNotification';
+import icons from '../../images/sprite.svg';
 
 import {
   Container,
@@ -103,9 +103,7 @@ function Welcome() {
               text={'Sign in with Google'}
             ></GoogleBtn>
           ) : (
-            <div>
-              <GoogleBtn onClick={logOut} text={'Log out'}></GoogleBtn>
-            </div>
+            <GoogleBtn onClick={logOut} text={'Log out'}></GoogleBtn>
           )}
         </AuthWrapper>
       </Wrapper>

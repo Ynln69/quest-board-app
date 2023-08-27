@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { showToast } from 'components/Notification/ToastNotification';
-import { registerLogin } from '../../redux/auth/operations';
 import { Formik, Field } from 'formik';
+
+import { registerLogin } from '../../redux/auth/operations';
+import { RegisterSchema } from 'schemas/authSchemas';
+
+import { showToast } from 'components/Notification/ToastNotification';
+
 import {
   Container,
   Wrapper,
@@ -18,7 +22,6 @@ import {
   RegisterBtn,
 } from './Registerform.styled';
 import sprite from '../../images/sprite.svg';
-import { RegisterSchema } from 'schemas/authSchemas';
 import eyeHide from '../../images/eye-hide.svg';
 
 export const RegisterForm = () => {

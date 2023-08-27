@@ -1,6 +1,6 @@
 import { Container, Image, BackLink } from './NotFoundPae.styled';
-import notFoundImage from '../../images/404.png';
 import { Text } from 'components/Welcome/Welcome.styled';
+import notFoundImage from '../../images/404.png';
 
 const NotFoundPage = () => {
   return (

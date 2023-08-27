@@ -1,4 +1,5 @@
 import { Draggable } from 'react-beautiful-dnd';
+import { format } from 'date-fns';
 
 import {
   LineContainer,
@@ -14,7 +15,6 @@ import {
   IconBell,
 } from './Task.styled';
 import sprite from '../../images/sprite.svg';
-import { format } from 'date-fns';
 
 export const Task = ({
   task,

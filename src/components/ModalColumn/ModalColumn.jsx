@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Formik } from 'formik';
 
-import { FormContainer, Input } from './ModalColumn.styled';
 import { showToast } from '../Notification/ToastNotification';
 import MainButton from 'components/MainButton';
+
+import { FormContainer, Input } from './ModalColumn.styled';
 
 const ModalColumn = ({ handleSubmit, nameTitle }) => {
   const [visible, setVisible] = useState(false);

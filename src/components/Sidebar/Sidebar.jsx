@@ -1,3 +1,14 @@
+import { useState, useEffect, forwardRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { deleteBoard, getBoards } from 'redux/boards/boardOperations';
+import { selectBoards } from 'redux/boards/boardsSelectors';
+import { logOut } from 'redux/auth/operations';
+
+import NeedHelpModal from 'components/NeedHelp/NeedHelpModal';
+import Modal from 'components/Modal/Modal';
+import ModalBoard from 'components/ModalBoard';
+
 import {
   SidebarBlock,
   ButtonAdd,
@@ -25,18 +36,9 @@ import {
   TitleHidden,
   NavTeam,
 } from './Sidebar.styled';
+
 import sprite from '../../images/sprite.svg';
 import flower from '../../images/need-help-img.png';
-
-import { useState, useEffect, forwardRef } from 'react';
-import { logOut } from 'redux/auth/operations';
-import NeedHelpModal from 'components/NeedHelp/NeedHelpModal';
-import { deleteBoard } from 'redux/boards/boardOperations';
-import { selectBoards } from 'redux/boards/boardsSelectors';
-import { useDispatch, useSelector } from 'react-redux';
-import { getBoards } from 'redux/boards/boardOperations';
-import Modal from 'components/Modal/Modal';
-import ModalBoard from 'components/ModalBoard';
 
 const actionsList = { add: 'add', edit: 'edit' };
 

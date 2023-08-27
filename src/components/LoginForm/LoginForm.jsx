@@ -1,7 +1,11 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { logIn } from '../../redux/auth/operations';
 import { Formik, Field } from 'formik';
+import { useDispatch } from 'react-redux';
+
+import { logIn } from '../../redux/auth/operations';
+
+import { LoginSchema } from 'schemas/authSchemas';
+
 import {
   Container,
   Wrapper,
@@ -17,7 +21,6 @@ import {
   LoginBtn,
 } from './LoginForm.styled';
 import sprite from '../../images/sprite.svg';
-import { LoginSchema } from 'schemas/authSchemas';
 import eyeHide from '../../images/eye-hide.svg';
 
 export const LoginForm = () => {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaTelegram, FaGithub, FaLinkedin } from 'react-icons/fa';
+
 import {
   StyledCard,
   StyledCardBody,

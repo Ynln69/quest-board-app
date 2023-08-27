@@ -1,17 +1,14 @@
 import { useState } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import { v4 as uuidv4 } from 'uuid';
+
 import { Column } from 'components/Column/Column';
-import {
-  MainContainer,
-  Container,
-  Button,
-  BoxSvg,
-  SvgAdd,
-} from './MainDashboard.styled';
-import sprite from '../../images/sprite.svg';
 import Modal from 'components/Modal/Modal';
 import ModalColumn from 'components/ModalColumn/ModalColumn';
+import MainButton from 'components/MainButton';
+
+// import sprite from '../../images/sprite.svg';
+import { MainContainer, Container } from './MainDashboard.styled';
 
 export const MainDashboard = ({ cardData, setCardData, setEditFlag }) => {
   const [visible, setVisible] = useState(false);
@@ -129,7 +126,11 @@ export const MainDashboard = ({ cardData, setCardData, setEditFlag }) => {
   return (
     <MainContainer>
       <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="all-columns" direction="horizontal" type="column">
+        <Droppable
+          droppableId="all-columns"
+          direction="horizontal"
+          type="column"
+        >
           {provided => (
             <Container {...provided.droppableProps} ref={provided.innerRef}>
               {cardData?.columnOrder.map((columnId, index) => {
@@ -137,7 +138,9 @@ export const MainDashboard = ({ cardData, setCardData, setEditFlag }) => {
                 if (!column) {
                   return null;
                 }
-                const tasks = column.taskIds.map(taskId => cardData.tasks[taskId]);
+                const tasks = column.taskIds.map(
+                  taskId => cardData.tasks[taskId]
+                );
 
                 return (
                   <Column
@@ -156,16 +159,17 @@ export const MainDashboard = ({ cardData, setCardData, setEditFlag }) => {
           )}
         </Droppable>
       </DragDropContext>
-      <div>
-        <Button onClick={handlerVisible}>
-          <BoxSvg>
-            <SvgAdd>
-              <use href={`${sprite}#icon-plus`} />
-            </SvgAdd>
-          </BoxSvg>
-          Add another column
-        </Button>
-      </div>
+      <MainButton type="submit" showPlus={true} onClick={handlerVisible}>
+        Add another column
+      </MainButton>
+      {/* <Button onClick={handlerVisible}>
+        <BoxSvg>
+          <SvgAdd>
+            <use href={`${sprite}#icon-plus`} />
+          </SvgAdd>
+        </BoxSvg>
+        Add another column
+      </Button> */}
       {visible && (
         <Modal
           handleClose={handlerVisible}
@@ -179,4 +183,3 @@ export const MainDashboard = ({ cardData, setCardData, setEditFlag }) => {
     </MainContainer>
   );
 };
- 
