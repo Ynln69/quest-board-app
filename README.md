@@ -9,4 +9,7 @@ to ensure that your confidential information remains secure.
 
 To get started with the application, registration is required. For your
 convenience, we have also implemented registration through a Google account.
-![Register](./assets/register.png)
+![Register](./assets/register.jpg)
+
+After registration, the user is directed to the home page, where they can start
+working with the application immediately. ![HomePage](./assets/homepage.png)
