@@ -24,7 +24,7 @@ The application's functionality includes:
 4. Creating/editing tasks (users can set task priorities and due dates).
    ![Add task](./assets/addTask.png) ![Edit task](./assets/editTask.png)
 5. Task filtering. ![Filter](./assets/filter.png)
-6. Changing the app's theme. ![Theme](./assets/filter.png)
+6. Changing the app's theme. ![Theme](./assets/theme.png)
 7. Modifying user profiles (the ability to set an avatar, change name, email,
    and password). ![Edit Profile](./assets/editProfile.png)
 8. Technical support (if users have specific questions or suggestions for
