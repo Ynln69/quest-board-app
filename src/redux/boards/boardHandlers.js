@@ -11,6 +11,7 @@ export const handleEditBoardFulfilled = (state, { payload }) => {
     boardToEdit.title = payload.title;
     boardToEdit.icon = payload.icon;
     boardToEdit.background = payload.background;
+    boardToEdit.boardsData = payload.boardsData;
   }
 };
 

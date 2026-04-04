@@ -3,7 +3,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { showToast } from 'components/Notification/ToastNotification';
 
-axios.defaults.baseURL = 'https://tp-backend-905x.onrender.com';
+axios.defaults.baseURL =
+  process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000';
 
 const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;

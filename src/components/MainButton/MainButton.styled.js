@@ -11,7 +11,8 @@ const dynamicPadding = ({ showPlus }) =>
       `;
 
 export const StyledButton = styled.button`
-  width: 100%;
+  width: ${({ showPlus }) => (showPlus ? 'auto' : '100%')};
+  ${({ showPlus }) => showPlus && 'align-self: flex-start;'}
 
   display: flex;
   align-items: center;

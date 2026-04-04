@@ -1,10 +1,22 @@
 export const handleLoginFulfilled = (state, { payload }) => {
   state.token = payload.token;
+  state.username = payload.username;
+  state.email = payload.email;
+  state.id = payload._id;
+  state.theme = payload.theme;
+  state.avatarURL = payload.avatarURL;
+  state.boards = payload.boards;
   state.isLoggedIn = true;
 };
 
 export const handleRegisterLoginFulfilled = (state, { payload }) => {
   state.token = payload.token;
+  state.username = payload.username;
+  state.email = payload.email;
+  state.id = payload._id;
+  state.theme = payload.theme;
+  state.avatarURL = payload.avatarURL;
+  state.boards = payload.boards;
   state.isLoggedIn = true;
 };
 
@@ -38,15 +50,11 @@ export const handleRefreshUserFullfilled = (state, { payload }) => {
 };
 
 export const handleUpdateUserFullfilled = (state, { payload }) => {
-  state.username = payload.username;
-  state.email = payload.email;
-  state.password = payload.password;
-  state.token = payload.token;
-  state.isLoggedIn = true;
-  state.id = payload._id;
-  state.boards = payload.boards;
-  state.theme = payload.theme;
-  state.avatarURL = payload.avatarURL;
+  if (payload.username !== undefined) state.username = payload.username;
+  if (payload.email !== undefined) state.email = payload.email;
+  if (payload.theme !== undefined) state.theme = payload.theme;
+  if (payload.avatarURL !== undefined) state.avatarURL = payload.avatarURL;
+  if (payload._id !== undefined) state.id = payload._id;
 };
 
 export const handleUpdateAvatarUserFullfilled = (state, { payload }) => {

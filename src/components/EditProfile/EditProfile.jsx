@@ -41,7 +41,7 @@ const EditProfile = ({ onClose }) => {
   };
 
   const handleFormSubmit = async formValues => {
-    if (username !== formValues.username || email !== formValues.email)
+    if (username !== formValues.newName || email !== formValues.newEmail)
       dispatch(
         updateUser({
           username: formValues.newName,

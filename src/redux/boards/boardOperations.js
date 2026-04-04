@@ -2,17 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { showToast } from 'components/Notification/ToastNotification';
 
-const setAuthHeader = token => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
-
 export const createBoard = createAsyncThunk(
   'boards/createBoard',
-  async (credentials, { rejectWithValue, getState }) => {
+  async (credentials, { rejectWithValue }) => {
     try {
-      const state = getState();
-      const token = state.auth.token;
-      setAuthHeader(token);
       const { data } = await axios.post('/api/boards', credentials);
       return data;
     } catch (error) {
