@@ -58,6 +58,10 @@ export const App = () => {
           element={<PrivateRoute redirectTo="/home" component={<AuthPage />} />}
         />
         <Route
+          path="/home/team"
+          element={<PrivateRoute redirectTo="/" component={<TeamPage />} />}
+        />
+        <Route
           path="/home"
           element={<PrivateRoute redirectTo="/" component={<HomePage />} />}
         >
@@ -66,10 +70,6 @@ export const App = () => {
             element={<PrivateRoute redirectTo="/" component={<Dashboard />} />}
           />
         </Route>
-        <Route
-          path="/home/team"
-          element={<PrivateRoute redirectTo="/home" component={<TeamPage />} />}
-        />
         <Route
           path="/auth/register"
           element={
